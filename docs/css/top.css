@@ -635,3 +635,226 @@
   .nc-card.nc-far[style*="--offset: 2"]   { transform: translateX(78%)  scale(0.52) rotateY(-30deg); }
   .nc-arrow { width: 40px; height: 40px; font-size: 1.5rem; }
 }
+
+/* ═══════════════════════════════════════════
+   ENTRY CTA BANNER (エントリー誘導)
+═══════════════════════════════════════════ */
+#entry-banner-section {
+  background: var(--c-navy);
+  padding: 40px 24px 80px;
+}
+
+.entry-banner {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 56px 48px;
+  border-radius: 24px;
+  background: linear-gradient(135deg,
+    rgba(240, 190, 80, 0.08) 0%,
+    rgba(224, 120, 152, 0.06) 50%,
+    rgba(155, 114, 207, 0.08) 100%);
+  border: 1px solid rgba(240, 190, 80, 0.3);
+  overflow: hidden;
+  text-align: center;
+  isolation: isolate;
+  /* 光の脈動 */
+  animation: entryBannerPulse 4.5s ease-in-out infinite;
+}
+
+@keyframes entryBannerPulse {
+  0%, 100% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(240, 190, 80, 0.18),
+      inset 0 0 60px rgba(240, 190, 80, 0.04);
+  }
+  50% {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.45),
+      0 0 60px rgba(240, 190, 80, 0.4),
+      0 0 100px rgba(224, 120, 152, 0.2),
+      inset 0 0 80px rgba(240, 190, 80, 0.08);
+  }
+}
+
+/* 背景の流れる光グラデーション */
+.entry-banner-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg,
+    transparent 30%,
+    rgba(240, 190, 80, 0.18) 45%,
+    rgba(255, 220, 140, 0.25) 50%,
+    rgba(240, 190, 80, 0.18) 55%,
+    transparent 70%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  animation: entryBannerGlowSweep 6s ease-in-out infinite;
+}
+@keyframes entryBannerGlowSweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* 装飾のキラキラ */
+.entry-banner-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.entry-banner-sparkles span {
+  position: absolute;
+  width: 4px; height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px rgba(240, 190, 80, 0.9),
+    0 0 16px rgba(255, 220, 140, 0.6);
+  opacity: 0;
+  animation: entrySparkle 3.2s ease-in-out infinite;
+}
+.entry-banner-sparkles span:nth-child(1) { top: 18%; left: 12%; animation-delay: 0s;   }
+.entry-banner-sparkles span:nth-child(2) { top: 72%; left: 22%; animation-delay: 0.7s; }
+.entry-banner-sparkles span:nth-child(3) { top: 28%; left: 84%; animation-delay: 1.4s; }
+.entry-banner-sparkles span:nth-child(4) { top: 78%; left: 78%; animation-delay: 2.1s; }
+.entry-banner-sparkles span:nth-child(5) { top: 50%; left: 6%;  animation-delay: 2.5s; }
+@keyframes entrySparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50%      { opacity: 1; transform: scale(1.3); }
+}
+
+.entry-banner-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.entry-banner-eyebrow {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--c-gold);
+  padding: 4px 14px;
+  border: 1px solid rgba(240, 190, 80, 0.4);
+  border-radius: 999px;
+  background: rgba(240, 190, 80, 0.08);
+}
+
+.entry-banner-title {
+  font-family: var(--font-ja);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  background: linear-gradient(90deg,
+    var(--c-gold) 0%,
+    #FFE0A0 50%,
+    var(--c-gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: entryBannerTitleShimmer 4s linear infinite;
+  margin: 4px 0;
+}
+@keyframes entryBannerTitleShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.entry-banner-desc {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: rgba(255, 248, 240, 0.78);
+  margin-bottom: 12px;
+}
+
+/* CTAボタン本体 */
+.entry-banner-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 40px;
+  font-family: var(--font-ja);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a1430;
+  text-decoration: none;
+  background: linear-gradient(135deg,
+    #FFE0A0 0%,
+    #F0BE50 50%,
+    #E89938 100%);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 224, 160, 0.6);
+  box-shadow:
+    0 6px 20px rgba(240, 190, 80, 0.5),
+    0 0 30px rgba(240, 190, 80, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: entryCtaPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes entryCtaPulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow:
+      0 6px 20px rgba(240, 190, 80, 0.5),
+      0 0 30px rgba(240, 190, 80, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 28px rgba(240, 190, 80, 0.7),
+      0 0 50px rgba(255, 220, 140, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* ボタン上を流れる光 */
+.entry-banner-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%);
+  z-index: -1;
+  animation: entryCtaSheen 2.8s ease-in-out infinite;
+}
+@keyframes entryCtaSheen {
+  0%   { left: -100%; }
+  60%  { left: 180%;  }
+  100% { left: 180%;  }
+}
+
+.entry-banner-cta:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 14px 36px rgba(240, 190, 80, 0.7),
+    0 0 60px rgba(255, 220, 140, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.entry-banner-cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-weight: 700;
+}
+.entry-banner-cta:hover .entry-banner-cta-arrow {
+  transform: translateX(6px);
+}
+
+/* レスポンシブ */
+@media (max-width: 700px) {
+  .entry-banner { padding: 40px 24px; border-radius: 18px; }
+  .entry-banner-cta { padding: 14px 28px; font-size: 0.95rem; }
+}
