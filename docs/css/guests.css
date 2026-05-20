@@ -167,3 +167,270 @@ main { max-width: 1200px; margin: 0 auto; }
 @media (max-width: 550px) {
   .guest-grid, .guest-grid.four-col { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════
+   HOST FEATURE (主催・大きめ表示)
+═══════════════════════════════════════════ */
+.host-section {
+  padding: 80px 40px;
+}
+.host-feature {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 56px 56px;
+  border-radius: 24px;
+  border: 1px solid rgba(155,114,207,0.3);
+  background: linear-gradient(135deg,
+    rgba(40,30,80,0.55) 0%,
+    rgba(14,27,90,0.55) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.host-feature-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+.host-feature-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%,
+    rgba(155,114,207,0.45) 0%,
+    rgba(224,120,152,0.2) 35%,
+    transparent 70%);
+  filter: blur(20px);
+  z-index: 0;
+}
+.host-feature-img {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(155,114,207,0.5));
+}
+.host-feature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.host-feature-role {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--c-gold);
+  align-self: flex-start;
+  padding: 6px 16px;
+  border: 1px solid rgba(240,190,80,0.4);
+  border-radius: 999px;
+  background: rgba(240,190,80,0.1);
+}
+.host-feature-name {
+  font-family: var(--font-ja);
+  font-size: 2.6rem;
+  background: var(--grad-logo);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+.host-feature-desc {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: rgba(255,248,240,0.85);
+}
+.host-feature-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.host-feature-links .channel-link {
+  font-size: 0.85rem;
+  padding: 8px 20px;
+}
+
+/* ═══════════════════════════════════════════
+   TEAMS — チーム単位フレーム
+═══════════════════════════════════════════ */
+.teams-section {
+  padding: 80px 40px;
+}
+.teams-section .section-title {
+  margin-bottom: 60px;
+}
+
+/* チームフレーム本体（背景色は --team-color のRGB値を透明度低めで使用） */
+.team-frame {
+  max-width: 1100px;
+  margin: 0 auto 48px;
+  padding: 40px 44px 36px;
+  border-radius: 20px;
+  background: linear-gradient(135deg,
+    rgba(var(--team-color), 0.18) 0%,
+    rgba(var(--team-color), 0.08) 100%);
+  border: 1px solid rgba(var(--team-color), 0.35);
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(var(--team-color), 0.15);
+  position: relative;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.team-frame-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid rgba(var(--team-color), 0.3);
+}
+.team-mark {
+  width: 8px;
+  height: 32px;
+  border-radius: 4px;
+  background: rgb(var(--team-color));
+  box-shadow: 0 0 12px rgba(var(--team-color), 0.7);
+}
+.team-name {
+  font-family: var(--font-ja);
+  font-size: 1.8rem;
+  color: rgb(var(--team-color));
+  text-shadow: 0 0 16px rgba(var(--team-color), 0.4);
+  letter-spacing: 0.05em;
+}
+
+/* チーム内のサブセクション（リーダーペア / お祭り男・女） */
+.team-subsection {
+  margin-top: 22px;
+}
+.team-subsection:first-of-type {
+  margin-top: 0;
+}
+.team-role-label {
+  display: inline-block;
+  font-family: var(--font-ja-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  padding: 4px 14px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.team-role-label.leader {
+  background: rgba(var(--team-color), 0.25);
+  color: rgb(var(--team-color));
+  border: 1px solid rgba(var(--team-color), 0.5);
+}
+.team-role-label.matsuri {
+  background: rgba(255,248,240,0.08);
+  color: rgba(255,248,240,0.7);
+  border: 1px solid rgba(255,248,240,0.15);
+}
+
+/* メンバー配置（リーダーペア=2列 / お祭り男女=3列） */
+.team-members {
+  display: grid;
+  gap: 16px;
+}
+.team-members.leader-pair {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 640px;
+}
+.team-members.matsuri-group {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* メンバーカード（コンパクト版） */
+.team-member-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(3,2,14,0.4);
+  border: 1px solid rgba(var(--team-color), 0.2);
+  border-radius: 12px;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.team-member-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--team-color), 0.6);
+  background: rgba(3,2,14,0.55);
+}
+
+.team-members.leader-pair .team-member-card {
+  padding: 18px 22px;
+  background: rgba(3,2,14,0.5);
+  border-width: 1px;
+  box-shadow: 0 4px 16px rgba(var(--team-color), 0.12);
+}
+
+.member-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+}
+.team-members.leader-pair .member-avatar {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+}
+
+.member-name {
+  font-family: var(--font-ja);
+  font-size: 0.95rem;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.team-members.leader-pair .member-name {
+  font-size: 1.05rem;
+}
+
+.member-links {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.member-links .channel-link {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  min-width: 28px;
+  text-align: center;
+}
+
+/* ─ レスポンシブ ─ */
+@media (max-width: 900px) {
+  .host-feature {
+    grid-template-columns: 1fr;
+    padding: 40px 32px;
+    gap: 32px;
+  }
+  .host-feature-visual { min-height: 280px; }
+  .host-feature-img { max-height: 360px; }
+  .host-feature-name { font-size: 2.1rem; text-align: center; }
+  .host-feature-role { align-self: center; }
+  .host-feature-info { align-items: center; text-align: center; }
+  .host-feature-desc { text-align: center; }
+
+  .team-frame { padding: 32px 24px; }
+  .team-name { font-size: 1.5rem; }
+  .team-members.matsuri-group { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .teams-section { padding: 60px 16px; }
+  .team-frame { padding: 28px 18px; margin-bottom: 32px; }
+  .team-members.leader-pair,
+  .team-members.matsuri-group { grid-template-columns: 1fr; }
+  .team-name { font-size: 1.35rem; }
+  .host-section { padding: 60px 16px; }
+}
