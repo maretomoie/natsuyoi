@@ -833,8 +833,8 @@
       // ステップ2: 歪み処理 (feDisplacementMap 相当)
       // ───────────────────────────────────────────
       // 元のSVG: baseFrequency="0.012 0.025" → 水平より垂直方向の周波数が高い
-      // scale="14" を画面解像度に合わせて
-      const distortScale = 14 * dpr;
+      // scale="14" を画面解像度に合わせて(歪みは控えめに7)
+      const distortScale = 7 * dpr;
       // 周波数 → scaleの逆数 (baseFrequency=0.012 は周期約83px相当)
       const baseFreqX = 0.012;
       const baseFreqY = 0.025;
