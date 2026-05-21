@@ -391,6 +391,47 @@
       background: rgba(40, 80, 140, 0.8);
       transform: translateY(-2px);
     }
+    .photo-actions .share-btn {
+      background: linear-gradient(135deg, rgba(20, 30, 60, 0.9), rgba(40, 60, 100, 0.9));
+      border-color: rgba(220, 230, 255, 0.6);
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(80, 140, 220, 0.3);
+    }
+    .photo-actions .share-btn:hover {
+      background: linear-gradient(135deg, rgba(40, 60, 120, 0.95), rgba(80, 140, 220, 0.95));
+      box-shadow: 0 6px 24px rgba(80, 140, 220, 0.5);
+    }
+
+    /* 撮影中の処理表示 */
+    #processing-indicator {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 150;
+      flex-direction: column;
+      gap: 16px;
+      color: #fff;
+    }
+    #processing-indicator.active { display: flex; }
+    .processing-spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid rgba(180, 220, 255, 0.2);
+      border-top-color: rgba(180, 220, 255, 0.9);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .processing-text {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.85);
+    }
 
     /* エラー表示 */
     #camera-error {
@@ -485,10 +526,19 @@
 <div id="photo-result">
   <img id="photo-canvas-preview" alt="撮影結果">
   <div class="photo-actions">
+    <button id="photo-share" class="share-btn">𝕏 でシェア</button>
     <a id="photo-download" download="mare-room.png">ダウンロード</a>
     <button id="photo-retake">もう一度撮る</button>
     <button id="photo-close">部屋に戻る</button>
   </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PROCESSING INDICATOR
+═══════════════════════════════════════════ -->
+<div id="processing-indicator">
+  <div class="processing-spinner"></div>
+  <div class="processing-text">水中の揺らぎを焼き付けています...</div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -663,166 +713,243 @@
 
   document.getElementById('btn-shutter').addEventListener('click', takePhoto);
 
+  // ═══════════════════════════════════════════
+  // パーリンノイズ風マップを生成（feTurbulence の代替）
+  // ───────────────────────────────────────────
+  function generateNoiseMap(w, h, scaleX, scaleY, seed) {
+    // 簡易バリューノイズ。完全なパーリンほどでないが揺らぎとしては十分。
+    const noise = new Float32Array(w * h);
+    const grid = [];
+    const gridW = Math.ceil(w * scaleX) + 2;
+    const gridH = Math.ceil(h * scaleY) + 2;
+    let s = seed;
+    const rand = () => {
+      // 簡易疑似乱数 (xorshift)
+      s ^= s << 13; s ^= s >>> 17; s ^= s << 5;
+      return ((s >>> 0) / 0xffffffff);
+    };
+    for (let i = 0; i < gridW * gridH; i++) grid.push(rand());
+    const cubic = (t) => t * t * (3 - 2 * t);
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const gx = x * scaleX;
+        const gy = y * scaleY;
+        const x0 = Math.floor(gx), y0 = Math.floor(gy);
+        const x1 = x0 + 1,         y1 = y0 + 1;
+        const fx = cubic(gx - x0), fy = cubic(gy - y0);
+        const v00 = grid[y0 * gridW + x0] || 0;
+        const v10 = grid[y0 * gridW + x1] || 0;
+        const v01 = grid[y1 * gridW + x0] || 0;
+        const v11 = grid[y1 * gridW + x1] || 0;
+        const top = v00 * (1 - fx) + v10 * fx;
+        const bot = v01 * (1 - fx) + v11 * fx;
+        noise[y * w + x] = top * (1 - fy) + bot * fy;
+      }
+    }
+    return noise;
+  }
+
+  // ピクセル単位の displacement 処理（feDisplacementMap の代替）
+  // src の各ピクセルを noiseX/noiseY に従って ±scale 分ずらして dst に描画
+  function applyDisplacement(srcImageData, noiseMapX, noiseMapY, scale) {
+    const w = srcImageData.width;
+    const h = srcImageData.height;
+    const src = srcImageData.data;
+    const dst = new Uint8ClampedArray(src.length);
+
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const idx = y * w + x;
+        // ノイズは0〜1なので -0.5〜0.5 に変換し、scale倍してずらし量に
+        const dx = (noiseMapX[idx] - 0.5) * 2 * scale;
+        const dy = (noiseMapY[idx] - 0.5) * 2 * scale;
+        let srcX = Math.round(x + dx);
+        let srcY = Math.round(y + dy);
+        // 範囲外は端でクランプ
+        if (srcX < 0) srcX = 0; else if (srcX >= w) srcX = w - 1;
+        if (srcY < 0) srcY = 0; else if (srcY >= h) srcY = h - 1;
+        const srcIdx = (srcY * w + srcX) * 4;
+        const dstIdx = (y * w + x) * 4;
+        dst[dstIdx]     = src[srcIdx];
+        dst[dstIdx + 1] = src[srcIdx + 1];
+        dst[dstIdx + 2] = src[srcIdx + 2];
+        dst[dstIdx + 3] = src[srcIdx + 3];
+      }
+    }
+    return new ImageData(dst, w, h);
+  }
+
   function takePhoto() {
     if (!cameraVideo.videoWidth) return;
     flash.classList.remove('flash');
     void flash.offsetWidth; // reflow
     flash.classList.add('flash');
 
+    // 処理中インジケータを表示
+    const processing = document.getElementById('processing-indicator');
+    processing.classList.add('active');
+
+    // 処理を少し遅延させて、フラッシュとインジケータを描画
     setTimeout(() => {
       // ───────────────────────────────────────────
-      // 画面サイズと同じ比率・解像度で出力Canvasを作成
-      // (devicePixelRatio を考慮して高精細に)
+      // 出力サイズ。歪み処理が重いので、画面サイズベース
+      // で抑えめに（モバイルでも実用速度を確保）
       // ───────────────────────────────────────────
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2); // dprは2まで
       const screenW = window.innerWidth;
       const screenH = window.innerHeight;
-      const W = screenW * dpr;
-      const H = screenH * dpr;
-
-      const out = document.createElement('canvas');
-      out.width = W;
-      out.height = H;
-      const c = out.getContext('2d');
+      const W = Math.round(screenW * dpr);
+      const H = Math.round(screenH * dpr);
 
       // ───────────────────────────────────────────
-      // 1) 黒背景
+      // ステップ1: カメラ映像をCanvasに描画（CSS filter込み）
       // ───────────────────────────────────────────
-      c.fillStyle = '#000';
-      c.fillRect(0, 0, W, H);
+      const baseCanvas = document.createElement('canvas');
+      baseCanvas.width = W;
+      baseCanvas.height = H;
+      const bc = baseCanvas.getContext('2d');
 
-      // ───────────────────────────────────────────
-      // 2) カメラ映像を object-fit: cover で描画
-      //    (画面の <video> と同じ表示サイズに調整)
-      // ───────────────────────────────────────────
       const vw = cameraVideo.videoWidth;
       const vh = cameraVideo.videoHeight;
       const videoRatio  = vw / vh;
       const screenRatio = W / H;
       let sx, sy, sw, sh;
       if (videoRatio > screenRatio) {
-        // 動画が横長→上下を全部使い、左右トリミング
         sh = vh;
         sw = vh * screenRatio;
         sx = (vw - sw) / 2;
         sy = 0;
       } else {
-        // 動画が縦長→左右を全部使い、上下トリミング
         sw = vw;
         sh = vw / screenRatio;
         sx = 0;
         sy = (vh - sh) / 2;
       }
-
-      // 画面の <video> には filter: hue-rotate(180deg) saturate(1.4) contrast(1.05) brightness(0.85) が適用されている
-      // Canvas でも同じフィルタを適用
-      c.filter = 'hue-rotate(180deg) saturate(1.4) contrast(1.05) brightness(0.85)';
-      c.drawImage(cameraVideo, sx, sy, sw, sh, 0, 0, W, H);
-      c.filter = 'none';
+      bc.filter = 'hue-rotate(180deg) saturate(1.4) contrast(1.05) brightness(0.85)';
+      bc.drawImage(cameraVideo, sx, sy, sw, sh, 0, 0, W, H);
+      bc.filter = 'none';
 
       // ───────────────────────────────────────────
-      // 3) 青tint レイヤー (mix-blend-mode: multiply 相当)
+      // ステップ2: 歪み処理 (feDisplacementMap 相当)
       // ───────────────────────────────────────────
-      c.globalCompositeOperation = 'multiply';
-      // 上部の薄い水色グロー
-      const grdGlow = c.createRadialGradient(W/2, H*0.3, 0, W/2, H*0.3, Math.max(W, H) * 0.6);
-      grdGlow.addColorStop(0,   'rgba(120, 200, 255, 0.15)');
-      grdGlow.addColorStop(0.6, 'rgba(120, 200, 255, 0)');
-      grdGlow.addColorStop(1,   'rgba(120, 200, 255, 0)');
-      // ベースの青→深い青グラデ
-      const grdBlue = c.createLinearGradient(0, 0, 0, H);
+      // 元のSVG: baseFrequency="0.012 0.025" → 水平より垂直方向の周波数が高い
+      // scale="14" を画面解像度に合わせて
+      const distortScale = 14 * dpr;
+      // 周波数 → scaleの逆数 (baseFrequency=0.012 は周期約83px相当)
+      const baseFreqX = 0.012;
+      const baseFreqY = 0.025;
+      const seed = 3;
+      const noiseX = generateNoiseMap(W, H, baseFreqX, baseFreqY, seed);
+      const noiseY = generateNoiseMap(W, H, baseFreqX, baseFreqY, seed * 7 + 1);
+
+      const srcData = bc.getImageData(0, 0, W, H);
+      const distorted = applyDisplacement(srcData, noiseX, noiseY, distortScale);
+
+      // 歪み結果を別Canvasに書き戻す
+      const c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const ctxF = c.getContext('2d');
+      ctxF.putImageData(distorted, 0, 0);
+
+      // ───────────────────────────────────────────
+      // ステップ3: エフェクトレイヤーを重ねる
+      // (画面のオーバーレイと同じ構成)
+      // ───────────────────────────────────────────
+
+      // 青tint
+      ctxF.globalCompositeOperation = 'multiply';
+      const grdBlue = ctxF.createLinearGradient(0, 0, 0, H);
       grdBlue.addColorStop(0,   'rgba(40, 120, 200, 0.2)');
       grdBlue.addColorStop(0.6, 'rgba(20, 60, 140, 0.35)');
       grdBlue.addColorStop(1,   'rgba(10, 30, 80, 0.55)');
-      c.fillStyle = grdBlue;
-      c.fillRect(0, 0, W, H);
-      c.fillStyle = grdGlow;
-      c.fillRect(0, 0, W, H);
+      ctxF.fillStyle = grdBlue;
+      ctxF.fillRect(0, 0, W, H);
 
-      // ───────────────────────────────────────────
-      // 4) コースティクス (光の差し込み・screen合成)
-      //    画面で動いている斜めの光線をスナップショット
-      // ───────────────────────────────────────────
-      c.globalCompositeOperation = 'screen';
-      c.save();
-      // 斜め115度のストライプ
+      const grdGlow = ctxF.createRadialGradient(W/2, H*0.3, 0, W/2, H*0.3, Math.max(W, H) * 0.6);
+      grdGlow.addColorStop(0,   'rgba(120, 200, 255, 0.15)');
+      grdGlow.addColorStop(1,   'rgba(120, 200, 255, 0)');
+      ctxF.fillStyle = grdGlow;
+      ctxF.fillRect(0, 0, W, H);
+
+      // コースティクス (光の差し込み)
+      ctxF.globalCompositeOperation = 'screen';
+      ctxF.save();
       const stripeSpacing = 120 * dpr;
       const stripeWidth = 30 * dpr;
-      c.translate(W/2, H/2);
-      c.rotate((115 - 90) * Math.PI / 180); // 115deg軸 → x方向に斜め
+      ctxF.translate(W/2, H/2);
+      ctxF.rotate((115 - 90) * Math.PI / 180);
       const diag = Math.hypot(W, H);
-      // 現在のCSSアニメーション位置（時間ベース）に近い位置に光線を配置
       const t = (performance.now() / 8000) % 1;
       const offset = -t * stripeSpacing;
       for (let x = -diag; x < diag; x += stripeSpacing) {
-        const grdStripe = c.createLinearGradient(x + offset, 0, x + offset + stripeWidth, 0);
+        const grdStripe = ctxF.createLinearGradient(x + offset, 0, x + offset + stripeWidth, 0);
         grdStripe.addColorStop(0,   'rgba(180, 220, 255, 0)');
         grdStripe.addColorStop(0.5, 'rgba(180, 220, 255, 0.08)');
         grdStripe.addColorStop(1,   'rgba(180, 220, 255, 0)');
-        c.fillStyle = grdStripe;
-        c.fillRect(x + offset, -diag, stripeWidth, diag * 2);
+        ctxF.fillStyle = grdStripe;
+        ctxF.fillRect(x + offset, -diag, stripeWidth, diag * 2);
       }
-      c.restore();
+      ctxF.restore();
 
-      // ───────────────────────────────────────────
-      // 5) 気泡を描画 (画面上の気泡をそのまま再現)
-      // ───────────────────────────────────────────
-      c.globalCompositeOperation = 'source-over';
+      // 気泡
+      ctxF.globalCompositeOperation = 'source-over';
       bubbles.forEach(b => {
         const sxB = b.x * dpr;
         const syB = b.y * dpr;
         const srB = b.r * dpr;
         if (sxB < -srB || sxB > W + srB || syB < -srB || syB > H + srB) return;
-        c.save();
-        c.globalAlpha = b.opacity;
-        const grd = c.createRadialGradient(
+        ctxF.save();
+        ctxF.globalAlpha = b.opacity;
+        const grd = ctxF.createRadialGradient(
           sxB - srB*0.3, syB - srB*0.3, 0,
           sxB, syB, srB
         );
         grd.addColorStop(0,   'rgba(255,255,255,0.95)');
         grd.addColorStop(0.4, 'rgba(200,230,255,0.5)');
         grd.addColorStop(1,   'rgba(150,200,240,0.05)');
-        c.fillStyle = grd;
-        c.beginPath();
-        c.arc(sxB, syB, srB, 0, Math.PI * 2);
-        c.fill();
-        // ハイライト
-        c.fillStyle = 'rgba(255,255,255,0.7)';
-        c.beginPath();
-        c.arc(sxB - srB*0.3, syB - srB*0.4, srB*0.25, 0, Math.PI * 2);
-        c.fill();
-        c.restore();
+        ctxF.fillStyle = grd;
+        ctxF.beginPath();
+        ctxF.arc(sxB, syB, srB, 0, Math.PI * 2);
+        ctxF.fill();
+        ctxF.fillStyle = 'rgba(255,255,255,0.7)';
+        ctxF.beginPath();
+        ctxF.arc(sxB - srB*0.3, syB - srB*0.4, srB*0.25, 0, Math.PI * 2);
+        ctxF.fill();
+        ctxF.restore();
       });
 
-      // ───────────────────────────────────────────
-      // 6) ビネット (端を暗く)
-      // ───────────────────────────────────────────
-      const grdVig = c.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.hypot(W, H) * 0.55);
+      // ビネット
+      const grdVig = ctxF.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.hypot(W, H) * 0.55);
       grdVig.addColorStop(0,   'rgba(0, 0, 0, 0)');
       grdVig.addColorStop(0.5, 'rgba(0, 0, 0, 0)');
       grdVig.addColorStop(0.8, 'rgba(0, 10, 40, 0.4)');
       grdVig.addColorStop(1,   'rgba(0, 5, 20, 0.8)');
-      c.fillStyle = grdVig;
-      c.fillRect(0, 0, W, H);
+      ctxF.fillStyle = grdVig;
+      ctxF.fillRect(0, 0, W, H);
 
-      // ───────────────────────────────────────────
-      // 7) 窓マスク (中央透明→端は黒い丸窓型)
-      // ───────────────────────────────────────────
-      const grdMask = c.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.hypot(W, H) * 0.5);
+      // 窓マスク
+      const grdMask = ctxF.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.hypot(W, H) * 0.5);
       grdMask.addColorStop(0,    'rgba(0, 5, 20, 0)');
       grdMask.addColorStop(0.45, 'rgba(0, 5, 20, 0)');
       grdMask.addColorStop(0.7,  'rgba(0, 5, 20, 0.6)');
       grdMask.addColorStop(1,    'rgba(0, 5, 20, 0.95)');
-      c.fillStyle = grdMask;
-      c.fillRect(0, 0, W, H);
+      ctxF.fillStyle = grdMask;
+      ctxF.fillRect(0, 0, W, H);
 
-      // 完成画像を出力
-      const dataUrl = out.toDataURL('image/png');
+      // 完成画像
+      const dataUrl = c.toDataURL('image/png');
       photoPreview.src = dataUrl;
       photoDownload.href = dataUrl;
+      // シェア用にBlobも保存
+      c.toBlob(blob => { lastPhotoBlob = blob; }, 'image/png');
+
+      processing.classList.remove('active');
       photoResult.classList.add('active');
-    }, 200);
+    }, 250);
   }
+
+  // 直近の撮影画像（シェア用）
+  let lastPhotoBlob = null;
 
   // ═══════════════════════════════════════════
   // 5. その他UI操作
@@ -841,6 +968,37 @@
   });
   document.getElementById('error-close').addEventListener('click', () => {
     errorView.classList.remove('active');
+  });
+
+  // ─── Xシェア ───
+  // Web Share API (Level 2) で画像付き共有を試行、ダメならintent URL
+  document.getElementById('photo-share').addEventListener('click', async () => {
+    const shareText = 'めあともえの部屋の水中窓から撮ってみた🌊\n#きみ夏宵あそび';
+    const shareUrl  = location.href;
+
+    // Web Share API 経由（モバイルで対応）
+    if (lastPhotoBlob && navigator.canShare) {
+      const file = new File([lastPhotoBlob], 'mare-room.png', { type: 'image/png' });
+      const shareData = { files: [file], text: shareText, url: shareUrl };
+      if (navigator.canShare(shareData)) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (err) {
+          // ユーザーがキャンセル等。ダイアログ閉じるだけ。
+          if (err.name === 'AbortError') return;
+          console.warn('share failed, fallback to intent', err);
+        }
+      }
+    }
+
+    // フォールバック: X intent URL (テキストのみ)
+    // 画像は別途ダウンロード→手動添付してもらう
+    const intentUrl = 'https://twitter.com/intent/tweet?text=' +
+      encodeURIComponent(shareText + '\n' + shareUrl);
+    window.open(intentUrl, '_blank', 'noopener');
+    // 画像添付ガイドのアラート
+    alert('Xの投稿画面が開きます。画像は自動添付されないため、お手数ですが「ダウンロード」した画像を投稿時にご自身で添付してください。');
   });
 
   function closeCamera() {
