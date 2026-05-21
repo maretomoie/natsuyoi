@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>めあともえの部屋 | きみ夏宵あそび</title>
+  <meta name="description" content="主催・めあともえの部屋。水中窓から外を覗いてみよう。">
+  <style>
+    /* ═══════════════════════════════════════════
+       BASE
+    ═══════════════════════════════════════════ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #0a0820;
+      font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+      color: #f6f0e8;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ═══════════════════════════════════════════
+       ROOM SCENE (部屋全体)
+    ═══════════════════════════════════════════ */
+    #room-scene {
+      position: fixed;
+      inset: 0;
+      /* 後で画像に差し替え予定。仮の部屋風グラデ。 */
+      background:
+        radial-gradient(ellipse at 50% 70%, rgba(120, 90, 60, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 30%, rgba(80, 60, 100, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(60, 50, 90, 0.3) 0%, transparent 50%),
+        linear-gradient(180deg, #1a1230 0%, #0e0a20 50%, #0a0815 100%);
+    }
+
+    /* 部屋の壁テクスチャ感を出す軽いノイズ */
+    #room-scene::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg,
+          rgba(255,255,255,0.015) 0px,
+          rgba(255,255,255,0.015) 2px,
+          transparent 2px,
+          transparent 4px);
+      pointer-events: none;
+    }
+
+    /* タイトル */
+    .room-title {
+      position: absolute;
+      top: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .room-title .en {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      color: rgba(240, 190, 80, 0.7);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .room-title .ja {
+      font-size: 1.4rem;
+      letter-spacing: 0.15em;
+      color: rgba(255, 248, 240, 0.9);
+      text-shadow: 0 0 12px rgba(155, 114, 207, 0.5);
+    }
+
+    /* ═══════════════════════════════════════════
+       UNDERWATER WINDOW (中央の水中窓)
+    ═══════════════════════════════════════════ */
+    #window-frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(70vw, 460px);
+      height: min(55vh, 420px);
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 5;
+      /* 窓枠の金属感 */
+      box-shadow:
+        0 0 0 12px rgba(60, 50, 80, 0.95),
+        0 0 0 14px rgba(180, 160, 200, 0.6),
+        0 0 0 22px rgba(40, 35, 60, 0.95),
+        0 0 80px rgba(80, 140, 220, 0.4),
+        inset 0 0 60px rgba(0, 20, 60, 0.5);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    #window-frame:hover {
+      box-shadow:
+        0 0 0 12px rgba(60, 50, 80, 0.95),
+        0 0 0 14px rgba(220, 200, 240, 0.8),
+        0 0 0 22px rgba(40, 35, 60, 0.95),
+        0 0 120px rgba(80, 140, 220, 0.7),
+        inset 0 0 60px rgba(0, 20, 60, 0.5);
+    }
+
+    /* 窓の中：水中プレビュー */
+    .window-preview {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(150, 220, 255, 0.4) 0%, transparent 50%),
+        linear-gradient(180deg,
+          #1a4a78 0%,
+          #0e2e5e 40%,
+          #061840 80%,
+          #030a25 100%);
+      animation: previewShimmer 6s ease-in-out infinite;
+    }
+    @keyframes previewShimmer {
+      0%, 100% { filter: brightness(1) hue-rotate(0deg); }
+      50%      { filter: brightness(1.15) hue-rotate(-10deg); }
+    }
+
+    /* 窓内：泡 */
+    .preview-bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%,
+        rgba(255, 255, 255, 0.9),
+        rgba(200, 230, 255, 0.4) 50%,
+        rgba(150, 200, 240, 0.1) 100%);
+      box-shadow: inset 0 0 4px rgba(255,255,255,0.5);
+      animation: bubbleRise linear infinite;
+    }
+    @keyframes bubbleRise {
+      0%   { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
+      10%  { opacity: 0.7; }
+      90%  { opacity: 0.7; }
+      100% { transform: translateY(-450px) translateX(var(--dx, 20px)) scale(1); opacity: 0; }
+    }
+
+    /* タップヒント */
+    .window-hint {
+      position: absolute;
+      bottom: 18%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.4em;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 0 10px rgba(120, 200, 255, 0.9);
+      pointer-events: none;
+      animation: hintPulse 2.5s ease-in-out infinite;
+      z-index: 6;
+      white-space: nowrap;
+    }
+    @keyframes hintPulse {
+      0%, 100% { opacity: 0.6; }
+      50%      { opacity: 1; text-shadow: 0 0 18px rgba(160, 220, 255, 1); }
+    }
+
+    /* キャプション（窓の下） */
+    .room-caption {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: rgba(255, 248, 240, 0.6);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      z-index: 4;
+      line-height: 1.8;
+    }
+
+    /* ═══════════════════════════════════════════
+       CAMERA VIEW (起動後の水中窓ARカメラ)
+    ═══════════════════════════════════════════ */
+    #camera-view {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 100;
+      display: none;
+      overflow: hidden;
+    }
+    #camera-view.active { display: block; }
+
+    #camera-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* 水中感: 青寄せ・彩度・コントラスト */
+      filter: hue-rotate(180deg) saturate(1.4) contrast(1.05) brightness(0.85);
+    }
+
+    /* 水中歪みオーバーレイ (SVG filter で揺らぎ) */
+    #camera-distortion {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      backdrop-filter: url(#water-distortion);
+      -webkit-backdrop-filter: url(#water-distortion);
+    }
+
+    /* 青〜深い色のグラデーションを乗算 */
+    #camera-blue-tint {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(120, 200, 255, 0.15) 0%, transparent 60%),
+        linear-gradient(180deg,
+          rgba(40, 120, 200, 0.2) 0%,
+          rgba(20, 60, 140, 0.35) 60%,
+          rgba(10, 30, 80, 0.55) 100%);
+      mix-blend-mode: multiply;
+    }
+
+    /* コースティクス（水面の光の差し込み） */
+    #camera-caustics {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(115deg,
+          transparent 0px,
+          rgba(180, 220, 255, 0.08) 30px,
+          transparent 60px,
+          transparent 120px);
+      mix-blend-mode: screen;
+      animation: causticsDrift 8s linear infinite;
+    }
+    @keyframes causticsDrift {
+      0%   { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(-120px) translateY(60px); }
+    }
+
+    /* 気泡レイヤー（Canvasで描画） */
+    #bubble-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* 窓枠 (カメラビュー中も丸い窓型を維持) */
+    #camera-window-mask {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%,
+        transparent 0%,
+        transparent 45%,
+        rgba(0, 5, 20, 0.6) 70%,
+        rgba(0, 5, 20, 0.95) 100%);
+      z-index: 8;
+    }
+
+    /* ビネット（端を暗く） */
+    #camera-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 50% 50%,
+        transparent 30%,
+        rgba(0, 10, 40, 0.4) 80%,
+        rgba(0, 5, 20, 0.8) 100%);
+      z-index: 7;
+    }
+
+    /* UI: 撮影ボタンと閉じるボタン */
+    .camera-ui {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .ui-btn {
+      background: rgba(20, 30, 60, 0.7);
+      border: 1px solid rgba(180, 220, 255, 0.5);
+      color: #fff;
+      padding: 14px 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, background 0.2s ease;
+      font-size: 1.3rem;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ui-btn:hover {
+      background: rgba(40, 80, 140, 0.8);
+      transform: scale(1.1);
+    }
+
+    .shutter-btn {
+      width: 72px;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 4px solid rgba(180, 220, 255, 0.9);
+      box-shadow: 0 0 30px rgba(120, 200, 255, 0.6);
+    }
+    .shutter-btn:hover {
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0 0 50px rgba(120, 200, 255, 1);
+    }
+    .shutter-btn::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: transparent;
+    }
+
+    /* 撮影フラッシュ */
+    #camera-flash {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 30;
+    }
+    #camera-flash.flash {
+      animation: flashAnim 0.4s ease-out;
+    }
+    @keyframes flashAnim {
+      0%   { opacity: 0; }
+      20%  { opacity: 0.8; }
+      100% { opacity: 0; }
+    }
+
+    /* 撮影結果プレビュー */
+    #photo-result {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+      padding: 24px;
+    }
+    #photo-result.active { display: flex; }
+    #photo-canvas-preview {
+      max-width: 90vw;
+      max-height: 65vh;
+      border-radius: 12px;
+      box-shadow: 0 12px 60px rgba(120, 200, 255, 0.3);
+    }
+    .photo-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .photo-actions a, .photo-actions button {
+      padding: 12px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(180, 220, 255, 0.5);
+      background: rgba(20, 30, 60, 0.7);
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .photo-actions a:hover, .photo-actions button:hover {
+      background: rgba(40, 80, 140, 0.8);
+      transform: translateY(-2px);
+    }
+
+    /* エラー表示 */
+    #camera-error {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      z-index: 300;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    #camera-error.active { display: flex; }
+    .error-box {
+      max-width: 400px;
+      padding: 32px;
+      background: rgba(40, 30, 80, 0.95);
+      border: 1px solid rgba(155, 114, 207, 0.4);
+      border-radius: 16px;
+      text-align: center;
+    }
+    .error-box h3 {
+      margin-bottom: 16px;
+      color: #ff8090;
+    }
+    .error-box p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: rgba(255, 248, 240, 0.85);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SVG FILTER (水中歪み)
+═══════════════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="water-distortion" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.025" numOctaves="2" seed="3" result="turb">
+        <animate attributeName="baseFrequency" dur="14s" values="0.012 0.025;0.018 0.020;0.012 0.025" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turb" scale="14"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ═══════════════════════════════════════════
+     ROOM SCENE
+═══════════════════════════════════════════ -->
+<div id="room-scene">
+  <div class="room-title">
+    <span class="en">MARE'S ROOM</span>
+    <span class="ja">めあともえの部屋</span>
+  </div>
+
+  <!-- 中央の水中窓 -->
+  <div id="window-frame">
+    <div class="window-preview" id="window-preview"></div>
+    <div class="window-hint">TAP TO DIVE</div>
+  </div>
+
+  <p class="room-caption">大きな水中窓から外を覗いてみよう<br>窓をタップするとカメラが起動します</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CAMERA VIEW
+═══════════════════════════════════════════ -->
+<div id="camera-view">
+  <video id="camera-video" autoplay playsinline muted></video>
+  <div id="camera-distortion"></div>
+  <div id="camera-blue-tint"></div>
+  <div id="camera-caustics"></div>
+  <canvas id="bubble-canvas"></canvas>
+  <div id="camera-vignette"></div>
+  <div id="camera-window-mask"></div>
+
+  <div id="camera-flash"></div>
+
+  <div class="camera-ui">
+    <button class="ui-btn" id="btn-close" aria-label="閉じる">✕</button>
+    <button class="ui-btn shutter-btn" id="btn-shutter" aria-label="撮影"></button>
+    <button class="ui-btn" id="btn-switch" aria-label="カメラ切替">⟲</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHOTO RESULT
+═══════════════════════════════════════════ -->
+<div id="photo-result">
+  <img id="photo-canvas-preview" alt="撮影結果">
+  <div class="photo-actions">
+    <a id="photo-download" download="mare-room.png">ダウンロード</a>
+    <button id="photo-retake">もう一度撮る</button>
+    <button id="photo-close">部屋に戻る</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ERROR
+═══════════════════════════════════════════ -->
+<div id="camera-error">
+  <div class="error-box">
+    <h3>カメラが起動できません</h3>
+    <p id="error-message">カメラへのアクセスが許可されていないか、お使いの端末で利用できない可能性があります。</p>
+    <button class="ui-btn" id="error-close" style="border-radius:8px;width:auto;height:auto;padding:10px 24px;">閉じる</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  // ═══════════════════════════════════════════
+  // 1. 部屋の窓に表示する泡を動的生成
+  // ═══════════════════════════════════════════
+  const preview = document.getElementById('window-preview');
+  function spawnPreviewBubble() {
+    const b = document.createElement('div');
+    b.className = 'preview-bubble';
+    const size = 4 + Math.random() * 10;
+    const startX = Math.random() * 100;
+    const duration = 4 + Math.random() * 4;
+    const dx = (Math.random() - 0.5) * 60;
+    b.style.cssText = `
+      width:${size}px;
+      height:${size}px;
+      left:${startX}%;
+      bottom:-20px;
+      --dx:${dx}px;
+      animation-duration:${duration}s;
+    `;
+    preview.appendChild(b);
+    setTimeout(() => b.remove(), duration * 1000 + 200);
+  }
+  setInterval(spawnPreviewBubble, 700);
+
+  // ═══════════════════════════════════════════
+  // 2. 窓タップでカメラ起動
+  // ═══════════════════════════════════════════
+  const windowFrame = document.getElementById('camera-view');
+  const cameraView = document.getElementById('camera-view');
+  const cameraVideo = document.getElementById('camera-video');
+  const errorView = document.getElementById('camera-error');
+  const errorMsg = document.getElementById('error-message');
+
+  let currentStream = null;
+  let usingFront = false;
+
+  async function startCamera() {
+    try {
+      // 既存ストリームを停止
+      if (currentStream) {
+        currentStream.getTracks().forEach(t => t.stop());
+      }
+      const constraints = {
+        video: {
+          facingMode: usingFront ? 'user' : 'environment',
+          width:  { ideal: 1920 },
+          height: { ideal: 1080 }
+        },
+        audio: false
+      };
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      currentStream = stream;
+      cameraVideo.srcObject = stream;
+      cameraView.classList.add('active');
+      startBubbles();
+    } catch (err) {
+      console.error('Camera error:', err);
+      if (err.name === 'NotAllowedError') {
+        errorMsg.textContent = 'カメラへのアクセスが拒否されました。ブラウザ設定からカメラ許可を有効にしてください。';
+      } else if (err.name === 'NotFoundError') {
+        errorMsg.textContent = 'カメラデバイスが見つかりません。';
+      } else if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+        errorMsg.textContent = 'カメラの利用にはHTTPS接続が必要です（GitHub Pages本番環境では動作します）。';
+      } else {
+        errorMsg.textContent = 'カメラの起動に失敗しました: ' + (err.message || err.name);
+      }
+      errorView.classList.add('active');
+    }
+  }
+
+  document.getElementById('window-frame').addEventListener('click', startCamera);
+
+  // ═══════════════════════════════════════════
+  // 3. 気泡のCanvas描画
+  // ═══════════════════════════════════════════
+  const canvas = document.getElementById('bubble-canvas');
+  const ctx = canvas.getContext('2d');
+  let bubbles = [];
+  let bubbleAnimationId = null;
+
+  function resizeCanvas() {
+    canvas.width  = window.innerWidth  * window.devicePixelRatio;
+    canvas.height = window.innerHeight * window.devicePixelRatio;
+    canvas.style.width  = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  }
+  window.addEventListener('resize', resizeCanvas);
+
+  class Bubble {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * window.innerWidth;
+      this.y = window.innerHeight + Math.random() * 100;
+      this.r = 2 + Math.random() * 9;
+      this.vy = 0.4 + Math.random() * 1.6;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.sway = Math.random() * Math.PI * 2;
+      this.opacity = 0.3 + Math.random() * 0.5;
+    }
+    update() {
+      this.y -= this.vy;
+      this.sway += 0.02;
+      this.x += Math.sin(this.sway) * 0.6 + this.vx;
+      if (this.y < -20) this.reset();
+    }
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = this.opacity;
+      const grd = ctx.createRadialGradient(
+        this.x - this.r*0.3, this.y - this.r*0.3, 0,
+        this.x, this.y, this.r
+      );
+      grd.addColorStop(0,   'rgba(255,255,255,0.95)');
+      grd.addColorStop(0.4, 'rgba(200,230,255,0.5)');
+      grd.addColorStop(1,   'rgba(150,200,240,0.05)');
+      ctx.fillStyle = grd;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fill();
+      // ハイライト
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
+      ctx.beginPath();
+      ctx.arc(this.x - this.r*0.3, this.y - this.r*0.4, this.r*0.25, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function animateBubbles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    bubbles.forEach(b => { b.update(); b.draw(); });
+    bubbleAnimationId = requestAnimationFrame(animateBubbles);
+  }
+
+  function startBubbles() {
+    resizeCanvas();
+    if (bubbles.length === 0) {
+      bubbles = Array.from({length: 35}, () => new Bubble());
+    }
+    if (!bubbleAnimationId) animateBubbles();
+  }
+  function stopBubbles() {
+    if (bubbleAnimationId) {
+      cancelAnimationFrame(bubbleAnimationId);
+      bubbleAnimationId = null;
+    }
+  }
+
+  // ═══════════════════════════════════════════
+  // 4. 撮影
+  // ═══════════════════════════════════════════
+  const flash = document.getElementById('camera-flash');
+  const photoResult = document.getElementById('photo-result');
+  const photoPreview = document.getElementById('photo-canvas-preview');
+  const photoDownload = document.getElementById('photo-download');
+
+  document.getElementById('btn-shutter').addEventListener('click', takePhoto);
+
+  function takePhoto() {
+    if (!cameraVideo.videoWidth) return;
+    flash.classList.remove('flash');
+    void flash.offsetWidth; // reflow
+    flash.classList.add('flash');
+
+    setTimeout(() => {
+      const w = cameraVideo.videoWidth;
+      const h = cameraVideo.videoHeight;
+      const off = document.createElement('canvas');
+      off.width = w; off.height = h;
+      const c = off.getContext('2d');
+
+      // 1) 動画フレームを描画
+      c.drawImage(cameraVideo, 0, 0, w, h);
+
+      // 2) フィルター効果を再現（青寄せ・コントラスト）
+      c.globalCompositeOperation = 'multiply';
+      const grdTint = c.createLinearGradient(0, 0, 0, h);
+      grdTint.addColorStop(0,   'rgba(60, 140, 220, 0.35)');
+      grdTint.addColorStop(0.6, 'rgba(30, 80, 160, 0.45)');
+      grdTint.addColorStop(1,   'rgba(10, 30, 80, 0.65)');
+      c.fillStyle = grdTint;
+      c.fillRect(0, 0, w, h);
+
+      // 3) 中央上に明るい部分（光が差し込む感）
+      c.globalCompositeOperation = 'screen';
+      const grdLight = c.createRadialGradient(w/2, h*0.25, 0, w/2, h*0.25, w*0.6);
+      grdLight.addColorStop(0,   'rgba(180, 230, 255, 0.4)');
+      grdLight.addColorStop(0.5, 'rgba(120, 200, 255, 0.15)');
+      grdLight.addColorStop(1,   'rgba(0, 0, 0, 0)');
+      c.fillStyle = grdLight;
+      c.fillRect(0, 0, w, h);
+
+      // 4) ビネット
+      c.globalCompositeOperation = 'multiply';
+      const grdVig = c.createRadialGradient(w/2, h/2, 0, w/2, h/2, Math.max(w, h) * 0.7);
+      grdVig.addColorStop(0,   'rgba(255, 255, 255, 1)');
+      grdVig.addColorStop(0.6, 'rgba(180, 200, 230, 1)');
+      grdVig.addColorStop(1,   'rgba(10, 30, 80, 1)');
+      c.fillStyle = grdVig;
+      c.fillRect(0, 0, w, h);
+
+      // 5) 円形マスク（水中窓型）
+      c.globalCompositeOperation = 'destination-in';
+      const grdMask = c.createRadialGradient(w/2, h/2, 0, w/2, h/2, Math.min(w, h) * 0.48);
+      grdMask.addColorStop(0,    'rgba(0,0,0,1)');
+      grdMask.addColorStop(0.85, 'rgba(0,0,0,1)');
+      grdMask.addColorStop(1,    'rgba(0,0,0,0)');
+      c.fillStyle = grdMask;
+      c.fillRect(0, 0, w, h);
+
+      // 6) 黒背景に重ねる
+      const final = document.createElement('canvas');
+      final.width = w; final.height = h;
+      const fc = final.getContext('2d');
+      fc.fillStyle = '#050818';
+      fc.fillRect(0, 0, w, h);
+      fc.drawImage(off, 0, 0);
+
+      // 7) 気泡を描画 (画面の気泡を写真にも反映)
+      fc.save();
+      bubbles.forEach(b => {
+        const sx = b.x / window.innerWidth  * w;
+        const sy = b.y / window.innerHeight * h;
+        const sr = b.r * (w / window.innerWidth) * 1.2;
+        if (sx < 0 || sx > w || sy < 0 || sy > h) return;
+        const grd = fc.createRadialGradient(sx - sr*0.3, sy - sr*0.3, 0, sx, sy, sr);
+        grd.addColorStop(0,   'rgba(255,255,255,0.9)');
+        grd.addColorStop(0.4, 'rgba(200,230,255,0.4)');
+        grd.addColorStop(1,   'rgba(150,200,240,0.05)');
+        fc.globalAlpha = b.opacity;
+        fc.fillStyle = grd;
+        fc.beginPath();
+        fc.arc(sx, sy, sr, 0, Math.PI * 2);
+        fc.fill();
+      });
+      fc.restore();
+
+      const dataUrl = final.toDataURL('image/png');
+      photoPreview.src = dataUrl;
+      photoDownload.href = dataUrl;
+      photoResult.classList.add('active');
+    }, 200);
+  }
+
+  // ═══════════════════════════════════════════
+  // 5. その他UI操作
+  // ═══════════════════════════════════════════
+  document.getElementById('btn-close').addEventListener('click', closeCamera);
+  document.getElementById('btn-switch').addEventListener('click', () => {
+    usingFront = !usingFront;
+    startCamera();
+  });
+  document.getElementById('photo-close').addEventListener('click', () => {
+    photoResult.classList.remove('active');
+    closeCamera();
+  });
+  document.getElementById('photo-retake').addEventListener('click', () => {
+    photoResult.classList.remove('active');
+  });
+  document.getElementById('error-close').addEventListener('click', () => {
+    errorView.classList.remove('active');
+  });
+
+  function closeCamera() {
+    if (currentStream) {
+      currentStream.getTracks().forEach(t => t.stop());
+      currentStream = null;
+    }
+    cameraView.classList.remove('active');
+    stopBubbles();
+  }
+})();
+</script>
+</body>
+</html>
