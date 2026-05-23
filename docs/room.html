@@ -795,12 +795,6 @@
   <div id="stamp-palette">
     <button class="stamp-toggle" id="stamp-toggle" aria-label="スタンプ">🏮</button>
     <div class="stamp-options" id="stamp-options">
-      <button class="stamp-pick" data-type="emoji" data-val="🎆">🎆</button>
-      <button class="stamp-pick" data-type="emoji" data-val="🏮">🏮</button>
-      <button class="stamp-pick" data-type="emoji" data-val="🐟">🐟</button>
-      <button class="stamp-pick" data-type="emoji" data-val="🫧">🫧</button>
-      <button class="stamp-pick" data-type="emoji" data-val="🎐">🎐</button>
-      <button class="stamp-pick" data-type="emoji" data-val="⭐">⭐</button>
       <button class="stamp-pick" data-type="img" data-val="assets/chouchin.png"><img src="assets/chouchin.png" alt="提灯"></button>
       <button class="stamp-pick" data-type="img" data-val="assets/uchiwa.png"><img src="assets/uchiwa.png" alt="うちわ"></button>
       <button class="stamp-pick" data-type="img" data-val="assets/fuurin.png"><img src="assets/fuurin.png" alt="風鈴"></button>
@@ -1153,8 +1147,8 @@
       // ステップ2: 歪み処理 (feDisplacementMap 相当)
       // ───────────────────────────────────────────
       // 元のSVG: baseFrequency="0.012 0.025" → 水平より垂直方向の周波数が高い
-      // 歪みは控えめに（ユーザー調整により0.2）
-      const distortScale = 0.2 * dpr;
+      // 歪みは控えめに（ユーザー調整により0.35）
+      const distortScale = 0.35 * dpr;
       // 周波数 → scaleの逆数 (baseFrequency=0.012 は周期約83px相当)
       const baseFreqX = 0.012;
       const baseFreqY = 0.025;
@@ -1293,7 +1287,7 @@
   // ─── Xシェア ───
   // Web Share API (Level 2) で画像付き共有を試行、ダメならintent URL
   document.getElementById('photo-share').addEventListener('click', async () => {
-    const shareText = 'めあともえの部屋の水中窓から撮ってみた🌊\n#きみ夏宵あそび';
+    const shareText = '#きみ夏宵あそび';
     const shareUrl  = location.href;
 
     // Web Share API 経由（モバイルで対応）
