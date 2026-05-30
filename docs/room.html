@@ -1515,7 +1515,7 @@
         outputFacialTransformationMatrixes: false,
       });
       faceReady = true;
-      bpShapeNote.textContent = '※ 顔が映っているときだけ効きます';
+      bpShapeNote.textContent = '※ 補正は撮影時に適用されます';
     } catch (e) {
       console.error('FaceLandmarker load failed:', e);
       faceFailed = true;
@@ -1720,7 +1720,7 @@
   const beautyToggle  = document.getElementById('beauty-toggle');
   const beautyOptions = document.getElementById('beauty-options');
   const bpShapeNote   = document.getElementById('bp-shape-note');
-  bpShapeNote.textContent = '※ デカ目・小顔は顔認識を使用します';
+  bpShapeNote.textContent = '※ 補正は撮影時に適用されます（プレビューは素のままです）';
 
   function bindSlider(id, key) {
     const el  = document.getElementById(id);
@@ -1744,8 +1744,7 @@
     beauty.enabled = !beauty.enabled;
     beautyToggle.classList.toggle('on', beauty.enabled);
     beautyOptions.classList.toggle('open', beauty.enabled);
-    beautyCanvas.classList.toggle('active', beauty.enabled);
-    if (beauty.enabled) startBeautyLoop(); else stopBeautyLoop();
+    // 撮影時のみ適用方式：プレビューには何もせず、beauty-canvas も使わない
   });
 
   // 気泡（カメラビューと同じBubbleクラスをboothCtx用に複製）
@@ -1817,7 +1816,6 @@
       boothVideo.srcObject = stream;
       boothView.classList.add('active');
       startBoothBubbles();
-      if (beauty.enabled) startBeautyLoop();
     } catch (err) {
       console.error('Booth camera error:', err);
       if (err.name === 'NotAllowedError') {
