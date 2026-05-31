@@ -1534,6 +1534,7 @@
 
   // メイン処理：source を beauty 補正して dstCtx の (0,0,dw,dh) に描く
   function applyBeauty(source, srcW, srcH, dstCtx, dw, dh) {
+     console.log('[applyBeauty] 呼ばれた dw=', dw, 'dh=', dh, 'src=', srcW, 'x', srcH);
     const sr = dw / dh, vr = srcW / srcH;
     let sx, sy, sw, sh;
     if (vr > sr) { sh = srcH; sw = srcH * sr; sx = (srcW - sw) / 2; sy = 0; }
@@ -1920,6 +1921,9 @@
   document.getElementById('booth-shutter').addEventListener('click', takeBoothPhoto);
 
   function takeBoothPhoto() {
+      console.log('[shutter] enabled=', beauty.enabled, 'smooth=', beauty.smooth,
+                'bright=', beauty.bright, 'warm=', beauty.warm,
+                'videoW=', boothVideo.videoWidth, 'videoH=', boothVideo.videoHeight);
     if (!boothVideo.videoWidth) return;
     boothFlash.classList.remove('flash');
     void boothFlash.offsetWidth;
