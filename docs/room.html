@@ -1484,6 +1484,11 @@
     eye:    0.0,    // デカ目
     slim:   0.0,    // 小顔
   };
+  // 補正が有効か＝いずれかのスライダーが0より大きい
+  function beautyActive() {
+    return beauty.smooth > 0.001 || beauty.bright > 0.001 || beauty.warm > 0.001
+        || beauty.eye   > 0.001 || beauty.slim  > 0.001;
+  }
 
   // 作業用オフスクリーン
   const workFull  = document.createElement('canvas'); // 等倍合成用
@@ -1729,11 +1734,12 @@
     el.addEventListener('input', () => {
       beauty[key] = el.value / 100;
       val.textContent = el.value;
-      // 変形系を初めて動かすタイミングでモデルを遅延ロード
+      beautyToggle.classList.toggle('on', beautyActive());   // ← 補正が効く状態なら点灯
       if ((key === 'eye' || key === 'slim') && beauty[key] > 0.001) {
         ensureFaceLandmarker();
       }
     });
+    beautyToggle.classList.toggle('on', beautyActive());
   }
   bindSlider('bp-smooth', 'smooth');
   bindSlider('bp-bright', 'bright');
@@ -1741,11 +1747,9 @@
   bindSlider('bp-eye',    'eye');
   bindSlider('bp-slim',   'slim');
 
+  // ✨＝パネルの開閉のみ。補正ON/OFFはスライダー値で決まる
   beautyToggle.addEventListener('click', () => {
-    beauty.enabled = !beauty.enabled;
-    beautyToggle.classList.toggle('on', beauty.enabled);
-    beautyOptions.classList.toggle('open', beauty.enabled);
-    // 撮影時のみ適用方式：プレビューには何もせず、beauty-canvas も使わない
+    beautyOptions.classList.toggle('open');
   });
 
   // 気泡（カメラビューと同じBubbleクラスをboothCtx用に複製）
@@ -1939,7 +1943,7 @@
 
       // 1) カメラ映像 (cover) ── 美顔ONなら補正を通す
       const vw = boothVideo.videoWidth, vh = boothVideo.videoHeight;
-      if (beauty.enabled) {
+      if (beautyActive()) { 
         // 撮影直前に変形系がONなら確実に1回検出
         if (faceReady && (beauty.eye > 0.001 || beauty.slim > 0.001)) {
           try { lastResult = faceLandmarker.detectForVideo(boothVideo, performance.now()); }
