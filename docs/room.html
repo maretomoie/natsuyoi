@@ -577,7 +577,8 @@
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      min-width: 200px;
+      width: 248px;
+      box-sizing: border-box;
       color: #e6f2ff;
     }
     .beauty-options.open { display: flex; }
@@ -585,19 +586,24 @@
       font-size: 12px; letter-spacing: .08em; opacity: .7;
     }
     .beauty-row {
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center;
       gap: 10px; font-size: 13px;
     }
-    .beauty-row label { white-space: nowrap; }
+    /* ラベルは自然幅・左寄せ。余白を auto で吸収し、スライダー＋値を右に固定 */
+    .beauty-row label { white-space: nowrap; margin-right: auto; }
     .beauty-row input[type="range"] {
-      flex: 1;
+      flex: none;
+      width: 120px;        /* 固定幅 → 0と100の位置が全行で揃う */
+      margin: 0;
       accent-color: #5ec8f0;
     }
     .beauty-row .bp-val {
-      width: 30px; text-align: right; font-variant-numeric: tabular-nums; opacity: .85;
+      width: 28px; flex: none; text-align: right;
+      font-variant-numeric: tabular-nums; opacity: .85;
     }
     .beauty-shape-note {
       font-size: 11px; line-height: 1.5; opacity: .6;
+      min-height: 3.3em;   /* テキスト変化でパネルサイズが動かないよう領域を確保 */
     }
     .beauty-shape-row.disabled { opacity: .35; pointer-events: none; }
 
@@ -1798,6 +1804,13 @@
   beautyToggle.addEventListener('click', () => {
     beautyOptions.classList.toggle('open');
   });
+
+  // パネルの外（#beauty-panel 以外）をタップしたら閉じる
+  document.addEventListener('pointerdown', (e) => {
+    if (beautyOptions.classList.contains('open') && !e.target.closest('#beauty-panel')) {
+      beautyOptions.classList.remove('open');
+    }
+  }, true);
 
   // 気泡（カメラビューと同じBubbleクラスをboothCtx用に複製）
   class BoothBubble {
