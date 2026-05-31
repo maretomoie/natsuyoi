@@ -1484,6 +1484,7 @@
     eye:    0.0,    // デカ目
     slim:   0.0,    // 小顔
   };
+
   // 補正が有効か＝いずれかのスライダーが0より大きい
   function beautyActive() {
     return beauty.smooth > 0.001 || beauty.bright > 0.001 || beauty.warm > 0.001
@@ -1539,7 +1540,6 @@
 
   // メイン処理：source を beauty 補正して dstCtx の (0,0,dw,dh) に描く
   function applyBeauty(source, srcW, srcH, dstCtx, dw, dh) {
-     console.log('[applyBeauty] 呼ばれた dw=', dw, 'dh=', dh, 'src=', srcW, 'x', srcH);
     const sr = dw / dh, vr = srcW / srcH;
     let sx, sy, sw, sh;
     if (vr > sr) { sh = srcH; sw = srcH * sr; sx = (srcW - sw) / 2; sy = 0; }
@@ -1634,7 +1634,7 @@
     const pa = lmToPx(lm[a]), pb = lmToPx(lm[b]);
     return Math.hypot(pa.x - pb.x, pa.y - pb.y);
   }
-// ── バイリニア・サンプリング（src ImageData の (x,y) を out[oi..] に） ──
+  // ── バイリニア・サンプリング（src ImageData の (x,y) を out[oi..] に） ──
   function sampleBilinear(src, sw, sh, x, y, out, oi) {
     if (x < 0) x = 0; else if (x > sw - 1) x = sw - 1;
     if (y < 0) y = 0; else if (y > sh - 1) y = sh - 1;
@@ -1657,7 +1657,7 @@
     return t*t*(3 - 2*t);
   }
 
-  // ── 円形バルジ（中心ほど拡大、縁でなめらかに0）──
+  // ── 円形バルジ（中心ほど拡大、縁でなめらかに0：リング段差なし） ──
   function bulgeRegion(ctx, cx, cy, R, strength) {
     const cw = ctx.canvas.width, ch = ctx.canvas.height;
     const x0 = Math.max(0, Math.floor(cx - R)), y0 = Math.max(0, Math.floor(cy - R));
@@ -1674,7 +1674,7 @@
         const d = Math.hypot(dx, dy);
         if (d >= R || d === 0) { dd[oi]=sd[oi];dd[oi+1]=sd[oi+1];dd[oi+2]=sd[oi+2];dd[oi+3]=sd[oi+3]; continue; }
         const r = d / R;
-        // 縁で1・中心で(1-strength)。(1-r)^2で導関数も0→リング段差なし
+        // 縁で1・中心で(1-strength)。(1-r)^2で導関数も0→段差が出ない
         const factor = 1 - strength * (1 - r) * (1 - r);
         sampleBilinear(sd, w, h, lcx + dx*factor, lcy + dy*factor, dd, oi);
       }
@@ -1687,12 +1687,12 @@
     [[R_EYE, 33, 133], [L_EYE, 362, 263]].forEach(([idxs, a, b]) => {
       const c = lmToPx(eyeCenter(lm, idxs));
       const eyeW = eyeWidthPx(lm, a, b);
-      const R = Math.max(20, eyeW * 1.8);   // 影響半径：目幅の約1.8倍
-      bulgeRegion(ctx, c.x, c.y, R, amount * 0.30);  // 中心の引き込み量（最大0.30）
+      const R = Math.max(20, eyeW * 1.8);          // 影響半径：目幅の約1.8倍
+      bulgeRegion(ctx, c.x, c.y, R, amount * 0.30); // 中心の引き込み量（最大0.30）
     });
   }
 
-  // ── 小顔（中心線へ横圧縮、上下左右になめらか減衰）──
+  // ── 小顔（中心線へ横圧縮、上下左右になめらか減衰） ──
   function warpSlim(ctx, lm, amount) {
     const cw = ctx.canvas.width, ch = ctx.canvas.height;
     const left = lmToPx(lm[234]), right = lmToPx(lm[454]);
@@ -1731,6 +1731,7 @@
     }
     ctx.putImageData(dst, x0, y0);
   }
+
   // リアルタイムプレビュー用ループ
   function beautyLoop() {
     if (beauty.enabled && boothVideo.videoWidth) {
@@ -1771,18 +1772,19 @@
     el.addEventListener('input', () => {
       beauty[key] = el.value / 100;
       val.textContent = el.value;
-      beautyToggle.classList.toggle('on', beautyActive());   // ← 補正が効く状態なら点灯
+      beautyToggle.classList.toggle('on', beautyActive());  // 補正が効く状態なら点灯
+      // 変形系を初めて動かすタイミングでモデルを遅延ロード
       if ((key === 'eye' || key === 'slim') && beauty[key] > 0.001) {
         ensureFaceLandmarker();
       }
     });
-    beautyToggle.classList.toggle('on', beautyActive());
   }
   bindSlider('bp-smooth', 'smooth');
   bindSlider('bp-bright', 'bright');
   bindSlider('bp-warm',   'warm');
   bindSlider('bp-eye',    'eye');
   bindSlider('bp-slim',   'slim');
+  beautyToggle.classList.toggle('on', beautyActive());  // 初期点灯
 
   // ✨＝パネルの開閉のみ。補正ON/OFFはスライダー値で決まる
   beautyToggle.addEventListener('click', () => {
@@ -1962,9 +1964,6 @@
   document.getElementById('booth-shutter').addEventListener('click', takeBoothPhoto);
 
   function takeBoothPhoto() {
-      console.log('[shutter] enabled=', beauty.enabled, 'smooth=', beauty.smooth,
-                'bright=', beauty.bright, 'warm=', beauty.warm,
-                'videoW=', boothVideo.videoWidth, 'videoH=', boothVideo.videoHeight);
     if (!boothVideo.videoWidth) return;
     boothFlash.classList.remove('flash');
     void boothFlash.offsetWidth;
@@ -1980,7 +1979,7 @@
 
       // 1) カメラ映像 (cover) ── 美顔ONなら補正を通す
       const vw = boothVideo.videoWidth, vh = boothVideo.videoHeight;
-      if (beautyActive()) { 
+      if (beautyActive()) {
         // 撮影直前に変形系がONなら確実に1回検出
         if (faceReady && (beauty.eye > 0.001 || beauty.slim > 0.001)) {
           try { lastResult = faceLandmarker.detectForVideo(boothVideo, performance.now()); }
