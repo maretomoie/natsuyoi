@@ -1634,66 +1634,103 @@
     const pa = lmToPx(lm[a]), pb = lmToPx(lm[b]);
     return Math.hypot(pa.x - pb.x, pa.y - pb.y);
   }
+// ── バイリニア・サンプリング（src ImageData の (x,y) を out[oi..] に） ──
+  function sampleBilinear(src, sw, sh, x, y, out, oi) {
+    if (x < 0) x = 0; else if (x > sw - 1) x = sw - 1;
+    if (y < 0) y = 0; else if (y > sh - 1) y = sh - 1;
+    const x0 = x | 0, y0 = y | 0;
+    const x1 = x0 + 1 < sw ? x0 + 1 : x0;
+    const y1 = y0 + 1 < sh ? y0 + 1 : y0;
+    const fx = x - x0, fy = y - y0;
+    const i00 = (y0*sw + x0)*4, i10 = (y0*sw + x1)*4;
+    const i01 = (y1*sw + x0)*4, i11 = (y1*sw + x1)*4;
+    for (let c = 0; c < 4; c++) {
+      const top = src[i00+c]*(1-fx) + src[i10+c]*fx;
+      const bot = src[i01+c]*(1-fx) + src[i11+c]*fx;
+      out[oi+c] = top*(1-fy) + bot*fy;
+    }
+  }
+  function smoothstep(a, b, x) {
+    if (b === a) return x < a ? 0 : 1;
+    let t = (x - a) / (b - a);
+    t = t < 0 ? 0 : t > 1 ? 1 : t;
+    return t*t*(3 - 2*t);
+  }
+
+  // ── 円形バルジ（中心ほど拡大、縁でなめらかに0）──
+  function bulgeRegion(ctx, cx, cy, R, strength) {
+    const cw = ctx.canvas.width, ch = ctx.canvas.height;
+    const x0 = Math.max(0, Math.floor(cx - R)), y0 = Math.max(0, Math.floor(cy - R));
+    const x1 = Math.min(cw, Math.ceil(cx + R)), y1 = Math.min(ch, Math.ceil(cy + R));
+    const w = x1 - x0, h = y1 - y0;
+    if (w < 3 || h < 3) return;
+    const sd = ctx.getImageData(x0, y0, w, h).data;
+    const dst = ctx.createImageData(w, h), dd = dst.data;
+    const lcx = cx - x0, lcy = cy - y0;
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const oi = (y*w + x)*4;
+        const dx = x - lcx, dy = y - lcy;
+        const d = Math.hypot(dx, dy);
+        if (d >= R || d === 0) { dd[oi]=sd[oi];dd[oi+1]=sd[oi+1];dd[oi+2]=sd[oi+2];dd[oi+3]=sd[oi+3]; continue; }
+        const r = d / R;
+        // 縁で1・中心で(1-strength)。(1-r)^2で導関数も0→リング段差なし
+        const factor = 1 - strength * (1 - r) * (1 - r);
+        sampleBilinear(sd, w, h, lcx + dx*factor, lcy + dy*factor, dd, oi);
+      }
+    }
+    ctx.putImageData(dst, x0, y0);
+  }
+
+  // ── デカ目 ──
   function warpEyes(ctx, lm, amount) {
     [[R_EYE, 33, 133], [L_EYE, 362, 263]].forEach(([idxs, a, b]) => {
-      const cN = eyeCenter(lm, idxs);
-      const c  = lmToPx(cN);
+      const c = lmToPx(eyeCenter(lm, idxs));
       const eyeW = eyeWidthPx(lm, a, b);
-      const R = Math.max(24, eyeW * 1.6);   // 目幅に比例した影響半径
-      const zoom = 1 + amount * 0.26;       // 最大1.26倍
-      const r = Math.round(R);
-      const x0 = Math.max(0, c.x - r), y0 = Math.max(0, c.y - r);
-      const w = Math.min(ctx.canvas.width - x0, r * 2);
-      const h = Math.min(ctx.canvas.height - y0, r * 2);
-      if (w <= 2 || h <= 2) return;
-      const region = ctx.getImageData(x0, y0, w, h);
-      const tmp = document.createElement('canvas');
-      tmp.width = w; tmp.height = h;
-      tmp.getContext('2d').putImageData(region, 0, 0);
-      const nw = w * zoom, nh = h * zoom;
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(c.x, c.y, R, 0, Math.PI * 2);
-      ctx.clip();
-      ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(tmp, c.x - nw / 2, c.y - nh / 2, nw, nh);
-      ctx.restore();
+      const R = Math.max(20, eyeW * 1.8);   // 影響半径：目幅の約1.8倍
+      bulgeRegion(ctx, c.x, c.y, R, amount * 0.30);  // 中心の引き込み量（最大0.30）
     });
   }
 
-  // 小顔：顔輪郭の左右端(234/454)を中心線へ寄せる（頬〜あごのバンドを横圧縮）
+  // ── 小顔（中心線へ横圧縮、上下左右になめらか減衰）──
   function warpSlim(ctx, lm, amount) {
-    const left  = lmToPx(lm[234]);   // 左頬端
-    const right = lmToPx(lm[454]);   // 右頬端
-    const chin  = lmToPx(lm[152]);   // あご先
-    const fore  = lmToPx(lm[10]);    // 額上
+    const cw = ctx.canvas.width, ch = ctx.canvas.height;
+    const left = lmToPx(lm[234]), right = lmToPx(lm[454]);
+    const chin = lmToPx(lm[152]),  fore  = lmToPx(lm[10]);
     const cx = (left.x + right.x) / 2;
     const faceW = Math.abs(right.x - left.x);
-    const shrink = amount * 0.11;    // 最大11%内側へ
+    if (faceW < 8) return;
+    const half = faceW * 0.62;            // 横の影響範囲（顔幅より少し広く）
+    const strength = amount * 0.16;       // 最大16%内側へ
+    const bandTop = fore.y + (chin.y - fore.y) * 0.28;
+    const bandBot = chin.y + faceW * 0.12;
+    const yPad = (bandBot - bandTop) * 0.55;  // 上下フェード幅
 
-    // 頬〜あごの帯（顔の縦中央より下を中心に）
-    const top = Math.min(fore.y + (chin.y - fore.y) * 0.45, ctx.canvas.height);
-    const bottom = Math.min(chin.y + faceW * 0.10, ctx.canvas.height);
-    const bx = Math.max(0, cx - faceW * 0.75);
-    const bw = Math.min(ctx.canvas.width - bx, faceW * 1.5);
-    const by = Math.max(0, top);
-    const bh = Math.max(2, Math.min(ctx.canvas.height - by, bottom - top));
-    if (bw <= 2 || bh <= 2) return;
-
-    const slice = ctx.getImageData(bx, by, bw, bh);
-    ctx.save();
-    ctx.clearRect(bx, by, bw, bh);
-    const tmp = document.createElement('canvas');
-    tmp.width = bw; tmp.height = bh;
-    tmp.getContext('2d').putImageData(slice, 0, 0);
-    const newW = bw * (1 - shrink);
-    ctx.imageSmoothingEnabled = true;
-    // 中心(cx)基準で横圧縮
-    const dx = bx + (cx - bx) * shrink;
-    ctx.drawImage(tmp, dx, by, newW, bh);
-    ctx.restore();
+    const x0 = Math.max(0, Math.floor(cx - half)), x1 = Math.min(cw, Math.ceil(cx + half));
+    const y0 = Math.max(0, Math.floor(bandTop - yPad)), y1 = Math.min(ch, Math.ceil(bandBot + yPad));
+    const w = x1 - x0, h = y1 - y0;
+    if (w < 3 || h < 3) return;
+    const sd = ctx.getImageData(x0, y0, w, h).data;
+    const dst = ctx.createImageData(w, h), dd = dst.data;
+    const lcx = cx - x0;
+    for (let y = 0; y < h; y++) {
+      const gy = y + y0;
+      let wy;                              // 縦の重み（バンド内1、外で0へ）
+      if (gy < bandTop)      wy = smoothstep(bandTop - yPad, bandTop, gy);
+      else if (gy > bandBot) wy = 1 - smoothstep(bandBot, bandBot + yPad, gy);
+      else                   wy = 1;
+      for (let x = 0; x < w; x++) {
+        const oi = (y*w + x)*4;
+        const nx = (x - lcx) / half;       // -1..1
+        const wx = Math.max(0, 1 - nx*nx); // 横の重み（中心1・端0）
+        const s = strength * wy * wx;
+        if (s <= 0.0005) { dd[oi]=sd[oi];dd[oi+1]=sd[oi+1];dd[oi+2]=sd[oi+2];dd[oi+3]=sd[oi+3]; continue; }
+        // 内に寄せる＝外側からサンプリング
+        sampleBilinear(sd, w, h, lcx + (x - lcx) / (1 - s), y, dd, oi);
+      }
+    }
+    ctx.putImageData(dst, x0, y0);
   }
-
   // リアルタイムプレビュー用ループ
   function beautyLoop() {
     if (beauty.enabled && boothVideo.videoWidth) {
