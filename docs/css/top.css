@@ -462,7 +462,7 @@
 .nc-card {
   position: absolute;
   width: clamp(280px, 38vw, 480px);
-  height: 240px;
+  height: 300px;
   border-radius: 18px;
   background: linear-gradient(145deg,
     rgba(40, 30, 80, 0.85) 0%,
@@ -484,10 +484,58 @@
 .nc-card-inner {
   position: absolute;
   inset: 0;
-  padding: 28px 26px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+/* サムネイルあり */
+.nc-thumb {
+  width: 100%;
+  height: 130px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.nc-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.nc-card:hover .nc-thumb img {
+  transform: scale(1.05);
+}
+
+/* サムネイルなし（badgeテキストにフォールバック） */
+.nc-thumb-fallback {
+  background: linear-gradient(135deg,
+    rgba(155, 114, 207, 0.25) 0%,
+    rgba(14, 27, 90, 0.6) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nc-thumb-fallback span {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--c-violet);
+  padding: 6px 16px;
+  border: 1px solid rgba(155, 114, 207, 0.5);
+  border-radius: 999px;
+  background: rgba(155, 114, 207, 0.15);
+}
+
+/* テキストエリア */
+.nc-card-body {
+  flex: 1;
+  padding: 16px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
 }
 
 .nc-badge {
@@ -620,15 +668,16 @@
 @media (max-width: 900px) {
   #news-carousel-section { padding: 80px 16px 60px; }
   .nc-stage { height: 260px; }
-  .nc-card { height: 220px; }
+  .nc-card { height: 280px; }
   .nc-title { font-size: 1.2rem; }
 }
 @media (max-width: 600px) {
   .nc-stage { height: 240px; }
-  .nc-card { height: 200px; width: clamp(240px, 70vw, 320px); }
+  .nc-card { height: 260px; width: clamp(240px, 70vw, 320px); }
   .nc-title { font-size: 1.05rem; }
   .nc-desc { font-size: 0.78rem; }
-  .nc-card-inner { padding: 22px 20px; }
+  .nc-thumb { height: 110px; }
+  .nc-card-body { padding: 12px 16px 16px; }
   .nc-card.nc-near[style*="--offset: -1"] { transform: translateX(-48%) scale(0.72) rotateY(20deg); }
   .nc-card.nc-near[style*="--offset: 1"]  { transform: translateX(48%)  scale(0.72) rotateY(-20deg); }
   .nc-card.nc-far[style*="--offset: -2"]  { transform: translateX(-78%) scale(0.52) rotateY(30deg); }
