@@ -1,0 +1,204 @@
+{
+  "teams": [
+    {
+      "id": "bakuretsu",
+      "name": "爆裂夏花火",
+      "color": "240, 80, 100",
+      "kv_image": "assets/kv-fireworks.png",
+      "leaders": [
+        {
+          "id": "nishinoururi",
+          "name": "西乃うるり",
+          "avatar": null,
+          "avatar_initial": "西",
+          "avatar_hue": 0,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "yuurakuten",
+          "name": "遊楽天GOTH",
+          "avatar": null,
+          "avatar_initial": "遊",
+          "avatar_hue": 340,
+          "links": { "youtube": "#", "twitter": "#" }
+        }
+      ],
+      "matsuri": [
+        {
+          "id": "yureika",
+          "name": "ゆうれいいか",
+          "avatar": null,
+          "avatar_initial": "ゆ",
+          "avatar_hue": 200,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "manikyua",
+          "name": "まにきゅあ",
+          "avatar": null,
+          "avatar_initial": "ま",
+          "avatar_hue": 340,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "himari",
+          "name": "胡桃坂ひまり",
+          "avatar": null,
+          "avatar_initial": "ひ",
+          "avatar_hue": 300,
+          "links": { "youtube": "#", "twitter": "#" }
+        }
+      ]
+    },
+    {
+      "id": "soseitsukka",
+      "name": "蒼星月花",
+      "color": "80, 140, 220",
+      "kv_image": "assets/kv-moon.png",
+      "leaders": [
+        {
+          "id": "kinetsuki",
+          "name": "杵月のあ",
+          "avatar": null,
+          "avatar_initial": "杵",
+          "avatar_hue": 270,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "hoshikage",
+          "name": "星影ラピス",
+          "avatar": null,
+          "avatar_initial": "星",
+          "avatar_hue": 220,
+          "links": { "youtube": "#", "twitter": "#" }
+        }
+      ],
+      "matsuri": [
+        {
+          "id": "uzaku",
+          "name": "ウザクさま",
+          "avatar": null,
+          "avatar_initial": "G",
+          "avatar_hue": 30,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "yunchuru",
+          "name": "ゆんちゅる",
+          "avatar": null,
+          "avatar_initial": "ゆ",
+          "avatar_hue": 130,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "seiyanosetsu",
+          "name": "聖夜ノ雪",
+          "avatar": null,
+          "avatar_initial": "聖",
+          "avatar_hue": 190,
+          "links": { "youtube": "#", "twitter": "#" }
+        }
+      ]
+    },
+    {
+      "id": "ennichi",
+      "name": "縁日で射的！",
+      "color": "240, 190, 80",
+      "kv_image": "assets/kv-ennichi.png",
+      "leaders": [
+        {
+          "id": "kanimiso",
+          "name": "かにみそ",
+          "avatar": null,
+          "avatar_initial": "か",
+          "avatar_hue": 30,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "hosoya",
+          "name": "細谷拓真",
+          "avatar": null,
+          "avatar_initial": "細",
+          "avatar_hue": 50,
+          "links": { "youtube": "#", "twitter": "#" }
+        }
+      ],
+      "matsuri": [
+        {
+          "id": "ginkasama",
+          "name": "銀貨先生",
+          "avatar": null,
+          "avatar_initial": "銀",
+          "avatar_hue": 280,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "dorome",
+          "name": "泥目楽堕",
+          "avatar": null,
+          "avatar_initial": "泥",
+          "avatar_hue": 20,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "shinonome",
+          "name": "東雲ハヤテ",
+          "avatar": null,
+          "avatar_initial": "東",
+          "avatar_hue": 170,
+          "links": { "youtube": "#", "twitter": "#" }
+        }
+      ]
+    },
+    {
+      "id": "reimea",
+      "name": "れいめあビアガーデン",
+      "color": "120, 200, 140",
+      "kv_image": "assets/kv-beer.png",
+      "leaders": [
+        {
+          "id": "meatomo2",
+          "name": "めあともえ",
+          "avatar": null,
+          "avatar_initial": "め",
+          "avatar_hue": 270,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "natsuyagi",
+          "name": "夏八木玲衣",
+          "avatar": null,
+          "avatar_initial": "夏",
+          "avatar_hue": 330,
+          "links": { "youtube": "#", "twitter": "#" }
+        }
+      ],
+      "matsuri": [
+        {
+          "id": "mekaz",
+          "name": "メカZ",
+          "avatar": null,
+          "avatar_initial": "メ",
+          "avatar_hue": 240,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "sedonarian",
+          "name": "せどなりあん",
+          "avatar": null,
+          "avatar_initial": "せ",
+          "avatar_hue": 160,
+          "links": { "youtube": "#", "twitter": "#" }
+        },
+        {
+          "id": "salsnoah",
+          "name": "Sals=noah",
+          "avatar": null,
+          "avatar_initial": "S",
+          "avatar_hue": 210,
+          "links": { "youtube": "#", "twitter": "#" }
+        }
+      ]
+    }
+  ]
+}
