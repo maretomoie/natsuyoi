@@ -9,7 +9,7 @@
         {
           "id": "nishinoururi",
           "name": "西乃うるり",
-          "avatar": "hanabi-ururi.png",
+          "avatar": "assets/guests/hanabi-ururi.png",
           "avatar_initial": "う",
           "avatar_hue": 0,
           "links": {
@@ -20,7 +20,7 @@
         {
           "id": "yuurakuten",
           "name": "遊楽天GOTH",
-          "avatar": "hanabi-goth.png",
+          "avatar": "assets/guests/hanabi-goth.png",
           "avatar_initial": "遊",
           "avatar_hue": 340,
           "links": {
@@ -33,7 +33,7 @@
         {
           "id": "araniamu",
           "name": "新弐あむ",
-          "avatar": "hanabi-arani.png",
+          "avatar": "assets/guests/hanabi-arani.png",
           "avatar_initial": "新",
           "avatar_hue": 200,
           "links": {
@@ -44,7 +44,7 @@
         {
           "id": "akarun",
           "name": "あかるん",
-          "avatar": "hanabi-akarun.png",
+          "avatar": "assets/guests/hanabi-akarun.png",
           "avatar_initial": "あ",
           "avatar_hue": 340,
           "links": {
@@ -55,7 +55,7 @@
         {
           "id": "nichinamui",
           "name": "日菜むい",
-          "avatar": "hanabi-mui.png",
+          "avatar": "assets/guests/hanabi-mui.png",
           "avatar_initial": "む",
           "avatar_hue": 300,
           "links": {
@@ -66,7 +66,7 @@
         {
           "id": "pepetaro",
           "name": "ぺぺたろ",
-          "avatar": "hanabi-pepetaro.png",
+          "avatar": "assets/guests/hanabi-pepetaro.png",
           "avatar_initial": "ぺ",
           "avatar_hue": 320,
           "links": {
@@ -77,7 +77,7 @@
         {
           "id": "salsnoah",
           "name": "さるさのあ",
-          "avatar": "hanabi-salsnoah.png",
+          "avatar": "assets/guests/hanabi-salsnoah.png",
           "avatar_initial": "S",
           "avatar_hue": 270,
           "links": {
