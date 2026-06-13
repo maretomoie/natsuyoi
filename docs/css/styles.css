@@ -35,7 +35,10 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: var(--c-night); /* ページ間遷移時の白フラッシュ防止 */
+}
 
 body {
   background: var(--c-night);
