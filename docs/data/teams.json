@@ -96,58 +96,80 @@
         {
           "id": "kinetsuki",
           "name": "杵月のあ",
-          "avatar": null,
+          "avatar": "assets/guests/sousei-noa.png",
           "avatar_initial": "杵",
           "avatar_hue": 270,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@kinetsukinoa",
+            "twitter": "https://x.com/kinetsukinoa"
           }
         },
         {
           "id": "hoshikage",
           "name": "星影ラピス",
-          "avatar": null,
+          "avatar": "assets/guests/sousei-lapis.png",
           "avatar_initial": "星",
           "avatar_hue": 220,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@HoshikageLapis",
+            "twitter": "https://x.com/HoshikageLapis"
           }
         }
       ],
       "matsuri": [
         {
-          "id": "uzaku",
-          "name": "ウザクさま",
-          "avatar": null,
-          "avatar_initial": "G",
+          "id": "otsutaro",
+          "name": "おつたろう",
+          "avatar": "assets/guests/sousei-otu.png",
+          "avatar_initial": "お",
           "avatar_hue": 30,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@otsutaroch",
+            "twitter": "https://x.com/otsutaro_02"
           }
         },
         {
-          "id": "yunchuru",
-          "name": "ゆんちゅる",
-          "avatar": null,
-          "avatar_initial": "ゆ",
+          "id": "komainu",
+          "name": "こまいぬ",
+          "avatar": "assets/guests/sousei-koma.png",
+          "avatar_initial": "狛",
           "avatar_hue": 130,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@komainu629",
+            "twitter": "https://x.com/komainu_reality"
           }
         },
         {
-          "id": "seiyanosetsu",
-          "name": "聖夜ノ雪",
-          "avatar": null,
-          "avatar_initial": "聖",
+          "id": "nanoha",
+          "name": "Nanoha。",
+          "avatar": "assets/guests/sousei-nanoha.png",
+          "avatar_initial": "N",
           "avatar_hue": 190,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@Nano_song708",
+            "twitter": "https://x.com/Nano_song708"
+          }
+        },
+        {
+          "id": "uru",
+          "name": "黒兎ウル",
+          "avatar": "assets/guests/sousei-uru.png",
+          "avatar_initial": "兎",
+          "avatar_hue": 200,
+          "links": {
+            "youtube": "https://www.youtube.com/@kurousagiuruMUSIC",
+            "twitter": "https://x.com/kurousagi_uru"
+          }
+        },
+        {
+          "id": "dorome",
+          "name": "どろめらくだ",
+          "avatar": "assets/guests/sousei-dorome.png",
+          "avatar_initial": "楽",
+          "avatar_hue": 220,
+          "links": {
+            "youtube": "https://www.youtube.com/@dorome_rakuda",
+            "twitter": "https://x.com/rakuda_ra_e"
           }
         }
       ]
