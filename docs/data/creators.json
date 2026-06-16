@@ -1,7 +1,7 @@
 {
   "creators": [
     {
-      "id": "shinkai_pudding",
+      "id": "Ckirin",
       "name": "ながいキリン",
       "handle": "@nagai_kirin",
       "role": "配信演出クリエイター",
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "id": "mormo_music",
+      "id": "Cnagon",
       "name": "斉唱なごん",
       "handle": "@mormo_music",
       "role": "筆文字クリエイター",
@@ -74,7 +74,7 @@
           "thumb": "assets/creators/work-02-02.jpg",
           "thumb_emoji": "🎤",
           "badge": null,
-          "desc": null,
+          "desc": "チームロゴを担当していただいた斉唱なごんさまに一筆書いていただくことおができます。配信/大会などのロゴや、心を引き締める一言など依頼できます！",
           "cta": "YouTubeで聴く",
           "url": null
         },
@@ -92,7 +92,7 @@
       ]
     },
     {
-      "id": "chii_chii_art",
+      "id": "Cyanari",
       "name": "やなり",
       "handle": "@chii_chii_art",
       "role": "GOODS / FAN ART",
@@ -120,6 +120,23 @@
           "thumb_aspect": "21 / 9"
         }
       ]
+    },
+    {
+      "id": "Cfusego",
+      "name": "ふせご✦︎",
+      "handle": "@fusegodesu",
+      "role": "イラストレーター",
+      "avatar": null,
+      "avatar_initial": "ふ",
+      "avatar_hue": 0,
+      "links": {
+        "twitter": "https://x.com/fusegodesu",
+        "youtube": null,
+        "booth": null,
+        "pixiv": null,
+        "skeb": null
+      },
+      "works": []
     }
   ]
 }
