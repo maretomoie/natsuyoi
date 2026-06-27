@@ -809,15 +809,15 @@
     #char-upload-btn:hover { transform: scale(1.08); background: rgba(40,80,160,0.9); }
     #char-upload-input { display: none; }
 
-    /* ⑥ ロゴオーバーレイ */
+    /* ⑥ ロゴオーバーレイ（右下・従来比およそ2倍。狭幅端末では自動縮小） */
     #booth-logo {
       position: absolute;
       bottom: 20px;
-      left: 16px;
+      right: 16px;
       z-index: 12;
       pointer-events: none;
-      max-height: 60px;
-      max-width: 160px;
+      max-height: min(120px, 20vh);
+      max-width: min(320px, 44vw);
       opacity: 0.85;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
       display: block;
@@ -1773,9 +1773,6 @@
   const workCtx   = workFull.getContext('2d', { willReadFrequently: true });
   const workSmall = document.createElement('canvas'); // 縮小ブラー用
   const workSmCtx = workSmall.getContext('2d');
-  // 変形専用オフスクリーン（getImageData/putImageData用。workFullと独立させてcomposite汚染を防ぐ）
-  const warpCanvas = document.createElement('canvas');
-  const warpCtx    = warpCanvas.getContext('2d', { willReadFrequently: true });
 
   // ─── MediaPipe FaceLandmarker（遅延ロード） ───
   let faceLandmarker = null;
@@ -1801,7 +1798,7 @@
         outputFacialTransformationMatrixes: false,
       });
       faceReady = true;
-      bpShapeNote.textContent = '※ 補正は撮影時に適用されます';
+      bpShapeNote.textContent = '※ デカ目・小顔はプレビューに反映されます';
     } catch (e) {
       console.error('FaceLandmarker load failed:', e);
       faceFailed = true;
@@ -1814,6 +1811,12 @@
   }
 
   let beautyRAF = null;
+  let _lastDetect = 0;     // 直近に顔検出を実行した時刻（スロットリング用）
+  let _mpTs = 0;           // MediaPipe へ渡す単調増加タイムスタンプ
+  function nextMpTs() {
+    _mpTs = Math.max(_mpTs + 1, Math.floor(performance.now()));
+    return _mpTs;
+  }
 
   // 直近の cover パラメータ（変形で座標変換に使う）
   let _cover = { sx:0, sy:0, sw:0, sh:0, dw:0, dh:0 };
@@ -1877,41 +1880,45 @@
     }
 
     // 3) デカ目 / 小顔（ランドマーク取得時のみ）
-    // workFull の内容を warpCanvas にコピーして変形し、workFull に書き戻す
-    if (faceReady && lastResult && lastResult.faceLandmarks &&
+    //    顔まわりの局所領域だけを getImageData/putImageData して変形する。
+    //    全面処理をやめることで、毎フレームの負荷とメモリ確保を大幅に削減し、
+    //    映像が崩れる／固まる症状を解消する。
+    if (faceReady && lastResult && lastResult.faceLandmarks && lastResult.faceLandmarks.length &&
         (beauty.eye > 0.001 || beauty.slim > 0.001)) {
       try {
-        if (warpCanvas.width !== dw || warpCanvas.height !== dh) {
-          warpCanvas.width = dw; warpCanvas.height = dh;
-        }
-        // workFull の現状をコピー
-        warpCtx.setTransform(1, 0, 0, 1, 0, 0);
-        warpCtx.globalAlpha = 1;
-        warpCtx.globalCompositeOperation = 'source-over';
-        warpCtx.clearRect(0, 0, dw, dh);
-        warpCtx.drawImage(workFull, 0, 0, dw, dh);
-
-        // フル解像度でgetImageData（パッチ外参照のクランプ問題を解消）
-        const srcData = warpCtx.getImageData(0, 0, dw, dh);
-        const dstImgData = warpCtx.createImageData(dw, dh);
-        // まず元データをそのままコピー（変形しない領域はそのまま残す）
-        dstImgData.data.set(srcData.data);
-
         lastResult.faceLandmarks.forEach(lm => {
-          if (beauty.slim > 0.001) warpSlim(srcData.data, dw, dh, dstImgData.data, lm, beauty.slim);
-          if (beauty.eye  > 0.001) warpEyes(srcData.data, dw, dh, dstImgData.data, lm, beauty.eye);
+          // 顔ランドマークの外接矩形（dst px）を求め、余白を付けて処理領域を確定
+          let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+          for (let i = 0; i < lm.length; i++) {
+            const p = lmToPx(lm[i]);
+            if (p.x < minX) minX = p.x;
+            if (p.x > maxX) maxX = p.x;
+            if (p.y < minY) minY = p.y;
+            if (p.y > maxY) maxY = p.y;
+          }
+          if (!isFinite(minX) || !isFinite(maxX) || !isFinite(minY) || !isFinite(maxY)) return;
+          const padX = (maxX - minX) * 0.35 + 8;
+          const padY = (maxY - minY) * 0.35 + 8;
+          const rx  = Math.max(0,  Math.floor(minX - padX));
+          const ry  = Math.max(0,  Math.floor(minY - padY));
+          const rxe = Math.min(dw, Math.ceil(maxX + padX));
+          const rye = Math.min(dh, Math.ceil(maxY + padY));
+          const rw = rxe - rx, rh = rye - ry;
+          if (rw < 8 || rh < 8) return;
+
+          // 局所領域だけ取り出す（全面 getImageData を避ける＝高速・安全）
+          const region = workCtx.getImageData(rx, ry, rw, rh);
+          const src = region.data;
+          const dst = new Uint8ClampedArray(src);   // 変形しない画素はコピーのまま残す
+
+          if (beauty.slim > 0.001) warpSlim(src, dst, rw, rh, rx, ry, lm, beauty.slim);
+          if (beauty.eye  > 0.001) warpEyes(src, dst, rw, rh, rx, ry, lm, beauty.eye);
+
+          region.data.set(dst);
+          workCtx.putImageData(region, rx, ry);   // putImageData は合成状態を無視して直接書き込み
         });
-
-        warpCtx.putImageData(dstImgData, 0, 0);
-
-        // 変形結果を workFull に書き戻す
-        workCtx.setTransform(1, 0, 0, 1, 0, 0);
-        workCtx.globalAlpha = 1;
-        workCtx.globalCompositeOperation = 'source-over';
-        workCtx.drawImage(warpCanvas, 0, 0, dw, dh);
       } catch (e) {
         console.warn('warp skipped:', e);
-        try { bpShapeNote.textContent = '⚠ 変形スキップ: ' + (e && e.message ? e.message : e); } catch (_) {}
       }
     }
 
@@ -1967,69 +1974,70 @@
     return t*t*(3 - 2*t);
   }
 
-  // ── 円形バルジ（デカ目）：warpCtx全体をgetImageDataして処理 ──
-  function bulgeRegion(fullSrc, fullW, fullH, dstData, cx, cy, R, strength) {
-    if (!isFinite(cx) || !isFinite(cy) || !isFinite(R) || R < 1) return;
-    const x0 = Math.max(0, Math.floor(cx - R)), y0 = Math.max(0, Math.floor(cy - R));
-    const x1 = Math.min(fullW, Math.ceil(cx + R)), y1 = Math.min(fullH, Math.ceil(cy + R));
-    const w = x1 - x0, h = y1 - y0;
-    if (w < 3 || h < 3) return;
+  // ── 円形バルジ（デカ目）：局所領域 (rw×rh) 内で処理。cxL/cyL は領域内ローカル座標 ──
+  function bulgeRegion(src, dst, rw, rh, cxL, cyL, R, strength) {
+    if (!isFinite(cxL) || !isFinite(cyL) || !isFinite(R) || R < 1) return;
+    const x0 = Math.max(0, Math.floor(cxL - R)), y0 = Math.max(0, Math.floor(cyL - R));
+    const x1 = Math.min(rw, Math.ceil(cxL + R)), y1 = Math.min(rh, Math.ceil(cyL + R));
+    if (x1 - x0 < 2 || y1 - y0 < 2) return;
     for (let y = y0; y < y1; y++) {
       for (let x = x0; x < x1; x++) {
-        const dx = x - cx, dy = y - cy;
+        const dx = x - cxL, dy = y - cyL;
         const d = Math.hypot(dx, dy);
         if (d >= R || d === 0) continue;
         const r = d / R;
+        // 中心ほど factor が小さくなり、内側画素を「より中心寄り」からサンプリング＝拡大
         const factor = 1 - strength * (1 - r) * (1 - r);
-        const oi = (y * fullW + x) * 4;
-        sampleBilinear(fullSrc, fullW, fullH, cx + dx * factor, cy + dy * factor, dstData, oi);
+        sampleBilinear(src, rw, rh, cxL + dx * factor, cyL + dy * factor, dst, (y * rw + x) * 4);
       }
     }
   }
 
-  // ── デカ目 ──
-  function warpEyes(fullSrc, fullW, fullH, dstData, lm, amount) {
+  // ── デカ目 ──（src/dst は局所領域バッファ、rx/ry は領域原点の dst px）
+  function warpEyes(src, dst, rw, rh, rx, ry, lm, amount) {
+    const strength = amount * 0.45;   // 視認できる強さ（0〜0.45）
     [[R_EYE, 33, 133], [L_EYE, 362, 263]].forEach(([idxs, a, b]) => {
       const c = lmToPx(eyeCenter(lm, idxs));
       const eyeW = eyeWidthPx(lm, a, b);
-      const R = Math.max(20, eyeW * 1.8);
-      bulgeRegion(fullSrc, fullW, fullH, dstData, c.x, c.y, R, amount * 0.30);
+      const R = Math.max(16, eyeW * 1.6);
+      bulgeRegion(src, dst, rw, rh, c.x - rx, c.y - ry, R, strength);
     });
   }
 
-  // ── 小顔（中心線へ横圧縮）：warpCtx全体をgetImageDataして処理 ──
-  function warpSlim(fullSrc, fullW, fullH, dstData, lm, amount) {
+  // ── 小顔（中心線へ横圧縮）──（src/dst は局所領域バッファ、rx/ry は領域原点の dst px）
+  function warpSlim(src, dst, rw, rh, rx, ry, lm, amount) {
     const left = lmToPx(lm[234]), right = lmToPx(lm[454]);
     const chin = lmToPx(lm[152]), fore  = lmToPx(lm[10]);
-    const cx = (left.x + right.x) / 2;
+    const cx = (left.x + right.x) / 2;            // dst px
     const faceW = Math.abs(right.x - left.x);
     if (!isFinite(cx) || !isFinite(faceW) || faceW < 8) return;
+    const cxL = cx - rx;                          // 領域ローカル
     const half = faceW * 0.62;
-    const strength = amount * 0.16;
-    const bandTop = fore.y + (chin.y - fore.y) * 0.28;
-    const bandBot = chin.y + faceW * 0.12;
+    const strength = amount * 0.22;               // 視認できる強さ
+    const bandTop = (fore.y + (chin.y - fore.y) * 0.30) - ry;
+    const bandBot = (chin.y + faceW * 0.12) - ry;
     const yPad = (bandBot - bandTop) * 0.55;
 
-    const x0 = Math.max(0, Math.floor(cx - half));
-    const x1 = Math.min(fullW, Math.ceil(cx + half));
+    const x0 = Math.max(0, Math.floor(cxL - half));
+    const x1 = Math.min(rw, Math.ceil(cxL + half));
     const y0 = Math.max(0, Math.floor(bandTop - yPad));
-    const y1 = Math.min(fullH, Math.ceil(bandBot + yPad));
+    const y1 = Math.min(rh, Math.ceil(bandBot + yPad));
 
     for (let y = y0; y < y1; y++) {
-      const gy = y;
       let wy;
-      if (gy < bandTop)      wy = smoothstep(bandTop - yPad, bandTop, gy);
-      else if (gy > bandBot) wy = 1 - smoothstep(bandBot, bandBot + yPad, gy);
-      else                   wy = 1;
+      if (y < bandTop)      wy = smoothstep(bandTop - yPad, bandTop, y);
+      else if (y > bandBot) wy = 1 - smoothstep(bandBot, bandBot + yPad, y);
+      else                  wy = 1;
+      if (wy <= 0) continue;
       for (let x = x0; x < x1; x++) {
-        const nx = (x - cx) / half;          // -1..1
-        const wx = Math.max(0, 1 - nx*nx);   // 横重み
+        const nx = (x - cxL) / half;          // -1..1
+        const wx = 1 - nx * nx;               // 横重み（中心で最大）
+        if (wx <= 0) continue;
         const s = strength * wy * wx;
         if (s <= 0.0005) continue;
-        const oi = (y * fullW + x) * 4;
         // 内側へ寄せる＝外側からサンプリング
-        const srcX = cx + (x - cx) / (1 - s);
-        sampleBilinear(fullSrc, fullW, fullH, srcX, y, dstData, oi);
+        const srcX = cxL + (x - cxL) / (1 - s);
+        sampleBilinear(src, rw, rh, srcX, y, dst, (y * rw + x) * 4);
       }
     }
   }
@@ -2046,11 +2054,15 @@
       if (beautyCanvas.width !== W || beautyCanvas.height !== H) {
         beautyCanvas.width = W; beautyCanvas.height = H;
       }
-      // 変形ONなら顔検出（VIDEOモードは内部でフレーム間引き最適化される）
+      // 変形ONなら顔検出（毎フレームは重いので ~80ms 間隔に間引く）
       if (faceReady && (beauty.eye > 0.001 || beauty.slim > 0.001)) {
-        try {
-          lastResult = faceLandmarker.detectForVideo(boothVideo, performance.now());
-        } catch (e) { /* フレームスキップ */ }
+        const now = performance.now();
+        if (now - _lastDetect > 80) {
+          _lastDetect = now;
+          try {
+            lastResult = faceLandmarker.detectForVideo(boothVideo, nextMpTs());
+          } catch (e) { /* フレームスキップ */ }
+        }
       }
       // ランドマークのスケール基準を保存
       workFull._srcW = boothVideo.videoWidth;
@@ -2070,7 +2082,7 @@
   const beautyToggle  = document.getElementById('beauty-toggle');
   const beautyOptions = document.getElementById('beauty-options');
   const bpShapeNote   = document.getElementById('bp-shape-note');
-  bpShapeNote.textContent = '※ 補正は撮影時に適用されます（プレビューは素のままです）';
+  bpShapeNote.textContent = '※ なめらか肌・明るさ・血色はプレビューに反映されます';
 
   function bindSlider(id, key) {
     const el  = document.getElementById(id);
@@ -2352,8 +2364,8 @@
         // 変形系がONなら撮影直前に最新の顔検出を実施
         if (faceReady && (beauty.eye > 0.001 || beauty.slim > 0.001)) {
           try {
-            // detectForVideo は同一タイムスタンプを連続渡しできないため +1ms
-            lastResult = faceLandmarker.detectForVideo(boothVideo, performance.now() + 1);
+            // 撮影直前に最新フレームで再検出（タイムスタンプは単調増加で渡す）
+            lastResult = faceLandmarker.detectForVideo(boothVideo, nextMpTs());
           } catch (e) { console.warn('detect at capture failed:', e); }
         }
         applyBeauty(boothVideo, vw, vh, c, W, H);
@@ -2408,16 +2420,13 @@
         }
       });
 
-      // 4.5) イベントロゴ（右下）
+      // 4.5) イベントロゴ（画面表示の実寸・実位置をそのまま合成 → プレビューと完全一致）
       const logoEl = document.getElementById('booth-logo');
       if (logoEl && logoEl.style.display !== 'none' && logoEl.complete && logoEl.naturalWidth > 0) {
-        const logoH = 60 * dpr;
-        const logoW = logoEl.naturalWidth / logoEl.naturalHeight * logoH;
-        const lx = W - logoW - 16 * dpr;
-        const ly = H - logoH - 16 * dpr;
+        const lr = logoEl.getBoundingClientRect();
         c.save();
         c.globalAlpha = 0.85;
-        c.drawImage(logoEl, lx, ly, logoW, logoH);
+        c.drawImage(logoEl, lr.left * dpr, lr.top * dpr, lr.width * dpr, lr.height * dpr);
         c.restore();
       }
 
