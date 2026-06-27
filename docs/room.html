@@ -1171,20 +1171,20 @@
   <input type="file" id="char-upload-input" accept="image/*">
 
   <!-- ⑥ イベントロゴ（右下） -->
-  <img id="booth-logo" src="docs/assets/logo-dark.png" alt="きみ夏宵あそびロゴ">
+  <img id="booth-logo" src="assets/logo-dark.png" alt="きみ夏宵あそびロゴ">
 
   <!-- ⑥ ロゴ選択パネル -->
   <div id="logo-ctrl">
     <button id="logo-toggle-btn" aria-label="ロゴ設定">🏷️</button>
     <div id="logo-select-panel">
       <label class="logo-opt">
-        <input type="radio" name="logo-choice" value="docs/assets/logo-dark.png" checked>
-        <img src="docs/assets/logo-dark.png" alt="ダーク">
+        <input type="radio" name="logo-choice" value="assets/logo-dark.png" checked>
+        <img src="assets/logo-dark.png" alt="ダーク">
         <span>ダーク</span>
       </label>
       <label class="logo-opt">
-        <input type="radio" name="logo-choice" value="docs/assets/logo-light.png">
-        <img src="docs/assets/logo-light.png" alt="ライト">
+        <input type="radio" name="logo-choice" value="assets/logo-light.png">
+        <img src="assets/logo-light.png" alt="ライト">
         <span>ライト</span>
       </label>
       <label class="logo-opt">
@@ -2019,7 +2019,9 @@
 
   // リアルタイムプレビュー用ループ
   function beautyLoop() {
-    if (beauty.enabled && boothVideo.videoWidth) {
+    // ② beauty.enabled フラグではなく beautyActive()（スライダー値）で判定
+    if (beautyActive() && boothVideo.videoWidth && boothVideo.readyState >= 2) {
+      beautyCanvas.classList.add('active');   // ② 美顔ONのときだけ canvas を表示
       const dw = beautyCanvas.clientWidth  || window.innerWidth;
       const dh = beautyCanvas.clientHeight || window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -2039,6 +2041,8 @@
       const ctx = beautyCanvas.getContext('2d');
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       applyBeauty(boothVideo, boothVideo.videoWidth, boothVideo.videoHeight, ctx, W, H);
+    } else {
+      beautyCanvas.classList.remove('active');  // ② 美顔OFFなら canvas を非表示にして video を見せる
     }
     beautyRAF = requestAnimationFrame(beautyLoop);
   }
@@ -2157,6 +2161,7 @@
       boothVideo.srcObject = stream;
       boothView.classList.add('active');
       startBoothBubbles();
+      startBeautyLoop();  // ② 美顔ループをブース起動と同時に開始
     } catch (err) {
       console.error('Booth camera error:', err);
       if (err.name === 'NotAllowedError') {
@@ -2431,6 +2436,18 @@
   // photo-close / retake はフォトブースにも適用させる
   document.getElementById('photo-close').addEventListener('click', () => {
     if (boothView.classList.contains('active')) closeBooth();
+  });
+
+  // ③ 撮り直し：boothViewが起動中なら映像を確実に再開する
+  document.getElementById('photo-retake').addEventListener('click', async () => {
+    if (!boothView.classList.contains('active')) return;
+    photoResult.classList.remove('active');
+    // ストリームが生きていれば play() で再開、死んでいれば再取得
+    if (boothStream && boothStream.active) {
+      try { await boothVideo.play(); } catch (e) { /* 既に再生中でも無害 */ }
+    } else {
+      await startBooth();
+    }
   });
 })();
 </script>
