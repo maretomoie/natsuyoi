@@ -1298,8 +1298,8 @@
       const constraints = {
         video: {
           facingMode: usingFront ? 'user' : 'environment',
-          width:  { ideal: 1280 },
-          height: { ideal: 720 }
+          width:  { ideal: 1920 },
+          height: { ideal: 1080 }
         },
         audio: false
       };
@@ -1733,10 +1733,9 @@
   const boothCtx    = boothCanvas.getContext('2d');
 
   let boothStream = null;
-  let boothFront = /[?&]cam=front\b/.test(location.search);  // ?cam=front で前面起動
+  let boothFront = false;
   let boothBubbles = [];
   let boothBubbleId = null;
-  let _camErr = '';   // 直近のカメラ取得エラー（診断HUD用）
 
   // ═══════════════════════════════════════════
   // 6.5 美顔エンジン（MediaPipe FaceLandmarker ベース）
@@ -1750,11 +1749,6 @@
   const MP_WASM_PATH  = 'assets/mediapipe/wasm';
   const MP_MODEL_PATH = 'assets/mediapipe/face_landmarker.task';
   const MP_BUNDLE_URL = 'assets/mediapipe/vision_bundle.mjs';
-  // 顔検出のデリゲート。'CPU' は端末を選ばず安定（黒画面回避）。
-  // 高速化したい場合のみ 'GPU' に変更可（ただし一部Android端末で映像が黒化する）。
-  const MP_DELEGATE = 'CPU';
-  // 診断HUD（URL に ?debug=1 を付けると表示）
-  const BEAUTY_DEBUG = /[?&]debug=1\b/.test(location.search);
 
   const beautyCanvas = document.getElementById('beauty-canvas');
 
@@ -1779,36 +1773,6 @@
   const workCtx   = workFull.getContext('2d', { willReadFrequently: true });
   const workSmall = document.createElement('canvas'); // 縮小ブラー用
   const workSmCtx = workSmall.getContext('2d');
-  // 顔検出専用：表示用 video とは別に、縮小した複製フレームを検出へ渡す
-  // （生videoを直接渡すと一部端末で表示が黒化するため／CPU検出も高速化）
-  const detectCanvas = document.createElement('canvas');
-  const detectCtx    = detectCanvas.getContext('2d', { willReadFrequently: true });
-
-  // 縮小複製フレームに対して顔検出を実行（normalized座標なので縮小しても整合する）
-  let _detectStats = { faces: 0, lms: 0, lastErr: '' };
-  function detectFrame() {
-    if (!faceReady || !faceLandmarker) return null;
-    const vw = boothVideo.videoWidth, vh = boothVideo.videoHeight;
-    if (!vw || !vh) return null;
-    const MAX = 320;
-    let dW, dH;
-    if (vw >= vh) { dW = MAX; dH = Math.max(1, Math.round(MAX * vh / vw)); }
-    else          { dH = MAX; dW = Math.max(1, Math.round(MAX * vw / vh)); }
-    if (detectCanvas.width !== dW || detectCanvas.height !== dH) {
-      detectCanvas.width = dW; detectCanvas.height = dH;
-    }
-    try {
-      detectCtx.drawImage(boothVideo, 0, 0, dW, dH);
-      const res = faceLandmarker.detectForVideo(detectCanvas, nextMpTs());
-      _detectStats.faces = (res && res.faceLandmarks) ? res.faceLandmarks.length : 0;
-      _detectStats.lms   = (res && res.faceLandmarks && res.faceLandmarks[0]) ? res.faceLandmarks[0].length : 0;
-      _detectStats.lastErr = '';
-      return res;
-    } catch (e) {
-      _detectStats.lastErr = (e && e.message) ? e.message : String(e);
-      return null;
-    }
-  }
 
   // ─── MediaPipe FaceLandmarker（遅延ロード） ───
   let faceLandmarker = null;
@@ -1826,12 +1790,10 @@
       const { FaceLandmarker, FilesetResolver } = vision;
       const resolver = await FilesetResolver.forVisionTasks(new URL(MP_WASM_PATH, document.baseURI).href);
       faceLandmarker = await FaceLandmarker.createFromOptions(resolver, {
-        // GPUデリゲート＋生videoを detectForVideo に渡すと、直後の drawImage(video) が
-        // 黒フレームになる端末がある（Android GPUのテクスチャ競合）。
-        // 検出は別オフスクリーンへ複製した縮小フレームに対して CPU で行うことで回避する。
-        baseOptions: { modelAssetPath: new URL(MP_MODEL_PATH, document.baseURI).href, delegate: MP_DELEGATE },
+        baseOptions: { modelAssetPath: new URL(MP_MODEL_PATH, document.baseURI).href, delegate: 'GPU' },
         runningMode: 'VIDEO',
         numFaces: 2,
+        // 虹彩点（468〜477）を有効化して目の中心精度を上げる
         outputFaceBlendshapes: false,
         outputFacialTransformationMatrixes: false,
       });
@@ -2081,10 +2043,10 @@
   }
 
   // リアルタイムプレビュー用ループ
-  let _fpsT = performance.now(), _fpsN = 0, _fps = 0;
   function beautyLoop() {
     // ② beauty.enabled フラグではなく beautyActive()（スライダー値）で判定
     if (beautyActive() && boothVideo.videoWidth && boothVideo.readyState >= 2) {
+      beautyCanvas.classList.add('active');   // ② 美顔ONのときだけ canvas を表示
       const dw = beautyCanvas.clientWidth  || window.innerWidth;
       const dh = beautyCanvas.clientHeight || window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -2092,63 +2054,29 @@
       if (beautyCanvas.width !== W || beautyCanvas.height !== H) {
         beautyCanvas.width = W; beautyCanvas.height = H;
       }
-      // 変形ONなら顔検出（毎フレームは重いので ~80ms 間隔に間引く・縮小複製フレームで検出）
+      // 変形ONなら顔検出（毎フレームは重いので ~80ms 間隔に間引く）
       if (faceReady && (beauty.eye > 0.001 || beauty.slim > 0.001)) {
         const now = performance.now();
         if (now - _lastDetect > 80) {
           _lastDetect = now;
-          lastResult = detectFrame() || lastResult;
+          try {
+            lastResult = faceLandmarker.detectForVideo(boothVideo, nextMpTs());
+          } catch (e) { /* フレームスキップ */ }
         }
       }
       // ランドマークのスケール基準を保存
       workFull._srcW = boothVideo.videoWidth;
       workFull._srcH = boothVideo.videoHeight;
-      try {
-        const ctx = beautyCanvas.getContext('2d');
-        ctx.setTransform(1, 0, 0, 1, 0, 0);
-        applyBeauty(boothVideo, boothVideo.videoWidth, boothVideo.videoHeight, ctx, W, H);
-        beautyCanvas.classList.add('active');   // 描画成功時のみ canvas を表示
-      } catch (e) {
-        // 何かあっても黒画面にしない：美顔キャンバスを隠して生videoを見せる
-        beautyCanvas.classList.remove('active');
-        _detectStats.lastErr = 'applyBeauty: ' + ((e && e.message) ? e.message : e);
-      }
+      const ctx = beautyCanvas.getContext('2d');
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      applyBeauty(boothVideo, boothVideo.videoWidth, boothVideo.videoHeight, ctx, W, H);
     } else {
       beautyCanvas.classList.remove('active');  // ② 美顔OFFなら canvas を非表示にして video を見せる
     }
-    // FPS計測 & 診断HUD
-    _fpsN++;
-    const tnow = performance.now();
-    if (tnow - _fpsT >= 500) { _fps = Math.round(_fpsN * 1000 / (tnow - _fpsT)); _fpsN = 0; _fpsT = tnow; }
-    if (BEAUTY_DEBUG) updateBeautyDebug();
     beautyRAF = requestAnimationFrame(beautyLoop);
   }
   function startBeautyLoop() { if (!beautyRAF) beautyLoop(); }
   function stopBeautyLoop() { if (beautyRAF) { cancelAnimationFrame(beautyRAF); beautyRAF = null; } }
-
-  // 診断HUD（?debug=1 のときだけDOMを作って毎フレーム更新）
-  let _dbgEl = null;
-  function updateBeautyDebug() {
-    if (!_dbgEl) {
-      _dbgEl = document.createElement('div');
-      _dbgEl.style.cssText = 'position:fixed;top:64px;left:8px;z-index:9999;'
-        + 'background:rgba(0,0,0,.72);color:#9fe;font:11px/1.5 monospace;'
-        + 'padding:6px 8px;border-radius:6px;white-space:pre;pointer-events:none;max-width:60vw;';
-      document.body.appendChild(_dbgEl);
-    }
-    const st = faceFailed ? 'FAILED' : faceReady ? 'ready' : faceLoading ? 'loading' : 'idle';
-    _dbgEl.textContent =
-      `delegate: ${MP_DELEGATE}\n`
-    + `cam: ${boothFront ? 'front' : 'back'}\n`
-    + `model: ${st}\n`
-    + `faces: ${_detectStats.faces}  lms: ${_detectStats.lms}\n`
-    + `eye:${beauty.eye.toFixed(2)} slim:${beauty.slim.toFixed(2)}\n`
-    + `fps: ${_fps}\n`
-    + `video: ${boothVideo.videoWidth}x${boothVideo.videoHeight} rs${boothVideo.readyState}\n`
-    + `beautyCanvas: ${beautyCanvas.classList.contains('active') ? 'on' : 'off'}\n`
-    + (_camErr ? `camErr: ${_camErr}\n` : '')
-    + (_detectStats.lastErr ? `err: ${_detectStats.lastErr}` : 'err: -');
-  }
 
   // ─── 美顔UI ───
   const beautyToggle  = document.getElementById('beauty-toggle');
@@ -2251,130 +2179,26 @@
     if (boothBubbleId) { cancelAnimationFrame(boothBubbleId); boothBubbleId = null; }
   }
 
-  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-
-  // 解像度などの制約フォールバック付き getUserMedia（1回分の試行）
-  async function gumWithLadder(front) {
-    const fm = front ? 'user' : 'environment';
-    const ladder = [
-      { video: { facingMode: { ideal: fm }, width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false },
-      { video: { facingMode: { ideal: fm } }, audio: false },
-      { video: true, audio: false },
-    ];
-    let lastErr;
-    for (const c of ladder) {
-      try { return await navigator.mediaDevices.getUserMedia(c); }
-      catch (e) {
-        lastErr = e;
-        // 解像度/デバイス不一致のときだけ次の制約を試す。
-        // NotReadableError 等は制約を変えても無駄なのでこのラダーは抜ける（外側で待って再試行）。
-        if (!e || (e.name !== 'OverconstrainedError' && e.name !== 'NotFoundError')) break;
-      }
-    }
-    throw lastErr;
-  }
-
-  // NotReadableError（カメラ解放待ち）に対して待ち時間を増やしながら再試行
-  async function acquireCamera(front) {
-    const delays = [0, 300, 700];   // 累積リトライの待ち（ms）
-    let lastErr;
-    for (let i = 0; i < delays.length; i++) {
-      if (delays[i]) await sleep(delays[i]);
-      try { return await gumWithLadder(front); }
-      catch (e) {
-        lastErr = e;
-        // 解放待ち系は再試行、それ以外（権限拒否など）は即中断
-        if (e && (e.name === 'NotReadableError' || e.name === 'AbortError' || e.name === 'TrackStartError')) continue;
-        throw e;
-      }
-    }
-    throw lastErr;
-  }
-
-  function applyStream(stream) {
-    boothStream = stream;
-    boothVideo.srcObject = stream;
-    boothView.classList.add('active');
-    errorView.classList.remove('active');
-    _camErr = '';
-    startBoothBubbles();
-    startBeautyLoop();
-  }
-
-  let _toastEl = null, _toastT = null;
-  function boothToast(msg) {
-    if (!_toastEl) {
-      _toastEl = document.createElement('div');
-      _toastEl.style.cssText = 'position:fixed;left:50%;top:80px;transform:translateX(-50%);'
-        + 'z-index:300;max-width:86vw;background:rgba(20,24,48,.92);color:#fff;'
-        + 'font-size:13px;line-height:1.5;padding:10px 14px;border-radius:10px;'
-        + 'box-shadow:0 4px 16px rgba(0,0,0,.4);text-align:center;opacity:0;'
-        + 'transition:opacity .25s;pointer-events:none;';
-      document.body.appendChild(_toastEl);
-    }
-    _toastEl.textContent = msg;
-    _toastEl.style.opacity = '1';
-    if (_toastT) clearTimeout(_toastT);
-    _toastT = setTimeout(() => { if (_toastEl) _toastEl.style.opacity = '0'; }, 3500);
-  }
-
-  function showCamError(err) {
-    _camErr = (err ? (err.name + ': ' + (err.message || '')) : 'unknown');
-    if (err && err.name === 'NotAllowedError') {
-      errorMsg.textContent = 'カメラへのアクセスが拒否されました。ブラウザ設定からカメラ許可を有効にしてください。';
-    } else if (err && err.name === 'NotReadableError') {
-      errorMsg.textContent = 'カメラを開けませんでした。他のアプリ・タブでカメラを使用中か、切替直後で解放待ちの可能性があります。数秒おいて、もう一度「カメラ切替」をお試しください。（' + err.name + '）';
-    } else if (err && err.name === 'OverconstrainedError') {
-      errorMsg.textContent = 'この端末のカメラが要求した設定に対応していません。（' + err.name + ' / ' + (err.constraint || '') + '）';
-    } else {
-      errorMsg.textContent = 'カメラの起動に失敗しました: ' + (err ? (err.name + ' ' + (err.message || '')) : err);
-    }
-    errorView.classList.add('active');
-    if (BEAUTY_DEBUG) updateBeautyDebug();
-  }
-
-  let _camBusy = false;   // startBooth の多重実行防止
   async function startBooth() {
-    if (_camBusy) return;
-    _camBusy = true;
-    const wantFront = boothFront;
-    // まずブース画面へ遷移して「読み込み中」を見せる（取得失敗でも詰まらない）
-    boothView.classList.add('active');
-    errorView.classList.remove('active');
-    startBoothBubbles();
     try {
-      // 既存ストリームを完全に停止してから（同一デバイスを掴み直すため）解放を待つ
-      if (boothStream) {
-        boothStream.getTracks().forEach(t => t.stop());
-        boothStream = null;
-        boothVideo.srcObject = null;
-        await sleep(300);
-      }
-      let stream, failedFirst = null;
-      try {
-        stream = await acquireCamera(wantFront);
-      } catch (err) {
-        // 要求したカメラが開けない端末では、もう一方のカメラへ自動で逃がす
-        console.warn('camera failed, trying the other facing:', err);
-        failedFirst = err;
-        boothFront = !wantFront;
-        await sleep(300);
-        stream = await acquireCamera(boothFront);  // ここで失敗したら下の catch へ
-      }
-      try { await boothVideo.play(); } catch (_) {}
-      applyStream(stream);
-      if (failedFirst) {
-        boothToast((wantFront ? '前面' : '背面') + 'カメラを開けませんでした（'
-                   + ((failedFirst && failedFirst.name) || 'error') + '）。'
-                   + (boothFront ? '前面' : '背面') + 'カメラで起動しました。');
-        if (BEAUTY_DEBUG) updateBeautyDebug();
-      }
+      if (boothStream) boothStream.getTracks().forEach(t => t.stop());
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: boothFront ? 'user' : 'environment', width:{ideal:1920}, height:{ideal:1080} },
+        audio: false
+      });
+      boothStream = stream;
+      boothVideo.srcObject = stream;
+      boothView.classList.add('active');
+      startBoothBubbles();
+      startBeautyLoop();  // ② 美顔ループをブース起動と同時に開始
     } catch (err) {
-      // 両方のカメラがダメだった場合のみエラー画面
-      console.error('Booth camera error (both facings):', err);
-      showCamError(err);
-    } finally {
-      _camBusy = false;
+      console.error('Booth camera error:', err);
+      if (err.name === 'NotAllowedError') {
+        errorMsg.textContent = 'カメラへのアクセスが拒否されました。ブラウザ設定からカメラ許可を有効にしてください。';
+      } else {
+        errorMsg.textContent = 'カメラの起動に失敗しました: ' + (err.message || err.name);
+      }
+      errorView.classList.add('active');
     }
   }
   function closeBooth() {
@@ -2386,11 +2210,7 @@
 
   document.getElementById('photo-panel-entry').addEventListener('click', startBooth);
   document.getElementById('booth-close').addEventListener('click', closeBooth);
-  document.getElementById('booth-switch').addEventListener('click', () => {
-    if (_camBusy) return;          // 取得処理中の連打を無視（状態ずれ防止）
-    boothFront = !boothFront;
-    startBooth();
-  });
+  document.getElementById('booth-switch').addEventListener('click', () => { boothFront = !boothFront; startBooth(); });
 
   // ─── ドラッグ移動（立ち絵・スタンプ共通） ───
   function makeDraggable(el) {
@@ -2543,8 +2363,10 @@
         workFull._srcH = vh;
         // 変形系がONなら撮影直前に最新の顔検出を実施
         if (faceReady && (beauty.eye > 0.001 || beauty.slim > 0.001)) {
-          // 撮影直前に最新フレームで再検出（縮小複製フレームで検出）
-          lastResult = detectFrame() || lastResult;
+          try {
+            // 撮影直前に最新フレームで再検出（タイムスタンプは単調増加で渡す）
+            lastResult = faceLandmarker.detectForVideo(boothVideo, nextMpTs());
+          } catch (e) { console.warn('detect at capture failed:', e); }
         }
         applyBeauty(boothVideo, vw, vh, c, W, H);
       } else {
