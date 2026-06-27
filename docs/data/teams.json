@@ -56,7 +56,7 @@
           "id": "nichinamui",
           "name": "日菜むい",
           "avatar": "assets/guests/hanabi-mui.png",
-          "avatar_initial": "む",
+          "avatar_initial": "日",
           "avatar_hue": 300,
           "links": {
             "youtube": "https://www.youtube.com/@nichinamui",
@@ -91,7 +91,7 @@
       "id": "soseitsukka",
       "name": "蒼星月花",
       "color": "80, 140, 220",
-      "kv_image": "assets/kv-moon.png",
+      "kv_image": "assets/kv-sousei.png",
       "leaders": [
         {
           "id": "kinetsuki",
@@ -175,131 +175,262 @@
       ]
     },
     {
-      "id": "ennichi",
-      "name": "縁日で射的！",
+      "id": "utakata",
+      "name": "泡沫スプラッシュ!",
       "color": "240, 190, 80",
-      "kv_image": "assets/kv-ennichi.png",
+      "kv_image": "assets/kv-utakata.png",
       "leaders": [
         {
-          "id": "kanimiso",
-          "name": "かにみそ",
-          "avatar": null,
-          "avatar_initial": "か",
+          "id": "misakichi",
+          "name": "御崎 千結",
+          "avatar": "assets/guests/utakata-misakichi.png",
+          "avatar_initial": "御",
           "avatar_hue": 30,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@misakichiyu",
+            "twitter": "https://x.com/misakichiyu?lang=ja"
           }
         },
         {
-          "id": "hosoya",
-          "name": "細谷拓真",
-          "avatar": null,
-          "avatar_initial": "細",
+          "id": "satsuki",
+          "name": "佐月麻理子",
+          "avatar": "assets/guests/utakata-satsuki.png",
+          "avatar_initial": "麻",
           "avatar_hue": 50,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/channel/UCexu3zBbRdNDG6fOa-SsG4Q?app=desktop",
+            "twitter": "https://x.com/satsuki_mariko"
           }
         }
       ],
       "matsuri": [
         {
-          "id": "ginkasama",
-          "name": "銀貨先生",
-          "avatar": null,
-          "avatar_initial": "銀",
+          "id": "yunchuru",
+          "name": "伊集院有希",
+          "avatar": "assets/guests/utakata-yunchuru.png",
+          "avatar_initial": "有",
           "avatar_hue": 280,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@yuntyuru",
+            "twitter": "https://x.com/yuntyuru_autre"
           }
         },
         {
-          "id": "dorome",
-          "name": "泥目楽堕",
-          "avatar": null,
-          "avatar_initial": "泥",
+          "id": "chino",
+          "name": "雛吞ちの",
+          "avatar": "assets/guests/utakata-chino.png",
+          "avatar_initial": "雛",
           "avatar_hue": 20,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@%E9%9B%9B%E5%91%91%E3%81%A1%E3%81%AE",
+            "twitter": "https://x.com/chinohinano"
           }
         },
         {
-          "id": "shinonome",
-          "name": "東雲ハヤテ",
-          "avatar": null,
-          "avatar_initial": "東",
+          "id": "aju",
+          "name": "安住太一",
+          "avatar": "assets/guests/utakata-aju.png",
+          "avatar_initial": "あ",
           "avatar_hue": 170,
           "links": {
+            "youtube": "https://www.youtube.com/@%E3%81%82%E3%81%98%E3%82%85%E3%81%98%E3%82%85npm",
+            "twitter": "https://x.com/ajuju_npm"
+          }
+        },
+        {
+          "id": "higa",
+          "name": "比嘉 秀仁",
+          "avatar": "assets/guests/utakata-higa.png",
+          "avatar_initial": "比",
+          "avatar_hue": 180,
+          "links": {
+            "youtube": "https://www.youtube.com/channel/UCgt6CzPcHMTfsEK0war0zMg",
+            "twitter": "https://x.com/hidehitox_higa?lang=ja"
+          }
+        },
+        {
+          "id": "kako",
+          "name": "平原佳子",
+          "avatar": "assets/guests/utakata-kako.png",
+          "avatar_initial": "佳",
+          "avatar_hue": 230,
+          "links": {
             "youtube": null,
-            "twitter": null
+            "twitter": "https://x.com/HARAchan_poker"
           }
         }
       ]
     },
     {
-      "id": "reimea",
-      "name": "れいめあビアガーデン",
+      "id": "saranari",
+      "name": "月のころはさらなり",
       "color": "120, 200, 140",
-      "kv_image": "assets/kv-beer.png",
+      "kv_image": "assets/kv-saranari.png",
       "leaders": [
         {
-          "id": "meatomo2",
-          "name": "めあともえ",
-          "avatar": null,
-          "avatar_initial": "め",
+          "id": "new",
+          "name": "鴨神にゅう",
+          "avatar": "assets/guests/saranari-new.png",
+          "avatar_initial": "鴨",
           "avatar_hue": 270,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@Kamogami_new",
+            "twitter": "https://x.com/Kamogami_new"
           }
         },
         {
-          "id": "natsuyagi",
-          "name": "夏八木玲衣",
-          "avatar": null,
-          "avatar_initial": "夏",
+          "id": "rotan",
+          "name": "龍惺ろたん",
+          "avatar": "assets/guests/saranari-rotan.png",
+          "avatar_initial": "龍",
           "avatar_hue": 330,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/channel/UC0InrNgDrH-4irmIVHT_dwQ",
+            "twitter": "https://x.com/RyuseiRotan"
+          }
+        },
+        {
+          "id": "yoteru",
+          "name": "ヨーテル",
+          "avatar": "assets/guests/saranari-yoteru.png",
+          "avatar_initial": "ヨ",
+          "avatar_hue": 240,
+          "links": {
+            "youtube": "https://www.youtube.com/channel/UC-YyR3w0F6hk5odN8wPYsMA",
+            "twitter": "https://x.com/yoteru11"
           }
         }
       ],
       "matsuri": [
         {
-          "id": "mekaz",
-          "name": "メカZ",
-          "avatar": null,
-          "avatar_initial": "メ",
-          "avatar_hue": 240,
-          "links": {
-            "youtube": null,
-            "twitter": null
-          }
-        },
-        {
-          "id": "sedonarian",
-          "name": "せどなりあん",
-          "avatar": null,
-          "avatar_initial": "せ",
+          "id": "saku",
+          "name": "青門天雀",
+          "avatar": "assets/guests/saranari-saku.png",
+          "avatar_initial": "雀",
           "avatar_hue": 160,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://17.live/ja/profile/u/4407be3f-301f-4f5d-b0ae-7ebc70c0e534?af_http_referer=https://t.co/&af_force_deeplink=true&pid=InappShare&af_dp=media17%3A%2F%2Fv2%2Fstreamer_profile%2F4407be3f-301f-4f5d-b0ae-7ebc70c0e534&deep_link_value=media17%3A%2F%2Fv2%2Fstreamer_profile%2F4407be3f-301f-4f5d-b0ae-7ebc70c0e534&af_c_id=profilepage",
+            "twitter": "https://x.com/saku_bushilive"
           }
         },
         {
-          "id": "salsnoah",
-          "name": "Sals=noah",
-          "avatar": null,
-          "avatar_initial": "S",
+          "id": "shiira",
+          "name": "泡沫しいら",
+          "avatar": "assets/guests/saranari-shiira.png",
+          "avatar_initial": "泡",
           "avatar_hue": 210,
           "links": {
-            "youtube": null,
-            "twitter": null
+            "youtube": "https://www.youtube.com/@%E6%B3%A1%E6%B2%AB%E3%81%97%E3%81%84%E3%82%89",
+            "twitter": "https://x.com/Coela_Utakata"
+          }
+        },
+        {
+          "id": "z",
+          "name": "メカゼットン",
+          "avatar": "assets/guests/saranari-z.png",
+          "avatar_initial": "Z",
+          "avatar_hue": 150,
+          "links": {
+            "youtube": "https://www.youtube.com/channel/UChw1CgXKlKek7rjlbM06MVg?view_as=subscriber",
+            "twitter": "https://x.com/mekazettonn?lang=ja"
+          }
+        },
+        {
+          "id": "ika",
+          "name": "ゆうれいいか",
+          "avatar": "assets/guests/saranari-ika.png",
+          "avatar_initial": "い",
+          "avatar_hue": 140,
+          "links": {
+            "youtube": "https://www.youtube.com/@yuureiika",
+            "twitter": "https://x.com/yuureiika_jan"
+          }
+        }
+      ]
+    },
+    {
+      "id": "torinama",
+      "name": "トリあえず生！！",
+      "color": "40, 110,230",
+      "kv_image": "assets/kv-torinama.png",
+      "leaders": [
+        {
+          "id": "mare",
+          "name": "めあともえ",
+          "avatar": "assets/guests/torinama-mare.png",
+          "avatar_initial": "め",
+          "avatar_hue": 280,
+          "links": {
+            "youtube": "https://www.youtube.com/@maretomoiech",
+            "twitter": "https://x.com/MareTOMOIEsinks"
+          }
+        },
+        {
+          "id": "manicure",
+          "name": "まにきゅあ",
+          "avatar": "assets/guests/torinama-manicure.png",
+          "avatar_initial": "ま",
+          "avatar_hue": 20,
+          "links": {
+            "youtube": "https://www.youtube.com/@manimanicurered",
+            "twitter": "https://x.com/manimanicurered"
+          }
+        },
+        {
+          "id": "nagon",
+          "name": "斉唱なごん",
+          "avatar": "assets/guests/torinama-nagon.png",
+          "avatar_initial": "な",
+          "avatar_hue": 170,
+          "links": {
+            "youtube": "https://www.youtube.com/@sayshow_nagon",
+            "twitter": "https://x.com/sayshow_nagon53"
+          }
+        }
+      ],
+      "matsuri": [
+        {
+          "id": "himono",
+          "name": "乾物ひもの",
+          "avatar": "assets/guests/torinama-himono.png",
+          "avatar_initial": "乾",
+          "avatar_hue": 180,
+          "links": {
+            "youtube": "https://www.youtube.com/@-himonogames-6327",
+            "twitter": "https://x.com/himono_vtuber?lang=ja"
+          }
+        },
+        {
+          "id": "hirame",
+          "name": "ひらめ",
+          "avatar": "assets/guests/torinama-hirame.png",
+          "avatar_initial": "ひ",
+          "avatar_hue": 230,
+          "links": {
+            "youtube": "https://www.youtube.com/@HiRaMe0811",
+            "twitter": "https://x.com/HiRaMe_0811"
+          }
+        },
+        {
+          "id": "mua",
+          "name": "むあ",
+          "avatar": "assets/guests/torinama-mua.png",
+          "avatar_initial": "む",
+          "avatar_hue": 270,
+          "links": {
+            "youtube": "https://www.youtube.com/@mumumua",
+            "twitter": "https://x.com/muamua_u"
+          }
+        },
+        {
+          "id": "sedona",
+          "name": "せどなりあん",
+          "avatar": "assets/guests/torinama-sedona.png",
+          "avatar_initial": "せ",
+          "avatar_hue": 330,
+          "links": {
+            "youtube": "https://youtube.com/channel/UCI78ZSkRqlRBhQj40aJFS3g?si=28YW9wDiUkC6HmX3",
+            "twitter": "https://x.com/sedonari"
           }
         }
       ]
