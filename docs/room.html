@@ -1298,8 +1298,8 @@
       const constraints = {
         video: {
           facingMode: usingFront ? 'user' : 'environment',
-          width:  { ideal: 1920 },
-          height: { ideal: 1080 }
+          width:  { ideal: 1280 },
+          height: { ideal: 720 }
         },
         audio: false
       };
@@ -1733,9 +1733,10 @@
   const boothCtx    = boothCanvas.getContext('2d');
 
   let boothStream = null;
-  let boothFront = false;
+  let boothFront = /[?&]cam=front\b/.test(location.search);  // ?cam=front で前面起動
   let boothBubbles = [];
   let boothBubbleId = null;
+  let _camErr = '';   // 直近のカメラ取得エラー（診断HUD用）
 
   // ═══════════════════════════════════════════
   // 6.5 美顔エンジン（MediaPipe FaceLandmarker ベース）
@@ -2138,12 +2139,14 @@
     const st = faceFailed ? 'FAILED' : faceReady ? 'ready' : faceLoading ? 'loading' : 'idle';
     _dbgEl.textContent =
       `delegate: ${MP_DELEGATE}\n`
+    + `cam: ${boothFront ? 'front' : 'back'}\n`
     + `model: ${st}\n`
     + `faces: ${_detectStats.faces}  lms: ${_detectStats.lms}\n`
     + `eye:${beauty.eye.toFixed(2)} slim:${beauty.slim.toFixed(2)}\n`
     + `fps: ${_fps}\n`
     + `video: ${boothVideo.videoWidth}x${boothVideo.videoHeight} rs${boothVideo.readyState}\n`
     + `beautyCanvas: ${beautyCanvas.classList.contains('active') ? 'on' : 'off'}\n`
+    + (_camErr ? `camErr: ${_camErr}\n` : '')
     + (_detectStats.lastErr ? `err: ${_detectStats.lastErr}` : 'err: -');
   }
 
@@ -2248,26 +2251,68 @@
     if (boothBubbleId) { cancelAnimationFrame(boothBubbleId); boothBubbleId = null; }
   }
 
+  // 端末互換のため段階的にフォールバックしてカメラを取得する
+  //  前面カメラは 1920x1080 を要求すると OverconstrainedError で失敗する端末が多いので、
+  //  解像度を下げる→facingModeのみ→ラベル推定のdeviceId→video:true の順で試す。
+  async function acquireCamera(front) {
+    const fm = front ? 'user' : 'environment';
+    const attempts = [
+      { video: { facingMode: { ideal: fm }, width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false },
+      { video: { facingMode: { ideal: fm } }, audio: false },
+    ];
+    let lastErr;
+    for (const c of attempts) {
+      try { return await navigator.mediaDevices.getUserMedia(c); }
+      catch (e) { lastErr = e; }
+    }
+    // ラベルから前面/背面を推定して deviceId 指定で再試行（権限許可後はラベルが取れる）
+    try {
+      const devs = await navigator.mediaDevices.enumerateDevices();
+      const cams = devs.filter(d => d.kind === 'videoinput');
+      if (cams.length) {
+        const re = front ? /front|user|内|前|自/i : /back|rear|environment|外|背|後/i;
+        const pick = cams.find(d => re.test(d.label)) || (front ? cams[0] : cams[cams.length - 1]);
+        if (pick && pick.deviceId) {
+          return await navigator.mediaDevices.getUserMedia({ video: { deviceId: { exact: pick.deviceId } }, audio: false });
+        }
+      }
+    } catch (e) { lastErr = e; }
+    // 最終手段
+    try { return await navigator.mediaDevices.getUserMedia({ video: true, audio: false }); }
+    catch (e) { throw (e || lastErr); }
+  }
+
   async function startBooth() {
     try {
-      if (boothStream) boothStream.getTracks().forEach(t => t.stop());
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: boothFront ? 'user' : 'environment', width:{ideal:1920}, height:{ideal:1080} },
-        audio: false
-      });
+      if (boothStream) {
+        boothStream.getTracks().forEach(t => t.stop());
+        boothStream = null;
+        boothVideo.srcObject = null;
+        // ハードウェア解放待ち（切替直後の NotReadableError を回避）
+        await new Promise(r => setTimeout(r, 200));
+      }
+      const stream = await acquireCamera(boothFront);
       boothStream = stream;
       boothVideo.srcObject = stream;
+      try { await boothVideo.play(); } catch (_) { /* 自動再生済みなら無害 */ }
       boothView.classList.add('active');
+      _camErr = '';
       startBoothBubbles();
       startBeautyLoop();  // ② 美顔ループをブース起動と同時に開始
     } catch (err) {
       console.error('Booth camera error:', err);
-      if (err.name === 'NotAllowedError') {
+      _camErr = (err ? (err.name + ': ' + (err.message || '')) : 'unknown');
+      if (err && err.name === 'NotAllowedError') {
         errorMsg.textContent = 'カメラへのアクセスが拒否されました。ブラウザ設定からカメラ許可を有効にしてください。';
+      } else if (err && err.name === 'NotReadableError') {
+        errorMsg.textContent = 'カメラが他のアプリ・タブで使用中の可能性があります。それらを閉じてから再度お試しください。（' + err.name + '）';
+      } else if (err && err.name === 'OverconstrainedError') {
+        errorMsg.textContent = 'この端末のカメラが要求した設定に対応していません。（' + err.name + ' / ' + (err.constraint || '') + '）';
       } else {
-        errorMsg.textContent = 'カメラの起動に失敗しました: ' + (err.message || err.name);
+        errorMsg.textContent = 'カメラの起動に失敗しました: ' + (err ? (err.name + ' ' + (err.message || '')) : err);
       }
       errorView.classList.add('active');
+      if (BEAUTY_DEBUG) updateBeautyDebug();
     }
   }
   function closeBooth() {
