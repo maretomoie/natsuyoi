@@ -1769,10 +1769,13 @@
   }
 
   // 作業用オフスクリーン
-  const workFull  = document.createElement('canvas'); // 等倍合成用
+  const workFull  = document.createElement('canvas'); // 等倍合成用（smooth/bright/warm）
   const workCtx   = workFull.getContext('2d', { willReadFrequently: true });
   const workSmall = document.createElement('canvas'); // 縮小ブラー用
   const workSmCtx = workSmall.getContext('2d');
+  // 変形専用オフスクリーン（getImageData/putImageData用。workFullと独立させてcomposite汚染を防ぐ）
+  const warpCanvas = document.createElement('canvas');
+  const warpCtx    = warpCanvas.getContext('2d', { willReadFrequently: true });
 
   // ─── MediaPipe FaceLandmarker（遅延ロード） ───
   let faceLandmarker = null;
@@ -1874,15 +1877,39 @@
     }
 
     // 3) デカ目 / 小顔（ランドマーク取得時のみ）
+    // workFull の内容を warpCanvas にコピーして変形し、workFull に書き戻す
     if (faceReady && lastResult && lastResult.faceLandmarks &&
         (beauty.eye > 0.001 || beauty.slim > 0.001)) {
       try {
+        if (warpCanvas.width !== dw || warpCanvas.height !== dh) {
+          warpCanvas.width = dw; warpCanvas.height = dh;
+        }
+        // workFull の現状をコピー
+        warpCtx.setTransform(1, 0, 0, 1, 0, 0);
+        warpCtx.globalAlpha = 1;
+        warpCtx.globalCompositeOperation = 'source-over';
+        warpCtx.clearRect(0, 0, dw, dh);
+        warpCtx.drawImage(workFull, 0, 0, dw, dh);
+
+        // フル解像度でgetImageData（パッチ外参照のクランプ問題を解消）
+        const srcData = warpCtx.getImageData(0, 0, dw, dh);
+        const dstImgData = warpCtx.createImageData(dw, dh);
+        // まず元データをそのままコピー（変形しない領域はそのまま残す）
+        dstImgData.data.set(srcData.data);
+
         lastResult.faceLandmarks.forEach(lm => {
-          if (beauty.slim > 0.001) warpSlim(workCtx, lm, beauty.slim);
-          if (beauty.eye  > 0.001) warpEyes(workCtx, lm, beauty.eye);
+          if (beauty.slim > 0.001) warpSlim(srcData.data, dw, dh, dstImgData.data, lm, beauty.slim);
+          if (beauty.eye  > 0.001) warpEyes(srcData.data, dw, dh, dstImgData.data, lm, beauty.eye);
         });
+
+        warpCtx.putImageData(dstImgData, 0, 0);
+
+        // 変形結果を workFull に書き戻す
+        workCtx.setTransform(1, 0, 0, 1, 0, 0);
+        workCtx.globalAlpha = 1;
+        workCtx.globalCompositeOperation = 'source-over';
+        workCtx.drawImage(warpCanvas, 0, 0, dw, dh);
       } catch (e) {
-        // 変形が失敗しても素の映像は必ず残す（＋原因を画面に出す）
         console.warn('warp skipped:', e);
         try { bpShapeNote.textContent = '⚠ 変形スキップ: ' + (e && e.message ? e.message : e); } catch (_) {}
       }
@@ -1940,81 +1967,71 @@
     return t*t*(3 - 2*t);
   }
 
-  // ── 円形バルジ（中心ほど拡大、縁でなめらかに0：リング段差なし） ──
-  function bulgeRegion(ctx, cx, cy, R, strength) {
+  // ── 円形バルジ（デカ目）：warpCtx全体をgetImageDataして処理 ──
+  function bulgeRegion(fullSrc, fullW, fullH, dstData, cx, cy, R, strength) {
     if (!isFinite(cx) || !isFinite(cy) || !isFinite(R) || R < 1) return;
-    const cw = ctx.canvas.width, ch = ctx.canvas.height;
     const x0 = Math.max(0, Math.floor(cx - R)), y0 = Math.max(0, Math.floor(cy - R));
-    const x1 = Math.min(cw, Math.ceil(cx + R)), y1 = Math.min(ch, Math.ceil(cy + R));
+    const x1 = Math.min(fullW, Math.ceil(cx + R)), y1 = Math.min(fullH, Math.ceil(cy + R));
     const w = x1 - x0, h = y1 - y0;
-    if (!(w >= 3) || !(h >= 3)) return;   // NaN も弾く
-    const sd = ctx.getImageData(x0, y0, w, h).data;
-    const dst = ctx.createImageData(w, h), dd = dst.data;
-    const lcx = cx - x0, lcy = cy - y0;
-    for (let y = 0; y < h; y++) {
-      for (let x = 0; x < w; x++) {
-        const oi = (y*w + x)*4;
-        const dx = x - lcx, dy = y - lcy;
+    if (w < 3 || h < 3) return;
+    for (let y = y0; y < y1; y++) {
+      for (let x = x0; x < x1; x++) {
+        const dx = x - cx, dy = y - cy;
         const d = Math.hypot(dx, dy);
-        if (d >= R || d === 0) { dd[oi]=sd[oi];dd[oi+1]=sd[oi+1];dd[oi+2]=sd[oi+2];dd[oi+3]=sd[oi+3]; continue; }
+        if (d >= R || d === 0) continue;
         const r = d / R;
-        // 縁で1・中心で(1-strength)。(1-r)^2で導関数も0→段差が出ない
         const factor = 1 - strength * (1 - r) * (1 - r);
-        sampleBilinear(sd, w, h, lcx + dx*factor, lcy + dy*factor, dd, oi);
+        const oi = (y * fullW + x) * 4;
+        sampleBilinear(fullSrc, fullW, fullH, cx + dx * factor, cy + dy * factor, dstData, oi);
       }
     }
-    ctx.putImageData(dst, x0, y0);
   }
 
   // ── デカ目 ──
-  function warpEyes(ctx, lm, amount) {
+  function warpEyes(fullSrc, fullW, fullH, dstData, lm, amount) {
     [[R_EYE, 33, 133], [L_EYE, 362, 263]].forEach(([idxs, a, b]) => {
       const c = lmToPx(eyeCenter(lm, idxs));
       const eyeW = eyeWidthPx(lm, a, b);
-      const R = Math.max(20, eyeW * 1.8);          // 影響半径：目幅の約1.8倍
-      bulgeRegion(ctx, c.x, c.y, R, amount * 0.30); // 中心の引き込み量（最大0.30）
+      const R = Math.max(20, eyeW * 1.8);
+      bulgeRegion(fullSrc, fullW, fullH, dstData, c.x, c.y, R, amount * 0.30);
     });
   }
 
-  // ── 小顔（中心線へ横圧縮、上下左右になめらか減衰） ──
-  function warpSlim(ctx, lm, amount) {
-    const cw = ctx.canvas.width, ch = ctx.canvas.height;
+  // ── 小顔（中心線へ横圧縮）：warpCtx全体をgetImageDataして処理 ──
+  function warpSlim(fullSrc, fullW, fullH, dstData, lm, amount) {
     const left = lmToPx(lm[234]), right = lmToPx(lm[454]);
-    const chin = lmToPx(lm[152]),  fore  = lmToPx(lm[10]);
+    const chin = lmToPx(lm[152]), fore  = lmToPx(lm[10]);
     const cx = (left.x + right.x) / 2;
     const faceW = Math.abs(right.x - left.x);
-    if (faceW < 8) return;
-    const half = faceW * 0.62;            // 横の影響範囲（顔幅より少し広く）
-    const strength = amount * 0.16;       // 最大16%内側へ
+    if (!isFinite(cx) || !isFinite(faceW) || faceW < 8) return;
+    const half = faceW * 0.62;
+    const strength = amount * 0.16;
     const bandTop = fore.y + (chin.y - fore.y) * 0.28;
     const bandBot = chin.y + faceW * 0.12;
-    const yPad = (bandBot - bandTop) * 0.55;  // 上下フェード幅
+    const yPad = (bandBot - bandTop) * 0.55;
 
-    const x0 = Math.max(0, Math.floor(cx - half)), x1 = Math.min(cw, Math.ceil(cx + half));
-    const y0 = Math.max(0, Math.floor(bandTop - yPad)), y1 = Math.min(ch, Math.ceil(bandBot + yPad));
-    const w = x1 - x0, h = y1 - y0;
-    if (!isFinite(cx) || !isFinite(half) || half < 1) return;
-    if (!(w >= 3) || !(h >= 3)) return;   // NaN も弾く
-    const sd = ctx.getImageData(x0, y0, w, h).data;
-    const dst = ctx.createImageData(w, h), dd = dst.data;
-    const lcx = cx - x0;
-    for (let y = 0; y < h; y++) {
-      const gy = y + y0;
-      let wy;                              // 縦の重み（バンド内1、外で0へ）
+    const x0 = Math.max(0, Math.floor(cx - half));
+    const x1 = Math.min(fullW, Math.ceil(cx + half));
+    const y0 = Math.max(0, Math.floor(bandTop - yPad));
+    const y1 = Math.min(fullH, Math.ceil(bandBot + yPad));
+
+    for (let y = y0; y < y1; y++) {
+      const gy = y;
+      let wy;
       if (gy < bandTop)      wy = smoothstep(bandTop - yPad, bandTop, gy);
       else if (gy > bandBot) wy = 1 - smoothstep(bandBot, bandBot + yPad, gy);
       else                   wy = 1;
-      for (let x = 0; x < w; x++) {
-        const oi = (y*w + x)*4;
-        const nx = (x - lcx) / half;       // -1..1
-        const wx = Math.max(0, 1 - nx*nx); // 横の重み（中心1・端0）
+      for (let x = x0; x < x1; x++) {
+        const nx = (x - cx) / half;          // -1..1
+        const wx = Math.max(0, 1 - nx*nx);   // 横重み
         const s = strength * wy * wx;
-        if (s <= 0.0005) { dd[oi]=sd[oi];dd[oi+1]=sd[oi+1];dd[oi+2]=sd[oi+2];dd[oi+3]=sd[oi+3]; continue; }
-        // 内に寄せる＝外側からサンプリング
-        sampleBilinear(sd, w, h, lcx + (x - lcx) / (1 - s), y, dd, oi);
+        if (s <= 0.0005) continue;
+        const oi = (y * fullW + x) * 4;
+        // 内側へ寄せる＝外側からサンプリング
+        const srcX = cx + (x - cx) / (1 - s);
+        sampleBilinear(fullSrc, fullW, fullH, srcX, y, dstData, oi);
       }
     }
-    ctx.putImageData(dst, x0, y0);
   }
 
   // リアルタイムプレビュー用ループ
