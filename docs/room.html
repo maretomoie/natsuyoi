@@ -2276,7 +2276,7 @@
 
   // NotReadableError（カメラ解放待ち）に対して待ち時間を増やしながら再試行
   async function acquireCamera(front) {
-    const delays = [0, 350, 700, 1200];   // 累積リトライの待ち（ms）
+    const delays = [0, 300, 700];   // 累積リトライの待ち（ms）
     let lastErr;
     for (let i = 0; i < delays.length; i++) {
       if (delays[i]) await sleep(delays[i]);
@@ -2337,8 +2337,11 @@
   async function startBooth() {
     if (_camBusy) return;
     _camBusy = true;
-    const hadStream = !!boothStream;
     const wantFront = boothFront;
+    // まずブース画面へ遷移して「読み込み中」を見せる（取得失敗でも詰まらない）
+    boothView.classList.add('active');
+    errorView.classList.remove('active');
+    startBoothBubbles();
     try {
       // 既存ストリームを完全に停止してから（同一デバイスを掴み直すため）解放を待つ
       if (boothStream) {
@@ -2347,30 +2350,29 @@
         boothVideo.srcObject = null;
         await sleep(300);
       }
-      const stream = await acquireCamera(wantFront);
+      let stream, failedFirst = null;
+      try {
+        stream = await acquireCamera(wantFront);
+      } catch (err) {
+        // 要求したカメラが開けない端末では、もう一方のカメラへ自動で逃がす
+        console.warn('camera failed, trying the other facing:', err);
+        failedFirst = err;
+        boothFront = !wantFront;
+        await sleep(300);
+        stream = await acquireCamera(boothFront);  // ここで失敗したら下の catch へ
+      }
       try { await boothVideo.play(); } catch (_) {}
       applyStream(stream);
-    } catch (err) {
-      console.error('Booth camera error:', err);
-      // 切替で失敗した場合は、元のカメラに戻して復帰を試みる（黒画面で詰まらせない）
-      if (hadStream) {
-        boothFront = !wantFront;
-        try {
-          await sleep(300);
-          const back = await acquireCamera(boothFront);
-          try { await boothVideo.play(); } catch (_) {}
-          applyStream(back);
-          // 復帰成功：切替先が開けなかったことは軽いトーストで通知（プレビューは生きている）
-          _camErr = (err ? (err.name + ': ' + (err.message || '')) : 'unknown');
-          boothToast((wantFront ? '前面' : '背面') + 'カメラを開けませんでした（' + ((err && err.name) || 'error') + '）。'
-                     + (boothFront ? '前面' : '背面') + 'カメラに戻しました。');
-          if (BEAUTY_DEBUG) updateBeautyDebug();
-        } catch (err2) {
-          showCamError(err2);
-        }
-      } else {
-        showCamError(err);
+      if (failedFirst) {
+        boothToast((wantFront ? '前面' : '背面') + 'カメラを開けませんでした（'
+                   + ((failedFirst && failedFirst.name) || 'error') + '）。'
+                   + (boothFront ? '前面' : '背面') + 'カメラで起動しました。');
+        if (BEAUTY_DEBUG) updateBeautyDebug();
       }
+    } catch (err) {
+      // 両方のカメラがダメだった場合のみエラー画面
+      console.error('Booth camera error (both facings):', err);
+      showCamError(err);
     } finally {
       _camBusy = false;
     }
