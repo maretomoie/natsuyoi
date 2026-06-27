@@ -573,34 +573,57 @@
       display: none;
       flex-direction: column;
       gap: 10px;
-      padding: 14px 16px;
+      padding: 14px 16px 10px;
       border-radius: 14px;
       background: rgba(12, 30, 64, 0.86);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      width: 248px;
+      width: 272px;       /* 固定幅：テキスト長によるズレをなくす */
       box-sizing: border-box;
       color: #e6f2ff;
     }
     .beauty-options.open { display: flex; }
+    .beauty-options-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 2px;
+    }
     .beauty-options .bp-title {
       font-size: 12px; letter-spacing: .08em; opacity: .7;
     }
+    /* ② 明示的なクローズボタン */
+    .beauty-close-btn {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(150,210,255,0.45);
+      background: rgba(10,40,90,0.7);
+      color: rgba(200,230,255,0.9);
+      font-size: 15px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .beauty-close-btn:hover { background: rgba(80,140,220,0.8); transform: scale(1.1); }
     .beauty-row {
       display: flex; align-items: center;
-      gap: 10px; font-size: 13px;
+      gap: 0; font-size: 13px;
     }
-    /* ラベルは自然幅・左寄せ。余白を auto で吸収し、スライダー＋値を右に固定 */
-    .beauty-row label { white-space: nowrap; margin-right: auto; }
+    /* ③ ラベル幅固定 → スライダー開始位置が全行で完全に揃う */
+    .beauty-row label {
+      white-space: nowrap;
+      width: 68px;          /* 固定幅。「なめらか肌」が最長なのでそれ基準 */
+      flex-shrink: 0;
+    }
     .beauty-row input[type="range"] {
-      flex: none;
-      width: 120px;        /* 固定幅 → 0と100の位置が全行で揃う */
-      margin: 0;
+      flex: 1;              /* 残り幅を均等に使う */
+      min-width: 0;
+      margin: 0 8px 0 0;
       accent-color: #5ec8f0;
     }
     .beauty-row .bp-val {
-      width: 28px; flex: none; text-align: right;
+      width: 26px; flex-shrink: 0; text-align: right;
       font-variant-numeric: tabular-nums; opacity: .85;
     }
     .beauty-shape-note {
@@ -763,6 +786,89 @@
       pointer-events: none;
       white-space: nowrap;
     }
+
+    /* ⑤ 立ち絵アップロードボタン */
+    #char-upload-btn {
+      position: absolute;
+      top: 24px;
+      left: 16px;
+      z-index: 20;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(20, 50, 110, 0.78);
+      border: 1px solid rgba(150,210,255,0.5);
+      color: #cfe6ff;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+      transition: transform .15s ease, background .15s ease;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+    #char-upload-btn:hover { transform: scale(1.08); background: rgba(40,80,160,0.9); }
+    #char-upload-input { display: none; }
+
+    /* ⑥ ロゴオーバーレイ */
+    #booth-logo {
+      position: absolute;
+      bottom: 20px;
+      left: 16px;
+      z-index: 12;
+      pointer-events: none;
+      max-height: 60px;
+      max-width: 160px;
+      opacity: 0.85;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+      display: block;
+    }
+    /* ロゴ選択ミニパネル */
+    #logo-ctrl {
+      position: absolute;
+      bottom: 90px;
+      left: 16px;
+      z-index: 22;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    #logo-toggle-btn {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(20,50,110,0.78);
+      border: 1px solid rgba(150,210,255,0.5);
+      color: #cfe6ff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+      transition: transform .15s, background .15s;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+    #logo-toggle-btn:hover { transform: scale(1.08); background: rgba(40,80,160,0.9); }
+    #logo-select-panel {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px 12px;
+      background: rgba(12,30,64,0.90);
+      border: 1px solid rgba(150,210,255,0.35);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      font-size: 12px;
+      color: #cfe6ff;
+      width: 170px;
+    }
+    #logo-select-panel.open { display: flex; }
+    .logo-opt {
+      display: flex; align-items: center; gap: 8px;
+      cursor: pointer; padding: 4px 6px; border-radius: 8px;
+      transition: background .15s;
+    }
+    .logo-opt:hover { background: rgba(80,140,220,0.25); }
+    .logo-opt input[type="radio"] { accent-color: #5ec8f0; }
+    .logo-opt img { height: 24px; max-width: 70px; object-fit: contain; }
 
     /* ═══════════════════════════════════════════
        CAMERA ERROR (共通)
@@ -1008,7 +1114,10 @@
   <!-- 美顔コントロール -->
   <div id="beauty-panel">
     <div class="beauty-options" id="beauty-options">
-      <div class="bp-title">美顔モード</div>
+      <div class="beauty-options-header">
+        <div class="bp-title">美顔モード</div>
+        <button class="beauty-close-btn" id="beauty-close-btn" aria-label="閉じる">✕</button>
+      </div>
       <div class="beauty-row">
         <label>なめらか肌</label>
         <input type="range" id="bp-smooth" min="0" max="100" value="55">
@@ -1055,6 +1164,34 @@
     <button class="ui-btn" id="booth-close" aria-label="閉じる">✕</button>
     <button class="ui-btn shutter-btn" id="booth-shutter" aria-label="撮影"></button>
     <button class="ui-btn" id="booth-switch" aria-label="カメラ切替">⟲</button>
+  </div>
+
+  <!-- ⑤ 立ち絵アップロード -->
+  <button id="char-upload-btn" aria-label="立ち絵をアップロード" title="自分の立ち絵をアップロード">🖼️</button>
+  <input type="file" id="char-upload-input" accept="image/*">
+
+  <!-- ⑥ イベントロゴ（右下） -->
+  <img id="booth-logo" src="docs/assets/logo-dark.png" alt="きみ夏宵あそびロゴ">
+
+  <!-- ⑥ ロゴ選択パネル -->
+  <div id="logo-ctrl">
+    <button id="logo-toggle-btn" aria-label="ロゴ設定">🏷️</button>
+    <div id="logo-select-panel">
+      <label class="logo-opt">
+        <input type="radio" name="logo-choice" value="docs/assets/logo-dark.png" checked>
+        <img src="docs/assets/logo-dark.png" alt="ダーク">
+        <span>ダーク</span>
+      </label>
+      <label class="logo-opt">
+        <input type="radio" name="logo-choice" value="docs/assets/logo-light.png">
+        <img src="docs/assets/logo-light.png" alt="ライト">
+        <span>ライト</span>
+      </label>
+      <label class="logo-opt">
+        <input type="radio" name="logo-choice" value="none">
+        <span>非表示</span>
+      </label>
+    </div>
   </div>
 
   <!-- スタンプ削除ヒント -->
@@ -1938,6 +2075,11 @@
   beautyToggle.addEventListener('click', () => {
     beautyOptions.classList.toggle('open');
   });
+  // ② 明示的なクローズボタン
+  document.getElementById('beauty-close-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    beautyOptions.classList.remove('open');
+  });
 
   // パネルの外（#beauty-panel 以外）をタップしたら閉じる
   document.addEventListener('pointerdown', (e) => {
@@ -2079,7 +2221,54 @@
   }
   makeDraggable(boothChar);
 
-  // ─── スタンプパレット ───
+  // ④ 立ち絵のダブルタップ/ダブルクリックで削除
+  let charLastTap = 0;
+  boothChar.addEventListener('dblclick', () => {
+    boothChar.style.display = 'none';
+  });
+  boothChar.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - charLastTap < 300) {
+      boothChar.style.display = 'none';
+    }
+    charLastTap = now;
+  });
+
+  // ⑤ 立ち絵アップロード
+  const charUploadBtn = document.getElementById('char-upload-btn');
+  const charUploadInput = document.getElementById('char-upload-input');
+  charUploadBtn.addEventListener('click', () => charUploadInput.click());
+  charUploadInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    boothChar.src = url;
+    boothChar.style.display = '';
+    charUploadInput.value = '';
+  });
+
+  // ⑥ ロゴ選択パネル
+  const logoToggleBtn = document.getElementById('logo-toggle-btn');
+  const logoSelectPanel = document.getElementById('logo-select-panel');
+  const boothLogoEl = document.getElementById('booth-logo');
+  logoToggleBtn.addEventListener('click', () => logoSelectPanel.classList.toggle('open'));
+  document.querySelectorAll('input[name="logo-choice"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'none') {
+        boothLogoEl.style.display = 'none';
+      } else {
+        boothLogoEl.src = radio.value;
+        boothLogoEl.style.display = 'block';
+      }
+      logoSelectPanel.classList.remove('open');
+    });
+  });
+  // パネル外タップで閉じる
+  document.addEventListener('pointerdown', (e) => {
+    if (logoSelectPanel.classList.contains('open') && !e.target.closest('#logo-ctrl')) {
+      logoSelectPanel.classList.remove('open');
+    }
+  }, true);
   const stampToggle  = document.getElementById('stamp-toggle');
   const stampOptions = document.getElementById('stamp-options');
   stampToggle.addEventListener('click', () => stampOptions.classList.toggle('open'));
@@ -2135,12 +2324,16 @@
       // 1) カメラ映像 (cover) ── 美顔ONなら補正を通す
       const vw = boothVideo.videoWidth, vh = boothVideo.videoHeight;
       if (beautyActive()) {
-        // 撮影直前に変形系がONなら確実に1回検出
+        // ① 撮影前に _srcW/_srcH を必ず設定（applyBeauty内の lmToPx が参照するため）
+        workFull._srcW = vw;
+        workFull._srcH = vh;
+        // 変形系がONなら撮影直前に最新の顔検出を実施
         if (faceReady && (beauty.eye > 0.001 || beauty.slim > 0.001)) {
-          try { lastResult = faceLandmarker.detectForVideo(boothVideo, performance.now()); }
-          catch { /* スキップ */ }
+          try {
+            // detectForVideo は同一タイムスタンプを連続渡しできないため +1ms
+            lastResult = faceLandmarker.detectForVideo(boothVideo, performance.now() + 1);
+          } catch (e) { console.warn('detect at capture failed:', e); }
         }
-        workFull._srcW = vw; workFull._srcH = vh;
         applyBeauty(boothVideo, vw, vh, c, W, H);
       } else {
         const vr = vw / vh, sr = W / H;
@@ -2192,6 +2385,19 @@
           c.restore();
         }
       });
+
+      // 4.5) イベントロゴ（右下）
+      const logoEl = document.getElementById('booth-logo');
+      if (logoEl && logoEl.style.display !== 'none' && logoEl.complete && logoEl.naturalWidth > 0) {
+        const logoH = 60 * dpr;
+        const logoW = logoEl.naturalWidth / logoEl.naturalHeight * logoH;
+        const lx = W - logoW - 16 * dpr;
+        const ly = H - logoH - 16 * dpr;
+        c.save();
+        c.globalAlpha = 0.85;
+        c.drawImage(logoEl, lx, ly, logoW, logoH);
+        c.restore();
+      }
 
       // 5) 青フレーム
       const fw = 14 * dpr;
