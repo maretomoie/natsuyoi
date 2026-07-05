@@ -6,83 +6,101 @@
   "team_ranking": [
     {
       "rank": 1,
-      "name": "蒼星月花",
-      "points": 178290,
-      "kansen_points": 8900
+      "name": "爆裂夏花火",
+      "points": 99999,
+      "kansen_points": 4444
     },
     {
       "rank": 2,
-      "name": "れいめあビアガーデン",
-      "points": 152500,
-      "kansen_points": 5000
+      "name": "蒼星月花",
+      "points": 88888,
+      "kansen_points": 3333
     },
     {
       "rank": 3,
-      "name": "縁日で射的！",
-      "points": 145200,
-      "kansen_points": 6650
+      "name": "泡沫スプラッシュ!",
+      "points": 77777,
+      "kansen_points": 2222
     },
     {
       "rank": 4,
-      "name": "爆裂夏花火",
-      "points": 138850,
-      "kansen_points": 4750
+      "name": "月のころはさらなり",
+      "points": 66666,
+      "kansen_points": 1111
+    },
+    {
+      "rank": 5,
+      "name": "トリあえず生！！",
+      "points": 55555,
+      "kansen_points": 0
     }
   ],
   "personal_ranking": [
     {
       "rank": 1,
-      "name": "さめ",
-      "points": 7640,
-      "team": "れいめあビアガーデン"
+      "name": "これは",
+      "points": 99999,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 2,
-      "name": "東雲ハヤテ",
-      "points": 7300,
-      "team": "縁日で射的！"
+      "name": "テストです",
+      "points": 98999,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 3,
-      "name": "脳筋の伊豆",
-      "points": 7280,
+      "name": "ダミーデータ",
+      "points": 97999,
       "team": "蒼星月花"
     },
     {
       "rank": 4,
-      "name": "ヨッシー9zde",
-      "points": 7020,
-      "team": "爆裂夏花火"
+      "name": "ああああ",
+      "points": 96999,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 5,
-      "name": "三國レオ",
-      "points": 6430,
+      "name": "いいいい",
+      "points": 95999,
       "team": "爆裂夏花火"
     },
     {
       "rank": 6,
-      "name": "winsent",
-      "points": 6300,
-      "team": "爆裂夏花火"
+      "name": "うううう",
+      "points": 94999,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 7,
-      "name": "ハガT",
-      "points": 6220,
-      "team": "蒼星月花"
+      "name": "ええええ",
+      "points": 93999,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 8,
-      "name": "えび",
-      "points": 6170,
-      "team": "爆裂夏花火"
+      "name": "おおおお",
+      "points": 92999,
+      "team": "蒼星月花"
     },
     {
       "rank": 9,
-      "name": "アイオらいと",
-      "points": 5820,
-      "team": "縁日で射的！"
+      "name": "かかかか",
+      "points": 91999,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 10,
+      "name": "きききき",
+      "points": 90999,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 11,
+      "name": "くくくく",
+      "points": 89999,
+      "team": "トリあえず生！！"
     }
   ],
   "daily_ranking": [],
