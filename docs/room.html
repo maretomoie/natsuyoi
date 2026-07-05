@@ -47,7 +47,7 @@
       pointer-events: none;
     }
 
-    /* タイトル関連 */
+    /* タイトル */
     .room-title {
       position: absolute;
       top: 32px;
@@ -632,41 +632,14 @@
     }
     .beauty-shape-row.disabled { opacity: .35; pointer-events: none; }
 
-    /* 青基調フレーム装飾 */
+    /* 流水フレーム装飾（描画内容はJSのdrawWaterFrameが担当） */
     #booth-frame {
       position: absolute;
       inset: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
       z-index: 8;
-      border: 14px solid transparent;
-      border-image: linear-gradient(135deg,
-        #4aa0e8 0%,
-        #2a6cc0 25%,
-        #5ec8f0 50%,
-        #2a6cc0 75%,
-        #4aa0e8 100%) 1;
-      box-shadow:
-        inset 0 0 60px rgba(40, 100, 180, 0.5),
-        inset 0 0 120px rgba(20, 60, 140, 0.3);
-    }
-    /* フレーム四隅の装飾 */
-    #booth-frame::before,
-    #booth-frame::after {
-      content: '';
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border: 3px solid rgba(150, 210, 255, 0.8);
-    }
-    #booth-frame::before {
-      top: 8px; left: 8px;
-      border-right: none; border-bottom: none;
-      border-radius: 12px 0 0 0;
-    }
-    #booth-frame::after {
-      bottom: 8px; right: 8px;
-      border-left: none; border-top: none;
-      border-radius: 0 0 12px 0;
     }
 
     /* 立ち絵（主催・ゲスト共通） */
@@ -686,9 +659,10 @@
     #booth-character      { right: 4%; }   /* 主催：右寄せ */
     #booth-character-user { left: 4%; }    /* ゲスト：左寄せ */
 
-    /* 操作対象の切り替え：選択中は前面＆操作可、非選択はタッチ透過 */
-    .booth-char.char-active   { z-index: 8; }
-    .booth-char.char-inactive { z-index: 7; pointer-events: none; }
+    /* 操作対象の切り替え：選択中は前面＆操作可、非選択はタッチ透過。
+       フレーム(z:8)より常に下に置き、立ち絵がフレーム外へはみ出さないようにする */
+    .booth-char.char-active   { z-index: 7; }
+    .booth-char.char-inactive { z-index: 6; pointer-events: none; }
     /* 2枚表示中は選択中の立ち絵に淡い光縁を付けて分かりやすく（撮影画像には写らない） */
     #booth-view.two-shot .booth-char.char-active {
       filter: drop-shadow(0 4px 16px rgba(0, 20, 60, 0.6))
@@ -1155,8 +1129,8 @@
   <canvas id="beauty-canvas"></canvas>
   <canvas id="booth-bubble-canvas"></canvas>
 
-  <!-- 青基調フレーム装飾 -->
-  <div id="booth-frame"></div>
+  <!-- 流水フレーム装飾（canvas描画・撮影合成と共有） -->
+  <canvas id="booth-frame"></canvas>
 
   <!-- 立ち絵（ドラッグ可能）：主催＋ゲストの2枚を維持できる -->
   <img src="assets/mare.png" alt="めあともえ" id="booth-character" class="booth-char char-active" draggable="false">
@@ -1229,7 +1203,7 @@
   <!-- ⑤-2 立ち絵の操作対象セレクター（ゲスト立ち絵がある時のみ表示） -->
   <div id="char-select" aria-label="動かす立ち絵を選択">
     <div class="cs-label">動かす立ち絵</div>
-    <button class="cs-btn active" data-char="host">主催</button>
+    <button class="cs-btn active" data-char="host">めあともえ</button>
     <button class="cs-btn" data-char="user">ゲスト</button>
   </div>
 
@@ -2324,6 +2298,168 @@
     if (boothBubbleId) { cancelAnimationFrame(boothBubbleId); boothBubbleId = null; }
   }
 
+  // ─── 流水フレーム（canvas描画：プレビューと撮影合成で同一の絵を共有） ───
+  const frameCanvas = document.getElementById('booth-frame');
+  const frameCtx = frameCanvas.getContext('2d');
+  let frameRAF = null, frameLastDraw = 0;
+  const FRAME_FPS = 30;
+
+  function sizeFrameCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    frameCanvas.width  = Math.round(frameCanvas.clientWidth  * dpr);
+    frameCanvas.height = Math.round(frameCanvas.clientHeight * dpr);
+  }
+
+  // 枠帯の内側輪郭（角丸）パスを作る
+  function innerRectPath(ctx, fw, W, H, r) {
+    ctx.moveTo(fw + r, fw);
+    ctx.lineTo(W - fw - r, fw);
+    ctx.arcTo(W - fw, fw, W - fw, fw + r, r);
+    ctx.lineTo(W - fw, H - fw - r);
+    ctx.arcTo(W - fw, H - fw, W - fw - r, H - fw, r);
+    ctx.lineTo(fw + r, H - fw);
+    ctx.arcTo(fw, H - fw, fw, H - fw - r, r);
+    ctx.lineTo(fw, fw + r);
+    ctx.arcTo(fw, fw, fw + r, fw, r);
+    ctx.closePath();
+  }
+
+  function drawWaterFrame(t) {
+    const ctx = frameCtx;
+    const W = frameCanvas.width, H = frameCanvas.height;
+    if (W < 4 || H < 4) return;
+    const fw = Math.max(18, Math.min(W, H) * 0.045);  // 枠の太さ
+    const r  = fw * 1.1;                              // 内側角丸
+    ctx.clearRect(0, 0, W, H);
+
+    // ① ベース帯：深青→水色のグラデーション（外周と内側角丸のあいだ）
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, 0, W, H);
+    innerRectPath(ctx, fw, W, H, r);
+    const grd = ctx.createLinearGradient(0, 0, W, H);
+    grd.addColorStop(0,    '#1a4a90');
+    grd.addColorStop(0.25, '#2a6cc0');
+    grd.addColorStop(0.5,  '#4aa0e8');
+    grd.addColorStop(0.75, '#2a6cc0');
+    grd.addColorStop(1,    '#1a4a90');
+    ctx.fillStyle = grd;
+    ctx.fill('evenodd');
+
+    // 帯の内側だけに以降の水流表現をクリップ
+    ctx.clip('evenodd');
+
+    // ② 流水ライン：各辺に沿って位相の異なるサイン波を重ねる
+    const streams = [
+      { d: 0.28, amp: 0.16, w: 0.26, a: 0.10, sp: 0.9 },
+      { d: 0.50, amp: 0.22, w: 0.16, a: 0.16, sp: 1.4 },
+      { d: 0.68, amp: 0.14, w: 0.10, a: 0.22, sp: 2.0 },
+      { d: 0.42, amp: 0.10, w: 0.05, a: 0.34, sp: 2.6 },  // 細い明部（きらめき筋）
+    ];
+    function waveEdge(horizontal, fixed, length, s, phase) {
+      ctx.beginPath();
+      const step = Math.max(8, length / 60);
+      for (let p = 0; p <= length; p += step) {
+        const off = Math.sin(p / (fw * 3.2) + phase) * fw * s.amp;
+        const x = horizontal ? p : fixed + off;
+        const y = horizontal ? fixed + off : p;
+        p === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.lineWidth = fw * s.w;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = `rgba(200, 236, 255, ${s.a})`;
+      ctx.stroke();
+    }
+    streams.forEach((s, i) => {
+      const ph = t * s.sp + i * 1.7;
+      waveEdge(true,  fw * s.d,     W, s, ph);        // 上辺
+      waveEdge(true,  H - fw * s.d, W, s, -ph + 2.1); // 下辺（逆方向に流す）
+      waveEdge(false, fw * s.d,     H, s, ph + 0.8);  // 左辺
+      waveEdge(false, W - fw * s.d, H, s, -ph + 3.3); // 右辺
+    });
+
+    // ③ 光の粒（コースティクス）：外周に沿ってゆっくり流れ、明滅する
+    const N = 26;
+    const per = 2 * (W + H);
+    for (let i = 0; i < N; i++) {
+      let p = ((i / N + t * 0.018 * (i % 2 ? 1 : -1)) % 1 + 1) % 1 * per;
+      let x, y;
+      if      (p < W)         { x = p;               y = fw * (0.3 + 0.5 * ((i * 7) % 10) / 10); }
+      else if (p < W + H)     { x = W - fw * (0.3 + 0.5 * ((i * 7) % 10) / 10); y = p - W; }
+      else if (p < 2 * W + H) { x = 2 * W + H - p;   y = H - fw * (0.3 + 0.5 * ((i * 7) % 10) / 10); }
+      else                    { x = fw * (0.3 + 0.5 * ((i * 7) % 10) / 10); y = per - p; }
+      const tw = 0.5 + 0.5 * Math.sin(t * (1.2 + (i % 5) * 0.3) + i * 2.3);
+      const rad = fw * (0.10 + 0.10 * ((i * 13) % 7) / 7);
+      const g = ctx.createRadialGradient(x, y, 0, x, y, rad * 2.4);
+      g.addColorStop(0, `rgba(230, 248, 255, ${0.55 * tw})`);
+      g.addColorStop(1, 'rgba(230, 248, 255, 0)');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x, y, rad * 2.4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // ④ 四隅の流水紋（同心の弧）
+    const corners = [[0,0,0], [W,0,Math.PI/2], [W,H,Math.PI], [0,H,Math.PI*1.5]];
+    corners.forEach(([cx, cy, rot]) => {
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(rot);
+      for (let k = 0; k < 3; k++) {
+        ctx.beginPath();
+        ctx.arc(0, 0, fw * (0.9 + k * 0.55), 0.12, Math.PI / 2 - 0.12);
+        ctx.lineWidth = 2 + (2 - k);
+        ctx.strokeStyle = `rgba(200, 238, 255, ${0.55 - k * 0.14})`;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+      ctx.restore();
+    });
+    ctx.restore();
+
+    // ⑤ 内縁の水際：明るいリム＋にじむ光
+    ctx.save();
+    ctx.beginPath();
+    innerRectPath(ctx, fw, W, H, r);
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = 'rgba(215, 242, 255, 0.9)';
+    ctx.shadowColor = 'rgba(120, 200, 255, 0.9)';
+    ctx.shadowBlur = fw * 0.5;
+    ctx.stroke();
+    ctx.restore();
+
+    // ⑥ 内側グロー：写真領域の縁をほんのり青く（旧box-shadow/multiplyの代替）
+    ctx.save();
+    ctx.beginPath();
+    innerRectPath(ctx, fw, W, H, r);
+    ctx.clip();
+    ctx.beginPath();
+    innerRectPath(ctx, fw, W, H, r);
+    ctx.lineWidth = fw * 2.4;
+    ctx.strokeStyle = 'rgba(40, 100, 180, 0.30)';
+    if ('filter' in ctx) ctx.filter = `blur(${fw * 0.6}px)`;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function frameLoop(ts) {
+    if (ts - frameLastDraw >= 1000 / FRAME_FPS) {
+      frameLastDraw = ts;
+      drawWaterFrame(ts / 1000);
+    }
+    frameRAF = requestAnimationFrame(frameLoop);
+  }
+  function startFrameAnim() {
+    sizeFrameCanvas();
+    if (!frameRAF) frameRAF = requestAnimationFrame(frameLoop);
+  }
+  function stopFrameAnim() {
+    if (frameRAF) { cancelAnimationFrame(frameRAF); frameRAF = null; }
+  }
+  window.addEventListener('resize', () => {
+    if (boothView.classList.contains('active')) { sizeFrameCanvas(); drawWaterFrame(performance.now() / 1000); }
+  });
+
   async function startBooth() {
     try {
       if (boothStream) boothStream.getTracks().forEach(t => t.stop());
@@ -2335,6 +2471,7 @@
       boothVideo.srcObject = stream;
       boothView.classList.add('active');
       startBoothBubbles();
+      startFrameAnim();   // 流水フレームの描画開始
       startBeautyLoop();  // ② 美顔ループをブース起動と同時に開始
     } catch (err) {
       console.error('Booth camera error:', err);
@@ -2350,6 +2487,7 @@
     if (boothStream) { boothStream.getTracks().forEach(t => t.stop()); boothStream = null; }
     boothView.classList.remove('active');
     stopBoothBubbles();
+    stopFrameAnim();
     stopBeautyLoop();
   }
 
@@ -2630,26 +2768,11 @@
         c.restore();
       }
 
-      // 5) 青フレーム
-      const fw = 14 * dpr;
-      const grdFrame = c.createLinearGradient(0, 0, W, H);
-      grdFrame.addColorStop(0,    '#4aa0e8');
-      grdFrame.addColorStop(0.25, '#2a6cc0');
-      grdFrame.addColorStop(0.5,  '#5ec8f0');
-      grdFrame.addColorStop(0.75, '#2a6cc0');
-      grdFrame.addColorStop(1,    '#4aa0e8');
-      c.strokeStyle = grdFrame;
-      c.lineWidth = fw;
-      c.strokeRect(fw/2, fw/2, W - fw, H - fw);
-      // 内側グロー
-      c.save();
-      c.globalCompositeOperation = 'multiply';
-      const grdGlow = c.createRadialGradient(W/2, H/2, Math.min(W,H)*0.3, W/2, H/2, Math.max(W,H)*0.7);
-      grdGlow.addColorStop(0, 'rgba(255,255,255,1)');
-      grdGlow.addColorStop(1, 'rgba(40,100,180,0.6)');
-      c.fillStyle = grdGlow;
-      c.fillRect(0, 0, W, H);
-      c.restore();
+      // 5) 流水フレーム：プレビューに表示中のフレームcanvasをそのまま焼き込む
+      //    （画面と写真で完全に同じ見た目になる。内側グローもフレーム側で描画済み）
+      if (frameCanvas.width > 0 && frameCanvas.height > 0) {
+        c.drawImage(frameCanvas, 0, 0, W, H);
+      }
 
       const dataUrl = out.toDataURL('image/png');
       photoPreview.src = dataUrl;
