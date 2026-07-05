@@ -669,11 +669,10 @@
       border-radius: 0 0 12px 0;
     }
 
-    /* 立ち絵 */
-    #booth-character {
+    /* 立ち絵（主催・ゲスト共通） */
+    .booth-char {
       position: absolute;
       bottom: 0;
-      right: 4%;
       height: 55%;
       max-height: 60vh;
       z-index: 7;
@@ -683,7 +682,18 @@
       user-select: none;
       -webkit-user-drag: none;
     }
-    #booth-character:active { cursor: grabbing; }
+    .booth-char:active { cursor: grabbing; }
+    #booth-character      { right: 4%; }   /* 主催：右寄せ */
+    #booth-character-user { left: 4%; }    /* ゲスト：左寄せ */
+
+    /* 操作対象の切り替え：選択中は前面＆操作可、非選択はタッチ透過 */
+    .booth-char.char-active   { z-index: 8; }
+    .booth-char.char-inactive { z-index: 7; pointer-events: none; }
+    /* 2枚表示中は選択中の立ち絵に淡い光縁を付けて分かりやすく（撮影画像には写らない） */
+    #booth-view.two-shot .booth-char.char-active {
+      filter: drop-shadow(0 4px 16px rgba(0, 20, 60, 0.6))
+              drop-shadow(0 0 10px rgba(140, 220, 255, 0.75));
+    }
 
     /* スタンプレイヤー */
     #booth-stamp-layer {
@@ -808,6 +818,51 @@
     }
     #char-upload-btn:hover { transform: scale(1.08); background: rgba(40,80,160,0.9); }
     #char-upload-input { display: none; }
+
+    /* ⑤-2 立ち絵セレクター（ゲスト立ち絵の追加後に表示） */
+    #char-select {
+      position: absolute;
+      top: 84px;
+      left: 16px;
+      z-index: 20;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px;
+      background: rgba(15, 30, 60, 0.92);
+      border: 1px solid rgba(150, 210, 255, 0.4);
+      border-radius: 14px;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+    #char-select.show { display: flex; }
+    #char-select .cs-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(200, 230, 255, 0.75);
+      text-align: center;
+    }
+    #char-select .cs-btn {
+      min-width: 74px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(150, 210, 255, 0.35);
+      background: rgba(40, 70, 130, 0.45);
+      color: #dceaff;
+      font-family: inherit;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    #char-select .cs-btn:hover { transform: scale(1.04); }
+    #char-select .cs-btn.active {
+      background: rgba(90, 160, 240, 0.85);
+      border-color: rgba(190, 230, 255, 0.9);
+      color: #fff;
+      box-shadow: 0 0 8px rgba(120, 200, 255, 0.5);
+    }
 
     /* ⑥ ロゴオーバーレイ（右下・従来比およそ2倍。狭幅端末では自動縮小） */
     #booth-logo {
@@ -1103,8 +1158,9 @@
   <!-- 青基調フレーム装飾 -->
   <div id="booth-frame"></div>
 
-  <!-- 立ち絵（ドラッグ可能） -->
-  <img src="assets/mare.png" alt="めあともえ" id="booth-character" draggable="false">
+  <!-- 立ち絵（ドラッグ可能）：主催＋ゲストの2枚を維持できる -->
+  <img src="assets/mare.png" alt="めあともえ" id="booth-character" class="booth-char char-active" draggable="false">
+  <img alt="ゲスト立ち絵" id="booth-character-user" class="booth-char char-inactive" draggable="false" style="display:none">
 
   <!-- スタンプレイヤー（押したスタンプがここに乗る） -->
   <div id="booth-stamp-layer"></div>
@@ -1170,6 +1226,13 @@
   <button id="char-upload-btn" aria-label="立ち絵をアップロード" title="自分の立ち絵をアップロード">🖼️</button>
   <input type="file" id="char-upload-input" accept="image/*">
 
+  <!-- ⑤-2 立ち絵の操作対象セレクター（ゲスト立ち絵がある時のみ表示） -->
+  <div id="char-select" aria-label="動かす立ち絵を選択">
+    <div class="cs-label">動かす立ち絵</div>
+    <button class="cs-btn active" data-char="host">主催</button>
+    <button class="cs-btn" data-char="user">ゲスト</button>
+  </div>
+
   <!-- ⑥ イベントロゴ（右下） -->
   <img id="booth-logo" src="assets/logo-dark.png" alt="きみ夏宵あそびロゴ">
 
@@ -1195,7 +1258,7 @@
   </div>
 
   <!-- スタンプ削除ヒント -->
-  <div id="stamp-hint">スタンプ／立ち絵はドラッグで移動・ダブルタップで削除</div>
+  <div id="stamp-hint">スタンプ／立ち絵はドラッグで移動・ダブルタップで削除（立ち絵は左上で切替）</div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -1934,8 +1997,9 @@
             if (p.y > maxY) maxY = p.y;
           }
           if (!isFinite(minX) || !isFinite(maxX) || !isFinite(minY) || !isFinite(maxY)) return;
-          const padX = (maxX - minX) * 0.35 + 8;
-          const padY = (maxY - minY) * 0.35 + 8;
+          // 小顔の楕円フィールド（Rx=0.78W / 下端≒顎+0.30H）を確実に内包する余白
+          const padX = (maxX - minX) * 0.45 + 8;
+          const padY = (maxY - minY) * 0.45 + 8;
           const rx  = Math.max(0,  Math.floor(minX - padX));
           const ry  = Math.max(0,  Math.floor(minY - padY));
           const rxe = Math.min(dw, Math.ceil(maxX + padX));
@@ -2041,40 +2105,52 @@
     });
   }
 
-  // ── 小顔（中心線へ横圧縮）──（src/dst は局所領域バッファ、rx/ry は領域原点の dst px）
+  // ── 小顔（楕円ピンチ）──（src/dst は局所領域バッファ、rx/ry は領域原点の dst px）
+  // 旧実装は「上下端で急に圧縮が始まる帯状の横圧縮」だったため、強くかけると
+  // 帯の境目（額付近・顎下〜首）で輪郭が段差状に破綻していた。
+  // 新実装は顔下部を中心とする楕円フィールドで中心方向へ滑らかに縮める。
+  // 変位量は (1-r²)² で楕円境界に向かって値も勾配もゼロに収束（C1連続）するため、
+  // どの強度でも輪郭に不連続な折れが出ない。縦方向の変位は控えめにして
+  // 「頬〜顎を内側へ・顎先をわずかに上へ」という自然な小顔挙動にしている。
   function warpSlim(src, dst, rw, rh, rx, ry, lm, amount) {
     const left = lmToPx(lm[234]), right = lmToPx(lm[454]);
     const chin = lmToPx(lm[152]), fore  = lmToPx(lm[10]);
-    const cx = (left.x + right.x) / 2;            // dst px
     const faceW = Math.abs(right.x - left.x);
-    if (!isFinite(cx) || !isFinite(faceW) || faceW < 8) return;
-    const cxL = cx - rx;                          // 領域ローカル
-    const half = faceW * 0.62;
-    const strength = amount * 0.22;               // 視認できる強さ
-    const bandTop = (fore.y + (chin.y - fore.y) * 0.30) - ry;
-    const bandBot = (chin.y + faceW * 0.12) - ry;
-    const yPad = (bandBot - bandTop) * 0.55;
+    const faceH = chin.y - fore.y;
+    if (!isFinite(faceW) || !isFinite(faceH) || faceW < 8 || faceH < 8) return;
 
-    const x0 = Math.max(0, Math.floor(cxL - half));
-    const x1 = Math.min(rw, Math.ceil(cxL + half));
-    const y0 = Math.max(0, Math.floor(bandTop - yPad));
-    const y1 = Math.min(rh, Math.ceil(bandBot + yPad));
+    // ピンチ中心：顔下部（額から62%の高さ＝口元付近）
+    const cxL = (left.x + right.x) / 2 - rx;
+    const cyL = (fore.y + faceH * 0.62) - ry;
+    // 楕円半径：頬〜顎とその外側を滑らかに覆う
+    const Rx = faceW * 0.78;
+    const Ry = faceH * 0.68;
+    if (!isFinite(cxL) || !isFinite(cyL)) return;
+
+    const strengthX = amount * 0.30;   // 横方向の縮み（主成分）
+    const strengthY = strengthX * 0.45; // 縦方向は控えめ（顎先が少し上がる程度）
+
+    const x0 = Math.max(0, Math.floor(cxL - Rx)), x1 = Math.min(rw, Math.ceil(cxL + Rx));
+    const y0 = Math.max(0, Math.floor(cyL - Ry)), y1 = Math.min(rh, Math.ceil(cyL + Ry));
+    if (x1 - x0 < 2 || y1 - y0 < 2) return;
 
     for (let y = y0; y < y1; y++) {
-      let wy;
-      if (y < bandTop)      wy = smoothstep(bandTop - yPad, bandTop, y);
-      else if (y > bandBot) wy = 1 - smoothstep(bandBot, bandBot + yPad, y);
-      else                  wy = 1;
-      if (wy <= 0) continue;
+      const ey = (y - cyL) / Ry;
+      const ey2 = ey * ey;
+      if (ey2 >= 1) continue;
       for (let x = x0; x < x1; x++) {
-        const nx = (x - cxL) / half;          // -1..1
-        const wx = 1 - nx * nx;               // 横重み（中心で最大）
-        if (wx <= 0) continue;
-        const s = strength * wy * wx;
-        if (s <= 0.0005) continue;
-        // 内側へ寄せる＝外側からサンプリング
-        const srcX = cxL + (x - cxL) / (1 - s);
-        sampleBilinear(src, rw, rh, srcX, y, dst, (y * rw + x) * 4);
+        const ex = (x - cxL) / Rx;
+        const r2 = ex * ex + ey2;
+        if (r2 >= 1) continue;
+        const f = 1 - r2;
+        const fall = f * f;                 // (1-r²)²：境界で値・勾配ともに0
+        const sX = strengthX * fall;
+        const sY = strengthY * fall;
+        if (sX <= 0.0008) continue;
+        // 中心へ寄せる＝中心から見て外側からサンプリング
+        const srcX = cxL + (x - cxL) * (1 + sX);
+        const srcY = cyL + (y - cyL) * (1 + sY);
+        sampleBilinear(src, rw, rh, srcX, srcY, dst, (y * rw + x) * 4);
       }
     }
   }
@@ -2322,31 +2398,80 @@
     window.addEventListener('mouseup', onUp);
     window.addEventListener('touchend', onUp);
   }
+  // ─── 立ち絵管理（主催＋ゲストの2枚体制） ───
+  const boothCharUser = document.getElementById('booth-character-user');
+  const charSelect    = document.getElementById('char-select');
+  const chars = { host: boothChar, user: boothCharUser };
+  let activeCharKey = 'host';
+
   makeDraggable(boothChar);
+  makeDraggable(boothCharUser);
 
-  // ④ 立ち絵のダブルタップ/ダブルクリックで削除
-  let charLastTap = 0;
-  boothChar.addEventListener('dblclick', () => {
-    boothChar.style.display = 'none';
-  });
-  boothChar.addEventListener('touchend', (e) => {
-    const now = Date.now();
-    if (now - charLastTap < 300) {
-      boothChar.style.display = 'none';
-    }
-    charLastTap = now;
+  function charVisible(el) {
+    return el.style.display !== 'none' && el.getAttribute('src');
+  }
+  // 操作対象を切り替え：選択中→前面＆操作可、非選択→タッチ透過
+  function setActiveChar(key) {
+    activeCharKey = key;
+    Object.entries(chars).forEach(([k, el]) => {
+      el.classList.toggle('char-active',   k === key);
+      el.classList.toggle('char-inactive', k !== key);
+    });
+    charSelect.querySelectorAll('.cs-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.char === key);
+    });
+  }
+  // セレクター表示状態の更新（ゲスト立ち絵が読み込まれていれば表示）
+  function updateCharUI() {
+    const twoShot = !!boothCharUser.getAttribute('src');
+    charSelect.classList.toggle('show', twoShot);
+    boothView.classList.toggle('two-shot', twoShot && charVisible(boothChar) && charVisible(boothCharUser));
+  }
+
+  // ④ 立ち絵のダブルタップ/ダブルクリックで削除（非表示化）
+  //    片方を消したら、残っている方を自動で操作対象にする
+  function hideChar(key) {
+    chars[key].style.display = 'none';
+    const otherKey = key === 'host' ? 'user' : 'host';
+    if (charVisible(chars[otherKey])) setActiveChar(otherKey);
+    updateCharUI();
+  }
+  Object.entries(chars).forEach(([key, el]) => {
+    let lastTap = 0;
+    el.addEventListener('dblclick', () => hideChar(key));
+    el.addEventListener('touchend', () => {
+      const now = Date.now();
+      if (now - lastTap < 300) hideChar(key);
+      lastTap = now;
+    });
   });
 
-  // ⑤ 立ち絵アップロード
+  // セレクターのボタン：操作対象を切り替え。非表示中の立ち絵なら再表示して選択
+  charSelect.querySelectorAll('.cs-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.char;
+      const el = chars[key];
+      if (el.getAttribute('src') && el.style.display === 'none') {
+        el.style.display = '';   // ダブルタップで消した立ち絵の復帰も兼ねる
+      }
+      setActiveChar(key);
+      updateCharUI();
+    });
+  });
+
+  // ⑤ 立ち絵アップロード：主催の立ち絵は維持したままゲスト枠に追加
   const charUploadBtn = document.getElementById('char-upload-btn');
   const charUploadInput = document.getElementById('char-upload-input');
   charUploadBtn.addEventListener('click', () => charUploadInput.click());
   charUploadInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    const url = URL.createObjectURL(file);
-    boothChar.src = url;
-    boothChar.style.display = '';
+    const prevUrl = boothCharUser.getAttribute('src');
+    if (prevUrl && prevUrl.startsWith('blob:')) URL.revokeObjectURL(prevUrl);
+    boothCharUser.src = URL.createObjectURL(file);
+    boothCharUser.style.display = '';
+    setActiveChar('user');       // アップ直後は自分の立ち絵を操作対象に
+    updateCharUI();
     charUploadInput.value = '';
   });
 
@@ -2461,11 +2586,19 @@
         c.restore();
       });
 
-      // 3) 立ち絵
-      const charRect = boothChar.getBoundingClientRect();
-      c.drawImage(boothChar,
-        charRect.left * dpr, charRect.top * dpr,
-        charRect.width * dpr, charRect.height * dpr);
+      // 3) 立ち絵（主催＋ゲスト）：画面と同じ重なり順（非選択→選択）で合成
+      const charOrder = activeCharKey === 'host'
+        ? [boothCharUser, boothChar]
+        : [boothChar, boothCharUser];
+      charOrder.forEach(charEl => {
+        if (charEl.style.display === 'none') return;
+        if (!charEl.getAttribute('src') || !charEl.complete || !charEl.naturalWidth) return;
+        const charRect = charEl.getBoundingClientRect();
+        if (charRect.width < 1 || charRect.height < 1) return;
+        c.drawImage(charEl,
+          charRect.left * dpr, charRect.top * dpr,
+          charRect.width * dpr, charRect.height * dpr);
+      });
 
       // 4) スタンプ
       document.querySelectorAll('.placed-stamp').forEach(stamp => {
