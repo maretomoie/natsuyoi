@@ -9,6 +9,190 @@
   <meta name="description" content="めあともえ presents「きみ夏宵あそび」Night Fes — 夏の宵を一緒に遊ぼう。">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/top.css">
+
+  <!-- ── Additional components: KV carousel / streamers carousel / modal ── -->
+  <style>
+    /* ═══ 共通：自動横スクロールカルーセル ═══ */
+    .auto-carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+    }
+    .auto-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+      animation: auto-scroll linear infinite;
+    }
+    .auto-carousel:hover .auto-track,
+    .auto-carousel:focus-within .auto-track { animation-play-state: paused; }
+    @keyframes auto-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .auto-track { animation: none; }
+      .auto-carousel { overflow-x: auto; }
+    }
+
+    /* ═══ チームキービジュアル（横長）カルーセル ═══ */
+    #gallery .kv-track { gap: 28px; animation-duration: 46s; }
+    .kv-slide {
+      flex: 0 0 auto;
+      height: 300px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(155,114,207,0.28);
+      box-shadow: 0 12px 44px rgba(3,2,14,0.55);
+      background: rgba(14,27,90,0.4);
+    }
+    .kv-slide img { height: 100%; width: auto; display: block; }
+    @media (max-width: 768px) {
+      #gallery .kv-track { gap: 16px; animation-duration: 34s; }
+      .kv-slide { height: 190px; border-radius: 14px; }
+    }
+
+    /* ═══ 参加配信者カルーセル ═══ */
+    #streamers .streamers-track { gap: 20px; }
+    .streamer-card {
+      flex: 0 0 auto;
+      width: 176px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 26px 16px 20px;
+      border: 1px solid rgba(155,114,207,0.22);
+      border-radius: 20px;
+      background: rgba(14,27,90,0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      cursor: pointer;
+      color: inherit;
+      font-family: inherit;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .streamer-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(155,114,207,0.55);
+      box-shadow: 0 10px 40px rgba(123,78,168,0.3);
+    }
+    .streamer-avatar {
+      width: 84px; height: 84px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,248,240,0.25);
+    }
+    .streamer-avatar.ph,
+    #sm-avatar .ph {
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-ja); font-weight: 700; line-height: 1;
+      color: var(--c-white);
+      background: linear-gradient(135deg,
+                  hsl(var(--hue,280) 55% 46%),
+                  hsl(calc(var(--hue,280) + 40) 62% 56%));
+    }
+    .streamer-avatar.ph { font-size: 2rem; }
+    .streamer-name {
+      font-family: var(--font-ja);
+      font-size: 0.98rem;
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.4;
+      color: var(--c-white);
+    }
+    .streamer-cta {
+      font-family: var(--font-en);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+    }
+    @media (max-width: 768px) {
+      .streamer-card { width: 148px; padding: 22px 12px 16px; }
+      .streamer-avatar { width: 70px; height: 70px; }
+    }
+
+    /* ═══ モーダル ═══ */
+    .sm-overlay {
+      position: fixed; inset: 0;
+      z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      background: rgba(3,2,14,0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .sm-overlay.open { opacity: 1; pointer-events: auto; }
+    .sm-modal {
+      width: min(460px, 100%);
+      max-height: 88vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 40px 32px 32px;
+      border: 1px solid rgba(155,114,207,0.4);
+      border-radius: 26px;
+      background: linear-gradient(165deg, rgba(14,27,90,0.96), rgba(8,16,58,0.97));
+      box-shadow: 0 30px 80px rgba(3,2,14,0.7);
+      transform: translateY(24px) scale(0.96);
+      transition: transform 0.35s cubic-bezier(.2,.9,.3,1);
+      text-align: center;
+    }
+    .sm-overlay.open .sm-modal { transform: none; }
+    .sm-close {
+      position: absolute; top: 14px; right: 16px;
+      width: 36px; height: 36px;
+      border: none; border-radius: 50%;
+      background: rgba(255,248,240,0.08);
+      color: var(--c-white);
+      font-size: 1.2rem; line-height: 1;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .sm-close:hover { background: rgba(255,248,240,0.18); }
+    #sm-avatar {
+      width: 96px; height: 96px; margin: 0 auto 16px;
+      border-radius: 50%; overflow: hidden;
+      border: 2px solid rgba(155,114,207,0.5);
+    }
+    #sm-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    #sm-avatar .ph { width: 100%; height: 100%; font-size: 2.4rem; }
+    #sm-name {
+      font-family: var(--font-ja);
+      font-size: 1.35rem; font-weight: 700;
+      background: var(--grad-logo);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 22px;
+    }
+    .sm-row {
+      text-align: left;
+      padding: 14px 4px;
+      border-top: 1px solid rgba(155,114,207,0.15);
+    }
+    .sm-row:last-child { border-bottom: 1px solid rgba(155,114,207,0.15); }
+    .sm-row-label {
+      display: block;
+      font-family: var(--font-en);
+      font-size: 0.62rem; letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 6px;
+    }
+    .sm-row-value {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--c-white);
+      word-break: break-word;
+    }
+    .sm-row-value a { color: var(--c-violet); text-decoration: none; }
+    .sm-row-value a:hover { text-decoration: underline; }
+    .sm-row-value.empty { color: var(--c-dim); }
+  </style>
 </head>
 <body>
 
@@ -46,21 +230,18 @@
     <div class="video-overlay"></div>
   </div>
 
-
   <!-- Hero content -->
   <div id="hero-content">
     <div id="hero-logo-wrap">
       <img id="hero-logo" src="assets/logo-dark.png" alt="きみ夏宵あそび Night Fes">
     </div>
-    <p id="hero-date">2024.8.9 fri — 8.11 sun | 13:00 → 25:00</p>
+    <p id="hero-date">2026.8.14 fri — 8.16 sun｜13:00 開演</p>
     <p id="hero-tagline">夏の宵を、きみと一緒に遊ぼう。</p>
     <div id="hero-ctas">
       <a href="schedule.html" class="btn btn-primary">スケジュールを見る</a>
       <a href="guests.html"   class="btn btn-outline">ゲストを見る</a>
     </div>
   </div>
-
-  <!-- Scroll indicator removed -->
 </section>
 
 <!-- ═══════════════════════════════════════════
@@ -80,7 +261,7 @@
       <p>段位制限なし、対局数自由——<br>初心者も上級者も、自分のペースで楽しめる参加型フェスです。</p>
     </div>
     <div class="about-kv reveal">
-      <img src="assets/kv-festival.png" alt="縁日で射的">
+      <img src="assets/kv-main.png" alt="きみ夏宵あそび メインビジュアル">
     </div>
   </div>
 
@@ -110,7 +291,7 @@
 <!-- ═══════════════════════════════════════════
      NEWS CAROUSEL (Fire TV風)
 ═══════════════════════════════════════════ -->
-  <!-- NEWS CAROUSEL - JS injection target -->
+<section id="news-section">
   <div class="section-title reveal">
     <span class="en">News &amp; Topics</span>
     <h2 class="ja">お知らせ</h2>
@@ -123,6 +304,8 @@
     <div class="nc-dots" id="nc-dots"></div>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════════
      ENTRY CTA BANNER
 ═══════════════════════════════════════════ -->
 <section id="entry-banner-section">
@@ -144,7 +327,7 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     KEY VISUAL GALLERY
+     KEY VISUAL GALLERY（チームキービジュアル / 自動スクロール）
 ═══════════════════════════════════════════ -->
 <section id="gallery">
   <div class="section-title reveal">
@@ -153,57 +336,25 @@
     <div class="divider"></div>
   </div>
 
-  <div class="kv-grid">
-    <div class="kv-card reveal" style="--delay:0s">
-      <img src="assets/kv-beer.png" alt="れいめあビアガーデン">
-      <div class="kv-label">れいめあ ビアガーデン</div>
-    </div>
-    <div class="kv-card reveal" style="--delay:0.1s">
-      <img src="assets/kv-festival.png" alt="縁日で射的">
-      <div class="kv-label">縁日で射的</div>
-    </div>
-    <div class="kv-card reveal" style="--delay:0.2s">
-      <img src="assets/kv-fireworks.png" alt="爆裂夏花火">
-      <div class="kv-label">爆裂夏花火</div>
-    </div>
-    <div class="kv-card reveal" style="--delay:0.3s">
-      <img src="assets/kv-moon.png" alt="蒼星月花">
-      <div class="kv-label">蒼星月花</div>
+  <div class="auto-carousel">
+    <div class="auto-track kv-track">
+      <!-- set 1 -->
+      <div class="kv-slide"><img src="assets/kv-bakuretsu.png" alt="爆裂"></div>
+      <div class="kv-slide"><img src="assets/kv-sousei.png"    alt="蒼星"></div>
+      <div class="kv-slide"><img src="assets/kv-utakata.png"   alt="泡沫"></div>
+      <div class="kv-slide"><img src="assets/kv-saranari.png"  alt="さらなり"></div>
+      <div class="kv-slide"><img src="assets/kv-torinama.png"  alt="とりなま"></div>
+      <!-- set 2 (loop duplicate) -->
+      <div class="kv-slide" aria-hidden="true"><img src="assets/kv-bakuretsu.png" alt=""></div>
+      <div class="kv-slide" aria-hidden="true"><img src="assets/kv-sousei.png"    alt=""></div>
+      <div class="kv-slide" aria-hidden="true"><img src="assets/kv-utakata.png"   alt=""></div>
+      <div class="kv-slide" aria-hidden="true"><img src="assets/kv-saranari.png"  alt=""></div>
+      <div class="kv-slide" aria-hidden="true"><img src="assets/kv-torinama.png"  alt=""></div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════
-     GUESTS PREVIEW
-═══════════════════════════════════════════ -->
-<section id="guests-preview">
-  <div class="section-title reveal">
-    <span class="en">Featured Guests</span>
-    <h2 class="ja">ゲスト紹介</h2>
-    <div class="divider"></div>
-  </div>
-
-
-<!-- ═══════════════════════════════════════════
-     GUESTS PREVIEW
-═══════════════════════════════════════════ -->
-<section id="guests-preview">
-  <div class="section-title reveal">
-    <span class="en">Participants</span>
-    <h2 class="ja">参加メンバー</h2>
-    <div class="divider"></div>
-  </div>
-
-  <div class="guests-scroll-wrap">
-    <div class="guests-scroll" id="guests-scroll">
-      <!-- JS injection target -->
-    </div>
-  </div>
-
-  <div class="reveal" style="text-align:center; margin-top: 48px;">
-    <a href="guests.html" class="btn btn-outline">全ゲストを見る →</a>
-  </div>
-</section>
      SCHEDULE PREVIEW
 ═══════════════════════════════════════════ -->
 <section id="schedule-preview">
@@ -217,7 +368,7 @@
     <div class="schedule-day-card glass-card reveal" style="--delay:0s">
       <div class="day-header">
         <span class="day-num">DAY 1</span>
-        <span class="day-date">8月9日（金）</span>
+        <span class="day-date">8月14日（金）</span>
       </div>
       <div class="day-time">13:00 → 25:00</div>
       <div class="day-note">開幕！全員全力で楽しもう</div>
@@ -225,7 +376,7 @@
     <div class="schedule-day-card glass-card reveal" style="--delay:0.15s">
       <div class="day-header">
         <span class="day-num">DAY 2</span>
-        <span class="day-date">8月10日（土）</span>
+        <span class="day-date">8月15日（土）</span>
       </div>
       <div class="day-time">13:00 → 25:00</div>
       <div class="day-note">縁日ボーナス活用が鍵！</div>
@@ -233,10 +384,10 @@
     <div class="schedule-day-card glass-card reveal" style="--delay:0.3s">
       <div class="day-header">
         <span class="day-num">DAY 3</span>
-        <span class="day-date">8月11日（日・祝）</span>
+        <span class="day-date">8月16日（日）</span>
       </div>
-      <div class="day-time">13:00 → 25:00</div>
-      <div class="day-note final">最終日 — トップ賞 +20pt!</div>
+      <div class="day-time">13:00 → 21:00</div>
+      <div class="day-note final">対局後 23:00〜 成績発表配信！</div>
     </div>
   </div>
 
@@ -260,12 +411,51 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
+     参加配信者（自動スクロールカルーセル + モーダル）
+═══════════════════════════════════════════ -->
+<section id="streamers">
+  <div class="section-title reveal">
+    <span class="en">Streamers</span>
+    <h2 class="ja">参加配信者</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="auto-carousel">
+    <div class="auto-track streamers-track" id="streamers-track">
+      <!-- JS injection target -->
+    </div>
+  </div>
+</section>
+
+<!-- 配信者モーダル -->
+<div class="sm-overlay" id="streamer-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="sm-name">
+  <div class="sm-modal">
+    <button class="sm-close" id="sm-close" aria-label="閉じる">✕</button>
+    <div id="sm-avatar"></div>
+    <div id="sm-name"></div>
+
+    <div class="sm-row">
+      <span class="sm-row-label">YouTube</span>
+      <div class="sm-row-value" id="sm-youtube">-</div>
+    </div>
+    <div class="sm-row">
+      <span class="sm-row-label">X (Twitter)</span>
+      <div class="sm-row-value" id="sm-x">-</div>
+    </div>
+    <div class="sm-row">
+      <span class="sm-row-label">意気込み</span>
+      <div class="sm-row-value" id="sm-text">-</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
      FOOTER
 ═══════════════════════════════════════════ -->
 <footer>
   <img src="assets/logo-dark.png" alt="きみ夏宵あそび" style="height:48px; margin-bottom:20px; opacity:0.7; filter: drop-shadow(0 0 6px rgba(155,114,207,0.4))">
   <p>めあともえ presents「きみ夏宵あそび」Night Fes</p>
-  <p>© 2024 めあともえ企画 — このサイトはデザインモックです</p>
+  <p>© 2026 きみ夏宵あそび実行委員会</p>
 </footer>
 
 <!-- ── Scripts ── -->
@@ -369,68 +559,97 @@
 })();
 </script>
 
-<!-- ── Guests Scroll (JSON driven) ── -->
+<!-- ── Streamers Carousel + Modal (guests.json driven) ── -->
 <script>
 (async function() {
-  const scroll = document.getElementById('guests-scroll');
-  if (!scroll) return;
+  const track = document.getElementById('streamers-track');
+  if (!track) return;
 
-  let teamsData, guestsData;
+  let guestsData;
   try {
-    [teamsData, guestsData] = await Promise.all([
-      KNY.load('teams'),
-      KNY.load('guests')
-    ]);
+    guestsData = await KNY.load('guests');
   } catch(e) {
-    console.error('guests scroll load error:', e);
+    console.error('guests.json load error:', e);
     return;
   }
+  const guests = (guestsData && guestsData.guests) || [];
+  if (!guests.length) return;
 
-  const roleMap = {
-    leader: { cls: 'leader', label: 'リーダー' },
-    matsuri: { cls: 'matsuri-man', label: 'お祭り男女' },
-    player: { cls: 'player', label: '参加ゲスト' }
-  };
+  // ── モーダル要素 ──
+  const overlay  = document.getElementById('streamer-modal-overlay');
+  const elAvatar = document.getElementById('sm-avatar');
+  const elName   = document.getElementById('sm-name');
+  const elYt     = document.getElementById('sm-youtube');
+  const elX      = document.getElementById('sm-x');
+  const elText   = document.getElementById('sm-text');
 
-  function chip(m, roleKey) {
-    const r = roleMap[roleKey] || roleMap.player;
-    const av = m.avatar
-      ? `<img src="${m.avatar}" alt="${m.name}" class="guest-chip-avatar"
-           onerror="this.outerHTML='<div class=\\'guest-chip-avatar placeholder-avatar\\' style=\\'--hue:${m.avatar_hue}\\'>${m.avatar_initial}</div>'">`
-      : `<div class="guest-chip-avatar placeholder-avatar" style="--hue:${m.avatar_hue}">${m.avatar_initial}</div>`;
-    return `
-      <div class="guest-chip reveal" data-role="${r.cls}">
-        ${av}
-        <div class="guest-chip-info">
-          <span class="guest-role-tag ${r.cls}">${r.label}</span>
-          <span class="guest-name">${m.name}</span>
-        </div>
-      </div>`;
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+  function avatarMarkup(g, cls) {
+    if (g.avatar) {
+      return `<img class="${cls}" src="${esc(g.avatar)}" alt="${esc(g.name)}"
+        onerror="this.outerHTML='<div class=\\'${cls} ph\\' style=\\'--hue:${g.avatar_hue}\\'>${esc(g.avatar_initial)}</div>'">`;
+    }
+    return `<div class="${cls} ph" style="--hue:${g.avatar_hue}">${esc(g.avatar_initial)}</div>`;
   }
 
-  let html = '';
-  // リーダー
-  teamsData.teams.forEach(t => t.leaders.forEach(m => { html += chip(m, 'leader'); }));
-  // お祭り男女
-  teamsData.teams.forEach(t => t.matsuri.forEach(m => { html += chip(m, 'matsuri'); }));
-  // 一般参加
-  guestsData.guests.forEach(g => { html += chip(g, 'player'); });
+  // 空 → "-"、値あり → リンク/テキスト
+  function setRow(el, value, hrefBuilder) {
+    const has = value != null && String(value).trim() !== '';
+    if (!has) { el.textContent = '-'; el.classList.add('empty'); return; }
+    el.classList.remove('empty');
+    if (hrefBuilder) el.innerHTML = hrefBuilder(String(value).trim());
+    else el.textContent = String(value).trim();
+  }
 
-  scroll.innerHTML = html;
+  function openModal(g) {
+    elAvatar.innerHTML = g.avatar
+      ? `<img src="${esc(g.avatar)}" alt="${esc(g.name)}"
+           onerror="this.outerHTML='<div class=\\'ph\\' style=\\'--hue:${g.avatar_hue}\\'>${esc(g.avatar_initial)}</div>'">`
+      : `<div class="ph" style="--hue:${g.avatar_hue}">${esc(g.avatar_initial)}</div>`;
+    elName.textContent = g.name;
 
-  // drag scroll
-  let isDown = false, startX, scrollLeft;
-  scroll.addEventListener('mousedown', (e) => {
-    isDown = true; startX = e.pageX - scroll.offsetLeft; scrollLeft = scroll.scrollLeft;
-    scroll.style.cursor = 'grabbing';
-  });
-  ['mouseleave','mouseup'].forEach(ev =>
-    scroll.addEventListener(ev, () => { isDown = false; scroll.style.cursor = 'grab'; }));
-  scroll.addEventListener('mousemove', (e) => {
-    if (!isDown) return; e.preventDefault();
-    scroll.scrollLeft = scrollLeft - (e.pageX - scroll.offsetLeft - startX) * 1.5;
-  });
-  scroll.style.cursor = 'grab';
+    const links = g.links || {};
+    setRow(elYt, links.youtube, (u) => `<a href="${esc(u)}" target="_blank" rel="noopener">YouTube チャンネルを開く →</a>`);
+    setRow(elX,  links.twitter, (u) => {
+      const label = u.replace(/^https?:\/\/(www\.)?/, '');
+      return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(label)} →</a>`;
+    });
+    setRow(elText, g.text, null);
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.getElementById('sm-close').addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  // ── カード生成 ──
+  function makeCard(g) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'streamer-card';
+    btn.innerHTML =
+      avatarMarkup(g, 'streamer-avatar') +
+      `<span class="streamer-name">${esc(g.name)}</span>` +
+      `<span class="streamer-cta">Tap for detail</span>`;
+    btn.addEventListener('click', () => openModal(g));
+    return btn;
+  }
+
+  const frag = document.createDocumentFragment();
+  guests.forEach(g => frag.appendChild(makeCard(g)));
+  // 無限ループ用の複製（translateX(-50%) で継ぎ目なし）
+  guests.forEach(g => { const c = makeCard(g); c.setAttribute('aria-hidden', 'true'); c.tabIndex = -1; frag.appendChild(c); });
+  track.appendChild(frag);
+
+  // スクロール速度をカード数に比例
+  track.style.animationDuration = Math.max(24, guests.length * 5) + 's';
 })();
 </script>
 </body>
