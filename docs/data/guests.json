@@ -1,95 +1,472 @@
 {
   "guests": [
     {
-      "id": "satono",
-      "name": "里野ぽん太",
+      "id": "nishinoururi",
+      "name": "西乃うるり",
       "avatar": null,
-      "avatar_initial": "里",
-      "avatar_hue": 60,
-      "desc": "いつも週末の夜に雀魂の段位戦、友人戦の配信を行なっております！ぜひお気軽にお越しくださいませ～✨",
+      "avatar_initial": "う",
+      "avatar_hue": 0,
+      "desc": "爆裂夏花火リーダー！日本プロ麻雀協会所属VPL1期生魂天で天鳳位の麻雀大喜利パンダ西乃うるりです！\n大会必要なもの！それは熱いハートそしてかわいいマスコット、そう！俺！\nこんなにかわいいのに麻雀も強かったりするのでチーム参加の皆さんはもう優勝しているみたいなもの！一緒に爆裂楽しもう！",
       "links": {
-        "youtube": null,
-        "twitter": null
+        "youtube": "https://www.youtube.com/channel/UCwjAwj3Nn4RfrfbRQr7B8YQ",
+        "twitter": "https://x.com/ururipanda"
       },
-      "text": "いつも週末の夜に雀魂の段位戦、友人戦の配信を行なっております！ぜひお気軽にお越しくださいませ～✨"
+      "text": "爆裂夏花火リーダー！日本プロ麻雀協会所属VPL1期生魂天で天鳳位の麻雀大喜利パンダ西乃うるりです！\n大会必要なもの！それは熱いハートそしてかわいいマスコット、そう！俺！\nこんなにかわいいのに麻雀も強かったりするのでチーム参加の皆さんはもう優勝しているみたいなもの！一緒に爆裂楽しもう！"
     },
     {
-      "id": "zerosora",
-      "name": "零空(zerosora)",
+      "id": "yuurakuten",
+      "name": "遊楽天GOTH",
       "avatar": null,
-      "avatar_initial": "零",
-      "avatar_hue": 170,
-      "desc": "おはこんにちは！零空です！普段はFPSや麻雀など色々配信しています！颯やかし担当で頑張ってますので、よろしくお願いいたします！",
+      "avatar_initial": "遊",
+      "avatar_hue": 340,
+      "desc": "大喜利系Vtuberの遊楽天GOTH\n夏を彩るお祭り男目指してます🎆\n\n一緒に夏の思い出作りましょう🎆",
       "links": {
-        "youtube": null,
-        "twitter": null
+        "youtube": "https://www.youtube.com/@YuRaKuTen_GOTH",
+        "twitter": "https://x.com/YuRaKuTen_GOTH"
       },
-      "text": "おはこんにちは！零空です！普段はFPSや麻雀など色々配信しています！颯やかし担当で頑張ってますので、よろしくお願いいたします！"
+      "text": "大喜利系Vtuberの遊楽天GOTH\n夏を彩るお祭り男目指してます🎆\n\n一緒に夏の思い出作りましょう🎆"
     },
     {
-      "id": "ohwarabe",
-      "name": "大童レイナ",
+      "id": "araniamu",
+      "name": "新弐あむ",
       "avatar": null,
-      "avatar_initial": "大",
-      "avatar_hue": 350,
-      "desc": "麻雀大好きVtuber一清楚なサキュバス大童レイナです💜段位戦を中心にゲームなど幅広く手を出しています✨",
+      "avatar_initial": "新",
+      "avatar_hue": 200,
+      "desc": null,
       "links": {
-        "youtube": null,
-        "twitter": null
+        "youtube": "https://www.youtube.com/@Arani_Amu",
+        "twitter": "https://x.com/Arani_Amu"
       },
-      "text": "麻雀大好きVtuber一清楚なサキュバス大童レイナです💜段位戦を中心にゲームなど幅広く手を出しています✨"
+      "text": null
     },
     {
-      "id": "draneko",
-      "name": "ドラネコ",
+      "id": "akarun",
+      "name": "あかるん",
       "avatar": null,
-      "avatar_initial": "ド",
-      "avatar_hue": 40,
-      "desc": "四姉妹をシングル子育て中　シンママVTuberドラネコですっ！育児の息抜きに夜更かし雀魂してます。",
+      "avatar_initial": "あ",
+      "avatar_hue": 340,
+      "desc": "はろる〜ん⚡️💕\nVtuberアイドルグループ\n『Luminous Qute』の超ポジティブ担当\nあかるんです💜\n\n個人活動は麻雀を中心にほぼ毎日配信✨\n\nグループチャンネルでは\n横動画やショート動画も更新中！\n8月までにチャンネル登録1万人を\n目指しているのでぜひチャンネル登録\nよろしくお願いします！",
       "links": {
-        "youtube": null,
-        "twitter": null
+        "youtube": "https://www.youtube.com/channel/UCKKhVjuj4tg6cP5vacfkDsQ",
+        "twitter": "https://x.com/akarun_melody"
       },
-      "text": "四姉妹をシングル子育て中　シンママVTuberドラネコですっ！育児の息抜きに夜更かし雀魂してます。"
+      "text": "はろる〜ん⚡️💕\nVtuberアイドルグループ\n『Luminous Qute』の超ポジティブ担当\nあかるんです💜\n\n個人活動は麻雀を中心にほぼ毎日配信✨\n\nグループチャンネルでは\n横動画やショート動画も更新中！\n8月までにチャンネル登録1万人を\n目指しているのでぜひチャンネル登録\nよろしくお願いします！"
     },
     {
-      "id": "marochofu",
-      "name": "まろちょふ",
-      "avatar": null,
-      "avatar_initial": "ま",
-      "avatar_hue": 245,
-      "desc": "日本プロ麻雀協会の雀聖雅人ことまろちょふのチャンネルです、雀魂を中心に配信しております！",
-      "links": {
-        "youtube": null,
-        "twitter": null
-      },
-      "text": "日本プロ麻雀協会の雀聖雅人ことまろちょふのチャンネルです、雀魂を中心に配信しております！"
-    },
-    {
-      "id": "higekujira",
-      "name": "ひげくじら",
-      "avatar": null,
-      "avatar_initial": "ひ",
-      "avatar_hue": 160,
-      "desc": "龍が！　麻雀を打つ！　チャンネルだっ！",
-      "links": {
-        "youtube": null,
-        "twitter": null
-      },
-      "text": "龍が！　麻雀を打つ！　チャンネルだっ！"
-    },
-    {
-      "id": "hinamui",
+      "id": "nichinamui",
       "name": "日菜むい",
       "avatar": null,
       "avatar_initial": "日",
-      "avatar_hue": 310,
-      "desc": "参加ゲスト。夏の宵を一緒に楽しもう！",
+      "avatar_hue": 300,
+      "desc": "幸運を呼ぶ茶柱系VTuberの日菜むいです！\n普段は麻雀配信メインにYouTubeにて活動しています。\n爆裂夏花火のお祭り女として参戦できてとても嬉しいです！\nいっぱい盛り上げられるように頑張りますー！\nみんなでお祭り楽しんでいきましょう！！",
       "links": {
-        "youtube": null,
-        "twitter": null
+        "youtube": "https://www.youtube.com/@nichinamui",
+        "twitter": "https://x.com/nichinamui"
+      },
+      "text": "幸運を呼ぶ茶柱系VTuberの日菜むいです！\n普段は麻雀配信メインにYouTubeにて活動しています。\n爆裂夏花火のお祭り女として参戦できてとても嬉しいです！\nいっぱい盛り上げられるように頑張りますー！\nみんなでお祭り楽しんでいきましょう！！"
+    },
+    {
+      "id": "pepetaro",
+      "name": "ぺぺたろ",
+      "avatar": null,
+      "avatar_initial": "ぺ",
+      "avatar_hue": 320,
+      "desc": "今回お祭り女として参加できてめちゃくちゃうれしいです！いっぱい盛り上がって最高の夏にするぞーーーー！！！！ビールのむぞーーー！麻雀うつぞーーー！でっかい花火どーーーん🌟",
+      "links": {
+        "youtube": "https://www.youtube.com/@pepetarobiyori/",
+        "twitter": "https://x.com/pepetarobiyori"
+      },
+      "text": "今回お祭り女として参加できてめちゃくちゃうれしいです！いっぱい盛り上がって最高の夏にするぞーーーー！！！！ビールのむぞーーー！麻雀うつぞーーー！でっかい花火どーーーん🌟"
+    },
+    {
+      "id": "salsnoah",
+      "name": "さるさのあ",
+      "avatar": null,
+      "avatar_initial": "S",
+      "avatar_hue": 270,
+      "desc": "夏祭りといえばチョコバナナですよね\n僕はチョコバナナが好きなあまり家で自作することもちらほらあり、もはや夏祭りといえばって感じがしなくなってきています。\n\n夏ですね",
+      "links": {
+        "youtube": "https://www.youtube.com/@salsite",
+        "twitter": "https://x.com/Sals_mj"
+      },
+      "text": "夏祭りといえばチョコバナナですよね\n僕はチョコバナナが好きなあまり家で自作することもちらほらあり、もはや夏祭りといえばって感じがしなくなってきています。\n\n夏ですね"
+    },
+    {
+      "id": "kinetsuki",
+      "name": "杵月のあ",
+      "avatar": null,
+      "avatar_initial": "杵",
+      "avatar_hue": 270,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@kinetsukinoa",
+        "twitter": "https://x.com/kinetsukinoa"
       },
       "text": null
+    },
+    {
+      "id": "hoshikage",
+      "name": "星影ラピス",
+      "avatar": null,
+      "avatar_initial": "星",
+      "avatar_hue": 220,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@HoshikageLapis",
+        "twitter": "https://x.com/HoshikageLapis"
+      },
+      "text": null
+    },
+    {
+      "id": "otsutaro",
+      "name": "おつたろう",
+      "avatar": null,
+      "avatar_initial": "お",
+      "avatar_hue": 30,
+      "desc": "先日で1周年を迎えたまだまだ新人の個人女性VTuber(4歳)です！\n麻雀は元気・エンジョイ・時々(？)絶叫で遊んでます。YouTubeで雀魂参加型友人戦をメインに活動中！\n全くの無所属なのでお友だちがなかなか増えなくて泣いてます！一緒に遊んでくれたらうれしいな〜",
+      "links": {
+        "youtube": "https://www.youtube.com/@otsutaroch",
+        "twitter": "https://x.com/otsutaro_02"
+      },
+      "text": "先日で1周年を迎えたまだまだ新人の個人女性VTuber(4歳)です！\n麻雀は元気・エンジョイ・時々(？)絶叫で遊んでます。YouTubeで雀魂参加型友人戦をメインに活動中！\n全くの無所属なのでお友だちがなかなか増えなくて泣いてます！一緒に遊んでくれたらうれしいな〜"
+    },
+    {
+      "id": "komainu",
+      "name": "こまいぬ",
+      "avatar": null,
+      "avatar_initial": "狛",
+      "avatar_hue": 130,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@komainu629",
+        "twitter": "https://x.com/komainu_reality"
+      },
+      "text": null
+    },
+    {
+      "id": "nanoha",
+      "name": "Nanoha。",
+      "avatar": null,
+      "avatar_initial": "N",
+      "avatar_hue": 190,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@Nano_song708",
+        "twitter": "https://x.com/Nano_song708"
+      },
+      "text": null
+    },
+    {
+      "id": "uru",
+      "name": "黒兎ウル",
+      "avatar": null,
+      "avatar_initial": "兎",
+      "avatar_hue": 200,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@kurousagiuruMUSIC",
+        "twitter": "https://x.com/kurousagi_uru"
+      },
+      "text": null
+    },
+    {
+      "id": "dorome",
+      "name": "どろめらくだ",
+      "avatar": null,
+      "avatar_initial": "楽",
+      "avatar_hue": 220,
+      "desc": "今年も！このお祭りに参加させていただくことになりました、どろめらくだです！！麻雀や雑談の配信を時々しつつ、生きるを全部楽しんでいます🐪✌️ ぜひ一緒に戦いましょう！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@dorome_rakuda",
+        "twitter": "https://x.com/rakuda_ra_e"
+      },
+      "text": "今年も！このお祭りに参加させていただくことになりました、どろめらくだです！！麻雀や雑談の配信を時々しつつ、生きるを全部楽しんでいます🐪✌️ ぜひ一緒に戦いましょう！！"
+    },
+    {
+      "id": "misakichi",
+      "name": "御崎 千結",
+      "avatar": null,
+      "avatar_initial": "御",
+      "avatar_hue": 30,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@misakichiyu",
+        "twitter": "https://x.com/misakichiyu?lang=ja"
+      },
+      "text": null
+    },
+    {
+      "id": "satsuki",
+      "name": "佐月麻理子",
+      "avatar": null,
+      "avatar_initial": "麻",
+      "avatar_hue": 50,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/channel/UCexu3zBbRdNDG6fOa-SsG4Q?app=desktop",
+        "twitter": "https://x.com/satsuki_mariko"
+      },
+      "text": null
+    },
+    {
+      "id": "yunchuru",
+      "name": "伊集院有希",
+      "avatar": null,
+      "avatar_initial": "有",
+      "avatar_hue": 280,
+      "desc": "日本プロ麻雀協会25期前期の伊集院有希です！気軽にゆんちゅるって呼んでください！\nジュエリーも作れる宝石彫留職人！\n手彫りで天然石をジュエリーに留めたり金属に模様彫りするのが得意です！\n麻雀モチーフのジュエリーも作ったりしながら配信もやってます！\n雀魂配信を中心に作業配信を行ったりも！",
+      "links": {
+        "youtube": "https://www.youtube.com/@yuntyuru",
+        "twitter": "https://x.com/yuntyuru_autre"
+      },
+      "text": "日本プロ麻雀協会25期前期の伊集院有希です！気軽にゆんちゅるって呼んでください！\nジュエリーも作れる宝石彫留職人！\n手彫りで天然石をジュエリーに留めたり金属に模様彫りするのが得意です！\n麻雀モチーフのジュエリーも作ったりしながら配信もやってます！\n雀魂配信を中心に作業配信を行ったりも！"
+    },
+    {
+      "id": "chino",
+      "name": "雛吞ちの",
+      "avatar": null,
+      "avatar_initial": "雛",
+      "avatar_hue": 20,
+      "desc": "日本プロ麻雀協会福岡支部の雛呑ちのです\n麻雀が大好きで麻雀の配信を沢山してます🀄️\n食べ物は燻製がすきです\nよろしくお願いします🫶",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E9%9B%9B%E5%91%91%E3%81%A1%E3%81%AE",
+        "twitter": "https://x.com/chinohinano"
+      },
+      "text": "日本プロ麻雀協会福岡支部の雛呑ちのです\n麻雀が大好きで麻雀の配信を沢山してます🀄️\n食べ物は燻製がすきです\nよろしくお願いします🫶"
+    },
+    {
+      "id": "aju",
+      "name": "安住太一",
+      "avatar": null,
+      "avatar_initial": "あ",
+      "avatar_hue": 170,
+      "desc": "みなさんこんにちは！\n日本プロ麻雀協会 安住太一（あずみ たいち）です。あじゅと呼ばれています！\n\nきみ夏宵あそび、今年も開催だー！！\n泡沫スプラッシュの一員として、メンバーの力を借りつつ、この夏のひと時をみなさんと全力で楽しみ、笑顔でいっぱいの思い出が作れたらとても嬉しいです！",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%82%E3%81%98%E3%82%85%E3%81%98%E3%82%85npm",
+        "twitter": "https://x.com/ajuju_npm"
+      },
+      "text": "みなさんこんにちは！\n日本プロ麻雀協会 安住太一（あずみ たいち）です。あじゅと呼ばれています！\n\nきみ夏宵あそび、今年も開催だー！！\n泡沫スプラッシュの一員として、メンバーの力を借りつつ、この夏のひと時をみなさんと全力で楽しみ、笑顔でいっぱいの思い出が作れたらとても嬉しいです！"
+    },
+    {
+      "id": "higa",
+      "name": "比嘉 秀仁",
+      "avatar": null,
+      "avatar_initial": "比",
+      "avatar_hue": 180,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/channel/UCgt6CzPcHMTfsEK0war0zMg",
+        "twitter": "https://x.com/hidehitox_higa?lang=ja"
+      },
+      "text": null
+    },
+    {
+      "id": "kako",
+      "name": "平原佳子",
+      "avatar": null,
+      "avatar_initial": "佳",
+      "avatar_hue": 230,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": "https://x.com/HARAchan_poker"
+      },
+      "text": null
+    },
+    {
+      "id": "new",
+      "name": "鴨神にゅう",
+      "avatar": null,
+      "avatar_initial": "鴨",
+      "avatar_hue": 270,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@Kamogami_new",
+        "twitter": "https://x.com/Kamogami_new"
+      },
+      "text": null
+    },
+    {
+      "id": "rotan",
+      "name": "龍惺ろたん",
+      "avatar": null,
+      "avatar_initial": "龍",
+      "avatar_hue": 330,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/channel/UC0InrNgDrH-4irmIVHT_dwQ",
+        "twitter": "https://x.com/RyuseiRotan"
+      },
+      "text": null
+    },
+    {
+      "id": "yoteru",
+      "name": "ヨーテル",
+      "avatar": null,
+      "avatar_initial": "ヨ",
+      "avatar_hue": 240,
+      "desc": "第18代天鳳位、麻雀講座系YouTuberのヨーテルです！最近は麻雀本書いたり個別麻雀教室などで活動してます。特殊ルールは１日中打てるくらい好きなので今回は気合入れて沢山打ちたいと思います！",
+      "links": {
+        "youtube": "https://www.youtube.com/channel/UC-YyR3w0F6hk5odN8wPYsMA",
+        "twitter": "https://x.com/yoteru11"
+      },
+      "text": "第18代天鳳位、麻雀講座系YouTuberのヨーテルです！最近は麻雀本書いたり個別麻雀教室などで活動してます。特殊ルールは１日中打てるくらい好きなので今回は気合入れて沢山打ちたいと思います！"
+    },
+    {
+      "id": "saku",
+      "name": "青門天雀",
+      "avatar": null,
+      "avatar_initial": "雀",
+      "avatar_hue": 160,
+      "desc": null,
+      "links": {
+        "youtube": "https://17.live/ja/profile/u/4407be3f-301f-4f5d-b0ae-7ebc70c0e534?af_http_referer=https://t.co/&af_force_deeplink=true&pid=InappShare&af_dp=media17%3A%2F%2Fv2%2Fstreamer_profile%2F4407be3f-301f-4f5d-b0ae-7ebc70c0e534&deep_link_value=media17%3A%2F%2Fv2%2Fstreamer_profile%2F4407be3f-301f-4f5d-b0ae-7ebc70c0e534&af_c_id=profilepage",
+        "twitter": "https://x.com/saku_bushilive"
+      },
+      "text": null
+    },
+    {
+      "id": "shiira",
+      "name": "泡沫しいら",
+      "avatar": null,
+      "avatar_initial": "泡",
+      "avatar_hue": 210,
+      "desc": "泡沫しいら（うたかたしいら）\n完全セルフ個人勢VTuber\nイラスト・Live2D・動画制作・編集・ティザーPV・サムネ制作など、\n活動に関わるクリエイティブをすべて自身で担当。\n制作も運営もひとりでこなす“なんでも自分でやっちゃうVTuber”",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E6%B3%A1%E6%B2%AB%E3%81%97%E3%81%84%E3%82%89",
+        "twitter": "https://x.com/Coela_Utakata"
+      },
+      "text": "泡沫しいら（うたかたしいら）\n完全セルフ個人勢VTuber\nイラスト・Live2D・動画制作・編集・ティザーPV・サムネ制作など、\n活動に関わるクリエイティブをすべて自身で担当。\n制作も運営もひとりでこなす“なんでも自分でやっちゃうVTuber”"
+    },
+    {
+      "id": "z",
+      "name": "メカゼットン",
+      "avatar": null,
+      "avatar_initial": "Z",
+      "avatar_hue": 150,
+      "desc": "昼間は大阪にあるラキラビという雀荘で健康麻雀の先生を、夜はネット麻雀を打っています。また四麻私設リーグ「黎明戦」を主催もしています。ルールに対する得意不得意は多少はあるにしても強い打ち手はどんなルールでも基本強いと思っているのでいい成績を出せるように頑張ります。",
+      "links": {
+        "youtube": "https://www.youtube.com/channel/UChw1CgXKlKek7rjlbM06MVg?view_as=subscriber",
+        "twitter": "https://x.com/mekazettonn?lang=ja"
+      },
+      "text": "昼間は大阪にあるラキラビという雀荘で健康麻雀の先生を、夜はネット麻雀を打っています。また四麻私設リーグ「黎明戦」を主催もしています。ルールに対する得意不得意は多少はあるにしても強い打ち手はどんなルールでも基本強いと思っているのでいい成績を出せるように頑張ります。"
+    },
+    {
+      "id": "ika",
+      "name": "ゆうれいいか",
+      "avatar": null,
+      "avatar_initial": "い",
+      "avatar_hue": 140,
+      "desc": "こんいか！！\n麻雀がめっちゃ強くてめっちゃ可愛いお祭り男のゆうれいいかです！！\n今年はガチでMVP狙ってます、君たち花火になる準備はいいか？？\n今年も最高にアツい夏にしましょう！",
+      "links": {
+        "youtube": "https://www.youtube.com/@yuureiika",
+        "twitter": "https://x.com/yuureiika_jan"
+      },
+      "text": "こんいか！！\n麻雀がめっちゃ強くてめっちゃ可愛いお祭り男のゆうれいいかです！！\n今年はガチでMVP狙ってます、君たち花火になる準備はいいか？？\n今年も最高にアツい夏にしましょう！"
+    },
+    {
+      "id": "mare",
+      "name": "めあともえ",
+      "avatar": null,
+      "avatar_initial": "め",
+      "avatar_hue": 280,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@maretomoiech",
+        "twitter": "https://x.com/MareTOMOIEsinks"
+      },
+      "text": null
+    },
+    {
+      "id": "manicure",
+      "name": "まにきゅあ",
+      "avatar": null,
+      "avatar_initial": "ま",
+      "avatar_hue": 20,
+      "desc": "お酒を愛してやまないお祭り女、まにきゅあです💅\n月一飲酒麻雀リーグ『酒盛りーぐ』の主催、コラボ雑談配信『スナックまにきゅあ』等、お酒を絡めた企画配信を主にしています🥃\n『トリ生』の皆で、アツい想い出一緒に作りましょう！乾杯！🍻",
+      "links": {
+        "youtube": "https://www.youtube.com/@manimanicurered",
+        "twitter": "https://x.com/manimanicurered"
+      },
+      "text": "お酒を愛してやまないお祭り女、まにきゅあです💅\n月一飲酒麻雀リーグ『酒盛りーぐ』の主催、コラボ雑談配信『スナックまにきゅあ』等、お酒を絡めた企画配信を主にしています🥃\n『トリ生』の皆で、アツい想い出一緒に作りましょう！乾杯！🍻"
+    },
+    {
+      "id": "nagon",
+      "name": "斉唱なごん",
+      "avatar": null,
+      "avatar_initial": "な",
+      "avatar_hue": 170,
+      "desc": "生まれたばかりの新人ファンタスティック平安クレイジーポジティブモンスターVTuber。何をしでかすか分からないトリッキーな言動が魅力。鳥だけにね。今日もオタマトーン片手にアゴを伸ばしていく。とりあえず推せばいいと思うよ！鳥だけにね🐔",
+      "links": {
+        "youtube": "https://www.youtube.com/@sayshow_nagon",
+        "twitter": "https://x.com/sayshow_nagon53"
+      },
+      "text": "生まれたばかりの新人ファンタスティック平安クレイジーポジティブモンスターVTuber。何をしでかすか分からないトリッキーな言動が魅力。鳥だけにね。今日もオタマトーン片手にアゴを伸ばしていく。とりあえず推せばいいと思うよ！鳥だけにね🐔"
+    },
+    {
+      "id": "himono",
+      "name": "乾物ひもの",
+      "avatar": null,
+      "avatar_initial": "乾",
+      "avatar_hue": 180,
+      "desc": "Live2Dモデラー兼VTuberの乾物ひものと申します。\n普段は作業配信や講座を中心に活動していますが、実は麻雀大好き！\nまだまだ勉強中の身ですが、大会ではビールと焼き鳥片手に綺麗な花火打ち上げたいです🎇",
+      "links": {
+        "youtube": "https://www.youtube.com/@-himonogames-6327",
+        "twitter": "https://x.com/himono_vtuber?lang=ja"
+      },
+      "text": "Live2Dモデラー兼VTuberの乾物ひものと申します。\n普段は作業配信や講座を中心に活動していますが、実は麻雀大好き！\nまだまだ勉強中の身ですが、大会ではビールと焼き鳥片手に綺麗な花火打ち上げたいです🎇"
+    },
+    {
+      "id": "hirame",
+      "name": "ひらめ",
+      "avatar": null,
+      "avatar_initial": "ひ",
+      "avatar_hue": 230,
+      "desc": "ひらめです！麻雀大好きな女子大生です！\n普段はYouTubeで、雀魂私設リーグに参加したり、魂天目指して雀魂の段位戦配信をしていたり、天鳳の鳳南実況を投稿したりしています！\n雑談やゲームもだいすき！\n最近お酒の美味しさに目覚めてってます！\nお祭り女としてきみ夏宵あそび盛り上げるぞ〜😽❣️",
+      "links": {
+        "youtube": "https://www.youtube.com/@HiRaMe0811",
+        "twitter": "https://x.com/HiRaMe_0811"
+      },
+      "text": "ひらめです！麻雀大好きな女子大生です！\n普段はYouTubeで、雀魂私設リーグに参加したり、魂天目指して雀魂の段位戦配信をしていたり、天鳳の鳳南実況を投稿したりしています！\n雑談やゲームもだいすき！\n最近お酒の美味しさに目覚めてってます！\nお祭り女としてきみ夏宵あそび盛り上げるぞ〜😽❣️"
+    },
+    {
+      "id": "mua",
+      "name": "むあ",
+      "avatar": null,
+      "avatar_initial": "む",
+      "avatar_hue": 270,
+      "desc": "普段は20時40分から雀魂の段位戦配信をよくやっています！",
+      "links": {
+        "youtube": "https://www.youtube.com/@mumumua",
+        "twitter": "https://x.com/muamua_u"
+      },
+      "text": "普段は20時40分から雀魂の段位戦配信をよくやっています！"
+    },
+    {
+      "id": "sedona",
+      "name": "せどなりあん",
+      "avatar": null,
+      "avatar_initial": "せ",
+      "avatar_hue": 330,
+      "desc": "麻雀を愛し麻雀に愛されよ！麻雀大好き！せどなりあんです！！\nほぼ毎日朝8時から段位戦配信をしています！\n遊びに来てね〜",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCI78ZSkRqlRBhQj40aJFS3g?si=28YW9wDiUkC6HmX3",
+        "twitter": "https://x.com/sedonari"
+      },
+      "text": "麻雀を愛し麻雀に愛されよ！麻雀大好き！せどなりあんです！！\nほぼ毎日朝8時から段位戦配信をしています！\n遊びに来てね〜"
+    },
+    {
+      "id": "karitai",
+      "name": "狩り隊",
+      "avatar": null,
+      "avatar_initial": "狩",
+      "avatar_hue": 185,
+      "desc": "YouTubeは大会戦の鬼打ちをメインに不定期で動かしています～\n徹底した打数戦略と稼働時間の長さで他を寄せ付けることなく最多打数賞を取っていくことから「ラスボス」と呼ばれてます、ｺﾜｸﾅｲｶﾗﾈｰ\n\n夏宵2では狙われる側として参戦！ということで、勝つための戦略を展開しようと思います！",
+      "links": {
+        "youtube": "https://www.youtube.com/@karitai",
+        "twitter": "https://x.com/Karitai_Vtuber"
+      },
+      "text": "YouTubeは大会戦の鬼打ちをメインに不定期で動かしています～\n徹底した打数戦略と稼働時間の長さで他を寄せ付けることなく最多打数賞を取っていくことから「ラスボス」と呼ばれてます、ｺﾜｸﾅｲｶﾗﾈｰ\n\n夏宵2では狙われる側として参戦！ということで、勝つための戦略を展開しようと思います！"
     }
   ]
 }
