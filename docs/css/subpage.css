@@ -163,7 +163,7 @@
   position: relative;
 }
 .note-card ul li::before {
-  content: '✕';
+  content: '・';
   position: absolute; left: 0;
   color: var(--c-pink);
   font-size: 0.7rem;
