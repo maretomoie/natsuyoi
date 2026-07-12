@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" href="assets/logo-dark.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ゲスト紹介 | きみ夏宵あそび</title>
-  <meta name="description" content="きみ夏宵あそびの参加ゲスト一覧。主催・各チームのリーダーペア・お祭り男女・一般参加者を紹介します。">
+  <meta name="description" content="きみ夏宵あそびの参加ゲスト一覧。主催・各チームのリーダーペア・お祭り男女・乱れ星を紹介します。">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/guests.css">
 </head>
@@ -53,26 +53,36 @@
     <span class="en">Teams</span>
     <h2 class="ja">参加チーム</h2>
     <div class="divider"></div>
-    <p class="section-desc reveal">各チームにリーダーペアとお祭り男・お祭り女が所属しています。<br>同卓した相手より着順が上であれば縁日ボーナスを獲得！</p>
+    <p class="section-desc reveal">各チームにリーダーペアとお祭り男・お祭り女が所属しています。<br>同卓した相手より着順が上であれば縁日ボーナスを獲得！<br>チーム名の「参加者一覧」から所属メンバー全員を確認できます。</p>
   </div>
   <div id="teams-wrap"></div>
 </section>
 
 <section class="guest-section">
   <div class="section-title reveal">
-    <span class="en">Participating Guests</span>
-    <h2 class="ja">参加ゲスト</h2>
+    <span class="en">Turbulent Star</span>
+    <h2 class="ja">乱れ星</h2>
     <div class="divider"></div>
+    <p class="section-desc reveal">同卓した際に飛ばす（着順を上回る）とボーナスが得られる特殊メンバー。<br>見つけたら積極的に狙っていこう！</p>
   </div>
-  <div class="guest-grid four-col" id="guests-grid"></div>
+  <div class="guest-grid four-col" id="stars-grid"></div>
 </section>
 
 </main>
 
+<!-- ═══ 参加者一覧モーダル ═══ -->
+<div class="roster-overlay" id="roster-overlay" role="dialog" aria-modal="true" aria-labelledby="roster-title">
+  <div class="roster-modal">
+    <button class="roster-close" id="roster-close" aria-label="閉じる">✕</button>
+    <h3 class="roster-title" id="roster-title"></h3>
+    <div class="roster-body" id="roster-body"></div>
+  </div>
+</div>
+
 <footer>
   <img src="assets/logo-dark.png" alt="きみ夏宵あそび" style="height:48px; margin-bottom:20px; opacity:0.7;">
   <p>めあともえ presents「きみ夏宵あそび」Night Fes</p>
-  <p>© 2024 めあともえ企画</p>
+  <p>© 2026 きみ夏宵あそび実行委員会</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -83,6 +93,9 @@ gsap.registerPlugin(ScrollTrigger);
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
 
+/* teams.json / players.json のIDフィールド名差異を吸収 */
+const teamId = (t) => (t && (t.team_id != null ? t.team_id : t.id));
+
 function revealAll() {
   document.querySelectorAll('.reveal').forEach(el => {
     const delay = parseFloat(el.style.getPropertyValue('--delay') || '0');
@@ -92,6 +105,7 @@ function revealAll() {
 }
 
 function linkBtns(links) {
+  links = links || {};
   const btns = [];
   if (links.youtube) btns.push(`<a href="${links.youtube}" class="channel-link yt">▶</a>`);
   if (links.twitter) btns.push(`<a href="${links.twitter}" class="channel-link tw">𝕏</a>`);
@@ -101,7 +115,7 @@ function linkBtns(links) {
 function avatarHtml(m, cls) {
   if (m.avatar) {
     return `<img src="${m.avatar}" alt="${m.name}" class="${cls}"
-      onerror="this.outerHTML='<div class=\\'${cls} placeholder-avatar\\' style=\\'--hue:${m.avatar_hue}\\'>${m.avatar_initial}</div>'">`; 
+      onerror="this.outerHTML='<div class=\\'${cls} placeholder-avatar\\' style=\\'--hue:${m.avatar_hue}\\'>${m.avatar_initial}</div>'">`;
   }
   return `<div class="${cls} placeholder-avatar" style="--hue:${m.avatar_hue}">${m.avatar_initial}</div>`;
 }
@@ -112,6 +126,21 @@ function memberCard(m) {
       ${avatarHtml(m, 'member-avatar')}
       <div class="member-name">${m.name}</div>
       <div class="member-links">${linkBtns(m.links)}</div>
+    </div>`;
+}
+
+/* 乱れ星カード（参加ゲストと同じ体裁） */
+function starCard(g) {
+  return `
+    <div class="guest-card glass-card reveal">
+      <div class="role-badge player">乱れ星</div>
+      ${avatarHtml(g, 'guest-avatar')}
+      <h3 class="guest-card-name">${g.name}</h3>
+      <p class="guest-desc">${g.desc || ''}</p>
+      <div class="guest-links">
+        ${(g.links && g.links.youtube) ? `<a href="${g.links.youtube}" class="channel-link yt">▶ YouTube</a>` : ''}
+        ${(g.links && g.links.twitter) ? `<a href="${g.links.twitter}" class="channel-link tw">𝕏 Twitter</a>` : ''}
+      </div>
     </div>`;
 }
 
@@ -139,42 +168,117 @@ async function loadHost() {
     </div>`;
 }
 
-async function loadTeams() {
-  const { teams } = await KNY.load('teams');
-  document.getElementById('teams-wrap').innerHTML = teams.map(t => `
+/* ── チーム一覧（乱れ星は除外）＋ 乱れ星グリッド ＋ CTA配線 ── */
+let TEAMS = [], PLAYERS = [];
+
+async function loadTeamsAndStars() {
+  const teamsRes = await KNY.load('teams');
+  TEAMS = teamsRes.teams || [];
+
+  // players.json は存在しなくても動作させる
+  try {
+    const playersRes = await KNY.load('players');
+    PLAYERS = (playersRes && playersRes.players) || [];
+  } catch (e) {
+    console.warn('players.json load skipped:', e);
+    PLAYERS = [];
+  }
+
+  const competing = TEAMS.filter(t => teamId(t) !== 'stars');
+  const starsTeam = TEAMS.find(t => teamId(t) === 'stars');
+
+  // チームフレーム（各ヘッダーに参加者一覧CTA）
+  document.getElementById('teams-wrap').innerHTML = competing.map(t => `
     <div class="team-frame reveal" style="--team-color:${t.color};">
       <div class="team-frame-header">
         <span class="team-mark"></span>
         <h3 class="team-name">${t.name}</h3>
+        <button class="team-cta" type="button" data-tid="${teamId(t)}">
+          <span class="team-cta-icon">☰</span>参加者一覧
+        </button>
       </div>
       <div class="team-subsection">
         <span class="team-role-label leader">リーダーペア</span>
-        <div class="team-members leader-pair">${t.leaders.map(memberCard).join('')}</div>
+        <div class="team-members leader-pair">${(t.leaders||[]).map(memberCard).join('')}</div>
       </div>
       <div class="team-subsection">
         <span class="team-role-label matsuri">お祭り男・女</span>
-        <div class="team-members matsuri-group">${t.matsuri.map(memberCard).join('')}</div>
+        <div class="team-members matsuri-group">${(t.matsuri||[]).map(memberCard).join('')}</div>
       </div>
     </div>`).join('');
+
+  // 乱れ星（stars チームの leaders + matsuri）
+  const starMembers = starsTeam ? [...(starsTeam.leaders||[]), ...(starsTeam.matsuri||[])] : [];
+  document.getElementById('stars-grid').innerHTML = starMembers.map(starCard).join('');
+
+  // CTA配線
+  document.querySelectorAll('.team-cta').forEach(btn => {
+    btn.addEventListener('click', () => openRoster(btn.dataset.tid));
+  });
 }
 
-async function loadGuests() {
-  const { guests } = await KNY.load('guests');
-  document.getElementById('guests-grid').innerHTML = guests.map(g => `
-    <div class="guest-card glass-card reveal">
-      <div class="role-badge player">参加ゲスト</div>
-      ${avatarHtml(g, 'guest-avatar')}
-      <h3 class="guest-card-name">${g.name}</h3>
-      <p class="guest-desc">${g.desc}</p>
-      <div class="guest-links">
-        ${g.links.youtube ? `<a href="${g.links.youtube}" class="channel-link yt">▶ YouTube</a>` : ''}
-        ${g.links.twitter ? `<a href="${g.links.twitter}" class="channel-link tw">𝕏 Twitter</a>` : ''}
-      </div>
-    </div>`).join('');
+/* ── 参加者一覧モーダル ── */
+const rosterOverlay = document.getElementById('roster-overlay');
+const rosterTitle   = document.getElementById('roster-title');
+const rosterBody    = document.getElementById('roster-body');
+
+function rosterMemberRow(m) {
+  return `
+    <div class="roster-member">
+      ${avatarHtml(m, 'roster-avatar')}
+      <span class="roster-name">${m.name}</span>
+      <span class="roster-links">${linkBtns(m.links)}</span>
+    </div>`;
 }
+
+function openRoster(tid) {
+  const team = TEAMS.find(t => teamId(t) === tid);
+  if (!team) return;
+
+  const leaders  = team.leaders || [];
+  const matsuri  = team.matsuri || [];
+  const generals = PLAYERS.filter(p => p.team_id === tid);
+
+  let html = '';
+  if (leaders.length) {
+    html += `<div class="roster-group">
+      <h4 class="roster-group-title">リーダーペア</h4>
+      <div class="roster-members">${leaders.map(rosterMemberRow).join('')}</div>
+    </div>`;
+  }
+  if (matsuri.length) {
+    html += `<div class="roster-group">
+      <h4 class="roster-group-title">お祭り男・女</h4>
+      <div class="roster-members">${matsuri.map(rosterMemberRow).join('')}</div>
+    </div>`;
+  }
+  html += `<div class="roster-group">
+    <h4 class="roster-group-title">一般参加者 <span class="roster-count">${generals.length}名</span></h4>
+    ${generals.length
+      ? `<div class="roster-chips">${generals.map(p => `<div class="roster-chip">${p.name}</div>`).join('')}</div>`
+      : `<p class="roster-empty">現在登録されている一般参加者はいません。</p>`}
+  </div>`;
+
+  rosterTitle.textContent = team.name;
+  rosterTitle.style.color = `rgb(${team.color})`;
+  document.querySelector('.roster-modal').style.setProperty('--team-color', team.color);
+  rosterBody.innerHTML = html;
+  rosterBody.scrollTop = 0;
+
+  rosterOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeRoster() {
+  rosterOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+rosterOverlay.addEventListener('click', (e) => { if (e.target === rosterOverlay) closeRoster(); });
+document.getElementById('roster-close').addEventListener('click', closeRoster);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeRoster(); });
 
 (async () => {
-  try { await Promise.all([loadHost(), loadTeams(), loadGuests()]); }
+  try { await Promise.all([loadHost(), loadTeamsAndStars()]); }
   catch (e) { console.error('Data load error:', e); }
   revealAll();
 })();
