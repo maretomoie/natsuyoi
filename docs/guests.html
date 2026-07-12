@@ -79,6 +79,20 @@
   </div>
 </div>
 
+<!-- ═══ メンバー意気込みモーダル ═══ -->
+<div class="member-overlay" id="member-overlay" role="dialog" aria-modal="true" aria-labelledby="mm-name">
+  <div class="member-modal">
+    <button class="member-close" id="mm-close" aria-label="閉じる">✕</button>
+    <div id="mm-avatar"></div>
+    <h3 id="mm-name"></h3>
+    <div id="mm-links" class="mm-links"></div>
+    <div class="mm-text-block">
+      <span class="mm-text-label">意気込み</span>
+      <p class="mm-text" id="mm-text"></p>
+    </div>
+  </div>
+</div>
+
 <footer>
   <img src="assets/logo-dark.png" alt="きみ夏宵あそび" style="height:48px; margin-bottom:20px; opacity:0.7;">
   <p>めあともえ presents「きみ夏宵あそび」Night Fes</p>
@@ -121,8 +135,9 @@ function avatarHtml(m, cls) {
 }
 
 function memberCard(m) {
+  const idx = MEMBER_INDEX.push(m) - 1;
   return `
-    <div class="team-member-card">
+    <div class="team-member-card" data-midx="${idx}" role="button" tabindex="0" aria-label="${m.name} の意気込みを見る">
       ${avatarHtml(m, 'member-avatar')}
       <div class="member-name">${m.name}</div>
       <div class="member-links">${linkBtns(m.links)}</div>
@@ -169,7 +184,7 @@ async function loadHost() {
 }
 
 /* ── チーム一覧（乱れ星は除外）＋ 乱れ星グリッド ＋ CTA配線 ── */
-let TEAMS = [], PLAYERS = [];
+let TEAMS = [], PLAYERS = [], MEMBER_INDEX = [];
 
 async function loadTeamsAndStars() {
   const teamsRes = await KNY.load('teams');
@@ -186,6 +201,8 @@ async function loadTeamsAndStars() {
 
   const competing = TEAMS.filter(t => teamId(t) !== 'stars');
   const starsTeam = TEAMS.find(t => teamId(t) === 'stars');
+
+  MEMBER_INDEX = [];
 
   // チームフレーム（各ヘッダーに参加者一覧CTA）
   document.getElementById('teams-wrap').innerHTML = competing.map(t => `
@@ -214,6 +231,19 @@ async function loadTeamsAndStars() {
   // CTA配線
   document.querySelectorAll('.team-cta').forEach(btn => {
     btn.addEventListener('click', () => openRoster(btn.dataset.tid));
+  });
+
+  // メンバーカード → 意気込みモーダル（リンク/CTAクリックは除外）
+  const teamsWrap = document.getElementById('teams-wrap');
+  teamsWrap.addEventListener('click', (e) => {
+    if (e.target.closest('.member-links') || e.target.closest('.team-cta')) return;
+    const card = e.target.closest('.team-member-card');
+    if (card) openMember(MEMBER_INDEX[+card.dataset.midx]);
+  });
+  teamsWrap.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const card = e.target.closest('.team-member-card');
+    if (card) { e.preventDefault(); openMember(MEMBER_INDEX[+card.dataset.midx]); }
   });
 }
 
@@ -276,6 +306,41 @@ function closeRoster() {
 rosterOverlay.addEventListener('click', (e) => { if (e.target === rosterOverlay) closeRoster(); });
 document.getElementById('roster-close').addEventListener('click', closeRoster);
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeRoster(); });
+
+/* ── メンバー意気込みモーダル ── */
+const memberOverlay = document.getElementById('member-overlay');
+const mmAvatar = document.getElementById('mm-avatar');
+const mmName   = document.getElementById('mm-name');
+const mmLinks  = document.getElementById('mm-links');
+const mmText   = document.getElementById('mm-text');
+
+function openMember(m) {
+  if (!m) return;
+  mmAvatar.innerHTML = m.avatar
+    ? `<img src="${m.avatar}" alt="${m.name}" onerror="this.outerHTML='<div class=\\'placeholder-avatar\\' style=\\'--hue:${m.avatar_hue}\\'>${m.avatar_initial}</div>'">`
+    : `<div class="placeholder-avatar" style="--hue:${m.avatar_hue}">${m.avatar_initial}</div>`;
+  mmName.textContent = m.name;
+
+  const yt = m.links && m.links.youtube;
+  const tw = m.links && m.links.twitter;
+  mmLinks.innerHTML =
+    (yt ? `<a href="${yt}" class="channel-link yt" target="_blank" rel="noopener">▶ YouTube</a>` : '') +
+    (tw ? `<a href="${tw}" class="channel-link tw" target="_blank" rel="noopener">𝕏 Twitter</a>` : '');
+
+  const has = m.text && String(m.text).trim();
+  mmText.textContent = has ? m.text : '-';
+  mmText.classList.toggle('empty', !has);
+
+  memberOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMember() {
+  memberOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+memberOverlay.addEventListener('click', (e) => { if (e.target === memberOverlay) closeMember(); });
+document.getElementById('mm-close').addEventListener('click', closeMember);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMember(); });
 
 (async () => {
   try { await Promise.all([loadHost(), loadTeamsAndStars()]); }
