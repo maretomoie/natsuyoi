@@ -7,1234 +7,1234 @@
     {
       "rank": 1,
       "name": "爆裂夏花火",
-      "points": 2600,
-      "kansen_points": 1040
+      "points": 0,
+      "kansen_points": 0
     },
     {
       "rank": 2,
       "name": "トリあえず生！！",
-      "points": 2600,
-      "kansen_points": 1040
+      "points": 0,
+      "kansen_points": 0
     },
     {
       "rank": 3,
       "name": "月のころはさらなり",
-      "points": 2190,
-      "kansen_points": 876
+      "points": 0,
+      "kansen_points": 0
     },
     {
       "rank": 4,
       "name": "泡沫スプラッシュ!",
-      "points": 2070,
-      "kansen_points": 828
+      "points": 0,
+      "kansen_points": 0
     },
     {
       "rank": 5,
       "name": "蒼星月花",
-      "points": 1725,
-      "kansen_points": 690
+      "points": 0,
+      "kansen_points": 0
     }
   ],
   "personal_ranking": [
     {
       "rank": 1,
-      "name": "ダミー037",
-      "points": 305,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 2,
-      "name": "ダミー049",
-      "points": 300,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 3,
-      "name": "ダミー101",
-      "points": 290,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 4,
-      "name": "ダミー192",
-      "points": 265,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
-      "rank": 5,
-      "name": "ダミー025",
-      "points": 260,
-      "team": "爆裂夏花火"
+      "rank": 3,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 6,
-      "name": "ダミー047",
-      "points": 255,
+      "rank": 4,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 5,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
+      "rank": 6,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
       "rank": 7,
-      "name": "ダミー169",
-      "points": 255,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 8,
-      "name": "ダミー200",
-      "points": 255,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 9,
-      "name": "ダミー131",
-      "points": 245,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 10,
-      "name": "ダミー016",
-      "points": 235,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 11,
-      "name": "ダミー124",
-      "points": 235,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 12,
-      "name": "ダミー127",
-      "points": 230,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 13,
-      "name": "ダミー061",
-      "points": 225,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
-      "rank": 14,
-      "name": "ダミー015",
-      "points": 215,
+      "rank": 11,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 15,
-      "name": "ダミー018",
-      "points": 215,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 16,
-      "name": "ダミー163",
-      "points": 215,
+      "rank": 12,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
+      "rank": 13,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 14,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 15,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 16,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
       "rank": 17,
-      "name": "ダミー183",
-      "points": 215,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 18,
-      "name": "ダミー050",
-      "points": 205,
-      "team": "蒼星月花"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 19,
-      "name": "ダミー052",
-      "points": 205,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 20,
-      "name": "ダミー138",
-      "points": 200,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 21,
-      "name": "ダミー140",
-      "points": 200,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 22,
-      "name": "ダミー159",
-      "points": 200,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 23,
-      "name": "ダミー165",
-      "points": 190,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 24,
-      "name": "ダミー045",
-      "points": 185,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 25,
-      "name": "ダミー102",
-      "points": 180,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
-      "rank": 26,
-      "name": "ダミー181",
-      "points": 180,
+      "rank": 20,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 21,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 22,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
+      "rank": 23,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 24,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 25,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 26,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
       "rank": 27,
-      "name": "ダミー188",
-      "points": 180,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 28,
-      "name": "ダミー005",
-      "points": 170,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 29,
-      "name": "ダミー028",
-      "points": 170,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 30,
-      "name": "ダミー085",
-      "points": 170,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 31,
-      "name": "ダミー137",
-      "points": 170,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 32,
-      "name": "ダミー029",
-      "points": 165,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 33,
-      "name": "ダミー081",
-      "points": 165,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 34,
-      "name": "ダミー191",
-      "points": 165,
+      "rank": 32,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
-      "rank": 35,
-      "name": "ダミー116",
-      "points": 160,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 36,
-      "name": "ダミー160",
-      "points": 160,
+      "rank": 33,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
+      "rank": 34,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 35,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 36,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
       "rank": 37,
-      "name": "ダミー178",
-      "points": 160,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 38,
-      "name": "ダミー063",
-      "points": 155,
-      "team": "蒼星月花"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 39,
-      "name": "ダミー089",
-      "points": 155,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 40,
-      "name": "ダミー161",
-      "points": 155,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 41,
-      "name": "ダミー040",
-      "points": 150,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 42,
-      "name": "ダミー048",
-      "points": 150,
-      "team": "蒼星月花"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 43,
-      "name": "ダミー177",
-      "points": 150,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 44,
-      "name": "ダミー054",
-      "points": 145,
-      "team": "蒼星月花"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 45,
-      "name": "ダミー184",
-      "points": 145,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 46,
-      "name": "ダミー176",
-      "points": 140,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 47,
-      "name": "ダミー187",
-      "points": 140,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 48,
-      "name": "ダミー109",
-      "points": 135,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 49,
-      "name": "ダミー122",
-      "points": 135,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 50,
-      "name": "ダミー152",
-      "points": 135,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 51,
-      "name": "ダミー031",
-      "points": 130,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 52,
-      "name": "ダミー123",
-      "points": 130,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 53,
-      "name": "ダミー126",
-      "points": 125,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 54,
-      "name": "ダミー150",
-      "points": 125,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 55,
-      "name": "ダミー175",
-      "points": 125,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 56,
-      "name": "ダミー087",
-      "points": 115,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 57,
-      "name": "ダミー096",
-      "points": 115,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 58,
-      "name": "ダミー030",
-      "points": 110,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 59,
-      "name": "ダミー033",
-      "points": 110,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 60,
-      "name": "ダミー057",
-      "points": 110,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 61,
-      "name": "ダミー093",
-      "points": 110,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 62,
-      "name": "ダミー011",
-      "points": 105,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 63,
-      "name": "ダミー012",
-      "points": 105,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 64,
-      "name": "ダミー070",
-      "points": 105,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 65,
-      "name": "ダミー132",
-      "points": 105,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
+      "rank": 64,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 65,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
       "rank": 66,
-      "name": "ダミー042",
-      "points": 100,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 67,
-      "name": "ダミー078",
-      "points": 100,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 68,
-      "name": "ダミー035",
-      "points": 95,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
+      "rank": 67,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 68,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
       "rank": 69,
-      "name": "ダミー097",
-      "points": 95,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 70,
-      "name": "ダミー098",
-      "points": 95,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 71,
-      "name": "ダミー147",
-      "points": 95,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 72,
-      "name": "ダミー194",
-      "points": 95,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 73,
-      "name": "ダミー014",
-      "points": 90,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 74,
-      "name": "ダミー038",
-      "points": 90,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 75,
-      "name": "ダミー072",
-      "points": 90,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 76,
-      "name": "ダミー119",
-      "points": 90,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 77,
-      "name": "ダミー133",
-      "points": 90,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 78,
-      "name": "ダミー022",
-      "points": 85,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
+      "rank": 77,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 78,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
       "rank": 79,
-      "name": "ダミー082",
-      "points": 85,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 80,
-      "name": "ダミー128",
-      "points": 85,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 81,
-      "name": "ダミー017",
-      "points": 80,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 82,
-      "name": "ダミー060",
-      "points": 80,
-      "team": "蒼星月花"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 83,
-      "name": "ダミー034",
-      "points": 75,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 84,
-      "name": "ダミー105",
-      "points": 75,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 85,
-      "name": "ダミー106",
-      "points": 75,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 86,
-      "name": "ダミー141",
-      "points": 75,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 87,
-      "name": "ダミー073",
-      "points": 70,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
+      "rank": 86,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 87,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
       "rank": 88,
-      "name": "ダミー088",
-      "points": 70,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 89,
-      "name": "ダミー094",
-      "points": 70,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 90,
-      "name": "ダミー069",
-      "points": 65,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 91,
-      "name": "ダミー121",
-      "points": 65,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 92,
-      "name": "ダミー168",
-      "points": 65,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 93,
-      "name": "ダミー172",
-      "points": 65,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 94,
-      "name": "ダミー013",
-      "points": 60,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 95,
-      "name": "ダミー041",
-      "points": 60,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 96,
-      "name": "ダミー189",
-      "points": 60,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 97,
-      "name": "ダミー004",
-      "points": 55,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 98,
-      "name": "ダミー117",
-      "points": 55,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 99,
-      "name": "ダミー144",
-      "points": 55,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 100,
-      "name": "ダミー179",
-      "points": 55,
+      "rank": 97,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
-      "rank": 101,
-      "name": "ダミー056",
-      "points": 50,
+      "rank": 98,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 99,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 100,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
+    },
+    {
+      "rank": 101,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 102,
-      "name": "ダミー059",
-      "points": 50,
-      "team": "蒼星月花"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 103,
-      "name": "ダミー143",
-      "points": 50,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 104,
-      "name": "ダミー158",
-      "points": 50,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 105,
-      "name": "ダミー091",
-      "points": 45,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 106,
-      "name": "ダミー112",
-      "points": 45,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 107,
-      "name": "ダミー139",
-      "points": 45,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 108,
-      "name": "ダミー198",
-      "points": 45,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 109,
-      "name": "ダミー001",
-      "points": 40,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 110,
-      "name": "ダミー083",
-      "points": 40,
+      "rank": 107,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 108,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 109,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 110,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 111,
-      "name": "ダミー113",
-      "points": 40,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 112,
-      "name": "ダミー114",
-      "points": 40,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 113,
-      "name": "ダミー154",
-      "points": 40,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 114,
-      "name": "ダミー007",
-      "points": 35,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 115,
-      "name": "ダミー024",
-      "points": 35,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 116,
-      "name": "ダミー104",
-      "points": 35,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 117,
-      "name": "ダミー108",
-      "points": 35,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 118,
-      "name": "ダミー195",
-      "points": 35,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 119,
-      "name": "ダミー003",
-      "points": 30,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 120,
-      "name": "ダミー008",
-      "points": 30,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 121,
-      "name": "ダミー074",
-      "points": 30,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 122,
-      "name": "ダミー026",
-      "points": 25,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 123,
-      "name": "ダミー039",
-      "points": 25,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 124,
-      "name": "ダミー064",
-      "points": 25,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 125,
-      "name": "ダミー100",
-      "points": 25,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 126,
-      "name": "ダミー190",
-      "points": 25,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 127,
-      "name": "ダミー036",
-      "points": 20,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 128,
-      "name": "ダミー110",
-      "points": 20,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 129,
-      "name": "ダミー136",
-      "points": 20,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 130,
-      "name": "ダミー162",
-      "points": 20,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 131,
-      "name": "ダミー171",
-      "points": 20,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 132,
-      "name": "ダミー055",
-      "points": 15,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 133,
-      "name": "ダミー099",
-      "points": 15,
+      "rank": 119,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
-      "rank": 134,
-      "name": "ダミー058",
-      "points": 10,
+      "rank": 120,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
+      "rank": 121,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 122,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 123,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 124,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 125,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 126,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 127,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 128,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 129,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 130,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 131,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 132,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 133,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 134,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
       "rank": 135,
-      "name": "ダミー076",
-      "points": 10,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 136,
-      "name": "ダミー125",
-      "points": 10,
-      "team": "月のころはさらなり"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 137,
-      "name": "ダミー185",
-      "points": 10,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 138,
-      "name": "ダミー197",
-      "points": 10,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 139,
-      "name": "ダミー084",
-      "points": 5,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 140,
-      "name": "ダミー067",
+      "name": "-",
       "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 141,
-      "name": "ダミー142",
+      "name": "-",
       "points": 0,
-      "team": "月のころはさらなり"
+      "team": "爆裂夏花火"
     },
     {
       "rank": 142,
-      "name": "ダミー151",
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 143,
+      "name": "-",
       "points": 0,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 143,
-      "name": "ダミー077",
-      "points": -5,
-      "team": "蒼星月花"
-    },
-    {
       "rank": 144,
-      "name": "ダミー153",
-      "points": -5,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 145,
-      "name": "ダミー118",
-      "points": -10,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
+      "rank": 145,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
       "rank": 146,
-      "name": "ダミー019",
-      "points": -15,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 147,
-      "name": "ダミー107",
-      "points": -15,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 148,
-      "name": "ダミー157",
-      "points": -15,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 149,
-      "name": "ダミー174",
-      "points": -15,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 150,
-      "name": "ダミー032",
-      "points": -20,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     },
     {
       "rank": 151,
-      "name": "ダミー044",
-      "points": -20,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 152,
-      "name": "ダミー075",
-      "points": -20,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 153,
-      "name": "ダミー120",
-      "points": -20,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 154,
-      "name": "ダミー135",
-      "points": -20,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 155,
-      "name": "ダミー155",
-      "points": -20,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 156,
-      "name": "ダミー164",
-      "points": -20,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 157,
-      "name": "ダミー010",
-      "points": -25,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 158,
-      "name": "ダミー080",
-      "points": -25,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 159,
-      "name": "ダミー180",
-      "points": -25,
+      "rank": 152,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
-      "rank": 160,
-      "name": "ダミー095",
-      "points": -30,
+      "rank": 153,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 154,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
-      "rank": 161,
-      "name": "ダミー043",
-      "points": -35,
+      "rank": 155,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
+    },
+    {
+      "rank": 156,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 157,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 158,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 159,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 160,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 161,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 162,
-      "name": "ダミー065",
-      "points": -35,
-      "team": "蒼星月花"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 163,
-      "name": "ダミー156",
-      "points": -35,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 164,
-      "name": "ダミー027",
-      "points": -40,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 165,
-      "name": "ダミー071",
-      "points": -40,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 166,
-      "name": "ダミー086",
-      "points": -40,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 167,
-      "name": "ダミー020",
-      "points": -45,
-      "team": "爆裂夏花火"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 168,
-      "name": "ダミー021",
-      "points": -45,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 169,
-      "name": "ダミー166",
-      "points": -45,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 170,
-      "name": "ダミー103",
-      "points": -50,
-      "team": "泡沫スプラッシュ!"
-    },
-    {
-      "rank": 171,
-      "name": "ダミー182",
-      "points": -50,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 172,
-      "name": "ダミー079",
-      "points": -55,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 173,
-      "name": "ダミー173",
-      "points": -55,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 174,
-      "name": "ダミー170",
-      "points": -60,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 175,
-      "name": "ダミー149",
-      "points": -70,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 176,
-      "name": "ダミー193",
-      "points": -70,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 177,
-      "name": "ダミー115",
-      "points": -75,
+      "rank": 169,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
-      "rank": 178,
-      "name": "ダミー199",
-      "points": -75,
-      "team": "トリあえず生！！"
-    },
-    {
-      "rank": 179,
-      "name": "ダミー062",
-      "points": -80,
+      "rank": 170,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
-      "rank": 180,
-      "name": "ダミー111",
-      "points": -80,
+      "rank": 171,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 172,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 173,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 174,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
+      "rank": 175,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 176,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 177,
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
+    },
+    {
+      "rank": 178,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 179,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 180,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
+    },
+    {
       "rank": 181,
-      "name": "ダミー009",
-      "points": -85,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 182,
-      "name": "ダミー092",
-      "points": -90,
-      "team": "泡沫スプラッシュ!"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 183,
-      "name": "ダミー134",
-      "points": -90,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 184,
-      "name": "ダミー196",
-      "points": -90,
-      "team": "トリあえず生！！"
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 185,
-      "name": "ダミー129",
-      "points": -95,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 186,
-      "name": "ダミー130",
-      "points": -100,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 187,
-      "name": "ダミー006",
-      "points": -105,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 188,
-      "name": "ダミー068",
-      "points": -105,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
-      "rank": 189,
-      "name": "ダミー167",
-      "points": -110,
+      "rank": 186,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 187,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
+      "rank": 188,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 189,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
       "rank": 190,
-      "name": "ダミー053",
-      "points": -120,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 191,
-      "name": "ダミー002",
-      "points": -130,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 192,
-      "name": "ダミー051",
-      "points": -135,
-      "team": "蒼星月花"
+      "name": "-",
+      "points": 0,
+      "team": "トリあえず生！！"
     },
     {
       "rank": 193,
-      "name": "ダミー146",
-      "points": -140,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 194,
-      "name": "ダミー148",
-      "points": -140,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 195,
-      "name": "ダミー145",
-      "points": -155,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 196,
-      "name": "ダミー066",
-      "points": -170,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 197,
-      "name": "ダミー090",
-      "points": -170,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
-      "rank": 198,
-      "name": "ダミー023",
-      "points": -205,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 199,
-      "name": "ダミー046",
-      "points": -225,
+      "rank": 195,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
-      "rank": 200,
-      "name": "ダミー186",
-      "points": -225,
+      "rank": 196,
+      "name": "-",
+      "points": 0,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 197,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
+    },
+    {
+      "rank": 198,
+      "name": "-",
+      "points": 0,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 199,
+      "name": "-",
+      "points": 0,
+      "team": "泡沫スプラッシュ!"
+    },
+    {
+      "rank": 200,
+      "name": "-",
+      "points": 0,
+      "team": "蒼星月花"
     }
   ],
   "daily_ranking": [],
