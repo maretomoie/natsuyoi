@@ -1,3 +1,19 @@
 {
-  "official": []
+  "official": [
+    {
+      "name": "ウザク式何切る",
+      "logo": "assets/sponsor/uzakushiki.jpg",
+      "link": null
+    },
+    {
+      "name": "麻の巣",
+      "logo": "assets/sponsor/manosu.jpg",
+      "link": null
+    },
+    {
+      "name": "e活",
+      "logo": "assets/sponsor/ekatsu.png",
+      "link": null
+    }
+  ]
 }
