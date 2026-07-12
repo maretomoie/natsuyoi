@@ -168,6 +168,37 @@ main { max-width: 1200px; margin: 0 auto; }
   .guest-grid, .guest-grid.four-col { grid-template-columns: 1fr; }
 }
 
+/* ── 乱れ星: チーム括りを持たない5名並立の簡素枠 ── */
+.guest-grid.star-grid {
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 880px;
+  gap: 20px;
+}
+.star-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px;
+  text-align: center;
+}
+.star-avatar {
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.star-name {
+  font-family: var(--font-ja);
+  font-size: 1rem;
+  font-weight: 400;
+}
+@media (max-width: 900px) {
+  .guest-grid.star-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 550px) {
+  .guest-grid.star-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ═══════════════════════════════════════════
    HOST FEATURE (主催・大きめ表示)
 ═══════════════════════════════════════════ */
