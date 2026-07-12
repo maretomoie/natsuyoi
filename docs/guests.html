@@ -65,7 +65,7 @@
     <div class="divider"></div>
     <p class="section-desc reveal">同卓した際に飛ばす、もしくは着順を上回るとボーナスが得られる特殊メンバー。<br>見つけたら積極的に狙っていこう！</p>
   </div>
-  <div class="guest-grid four-col" id="stars-grid"></div>
+  <div class="guest-grid star-grid" id="stars-grid"></div>
 </section>
 
 </main>
@@ -144,18 +144,12 @@ function memberCard(m) {
     </div>`;
 }
 
-/* 乱れ星カード（参加ゲストと同じ体裁） */
+/* 乱れ星カード（チーム括りなし・リンクなしの簡素枠：アバターと名前のみ） */
 function starCard(g) {
   return `
-    <div class="guest-card glass-card reveal">
-      <div class="role-badge player">乱れ星</div>
-      ${avatarHtml(g, 'guest-avatar')}
-      <h3 class="guest-card-name">${g.name}</h3>
-      <p class="guest-desc">${g.desc || ''}</p>
-      <div class="guest-links">
-        ${(g.links && g.links.youtube) ? `<a href="${g.links.youtube}" class="channel-link yt">▶ YouTube</a>` : ''}
-        ${(g.links && g.links.twitter) ? `<a href="${g.links.twitter}" class="channel-link tw">𝕏 Twitter</a>` : ''}
-      </div>
+    <div class="star-card reveal">
+      ${avatarHtml(g, 'star-avatar')}
+      <div class="star-name">${g.name}</div>
     </div>`;
 }
 
