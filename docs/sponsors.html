@@ -10,6 +10,56 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/subpage.css">
   <link rel="stylesheet" href="css/sponsors.css">
+  <style>
+    /* ── オフィシャルスポンサー ── */
+    .official-grid {
+      display: flex; flex-wrap: wrap;
+      gap: 28px; justify-content: center; align-items: stretch;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .official-loading { color: var(--c-dim); font-size: 0.9rem; }
+    .official-card {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 14px;
+      width: 264px; padding: 26px 22px;
+      border-radius: 20px;
+      text-decoration: none;
+      border: 1px solid rgba(240,190,80,0.35);
+      background: linear-gradient(135deg, rgba(240,190,80,0.10) 0%, rgba(14,27,90,0.42) 100%);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    a.official-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(240,190,80,0.7);
+      box-shadow: 0 10px 40px rgba(240,190,80,0.22);
+    }
+    .official-logo-wrap {
+      width: 100%; height: 112px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.96);
+      overflow: hidden;
+    }
+    .official-logo { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .official-logo-text {
+      color: #08103A; font-family: var(--font-ja); font-weight: 700;
+      font-size: 1.05rem; text-align: center; line-height: 1.4;
+    }
+    .official-name {
+      font-family: var(--font-ja); font-size: 0.98rem;
+      color: var(--c-white); text-align: center;
+    }
+    .official-hint {
+      font-family: var(--font-en); font-size: 0.58rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--c-gold);
+    }
+    @media (max-width: 700px) {
+      .official-grid { gap: 18px; }
+      .official-card { width: 100%; max-width: 320px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -40,6 +90,18 @@
 </div>
 
 <main class="subpage-main">
+
+<!-- オフィシャルスポンサー -->
+<section class="subpage-section official-section" id="official-section">
+  <div class="section-title reveal">
+    <span class="en">Official Sponsors</span>
+    <h2 class="ja">オフィシャルスポンサー</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="official-grid reveal" id="official-grid">
+    <div class="official-loading">読み込み中...</div>
+  </div>
+</section>
 
 <section class="subpage-section sponsors-intro-section">
   <div class="sponsors-intro reveal glass-card">
@@ -87,7 +149,7 @@
 <footer>
   <img src="assets/logo-dark.png" alt="きみ夏宵あそび" style="height:48px; margin-bottom:20px; opacity:0.7;">
   <p>めあともえ presents「きみ夏宵あそび」Night Fes</p>
-  <p>© 2024 めあともえ企画</p>
+  <p>© 2026 きみ夏宵あそび実行委員会</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -104,6 +166,41 @@ function revealAll() {
     gsap.to(el, { opacity: 1, y: 0, duration: 0.85, delay, ease: 'power2.out',
       scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
   });
+}
+
+async function loadOfficial() {
+  const grid = document.getElementById('official-grid');
+  const section = document.getElementById('official-section');
+  let data;
+  try {
+    data = await KNY.load('official');
+  } catch (e) {
+    console.warn('official.json 未取得のためセクション非表示:', e);
+    if (section) section.style.display = 'none';
+    return;
+  }
+  const list = (data && data.official) || [];
+  if (!list.length) {
+    if (section) section.style.display = 'none';
+    return;
+  }
+
+  const esc = (s) => String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+  grid.innerHTML = list.map(s => {
+    const name = esc(s.name);
+    const tile = s.logo
+      ? `<img class="official-logo" src="${esc(s.logo)}" alt="${name}" onerror="this.style.display='none'">`
+      : `<span class="official-logo-text">${name}</span>`;
+    const body = `
+      <div class="official-logo-wrap">${tile}</div>
+      <span class="official-name">${name}</span>
+      ${s.link ? '<span class="official-hint">Visit site →</span>' : ''}`;
+    return s.link
+      ? `<a class="official-card" href="${esc(s.link)}" target="_blank" rel="noopener">${body}</a>`
+      : `<div class="official-card">${body}</div>`;
+  }).join('');
 }
 
 async function loadSponsors() {
@@ -124,7 +221,7 @@ async function loadSponsors() {
 }
 
 (async () => {
-  try { await loadSponsors(); }
+  try { await Promise.all([loadOfficial(), loadSponsors()]); }
   catch (e) { console.error('Data load error:', e); }
   revealAll();
 })();
