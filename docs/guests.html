@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" href="assets/logo-dark.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ゲスト紹介 | きみ夏宵あそび</title>
-  <meta name="description" content="きみ夏宵あそびの参加ゲスト一覧。主催・各チームのリーダーペア・お祭り男女・乱れ星を紹介します。">
+  <meta name="description" content="きみ夏宵あそびの参加ゲスト一覧。主催・各チームのリーダー・お祭り男女・乱れ星を紹介します。">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/guests.css">
 </head>
@@ -53,7 +53,7 @@
     <span class="en">Teams</span>
     <h2 class="ja">参加チーム</h2>
     <div class="divider"></div>
-    <p class="section-desc reveal">各チームにリーダーペアとお祭り男・お祭り女が所属しています。<br>同卓した相手より着順が上であれば縁日ボーナスを獲得！<br>チーム名の「参加者一覧」から所属メンバー全員を確認できます。</p>
+    <p class="section-desc reveal">各チームにリーダーとお祭り男・お祭り女が所属しています。<br>同卓した相手より着順が上であれば縁日ボーナスを獲得！<br>チーム名の「参加者一覧」から所属メンバー全員を確認できます。</p>
   </div>
   <div id="teams-wrap"></div>
 </section>
@@ -63,7 +63,7 @@
     <span class="en">Turbulent Star</span>
     <h2 class="ja">乱れ星</h2>
     <div class="divider"></div>
-    <p class="section-desc reveal">同卓した際に飛ばす（着順を上回る）とボーナスが得られる特殊メンバー。<br>見つけたら積極的に狙っていこう！</p>
+    <p class="section-desc reveal">同卓した際に飛ばす、もしくは着順を上回るとボーナスが得られる特殊メンバー。<br>見つけたら積極的に狙っていこう！</p>
   </div>
   <div class="guest-grid four-col" id="stars-grid"></div>
 </section>
@@ -215,7 +215,7 @@ async function loadTeamsAndStars() {
         </button>
       </div>
       <div class="team-subsection">
-        <span class="team-role-label leader">リーダーペア</span>
+        <span class="team-role-label leader">リーダー</span>
         <div class="team-members leader-pair">${(t.leaders||[]).map(memberCard).join('')}</div>
       </div>
       <div class="team-subsection">
@@ -272,7 +272,7 @@ function openRoster(tid) {
   let html = '';
   if (leaders.length) {
     html += `<div class="roster-group">
-      <h4 class="roster-group-title">リーダーペア</h4>
+      <h4 class="roster-group-title">リーダー</h4>
       <div class="roster-members">${leaders.map(rosterMemberRow).join('')}</div>
     </div>`;
   }
