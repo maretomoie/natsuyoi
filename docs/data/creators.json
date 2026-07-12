@@ -5,7 +5,7 @@
       "name": "ながいキリン",
       "handle": "@nagai_kirin",
       "role": "配信演出クリエイター",
-      "avatar": "assets/creators/creator-01.png",
+      "avatar": null,
       "avatar_initial": "キ",
       "avatar_hue": 260,
       "links": {
@@ -20,7 +20,7 @@
           "title": "オリジナルコメントCSS",
           "type": "つなぐ",
           "type_label": "つなぐ",
-          "thumb": "assets/creators/work-01-01.jpg",
+          "thumb": null,
           "thumb_emoji": "🎐",
           "badge": "つなぐ",
           "desc": "きみ夏宵あそびのイメージのリアクションタンクやスパチャ演出を手掛けたながいキリンさま、現在もご依頼受付中！自分だけの配信画面を作りたいかたはぜひ！",
@@ -31,7 +31,7 @@
           "title": "自作配信ツール販売中！",
           "type": "BOOTH",
           "type_label": "SKEB",
-          "thumb": "assets/creators/work-01-03.jpg",
+          "thumb": null,
           "thumb_emoji": "✨",
           "badge": "SKEB",
           "desc": "キャラクターイラストの制作を承っています。背景付き・SDなどご相談ください。イベント期間中は優先対応します。",
@@ -42,7 +42,7 @@
           "title": "HP",
           "type": "HP",
           "type_label": "HP",
-          "thumb": "assets/creators/work-01-02.jpg",
+          "thumb": null,
           "thumb_emoji": "🎆",
           "badge": "pixiv",
           "desc": "花火と浴衣をテーマに描き下ろしたメインビジュアル。夏の夜のひとときを切り取りました。",
@@ -71,7 +71,7 @@
           "title": "おしゃれな筆文字欲しくない？",
           "type": null,
           "type_label": null,
-          "thumb": "assets/creators/work-02-02.jpg",
+          "thumb": null,
           "thumb_emoji": "🎤",
           "badge": null,
           "desc": "チームロゴを担当していただいた斉唱なごんさまに一筆書いていただくことおができます。配信/大会などのロゴや、心を引き締める一言など依頼できます！",
@@ -82,7 +82,7 @@
           "title": "書きおろしグッズはこちらから",
           "type": "SUZURI",
           "type_label": "SUZURI",
-          "thumb": "assets/creators/work-02-01.jpg",
+          "thumb": "assets/creators/nagon01.png",
           "thumb_emoji": "🎵",
           "badge": "SUZURI",
           "desc": "斉唱なごんさま入魂の一筆がはいった数々のグッズはこちらからゲットできます♪",
@@ -96,7 +96,7 @@
       "name": "やなり",
       "handle": "@chii_chii_art",
       "role": "GOODS / FAN ART",
-      "avatar": "assets/creators/creator-03.png",
+      "avatar": null,
       "avatar_initial": "や",
       "avatar_hue": 180,
       "links": {
@@ -111,12 +111,12 @@
           "title": "きみ夏宵あそびロゴ制作者やなりさんへの依頼はこちらから",
           "type": "booth",
           "type_label": "BOOTH出品",
-          "thumb": "assets/creators/work-03-01.jpg",
+          "thumb": "assets/creators/yanari01.png",
           "thumb_emoji": "🌸",
-          "badge": "BOOTH",
-          "desc": "各チームカラーをイメージした缶バッジ4点セット。蒼星月花・れいめあビアガーデン・縁日で射的！・爆裂夏花火の4チームそれぞれのデザイン。直径44mm缶バッジ。",
-          "cta": "BOOTHで見る",
-          "url": null,
+          "badge": "SKIMA",
+          "desc": "一次創作/二次創作の同人誌表紙デザイン、ロゴ、サムネイルなど、幅広いデザインを現在受付中！丁寧なヒアリングとイメージをくみ取ったアウトプットがとっても魅力的なクリエイターさまです！",
+          "cta": "SKIMAで依頼する",
+          "url": "https://skima.jp/profile?id=301043",
           "thumb_aspect": "21 / 9"
         }
       ]
@@ -136,7 +136,106 @@
         "pixiv": null,
         "skeb": null
       },
-      "works": []
+      "works": [
+        {
+          "title": null,
+          "type": "つなぐ",
+          "type_label": "つなぐ",
+          "thumb": "assets/creators/fusego01.png",
+          "thumb_emoji": null,
+          "badge": "つなぐ",
+          "desc": "チーム「トリあえず生！」のキービジュアルを手掛けたふせごさま、シャープで美しい線とシンプルに華やかな配色が魅力的なイラストレーターさまです。新しいビジュアルをお探しの方はこちらからご依頼ください♪",
+          "cta": "つなぐで依頼する",
+          "url": "https://tsunagu.cloud/users/Pu_fusego"
+        }
+      ]
+    },
+    {
+      "id": "Cgeso",
+      "name": "さきいかげそ",
+      "handle": "@sakiika_geso",
+      "role": "イラストレーター",
+      "avatar": null,
+      "avatar_initial": "さ",
+      "avatar_hue": 0,
+      "links": {
+        "twitter": "https://x.com/i6_zx",
+        "youtube": null,
+        "booth": null,
+        "pixiv": null,
+        "skeb": null
+      },
+      "works": [
+        {
+          "title": "ポップで目に留まるイラストなら、げそさんに依頼しよう！",
+          "type": "X",
+          "type_label": "X",
+          "thumb": "assets/creators/geso01.png",
+          "thumb_emoji": "🦑",
+          "badge": "X",
+          "desc": "配信者賞のイラストを担当されているさきいかげそさま　漫画家としても活躍中！説得力のある「叫びコマ」イラストも有名ですが、複数名をひとつの画面に配置するイラストでの構図力が素晴らしいクリエイターさまです！",
+          "cta": "XのDM",
+          "url": "https://x.com/i6_zx"
+        }
+      ]
+    },
+    {
+      "id": "Cnakadeiko",
+      "name": "奈嘉でぃ子",
+      "handle": "@naka_deiko",
+      "role": "イラストレーター",
+      "avatar": null,
+      "avatar_initial": "奈",
+      "avatar_hue": 340,
+      "links": {
+        "twitter": null,
+        "youtube": null,
+        "booth": null,
+        "pixiv": null,
+        "skeb": null
+      },
+      "works": [
+        {
+          "title": null,
+          "type": null,
+          "type_label": null,
+          "thumb": null,
+          "thumb_emoji": null,
+          "badge": null,
+          "desc": null,
+          "cta": null,
+          "url": null
+        }
+      ]
+    },
+    {
+      "id": "Camanenoa",
+      "name": "天音のあ",
+      "handle": null,
+      "role": null,
+      "avatar": null,
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "links": {
+        "twitter": null,
+        "youtube": null,
+        "booth": null,
+        "pixiv": null,
+        "skeb": null
+      },
+      "works": [
+        {
+          "title": null,
+          "type": null,
+          "type_label": null,
+          "thumb": null,
+          "thumb_emoji": null,
+          "badge": null,
+          "desc": null,
+          "cta": null,
+          "url": null
+        }
+      ]
     }
   ]
 }
