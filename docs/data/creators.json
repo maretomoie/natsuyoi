@@ -205,6 +205,17 @@
           "desc": null,
           "cta": "SKIMAで依頼する",
           "url": "https://skima.jp/profile?id=291262"
+        },
+        {
+          "title": "奈嘉でぃ子さんの全てが集約されたサイトはこちら",
+          "type": "Lit.Link",
+          "type_label": "Lit.Link",
+          "thumb": "assets/creator/naka.png",
+          "thumb_emoji": null,
+          "badge": "Lit.Link",
+          "desc": null,
+          "cta": "Lit.Linkを確認する",
+          "url": "https://lit.link/nakadeiko"
         }
       ]
     }
