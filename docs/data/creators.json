@@ -207,35 +207,6 @@
           "url": null
         }
       ]
-    },
-    {
-      "id": "Camanenoa",
-      "name": "天音のあ",
-      "handle": null,
-      "role": null,
-      "avatar": null,
-      "avatar_initial": null,
-      "avatar_hue": 0,
-      "links": {
-        "twitter": null,
-        "youtube": null,
-        "booth": null,
-        "pixiv": null,
-        "skeb": null
-      },
-      "works": [
-        {
-          "title": null,
-          "type": null,
-          "type_label": null,
-          "thumb": null,
-          "thumb_emoji": null,
-          "badge": null,
-          "desc": null,
-          "cta": null,
-          "url": null
-        }
-      ]
     }
   ]
 }
