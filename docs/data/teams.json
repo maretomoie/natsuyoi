@@ -76,7 +76,7 @@
         },
         {
           "id": "salsnoah",
-          "name": "さるさのあ",
+          "name": "サルサノア",
           "avatar": "assets/guests/hanabi-salsnoah.png",
           "avatar_initial": "S",
           "avatar_hue": 270,
@@ -434,6 +434,14 @@
           }
         }
       ]
+    },
+    {
+      "id": "stars",
+      "name": "宵闇の乱れ星",
+      "color": "150, 20, 65",
+      "kv_image": null,
+      "leaders": [],
+      "matsuri": []
     }
   ]
 }
