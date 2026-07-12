@@ -9,20 +9,20 @@
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "aaaさま",
+      "sponsor": "奉納者さまサンプル3",
       "prize": "1口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "bbbさま",
+      "sponsor": "奉納者さまサンプル2",
       "prize": "3口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "石油王さま",
-      "prize": "30口"
+      "sponsor": "奉納者さまサンプル1",
+      "prize": "10口"
     }
   ]
 }
