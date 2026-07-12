@@ -10,6 +10,49 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/subpage.css">
   <link rel="stylesheet" href="css/results.css">
+  <style>
+    /* ── チーム別個人ランキング：チーム選択UI ── */
+    .byteam-controls {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .byteam-label {
+      font-family: var(--font-ja-sans);
+      font-size: 0.85rem; letter-spacing: 0.08em;
+      color: var(--c-dim);
+    }
+    .byteam-select-wrap { position: relative; }
+    .byteam-select-wrap::after {
+      content: '▾';
+      position: absolute; right: 18px; top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--c-violet);
+      font-size: 0.8rem;
+    }
+    .byteam-select {
+      appearance: none; -webkit-appearance: none;
+      min-width: 240px;
+      padding: 12px 46px 12px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(155,114,207,0.4);
+      background: rgba(14,27,90,0.5);
+      color: var(--c-white);
+      font-family: var(--font-ja-sans);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .byteam-select:hover,
+    .byteam-select:focus {
+      border-color: var(--c-violet);
+      box-shadow: 0 4px 20px rgba(123,78,168,0.3);
+      outline: none;
+    }
+    .byteam-select option { background: #0E1B5A; color: var(--c-white); }
+    #byteam-title { transition: color 0.3s; }
+  </style>
 </head>
 <body>
 
@@ -51,6 +94,7 @@
 <section class="subpage-section results-nav-section">
   <div class="results-tabs reveal">
     <button class="results-tab active" data-target="overall">総合ランキング</button>
+    <button class="results-tab" data-target="byteam">チーム別個人ランキング</button>
     <button class="results-tab" data-target="daily">日別ランキング</button>
     <button class="results-tab" data-target="counts">打数ランキング</button>
   </div>
@@ -105,6 +149,38 @@
   </div>
 </section>
 
+<!-- チーム別個人ランキング -->
+<section class="subpage-section results-pane" id="pane-byteam">
+  <div class="byteam-controls reveal">
+    <label class="byteam-label" for="byteam-select">チームを選択</label>
+    <div class="byteam-select-wrap">
+      <select id="byteam-select" class="byteam-select"></select>
+    </div>
+  </div>
+
+  <div class="ranking-block glass-card reveal">
+    <div class="ranking-header personal-header">
+      <img src="assets/fuurin.png" alt="" class="ranking-icon">
+      <h2 class="ranking-title" id="byteam-title">チーム別個人ランキング</h2>
+    </div>
+    <div class="ranking-scroll">
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th class="col-rank">順位</th>
+            <th class="col-name">名前</th>
+            <th class="col-pt">獲得Pt</th>
+            <th class="col-sub">総合順位</th>
+          </tr>
+        </thead>
+        <tbody id="byteam-body">
+          <tr><td colspan="4" style="text-align:center;color:var(--c-dim);padding:24px;">チームを選択してください</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <!-- 日別ランキング -->
 <section class="subpage-section results-pane" id="pane-daily">
   <div class="placeholder-block glass-card reveal">
@@ -128,7 +204,7 @@
 <footer>
   <img src="assets/logo-dark.png" alt="きみ夏宵あそび" style="height:48px; margin-bottom:20px; opacity:0.7;">
   <p>めあともえ presents「きみ夏宵あそび」Night Fes</p>
-  <p>© 2024 めあともえ企画</p>
+  <p>© 2026 きみ夏宵あそび実行委員会</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -152,8 +228,11 @@ function medalHtml(rank) {
   return `${rank}位`;
 }
 
+let RESULTS = null;
+
 async function loadResults() {
   const data = await KNY.load('results');
+  RESULTS = data;
 
   // 更新時刻
   document.getElementById('update-time').textContent =
@@ -179,6 +258,60 @@ async function loadResults() {
       <td class="col-pt">${KNY.num(r.points)}</td>
     </tr>`).join('');
   persBody.innerHTML = rows || '<tr><td colspan="4" class="more-cell">— データなし —</td></tr>';
+
+  // チーム別個人ランキングを準備
+  await setupByTeam();
+}
+
+/* ── チーム別個人ランキング（results.json の personal_ranking を team で絞り込み） ── */
+async function setupByTeam() {
+  const select = document.getElementById('byteam-select');
+  const body   = document.getElementById('byteam-body');
+  const title  = document.getElementById('byteam-title');
+  const personal = (RESULTS && RESULTS.personal_ranking) || [];
+
+  // teams.json から順序・色を取得（任意・失敗してもフォールバック）
+  const teamColor = {};
+  let ordered = [];
+  try {
+    const { teams } = await KNY.load('teams');
+    (teams || [])
+      .filter(t => (t.team_id != null ? t.team_id : t.id) !== 'stars')
+      .forEach(t => { if (t.name) { teamColor[t.name] = t.color; ordered.push(t.name); } });
+  } catch (e) {
+    console.warn('teams.json 未取得（personal_ranking から順序を生成）:', e);
+  }
+
+  // personal に実際に登場するチームのみ対象（teams.json順→出現順で補完）
+  const present = new Set(personal.map(r => r.team).filter(Boolean));
+  const teamList = ordered.filter(n => present.has(n));
+  personal.forEach(r => { if (r.team && !teamList.includes(r.team)) teamList.push(r.team); });
+
+  if (!teamList.length) {
+    select.innerHTML = '<option value="">チームなし</option>';
+    body.innerHTML = '<tr><td colspan="4" class="more-cell">— データなし —</td></tr>';
+    return;
+  }
+
+  select.innerHTML = teamList.map(n => `<option value="${n}">${n}</option>`).join('');
+
+  function render(teamName) {
+    const list = personal.filter(r => r.team === teamName);
+    title.textContent = `${teamName}　個人ランキング`;
+    title.style.color = teamColor[teamName] ? `rgb(${teamColor[teamName]})` : '';
+    body.innerHTML = list.length
+      ? list.map((r, i) => `
+        <tr class="${i < 3 ? 'rank-' + (i + 1) : ''}">
+          <td class="col-rank">${medalHtml(i + 1)}</td>
+          <td class="col-name">${r.name}</td>
+          <td class="col-pt">${KNY.num(r.points)}</td>
+          <td class="col-sub">${r.rank ? r.rank + '位' : '-'}</td>
+        </tr>`).join('')
+      : '<tr><td colspan="4" class="more-cell">— データなし —</td></tr>';
+  }
+
+  select.onchange = () => render(select.value);
+  render(teamList[0]);
 }
 
 // タブ切り替え
@@ -189,6 +322,12 @@ tabs.forEach(tab => {
     const target = tab.dataset.target;
     tabs.forEach(t => t.classList.toggle('active', t === tab));
     panes.forEach(p => p.classList.toggle('active', p.id === `pane-${target}`));
+    // 表示されたペイン内の未表示reveal要素を確実に可視化
+    const activePane = document.getElementById(`pane-${target}`);
+    if (activePane) {
+      activePane.querySelectorAll('.reveal').forEach(el =>
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }));
+    }
   });
 });
 
