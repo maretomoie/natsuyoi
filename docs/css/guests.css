@@ -579,3 +579,103 @@ main { max-width: 1200px; margin: 0 auto; }
   .roster-members { grid-template-columns: 1fr; }
   .team-cta { padding: 7px 14px; font-size: 0.75rem; }
 }
+
+/* ═══════════════════════════════════════════
+   メンバー意気込みモーダル（GUESTSタブ / カードクリック）
+═══════════════════════════════════════════ */
+.team-member-card { cursor: pointer; }
+.team-member-card:focus-visible {
+  outline: 2px solid rgba(155,114,207,0.7);
+  outline-offset: 2px;
+}
+
+.member-overlay {
+  position: fixed; inset: 0;
+  z-index: 210;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: rgba(3,2,14,0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.member-overlay.open { opacity: 1; pointer-events: auto; }
+
+.member-modal {
+  width: min(420px, 100%);
+  max-height: 86vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 40px 32px 32px;
+  text-align: center;
+  border-radius: 24px;
+  border: 1px solid rgba(155,114,207,0.4);
+  background: linear-gradient(165deg, rgba(20,16,48,0.97) 0%, rgba(8,16,58,0.97) 100%);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+  transform: translateY(24px) scale(0.96);
+  transition: transform 0.35s cubic-bezier(.2,.9,.3,1);
+}
+.member-overlay.open .member-modal { transform: none; }
+
+.member-close {
+  position: absolute; top: 14px; right: 16px;
+  width: 36px; height: 36px;
+  border: none; border-radius: 50%;
+  background: rgba(255,248,240,0.08);
+  color: var(--c-white);
+  font-size: 1.2rem; line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.member-close:hover { background: rgba(255,248,240,0.18); }
+
+#mm-avatar {
+  width: 96px; height: 96px;
+  margin: 0 auto 16px;
+}
+#mm-avatar img,
+#mm-avatar .placeholder-avatar {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  font-size: 2.4rem;
+}
+
+#mm-name {
+  font-family: var(--font-ja);
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  background: var(--grad-logo);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mm-links {
+  display: flex; gap: 10px;
+  justify-content: center; flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+.mm-links:empty { display: none; }
+.mm-links .channel-link { font-size: 0.8rem; padding: 7px 16px; }
+
+.mm-text-block {
+  text-align: left;
+  padding-top: 20px;
+  border-top: 1px solid rgba(155,114,207,0.2);
+}
+.mm-text-label {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.62rem; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-bottom: 8px;
+}
+.mm-text {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--c-white);
+  white-space: pre-wrap;
+}
+.mm-text.empty { color: var(--c-dim); }
