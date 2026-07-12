@@ -3,7 +3,7 @@
     {
       "id": "nishinoururi",
       "name": "西乃うるり",
-      "avatar": null,
+      "avatar": "assets/guests/hanabi-ururi.png",
       "avatar_initial": "う",
       "avatar_hue": 0,
       "desc": "爆裂夏花火リーダー！日本プロ麻雀協会所属VPL1期生魂天で天鳳位の麻雀大喜利パンダ西乃うるりです！\n大会必要なもの！それは熱いハートそしてかわいいマスコット、そう！俺！\nこんなにかわいいのに麻雀も強かったりするのでチーム参加の皆さんはもう優勝しているみたいなもの！一緒に爆裂楽しもう！",
@@ -17,7 +17,7 @@
     {
       "id": "yuurakuten",
       "name": "遊楽天GOTH",
-      "avatar": null,
+      "avatar": "assets/guests/hanabi-goth.png",
       "avatar_initial": "遊",
       "avatar_hue": 340,
       "desc": "大喜利系Vtuberの遊楽天GOTH\n夏を彩るお祭り男目指してます🎆\n\n一緒に夏の思い出作りましょう🎆",
@@ -31,7 +31,7 @@
     {
       "id": "araniamu",
       "name": "新弐あむ",
-      "avatar": null,
+      "avatar": "assets/guests/hanabi-arani.png",
       "avatar_initial": "新",
       "avatar_hue": 200,
       "desc": null,
@@ -45,7 +45,7 @@
     {
       "id": "akarun",
       "name": "あかるん",
-      "avatar": null,
+      "avatar": "assets/guests/hanabi-akarun.png",
       "avatar_initial": "あ",
       "avatar_hue": 340,
       "desc": "はろる〜ん⚡️💕\nVtuberアイドルグループ\n『Luminous Qute』の超ポジティブ担当\nあかるんです💜\n\n個人活動は麻雀を中心にほぼ毎日配信✨\n\nグループチャンネルでは\n横動画やショート動画も更新中！\n8月までにチャンネル登録1万人を\n目指しているのでぜひチャンネル登録\nよろしくお願いします！",
@@ -59,7 +59,7 @@
     {
       "id": "nichinamui",
       "name": "日菜むい",
-      "avatar": null,
+      "avatar": "assets/guests/hanabi-mui.png",
       "avatar_initial": "日",
       "avatar_hue": 300,
       "desc": "幸運を呼ぶ茶柱系VTuberの日菜むいです！\n普段は麻雀配信メインにYouTubeにて活動しています。\n爆裂夏花火のお祭り女として参戦できてとても嬉しいです！\nいっぱい盛り上げられるように頑張りますー！\nみんなでお祭り楽しんでいきましょう！！",
@@ -73,7 +73,7 @@
     {
       "id": "pepetaro",
       "name": "ぺぺたろ",
-      "avatar": null,
+      "avatar": "assets/guests/hanabi-pepetaro.png",
       "avatar_initial": "ぺ",
       "avatar_hue": 320,
       "desc": "今回お祭り女として参加できてめちゃくちゃうれしいです！いっぱい盛り上がって最高の夏にするぞーーーー！！！！ビールのむぞーーー！麻雀うつぞーーー！でっかい花火どーーーん🌟",
@@ -87,7 +87,7 @@
     {
       "id": "salsnoah",
       "name": "さるさのあ",
-      "avatar": null,
+      "avatar": "assets/guests/hanabi-salsnoah.png",
       "avatar_initial": "S",
       "avatar_hue": 270,
       "desc": "夏祭りといえばチョコバナナですよね\n僕はチョコバナナが好きなあまり家で自作することもちらほらあり、もはや夏祭りといえばって感じがしなくなってきています。\n\n夏ですね",
@@ -101,7 +101,7 @@
     {
       "id": "kinetsuki",
       "name": "杵月のあ",
-      "avatar": null,
+      "avatar": "assets/guests/sousei-noa.png",
       "avatar_initial": "杵",
       "avatar_hue": 270,
       "desc": null,
@@ -115,7 +115,7 @@
     {
       "id": "hoshikage",
       "name": "星影ラピス",
-      "avatar": null,
+      "avatar": "assets/guests/sousei-lapis.png",
       "avatar_initial": "星",
       "avatar_hue": 220,
       "desc": null,
@@ -129,7 +129,7 @@
     {
       "id": "otsutaro",
       "name": "おつたろう",
-      "avatar": null,
+      "avatar": "assets/guests/sousei-otu.png",
       "avatar_initial": "お",
       "avatar_hue": 30,
       "desc": "先日で1周年を迎えたまだまだ新人の個人女性VTuber(4歳)です！\n麻雀は元気・エンジョイ・時々(？)絶叫で遊んでます。YouTubeで雀魂参加型友人戦をメインに活動中！\n全くの無所属なのでお友だちがなかなか増えなくて泣いてます！一緒に遊んでくれたらうれしいな〜",
@@ -143,7 +143,7 @@
     {
       "id": "komainu",
       "name": "こまいぬ",
-      "avatar": null,
+      "avatar": "assets/guests/sousei-koma.png",
       "avatar_initial": "狛",
       "avatar_hue": 130,
       "desc": null,
@@ -157,7 +157,7 @@
     {
       "id": "nanoha",
       "name": "Nanoha。",
-      "avatar": null,
+      "avatar": "assets/guests/sousei-nanoha.png",
       "avatar_initial": "N",
       "avatar_hue": 190,
       "desc": null,
@@ -171,7 +171,7 @@
     {
       "id": "uru",
       "name": "黒兎ウル",
-      "avatar": null,
+      "avatar": "assets/guests/sousei-uru.png",
       "avatar_initial": "兎",
       "avatar_hue": 200,
       "desc": null,
@@ -185,7 +185,7 @@
     {
       "id": "dorome",
       "name": "どろめらくだ",
-      "avatar": null,
+      "avatar": "assets/guests/sousei-dorome.png",
       "avatar_initial": "楽",
       "avatar_hue": 220,
       "desc": "今年も！このお祭りに参加させていただくことになりました、どろめらくだです！！麻雀や雑談の配信を時々しつつ、生きるを全部楽しんでいます🐪✌️ ぜひ一緒に戦いましょう！！",
@@ -199,7 +199,7 @@
     {
       "id": "misakichi",
       "name": "御崎 千結",
-      "avatar": null,
+      "avatar": "assets/guests/utakata-misakichi.png",
       "avatar_initial": "御",
       "avatar_hue": 30,
       "desc": null,
@@ -213,7 +213,7 @@
     {
       "id": "satsuki",
       "name": "佐月麻理子",
-      "avatar": null,
+      "avatar": "assets/guests/utakata-satsuki.png",
       "avatar_initial": "麻",
       "avatar_hue": 50,
       "desc": null,
@@ -227,7 +227,7 @@
     {
       "id": "yunchuru",
       "name": "伊集院有希",
-      "avatar": null,
+      "avatar": "assets/guests/utakata-yunchuru.png",
       "avatar_initial": "有",
       "avatar_hue": 280,
       "desc": "日本プロ麻雀協会25期前期の伊集院有希です！気軽にゆんちゅるって呼んでください！\nジュエリーも作れる宝石彫留職人！\n手彫りで天然石をジュエリーに留めたり金属に模様彫りするのが得意です！\n麻雀モチーフのジュエリーも作ったりしながら配信もやってます！\n雀魂配信を中心に作業配信を行ったりも！",
@@ -241,7 +241,7 @@
     {
       "id": "chino",
       "name": "雛吞ちの",
-      "avatar": null,
+      "avatar": "assets/guests/utakata-chino.png",
       "avatar_initial": "雛",
       "avatar_hue": 20,
       "desc": "日本プロ麻雀協会福岡支部の雛呑ちのです\n麻雀が大好きで麻雀の配信を沢山してます🀄️\n食べ物は燻製がすきです\nよろしくお願いします🫶",
@@ -255,7 +255,7 @@
     {
       "id": "aju",
       "name": "安住太一",
-      "avatar": null,
+      "avatar": "assets/guests/utakata-aju.png",
       "avatar_initial": "あ",
       "avatar_hue": 170,
       "desc": "みなさんこんにちは！\n日本プロ麻雀協会 安住太一（あずみ たいち）です。あじゅと呼ばれています！\n\nきみ夏宵あそび、今年も開催だー！！\n泡沫スプラッシュの一員として、メンバーの力を借りつつ、この夏のひと時をみなさんと全力で楽しみ、笑顔でいっぱいの思い出が作れたらとても嬉しいです！",
@@ -269,7 +269,7 @@
     {
       "id": "higa",
       "name": "比嘉 秀仁",
-      "avatar": null,
+      "avatar": "assets/guests/utakata-higa.png",
       "avatar_initial": "比",
       "avatar_hue": 180,
       "desc": null,
@@ -283,7 +283,7 @@
     {
       "id": "kako",
       "name": "平原佳子",
-      "avatar": null,
+      "avatar": "assets/guests/utakata-kako.png",
       "avatar_initial": "佳",
       "avatar_hue": 230,
       "desc": null,
@@ -297,7 +297,7 @@
     {
       "id": "new",
       "name": "鴨神にゅう",
-      "avatar": null,
+      "avatar": "assets/guests/saranari-new.png",
       "avatar_initial": "鴨",
       "avatar_hue": 270,
       "desc": null,
@@ -311,7 +311,7 @@
     {
       "id": "rotan",
       "name": "龍惺ろたん",
-      "avatar": null,
+      "avatar": "assets/guests/saranari-rotan.png",
       "avatar_initial": "龍",
       "avatar_hue": 330,
       "desc": null,
@@ -325,7 +325,7 @@
     {
       "id": "yoteru",
       "name": "ヨーテル",
-      "avatar": null,
+      "avatar": "assets/guests/saranari-yoteru.png",
       "avatar_initial": "ヨ",
       "avatar_hue": 240,
       "desc": "第18代天鳳位、麻雀講座系YouTuberのヨーテルです！最近は麻雀本書いたり個別麻雀教室などで活動してます。特殊ルールは１日中打てるくらい好きなので今回は気合入れて沢山打ちたいと思います！",
@@ -339,7 +339,7 @@
     {
       "id": "saku",
       "name": "青門天雀",
-      "avatar": null,
+      "avatar": "assets/guests/saranari-saku.png",
       "avatar_initial": "雀",
       "avatar_hue": 160,
       "desc": null,
@@ -353,7 +353,7 @@
     {
       "id": "shiira",
       "name": "泡沫しいら",
-      "avatar": null,
+      "avatar": "assets/guests/saranari-shiira.png",
       "avatar_initial": "泡",
       "avatar_hue": 210,
       "desc": "泡沫しいら（うたかたしいら）\n完全セルフ個人勢VTuber\nイラスト・Live2D・動画制作・編集・ティザーPV・サムネ制作など、\n活動に関わるクリエイティブをすべて自身で担当。\n制作も運営もひとりでこなす“なんでも自分でやっちゃうVTuber”",
@@ -367,7 +367,7 @@
     {
       "id": "z",
       "name": "メカゼットン",
-      "avatar": null,
+      "avatar": "assets/guests/saranari-z.png",
       "avatar_initial": "Z",
       "avatar_hue": 150,
       "desc": "昼間は大阪にあるラキラビという雀荘で健康麻雀の先生を、夜はネット麻雀を打っています。また四麻私設リーグ「黎明戦」を主催もしています。ルールに対する得意不得意は多少はあるにしても強い打ち手はどんなルールでも基本強いと思っているのでいい成績を出せるように頑張ります。",
@@ -381,7 +381,7 @@
     {
       "id": "ika",
       "name": "ゆうれいいか",
-      "avatar": null,
+      "avatar": "assets/guests/saranari-ika.png",
       "avatar_initial": "い",
       "avatar_hue": 140,
       "desc": "こんいか！！\n麻雀がめっちゃ強くてめっちゃ可愛いお祭り男のゆうれいいかです！！\n今年はガチでMVP狙ってます、君たち花火になる準備はいいか？？\n今年も最高にアツい夏にしましょう！",
@@ -395,7 +395,7 @@
     {
       "id": "mare",
       "name": "めあともえ",
-      "avatar": null,
+      "avatar": "assets/guests/torinama-mare.png",
       "avatar_initial": "め",
       "avatar_hue": 280,
       "desc": null,
@@ -409,7 +409,7 @@
     {
       "id": "manicure",
       "name": "まにきゅあ",
-      "avatar": null,
+      "avatar": "assets/guests/torinama-manicure.png",
       "avatar_initial": "ま",
       "avatar_hue": 20,
       "desc": "お酒を愛してやまないお祭り女、まにきゅあです💅\n月一飲酒麻雀リーグ『酒盛りーぐ』の主催、コラボ雑談配信『スナックまにきゅあ』等、お酒を絡めた企画配信を主にしています🥃\n『トリ生』の皆で、アツい想い出一緒に作りましょう！乾杯！🍻",
@@ -423,7 +423,7 @@
     {
       "id": "nagon",
       "name": "斉唱なごん",
-      "avatar": null,
+      "avatar": "assets/guests/torinama-nagon.png",
       "avatar_initial": "な",
       "avatar_hue": 170,
       "desc": "生まれたばかりの新人ファンタスティック平安クレイジーポジティブモンスターVTuber。何をしでかすか分からないトリッキーな言動が魅力。鳥だけにね。今日もオタマトーン片手にアゴを伸ばしていく。とりあえず推せばいいと思うよ！鳥だけにね🐔",
@@ -437,7 +437,7 @@
     {
       "id": "himono",
       "name": "乾物ひもの",
-      "avatar": null,
+      "avatar": "assets/guests/torinama-himono.png",
       "avatar_initial": "乾",
       "avatar_hue": 180,
       "desc": "Live2Dモデラー兼VTuberの乾物ひものと申します。\n普段は作業配信や講座を中心に活動していますが、実は麻雀大好き！\nまだまだ勉強中の身ですが、大会ではビールと焼き鳥片手に綺麗な花火打ち上げたいです🎇",
@@ -451,7 +451,7 @@
     {
       "id": "hirame",
       "name": "ひらめ",
-      "avatar": null,
+      "avatar": "assets/guests/torinama-hirame.png",
       "avatar_initial": "ひ",
       "avatar_hue": 230,
       "desc": "ひらめです！麻雀大好きな女子大生です！\n普段はYouTubeで、雀魂私設リーグに参加したり、魂天目指して雀魂の段位戦配信をしていたり、天鳳の鳳南実況を投稿したりしています！\n雑談やゲームもだいすき！\n最近お酒の美味しさに目覚めてってます！\nお祭り女としてきみ夏宵あそび盛り上げるぞ〜😽❣️",
@@ -465,7 +465,7 @@
     {
       "id": "mua",
       "name": "むあ",
-      "avatar": null,
+      "avatar": "assets/guests/torinama-mua.png",
       "avatar_initial": "む",
       "avatar_hue": 270,
       "desc": "普段は20時40分から雀魂の段位戦配信をよくやっています！",
@@ -479,7 +479,7 @@
     {
       "id": "sedona",
       "name": "せどなりあん",
-      "avatar": null,
+      "avatar": "assets/guests/torinama-sedona.png",
       "avatar_initial": "せ",
       "avatar_hue": 330,
       "desc": "麻雀を愛し麻雀に愛されよ！麻雀大好き！せどなりあんです！！\nほぼ毎日朝8時から段位戦配信をしています！\n遊びに来てね〜",
