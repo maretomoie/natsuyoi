@@ -59,6 +59,38 @@
       .official-grid { gap: 18px; }
       .official-card { width: 100%; max-width: 320px; }
     }
+
+    /* ── 奉納者一覧 ── */
+    .contrib-wrap {
+      max-width: 860px; margin: 0 auto; padding: 34px 30px;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    .contrib-tier {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 12px 22px;
+    }
+    .contrib-tier + .contrib-tier {
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .contrib-item {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      font-family: var(--font-ja); line-height: 1.3;
+    }
+    .contrib-name { color: var(--c-white); }
+    .contrib-kuchi {
+      font-family: var(--font-en); color: var(--c-gold);
+      font-size: 0.6em; letter-spacing: 0.04em; opacity: 0.9;
+    }
+    .contrib-tier1 .contrib-item { font-size: 1.5rem;  font-weight: 700; }
+    .contrib-tier2 .contrib-item { font-size: 1.12rem; font-weight: 600; }
+    .contrib-tier3 .contrib-item { font-size: 0.9rem;  font-weight: 500; opacity: 0.92; }
+    @media (max-width: 700px) {
+      .contrib-wrap { padding: 26px 18px; gap: 20px; }
+      .contrib-tier1 .contrib-item { font-size: 1.24rem; }
+      .contrib-tier2 .contrib-item { font-size: 1.02rem; }
+      .contrib-tier3 .contrib-item { font-size: 0.86rem; }
+    }
   </style>
 </head>
 <body>
@@ -83,9 +115,6 @@
   <div class="page-hero-bg" style="--hue1:30; --hue2:340;"></div>
   <div class="page-hero-content">
     <img src="assets/uchiwa.png" alt="" class="page-hero-icon">
-    <span class="en-label">SPONSORS</span>
-    <h1 class="page-title">奉納者紹介</h1>
-    <p class="page-sub">賞品・協賛一覧</p>
   </div>
 </div>
 
@@ -104,6 +133,11 @@
 </section>
 
 <section class="subpage-section sponsors-intro-section">
+  <div class="section-title reveal">
+    <span class="en">Sponsors</span>
+    <h2 class="ja">奉納者紹介</h2>
+    <div class="divider"></div>
+  </div>
   <div class="sponsors-intro reveal glass-card">
     <img src="assets/chouchin.png" alt="" class="intro-icon left">
     <p class="sponsors-intro-text">本イベントは多くの奉納者の皆様のご協力により開催されています。<br>素敵な賞品をご奉納いただいた協賛者の皆様、誠にありがとうございます！</p>
@@ -134,6 +168,18 @@
   </div>
 </section>
 
+<!-- 奉納者一覧 -->
+<section class="subpage-section contributors-section" id="contributors-section">
+  <div class="section-title reveal">
+    <span class="en">Contributors</span>
+    <h2 class="ja">奉納者一覧</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contrib-wrap reveal glass-card" id="contrib-wrap">
+    <div class="official-loading" style="text-align:center;">読み込み中...</div>
+  </div>
+</section>
+
 <!-- 協賛募集 -->
 <section class="subpage-section sponsors-call-section">
   <div class="sponsors-call reveal glass-card">
@@ -160,6 +206,9 @@ gsap.registerPlugin(ScrollTrigger);
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
 
+const esc = (s) => String(s == null ? '' : s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
 function revealAll() {
   document.querySelectorAll('.reveal').forEach(el => {
     const delay = parseFloat(el.style.getPropertyValue('--delay') || '0');
@@ -185,9 +234,6 @@ async function loadOfficial() {
     return;
   }
 
-  const esc = (s) => String(s == null ? '' : s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-
   grid.innerHTML = list.map(s => {
     const name = esc(s.name);
     const tile = s.logo
@@ -205,19 +251,61 @@ async function loadOfficial() {
 
 async function loadSponsors() {
   const { sponsors } = await KNY.load('sponsors');
+  const list = Array.isArray(sponsors) ? sponsors : [];
+  // award が "individual" のものは賞ではなく「奉納者一覧」へ振り分ける
+  const isIndividual = (s) => String(s.award).trim().toLowerCase() === 'individual';
+  renderAwards(list.filter(s => !isIndividual(s)));
+  renderContributors(list.filter(isIndividual));
+}
+
+// 賞品・協賛一覧（従来のテーブル）
+function renderAwards(awards) {
   const tbody = document.getElementById('sponsors-tbody');
-  if (!sponsors || sponsors.length === 0) {
+  if (!tbody) return;
+  if (!awards.length) {
     tbody.innerHTML = '<tr><td colspan="4" class="placeholder-row" style="text-align:center;color:var(--c-dim);padding:24px;">— 賞品・協賛は随時追加されます —</td></tr>';
     return;
   }
-  tbody.innerHTML = sponsors.map(s => `
+  tbody.innerHTML = awards.map(s => `
     <tr>
-      <td class="col-award"><span class="award-name">${s.award}</span></td>
-      <td class="col-cond">${s.condition}</td>
-      <td class="col-sponsor">協賛: ${s.sponsor}</td>
-      <td class="col-prize"><span class="prize-tag">${s.prize}</span></td>
+      <td class="col-award"><span class="award-name">${esc(s.award)}</span></td>
+      <td class="col-cond">${esc(s.condition)}</td>
+      <td class="col-sponsor">協賛: ${esc(s.sponsor)}</td>
+      <td class="col-prize"><span class="prize-tag">${esc(s.prize)}</span></td>
     </tr>`).join('') +
     '<tr class="placeholder-row"><td colspan="4" class="placeholder-cell">— 賞品・協賛は随時追加されます —</td></tr>';
+}
+
+// 奉納者一覧（名前＋口数を口数の多い順に3区分で表示）
+function renderContributors(individuals) {
+  const section = document.getElementById('contributors-section');
+  const wrap = document.getElementById('contrib-wrap');
+  if (!section || !wrap) return;
+  if (!individuals.length) { section.style.display = 'none'; return; }
+
+  const parsed = individuals.map(s => {
+    const kuchi = parseInt(String(s.prize == null ? '' : s.prize).replace(/[^0-9]/g, ''), 10) || 0;
+    let label = String(s.prize == null ? '' : s.prize).trim();
+    if (!label) label = `${kuchi}口`;
+    else if (!label.includes('口')) label = `${label}口`;
+    return { name: s.sponsor, kuchi, label };
+  }).sort((a, b) => b.kuchi - a.kuchi);
+
+  // 上から: 10口以上 / 2〜9口 / 1口（以下）
+  const tiers = [
+    { cls: 'contrib-tier1', items: parsed.filter(p => p.kuchi >= 10) },
+    { cls: 'contrib-tier2', items: parsed.filter(p => p.kuchi >= 2 && p.kuchi <= 9) },
+    { cls: 'contrib-tier3', items: parsed.filter(p => p.kuchi <= 1) },
+  ].filter(t => t.items.length);
+
+  wrap.innerHTML = tiers.map(t => `
+    <div class="contrib-tier ${t.cls}">
+      ${t.items.map(p => `
+        <span class="contrib-item">
+          <span class="contrib-name">${esc(p.name)}</span>
+          <span class="contrib-kuchi">${esc(p.label)}</span>
+        </span>`).join('')}
+    </div>`).join('');
 }
 
 (async () => {
