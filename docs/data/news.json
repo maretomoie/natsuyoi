@@ -1,10 +1,10 @@
 {
   "news": [
     {
-      "badge": "OFFICIAL PV",
-      "title": "オフィシャルPV",
-      "desc": "参加ゲストとイベント概要はこちらでチェック！",
-      "link": "https://youtu.be/13fcKXmL-JE"
+      "badge": "EVENT",
+      "title": "準備中",
+      "desc": "準備中",
+      "link": null
     },
     {
       "badge": "NEWS",
@@ -13,10 +13,10 @@
       "link": null
     },
     {
-      "badge": "EVENT",
-      "title": "準備中",
-      "desc": "準備中",
-      "link": null
+      "badge": "OFFICIAL PV",
+      "title": "オフィシャルPV",
+      "desc": "参加ゲストとイベント概要はこちらでチェック！",
+      "link": "https://youtu.be/13fcKXmL-JE"
     },
     {
       "badge": "GUIDE",
