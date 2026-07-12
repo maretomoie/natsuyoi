@@ -441,7 +441,63 @@
       "color": "150, 20, 65",
       "kv_image": null,
       "leaders": [],
-      "matsuri": []
+      "matsuri": [
+        {
+          "id": null,
+          "name": "ウザク",
+          "avatar": "assets/guests/uzaku.png",
+          "avatar_initial": "ウ",
+          "avatar_hue": 200,
+          "links": {
+            "youtube": null,
+            "twitter": null
+          }
+        },
+        {
+          "id": null,
+          "name": "さんたくらら",
+          "avatar": "assets/guests/kurara.png",
+          "avatar_initial": "く",
+          "avatar_hue": 220,
+          "links": {
+            "youtube": null,
+            "twitter": null
+          }
+        },
+        {
+          "id": null,
+          "name": "狩り隊",
+          "avatar": "assets/guests/karitai.png",
+          "avatar_initial": "狩",
+          "avatar_hue": 30,
+          "links": {
+            "youtube": null,
+            "twitter": null
+          }
+        },
+        {
+          "id": null,
+          "name": "銀貨先生",
+          "avatar": "assets/guests/ginka.png",
+          "avatar_initial": "銀",
+          "avatar_hue": 50,
+          "links": {
+            "youtube": null,
+            "twitter": null
+          }
+        },
+        {
+          "id": null,
+          "name": "東山ソラ",
+          "avatar": "assets/guests/sora.png",
+          "avatar_initial": "東",
+          "avatar_hue": 280,
+          "links": {
+            "youtube": null,
+            "twitter": null
+          }
+        }
+      ]
     }
   ]
 }
