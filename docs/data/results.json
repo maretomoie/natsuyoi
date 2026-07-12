@@ -1,105 +1,105 @@
 {
   "meta": {
-    "updated_at": "Mon Aug 11 2025 21:12:33 GMT+0900 (日本標準時)",
+    "updated_at": "Wed Jul 01 2026 23:59:59 GMT+0900 (日本標準時)",
     "updated_label": "迄に終了した対局まで"
   },
   "team_ranking": [
     {
       "rank": 1,
       "name": "爆裂夏花火",
-      "points": 99999,
-      "kansen_points": 4444
+      "points": 0,
+      "kansen_points": 0
     },
     {
       "rank": 2,
       "name": "蒼星月花",
-      "points": 88888,
-      "kansen_points": 3333
+      "points": 0,
+      "kansen_points": 0
     },
     {
       "rank": 3,
       "name": "泡沫スプラッシュ!",
-      "points": 77777,
-      "kansen_points": 2222
+      "points": 0,
+      "kansen_points": 0
     },
     {
       "rank": 4,
       "name": "月のころはさらなり",
-      "points": 66666,
-      "kansen_points": 1111
+      "points": 0,
+      "kansen_points": 0
     },
     {
       "rank": 5,
       "name": "トリあえず生！！",
-      "points": 55555,
+      "points": 0,
       "kansen_points": 0
     }
   ],
   "personal_ranking": [
     {
       "rank": 1,
-      "name": "これは",
-      "points": 99999,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 2,
-      "name": "テストです",
-      "points": 98999,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     },
     {
       "rank": 3,
-      "name": "ダミーデータ",
-      "points": 97999,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 4,
-      "name": "ああああ",
-      "points": 96999,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 5,
-      "name": "いいいい",
-      "points": 95999,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 6,
-      "name": "うううう",
-      "points": 94999,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 7,
-      "name": "ええええ",
-      "points": 93999,
+      "name": "-",
+      "points": 0,
       "team": "月のころはさらなり"
     },
     {
       "rank": 8,
-      "name": "おおおお",
-      "points": 92999,
+      "name": "-",
+      "points": 0,
       "team": "蒼星月花"
     },
     {
       "rank": 9,
-      "name": "かかかか",
-      "points": 91999,
+      "name": "-",
+      "points": 0,
       "team": "爆裂夏花火"
     },
     {
       "rank": 10,
-      "name": "きききき",
-      "points": 90999,
+      "name": "-",
+      "points": 0,
       "team": "泡沫スプラッシュ!"
     },
     {
       "rank": 11,
-      "name": "くくくく",
-      "points": 89999,
+      "name": "-",
+      "points": 0,
       "team": "トリあえず生！！"
     }
   ],
