@@ -1150,18 +1150,18 @@
       </div>
       <div class="beauty-row">
         <label>なめらか肌</label>
-        <input type="range" id="bp-smooth" min="0" max="100" value="55">
-        <span class="bp-val" id="bp-smooth-val">55</span>
+        <input type="range" id="bp-smooth" min="0" max="100" value="0">
+        <span class="bp-val" id="bp-smooth-val">0</span>
       </div>
       <div class="beauty-row">
         <label>明るさ</label>
-        <input type="range" id="bp-bright" min="0" max="100" value="35">
-        <span class="bp-val" id="bp-bright-val">35</span>
+        <input type="range" id="bp-bright" min="0" max="100" value="0">
+        <span class="bp-val" id="bp-bright-val">0</span>
       </div>
       <div class="beauty-row">
         <label>血色</label>
-        <input type="range" id="bp-warm" min="0" max="100" value="30">
-        <span class="bp-val" id="bp-warm-val">30</span>
+        <input type="range" id="bp-warm" min="0" max="100" value="0">
+        <span class="bp-val" id="bp-warm-val">0</span>
       </div>
       <div class="beauty-row beauty-shape-row" id="bp-eye-row">
         <label>デカ目</label>
@@ -1797,9 +1797,9 @@
   // 美顔パラメータ（0〜1に正規化して保持）
   const beauty = {
     enabled: false,
-    smooth: 0.55,   // なめらか肌
-    bright: 0.35,   // 明るさ
-    warm:   0.30,   // 血色
+    smooth: 0.0,    // なめらか肌
+    bright: 0.0,    // 明るさ
+    warm:   0.0,    // 血色
     eye:    0.0,    // デカ目
     slim:   0.0,    // 小顔
   };
