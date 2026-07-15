@@ -1287,7 +1287,7 @@
   </div>
 
   <!-- スタンプ削除ヒント -->
-  <div id="stamp-hint">スタンプ／立ち絵はドラッグで移動・ダブルタップで削除（立ち絵は左上で切替）</div>
+  <div id="stamp-hint">スタンプはドラッグで移動・ピンチ／ホイールで拡大縮小・ダブルタップで削除（立ち絵は左上で切替）</div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -2554,6 +2554,8 @@
   function makeDraggable(el) {
     let dragging = false, offsetX = 0, offsetY = 0;
     function onDown(e) {
+      // 2本指以上はピンチ操作（拡大縮小）に譲る
+      if (e.touches && e.touches.length >= 2) { dragging = false; return; }
       dragging = true;
       const pt = e.touches ? e.touches[0] : e;
       const rect = el.getBoundingClientRect();
@@ -2569,6 +2571,7 @@
       e.preventDefault();
     }
     function onMove(e) {
+      if (e.touches && e.touches.length >= 2) { dragging = false; return; }
       if (!dragging) return;
       const pt = e.touches ? e.touches[0] : e;
       if (el.classList.contains('placed-stamp')) {
@@ -2772,12 +2775,52 @@
     const img = document.createElement('img');
     img.src = src;
     stamp.appendChild(img);
-    // ダブルタップ/ダブルクリックで削除
+
+    // ─ 拡大縮小（ピンチ／マウスホイール） ─
+    let scale = 1;
+    let pinching = false, pinchDist0 = 0, pinchBase = 1, lastPinchEnd = 0;
+    const SCALE_MIN = 0.3, SCALE_MAX = 6;
+    const clampScale = (s) => Math.min(SCALE_MAX, Math.max(SCALE_MIN, s));
+    const applyScale = () => {
+      stamp.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    };
+    const touchDist = (t) => Math.hypot(
+      t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+
+    stamp.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 2) {
+        pinching   = true;
+        pinchDist0 = touchDist(e.touches);
+        pinchBase  = scale;
+        e.preventDefault();
+      }
+    }, { passive: false });
+    stamp.addEventListener('touchmove', (e) => {
+      if (pinching && e.touches.length === 2 && pinchDist0 > 0) {
+        scale = clampScale(pinchBase * touchDist(e.touches) / pinchDist0);
+        applyScale();
+        e.preventDefault();
+      }
+    }, { passive: false });
+    // PC：スタンプ上でホイール回転 → 拡大縮小
+    stamp.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const factor = e.deltaY < 0 ? 1.08 : 1 / 1.08;
+      scale = clampScale(scale * factor);
+      applyScale();
+    }, { passive: false });
+
+    // ダブルタップ/ダブルクリックで削除（ピンチ直後の指離しは誤判定しない）
     let lastTap = 0;
     const removeHandler = () => stamp.remove();
     stamp.addEventListener('dblclick', removeHandler);
-    stamp.addEventListener('touchend', () => {
+    stamp.addEventListener('touchend', (e) => {
+      if (pinching) {
+        if (e.touches.length < 2) { pinching = false; lastPinchEnd = Date.now(); }
+        return;
+      }
       const now = Date.now();
+      if (now - lastPinchEnd < 400) { lastTap = 0; return; }
       if (now - lastTap < 300) { removeHandler(); }
       lastTap = now;
     });
