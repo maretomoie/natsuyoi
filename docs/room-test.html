@@ -2703,16 +2703,30 @@
   // ※ 爆裂夏花火のみ KV は kv-bakuretsu だが立ち絵の接頭辞は hanabi-（読み替え対応）。
   //   prefixes は先頭から順に試行し、404 なら次の候補 → avatar → ボタン非表示、
   //   と自動フォールバックするので命名ゆれがあっても壊れない。
+  // ※ 蒼星月花は member_id とファイル名末尾が一致しないため overrides で個別対応。
   const STAMP_TEAM_CONFIG = [
     { id: 'bakuretsu', prefixes: ['hanabi'],               kv: 'assets/kv-bakuretsu.png' },
     { id: 'torinama',  prefixes: ['torinama', 'toriyama'], kv: 'assets/kv-torinama.png'  },
     { id: 'saranari',  prefixes: ['saranari'],             kv: 'assets/kv-saranari.png'  },
-    { id: 'sousei',    prefixes: ['sousei'],               kv: 'assets/kv-sousei.png'    },
+    { id: 'sousei',    prefixes: ['sousei'],               kv: 'assets/kv-sousei.png',
+      overrides: {
+        kinetsuki: 'assets/guests/sousei-noa.png',     // 杵月のあ
+        hoshikage: 'assets/guests/sousei-lapis.png',   // 星影ラピス
+        otsutaro:  'assets/guests/sousei-otu.png',     // おつたろう
+        komainu:   'assets/guests/sousei-koma.png',    // こまいぬ
+        nanoha:    'assets/guests/sousei-nanoha.png',  // Nanoha。
+        uru:       'assets/guests/sousei-uru.png',     // 黒兎ウル
+        dorome:    'assets/guests/sousei-dorome.png',  // どろめらくだ
+      } },
     { id: 'utakata',   prefixes: ['utakata'],              kv: 'assets/kv-utakata.png'   },
   ];
 
-  // カテゴリ一覧（一般は即時、チームはデータ読込後に追加）
-  const stampCategories = [{
+  // カテゴリ一覧（チームはデータ読込後に追加）
+  // ★「一般」カテゴリは素材再選定まで一時封印中。
+  //   復活させる時は下の GENERAL_CATEGORY を stampCategories の初期値に戻し、
+  //   activeStampCat を 'general' に変更する。
+  /*
+  const GENERAL_CATEGORY = {
     id: 'general', label: '一般', icon: 'assets/logo-dark.png',
     items: [
       { srcs: ['assets/chouchin.png'], alt: '提灯',   cls: '' },
@@ -2720,8 +2734,10 @@
       { srcs: ['assets/fuurin.png'],   alt: '風鈴',   cls: '' },
       { srcs: ['assets/kasa.png'],     alt: '傘',     cls: '' },
     ]
-  }];
-  let activeStampCat = 'general';
+  };
+  */
+  const stampCategories = [];
+  let activeStampCat = STAMP_TEAM_CONFIG[0].id;
 
   // チームオブジェクト内の配列プロパティ（leaders / matsuri 等）を総なめしてメンバー収集
   function collectTeamMembers(team) {
@@ -2738,9 +2754,10 @@
     return out;
   }
 
-  // 立ち絵パス候補：命名規約 → avatar の順にフォールバック
+  // 立ち絵パス候補：個別指定(overrides) → 命名規約 → avatar の順にフォールバック
   function memberSrcCandidates(cfg, m) {
     const list = [];
+    if (m.id && cfg.overrides && cfg.overrides[m.id]) list.push(cfg.overrides[m.id]);
     if (m.id) cfg.prefixes.forEach(p => list.push(`assets/guests/${p}-${m.id}.png`));
     if (m.avatar && typeof m.avatar === 'string') list.push(m.avatar);
     return list;
