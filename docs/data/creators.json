@@ -30,12 +30,12 @@
         {
           "title": "自作配信ツール販売中！",
           "type": "BOOTH",
-          "type_label": "SKEB",
+          "type_label": "BOOTH",
           "thumb": null,
           "thumb_emoji": "✨",
-          "badge": "SKEB",
+          "badge": "BOOTH",
           "desc": "キャラクターイラストの制作を承っています。背景付き・SDなどご相談ください。イベント期間中は優先対応します。",
-          "cta": "Skebでリクエスト",
+          "cta": "BOOTH",
           "url": "https://nagai-kirin.booth.pm"
         },
         {
@@ -67,17 +67,6 @@
         "skeb": null
       },
       "works": [
-        {
-          "title": "おしゃれな筆文字欲しくない？",
-          "type": null,
-          "type_label": null,
-          "thumb": null,
-          "thumb_emoji": "🎤",
-          "badge": null,
-          "desc": "チームロゴを担当していただいた斉唱なごんさまに一筆書いていただくことおができます。配信/大会などのロゴや、心を引き締める一言など依頼できます！",
-          "cta": "YouTubeで聴く",
-          "url": null
-        },
         {
           "title": "書きおろしグッズはこちらから",
           "type": "SUZURI",
