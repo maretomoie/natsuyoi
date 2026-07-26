@@ -1,3 +1,864 @@
 {
-  "players": []
+  "players": [
+    {
+      "team_id": "saranari",
+      "name": "森と太陽"
+    },
+    {
+      "team_id": "saranari",
+      "name": "STRN"
+    },
+    {
+      "team_id": "utakata",
+      "name": "わなっち☆わなわな"
+    },
+    {
+      "team_id": "torinama",
+      "name": "泡沫つなぐ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "かいぞく"
+    },
+    {
+      "team_id": "sousei",
+      "name": "まるるる"
+    },
+    {
+      "team_id": "utakata",
+      "name": "Alf"
+    },
+    {
+      "team_id": "torinama",
+      "name": "KAITOちゃん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "kurai"
+    },
+    {
+      "team_id": "torinama",
+      "name": "あたご"
+    },
+    {
+      "team_id": "torinama",
+      "name": "くまごろう"
+    },
+    {
+      "team_id": "torinama",
+      "name": "猫白神カーミラ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "りゅう"
+    },
+    {
+      "team_id": "sousei",
+      "name": "バシコ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ももきちむ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "にーにゃ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "エイジ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ふゆたま"
+    },
+    {
+      "team_id": "torinama",
+      "name": "汽車百足"
+    },
+    {
+      "team_id": "torinama",
+      "name": "兎野バニ子"
+    },
+    {
+      "team_id": "torinama",
+      "name": "Nem"
+    },
+    {
+      "team_id": "sousei",
+      "name": "exp8500"
+    },
+    {
+      "team_id": "utakata",
+      "name": "あきやん"
+    },
+    {
+      "team_id": "saranari",
+      "name": "どら"
+    },
+    {
+      "team_id": "torinama",
+      "name": "🦁ㅣ대ت٭🦁"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ニャンコパルメ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ノア"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ヘタレン"
+    },
+    {
+      "team_id": "torinama",
+      "name": "聖夜ノ雪"
+    },
+    {
+      "team_id": "torinama",
+      "name": "トルマリン"
+    },
+    {
+      "team_id": "sousei",
+      "name": "カチアルモノ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "たいしょ～"
+    },
+    {
+      "team_id": "torinama",
+      "name": "はまちょごり"
+    },
+    {
+      "team_id": "torinama",
+      "name": "まなティ～"
+    },
+    {
+      "team_id": "sousei",
+      "name": "たぴおか剣士"
+    },
+    {
+      "team_id": "utakata",
+      "name": "シロップ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "i401"
+    },
+    {
+      "team_id": "utakata",
+      "name": "☆みるくいーん！☆（セヴァ）"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ヨプ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "カンカン"
+    },
+    {
+      "team_id": "utakata",
+      "name": "しんしん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "紅ゴリラ伯爵"
+    },
+    {
+      "team_id": "saranari",
+      "name": "うさ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "えむふく"
+    },
+    {
+      "team_id": "torinama",
+      "name": "かみこうりん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "まろちょふ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "のだちｽｰﾊﾟｰﾄﾞﾙｧｧｧｲ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ジョコラー"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ぽにぽに"
+    },
+    {
+      "team_id": "sousei",
+      "name": "しゃちく"
+    },
+    {
+      "team_id": "saranari",
+      "name": "炭酸水"
+    },
+    {
+      "team_id": "torinama",
+      "name": "岡田 大和"
+    },
+    {
+      "team_id": "utakata",
+      "name": "一哉"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ブラッシュ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ケボー"
+    },
+    {
+      "team_id": "sousei",
+      "name": "想幻"
+    },
+    {
+      "team_id": "utakata",
+      "name": "えび🦐"
+    },
+    {
+      "team_id": "torinama",
+      "name": "うつろぎ式"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ぶい"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ペルソナ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "月桂樹"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ちょろ田ちょろ子"
+    },
+    {
+      "team_id": "sousei",
+      "name": "咲花桜"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "わら"
+    },
+    {
+      "team_id": "sousei",
+      "name": "展氏"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "さきのん"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ratakichi"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ろんどん飛行X"
+    },
+    {
+      "team_id": "sousei",
+      "name": "荒川サイマル"
+    },
+    {
+      "team_id": "saranari",
+      "name": "もきゅ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "りんす"
+    },
+    {
+      "team_id": "saranari",
+      "name": "SAIRAI"
+    },
+    {
+      "team_id": "utakata",
+      "name": "水雪璃海"
+    },
+    {
+      "team_id": "sousei",
+      "name": "コー"
+    },
+    {
+      "team_id": "saranari",
+      "name": "あひかも"
+    },
+    {
+      "team_id": "torinama",
+      "name": "シロ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "レヴィア・L・マクロバーツ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "るつ猫"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ゆうたけ。"
+    },
+    {
+      "team_id": "torinama",
+      "name": "さやの"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "MINATO"
+    },
+    {
+      "team_id": "utakata",
+      "name": "魔法少女おやじ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "やましゃん"
+    },
+    {
+      "team_id": "utakata",
+      "name": "吾作"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ゆうゆ_YOUOY"
+    },
+    {
+      "team_id": "torinama",
+      "name": "峰ヶ原柚月"
+    },
+    {
+      "team_id": "utakata",
+      "name": "せれん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ゆら"
+    },
+    {
+      "team_id": "utakata",
+      "name": "毅然亜由夢"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "さめ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "水月れお"
+    },
+    {
+      "team_id": "saranari",
+      "name": "煌帝ぺんぎん"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "燈門えん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ちぃーちぃー"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ぐじ鍋"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ぷらちなすたー"
+    },
+    {
+      "team_id": "utakata",
+      "name": "一期一会"
+    },
+    {
+      "team_id": "torinama",
+      "name": "このもん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "藍坂れも"
+    },
+    {
+      "team_id": "torinama",
+      "name": "伊藤匡平"
+    },
+    {
+      "team_id": "torinama",
+      "name": "七実"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ゆうち"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "オニonちゃん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "髭鯨"
+    },
+    {
+      "team_id": "utakata",
+      "name": "真琴"
+    },
+    {
+      "team_id": "saranari",
+      "name": "おにぎりユニコーン"
+    },
+    {
+      "team_id": "torinama",
+      "name": "黄河のん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "鉄哲テツ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "天馬"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ベガサポ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "二藤　織人"
+    },
+    {
+      "team_id": "saranari",
+      "name": "姿夜"
+    },
+    {
+      "team_id": "torinama",
+      "name": "いぬカルビ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ハシビロコウ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "しろ🐶"
+    },
+    {
+      "team_id": "sousei",
+      "name": "獅子兎場"
+    },
+    {
+      "team_id": "sousei",
+      "name": "たっくん"
+    },
+    {
+      "team_id": "saranari",
+      "name": "天狐"
+    },
+    {
+      "team_id": "sousei",
+      "name": "やさしみ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "のどぐろ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "夜刀神"
+    },
+    {
+      "team_id": "utakata",
+      "name": "づくよ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "おまけ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "TT"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "すずむし"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ゴルチャンダイ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ねこたろう"
+    },
+    {
+      "team_id": "sousei",
+      "name": "D・ニキ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "塩魔人敗北者ムック08"
+    },
+    {
+      "team_id": "utakata",
+      "name": "こみなと"
+    },
+    {
+      "team_id": "sousei",
+      "name": "fld"
+    },
+    {
+      "team_id": "sousei",
+      "name": "とまと"
+    },
+    {
+      "team_id": "torinama",
+      "name": "isi1014"
+    },
+    {
+      "team_id": "saranari",
+      "name": "カモメ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "まりゅりゅり"
+    },
+    {
+      "team_id": "sousei",
+      "name": "IZUMO"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "るーいるい"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "Namaha"
+    },
+    {
+      "team_id": "torinama",
+      "name": "世渡怠惰"
+    },
+    {
+      "team_id": "sousei",
+      "name": "たかや"
+    },
+    {
+      "team_id": "saranari",
+      "name": "木林森樹海"
+    },
+    {
+      "team_id": "torinama",
+      "name": "sh0u"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "青柳魁斗"
+    },
+    {
+      "team_id": "utakata",
+      "name": "リト"
+    },
+    {
+      "team_id": "saranari",
+      "name": "さくらきょうこ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "がんちゃん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "のちゃ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "KEIBOY"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "ぽり"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "閑古鳥"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "青のくろ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "チーハルコウ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ロン氏"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ふくちゃん"
+    },
+    {
+      "team_id": "utakata",
+      "name": "北九州の椅子"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "ラディ子"
+    },
+    {
+      "team_id": "torinama",
+      "name": "冴場 亮"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ほりちゃん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "鶸"
+    },
+    {
+      "team_id": "sousei",
+      "name": "イグニート"
+    },
+    {
+      "team_id": "sousei",
+      "name": "かーびー"
+    },
+    {
+      "team_id": "sousei",
+      "name": "犬田キャサリン犬左衛門"
+    },
+    {
+      "team_id": "utakata",
+      "name": "木枯アキト"
+    },
+    {
+      "team_id": "sousei",
+      "name": "あいそら"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "特務"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ずんだ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "犬神内記"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ラルバーン"
+    },
+    {
+      "team_id": "torinama",
+      "name": "きつねふち"
+    },
+    {
+      "team_id": "utakata",
+      "name": "たけぼ～"
+    },
+    {
+      "team_id": "utakata",
+      "name": "@ひろさん@がんばらない"
+    },
+    {
+      "team_id": "sousei",
+      "name": "初咲碧"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ぽこべえ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "くらうでぃ〜"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "華蓮EXP"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ゆーか"
+    },
+    {
+      "team_id": "torinama",
+      "name": "FEY"
+    },
+    {
+      "team_id": "saranari",
+      "name": "兎畑"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ずた"
+    },
+    {
+      "team_id": "torinama",
+      "name": "妖精みちる"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ＶＨＤ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "かぐつち"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ドラゴン(M.R)"
+    },
+    {
+      "team_id": "sousei",
+      "name": "讃岐"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ゆーじ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "てれびん"
+    },
+    {
+      "team_id": "utakata",
+      "name": "こだま＠がんばらない"
+    },
+    {
+      "team_id": "sousei",
+      "name": "タカ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "うぃっとねす"
+    },
+    {
+      "team_id": "saranari",
+      "name": "検察側の証人"
+    },
+    {
+      "team_id": "sousei",
+      "name": "杵月のあの梯子"
+    },
+    {
+      "team_id": "torinama",
+      "name": "遊來里がうが"
+    },
+    {
+      "team_id": "torinama",
+      "name": "どくまむし"
+    },
+    {
+      "team_id": "torinama",
+      "name": "青葉碧"
+    },
+    {
+      "team_id": "torinama",
+      "name": "あゆみさん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "カトリーナ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "氷乃ハコ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ゆきがけ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "瓶ラムネのビー玉"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ぅわん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "みなとん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "クラロス"
+    },
+    {
+      "team_id": "sousei",
+      "name": "くぼどん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "つっち"
+    },
+    {
+      "team_id": "sousei",
+      "name": "しまのこ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "ちろりん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "モンテビアンコ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "クドナノ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "石津浜"
+    },
+    {
+      "team_id": "sousei",
+      "name": "にしみー"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ProtoEvo"
+    },
+    {
+      "team_id": "sousei",
+      "name": "みたん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ばばめえ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "濃口ソース太朗"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ハガT"
+    }
+  ]
 }
