@@ -66,21 +66,26 @@
       display: flex; flex-direction: column; gap: 24px;
     }
     .contrib-tier {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 12px 22px;
+      display: flex; flex-direction: column;
+      gap: 2px;
+      max-width: 560px; margin: 0 auto; width: 100%;
     }
     .contrib-tier + .contrib-tier {
       padding-top: 22px;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
     .contrib-item {
-      display: inline-flex; align-items: baseline; gap: 6px;
+      display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
       font-family: var(--font-ja); line-height: 1.3;
+      padding: 8px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
+    .contrib-item:last-child { border-bottom: none; }
     .contrib-name { color: var(--c-white); }
     .contrib-kuchi {
       font-family: var(--font-en); color: var(--c-gold);
       font-size: 0.6em; letter-spacing: 0.04em; opacity: 0.9;
+      white-space: nowrap;
     }
     .contrib-tier1 .contrib-item { font-size: 1.5rem;  font-weight: 700; }
     .contrib-tier2 .contrib-item { font-size: 1.12rem; font-weight: 600; }
