@@ -503,6 +503,720 @@
       },
       "text": "YouTubeは大会戦の鬼打ちをメインに不定期で動かしています～\n徹底した打数戦略と稼働時間の長さで他を寄せ付けることなく最多打数賞を取っていくことから「ラスボス」と呼ばれてます、ｺﾜｸﾅｲｶﾗﾈｰ\n\n夏宵2では狙われる側として参戦！ということで、勝つための戦略を展開しようと思います！",
       "segment": 0
+    },
+    {
+      "id": "alf",
+      "name": "Alf",
+      "avatar": "assets/guests/alf.png",
+      "avatar_initial": "A",
+      "avatar_hue": 0,
+      "desc": "いつかSwitchを買うぞと言いながら麻雀ばかりやっていたらいつの間にかSwitch2が出ていました。Switch10が出るまでに別ゲー配信を始めるのが目標です。",
+      "links": {
+        "youtube": "https://youtube.com/@y_alfred",
+        "twitter": null
+      },
+      "text": "いつかSwitchを買うぞと言いながら麻雀ばかりやっていたらいつの間にかSwitch2が出ていました。Switch10が出るまでに別ゲー配信を始めるのが目標です。",
+      "segment": 2
+    },
+    {
+      "id": "mukade",
+      "name": "汽車百足",
+      "avatar": "assets/guests/mukade.png",
+      "avatar_initial": "百",
+      "avatar_hue": 340,
+      "desc": "毎朝7時から配信してます！雀魂や多種多様なゲームやってますよろしくお願いします！",
+      "links": {
+        "youtube": "https://www.youtube.com/@kisyamukade",
+        "twitter": null
+      },
+      "text": "毎朝7時から配信してます！雀魂や多種多様なゲームやってますよろしくお願いします！",
+      "segment": 0
+    },
+    {
+      "id": "dora",
+      "name": "どら",
+      "avatar": "assets/guests/dora.png",
+      "avatar_initial": "ど",
+      "avatar_hue": 200,
+      "desc": "雀魂 9人目魂天 どらと申します！　麻雀講座系動画を投稿、ライブではゲームや企画を配信、ショートでは簡単なまとめを投稿しています！　よろしくお願いします！",
+      "links": {
+        "youtube": "https://www.youtube.com/@dora_%E3%81%A9%E3%82%89",
+        "twitter": null
+      },
+      "text": "雀魂 9人目魂天 どらと申します！　麻雀講座系動画を投稿、ライブではゲームや企画を配信、ショートでは簡単なまとめを投稿しています！　よろしくお願いします！",
+      "segment": 2
+    },
+    {
+      "id": "manaty",
+      "name": "まなティ～",
+      "avatar": "assets/guests/manaty.png",
+      "avatar_initial": "ま",
+      "avatar_hue": 340,
+      "desc": "毎晩21時頃から雀魂友人戦をメインにSHOWROOMで配信しています。楽しいことは共有したくて、来る人来る人を大会に勧誘しちゃうまなティ～です。",
+      "links": {
+        "youtube": "https://www.showroom-live.com/r/61ce64699033",
+        "twitter": null
+      },
+      "text": "毎晩21時頃から雀魂友人戦をメインにSHOWROOMで配信しています。楽しいことは共有したくて、来る人来る人を大会に勧誘しちゃうまなティ～です。",
+      "segment": 2
+    },
+    {
+      "id": "shinshin",
+      "name": "しんしん",
+      "avatar": "assets/guests/shinshin.png",
+      "avatar_initial": "し",
+      "avatar_hue": 300,
+      "desc": "しんしんです！ネット麻雀（雀魂・麻雀一番街・天鳳）を中心に配信します！ チャンネル登録・高評価お願いします！  段位戦・リーグ戦・ワンデイ大会が中心です！  現在の配信内容 毎朝7時配信切り抜きshorts投稿 平日12～14時 雀魂段位戦 その他不定期でリーグ戦や大会の配信あり",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%97%E3%82%93%E3%81%97%E3%82%93-%E9%BA%BB%E9%9B%80",
+        "twitter": null
+      },
+      "text": "しんしんです！ネット麻雀（雀魂・麻雀一番街・天鳳）を中心に配信します！ チャンネル登録・高評価お願いします！  段位戦・リーグ戦・ワンデイ大会が中心です！  現在の配信内容 毎朝7時配信切り抜きshorts投稿 平日12～14時 雀魂段位戦 その他不定期でリーグ戦や大会の配信あり",
+      "segment": 2
+    },
+    {
+      "id": "marochofu",
+      "name": "まろちょふ",
+      "avatar": "assets/guests/marochofu.png",
+      "avatar_initial": "ま",
+      "avatar_hue": 320,
+      "desc": "段位戦や大会戦など、雀魂やその他麻雀ゲームの配信を中心に行っています！",
+      "links": {
+        "youtube": "https://www.youtube.com/@maroonzoltic",
+        "twitter": null
+      },
+      "text": "段位戦や大会戦など、雀魂やその他麻雀ゲームの配信を中心に行っています！",
+      "segment": 2
+    },
+    {
+      "id": "nodachi",
+      "name": "のだちｽｰﾊﾟｰﾄﾞﾙｧｧｧｲ",
+      "avatar": "assets/guests/nodachi.png",
+      "avatar_initial": "の",
+      "avatar_hue": 270,
+      "desc": "呑んで打って酒んでる！どこにでもいる一般両声類男子です。朝活と夜配信やってます。酒盛りーぐのリーダーもやってます。KPぃぃ！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@nodachanmaru",
+        "twitter": null
+      },
+      "text": "呑んで打って酒んでる！どこにでもいる一般両声類男子です。朝活と夜配信やってます。酒盛りーぐのリーダーもやってます。KPぃぃ！！",
+      "segment": 2
+    },
+    {
+      "id": "okada",
+      "name": "岡田 大和",
+      "avatar": "assets/guests/okada.png",
+      "avatar_initial": "岡",
+      "avatar_hue": 270,
+      "desc": "RMU所属の岡田大和です。めちゃくちゃマイペースに配信してます。月イチで「酒盛りーぐ」というまにきゅあさん主催のリーグにリーダーとして参加してますんで良かったら見に来てください！とりあえず乾杯🍻",
+      "links": {
+        "youtube": "https://youtube.com/channel/UC1bWXq5bqYhTf7r4GWXNwLg?si=rdtHvhCq5oYEXmcf",
+        "twitter": null
+      },
+      "text": "RMU所属の岡田大和です。めちゃくちゃマイペースに配信してます。月イチで「酒盛りーぐ」というまにきゅあさん主催のリーグにリーダーとして参加してますんで良かったら見に来てください！とりあえず乾杯🍻",
+      "segment": 2
+    },
+    {
+      "id": "utsurogishiki",
+      "name": "うつろぎ式",
+      "avatar": "assets/guests/utsurogishiki.png",
+      "avatar_initial": "う",
+      "avatar_hue": 220,
+      "desc": "麻雀系Vtuberのうつろぎ式です！　魂天目指して雀魂段位戦配信をしています！",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%86%E3%81%A4%E3%82%8D%E3%81%8E%E5%BC%8F",
+        "twitter": null
+      },
+      "text": "麻雀系Vtuberのうつろぎ式です！　魂天目指して雀魂段位戦配信をしています！",
+      "segment": 2
+    },
+    {
+      "id": "sakinon",
+      "name": "さきのん",
+      "avatar": "assets/guests/sakinon.png",
+      "avatar_initial": "さ",
+      "avatar_hue": 30,
+      "desc": "VPL7期生！桜色なねこくらげVtuberのさきのんです！楽しいことが大好き！麻雀や歌配信してます！ぜひ遊びにきてね！",
+      "links": {
+        "youtube": "https://youtube.com/@sakinon_non",
+        "twitter": null
+      },
+      "text": "VPL7期生！桜色なねこくらげVtuberのさきのんです！楽しいことが大好き！麻雀や歌配信してます！ぜひ遊びにきてね！",
+      "segment": 0
+    },
+    {
+      "id": "ratakichi",
+      "name": "ratakichi",
+      "avatar": "assets/guests/ratakichi.png",
+      "avatar_initial": "r",
+      "avatar_hue": 130,
+      "desc": "見せれるくらいには整えれるよう頑張ります、よろしくお願いします",
+      "links": {
+        "youtube": "https://www.youtube.com/@ratakichi",
+        "twitter": null
+      },
+      "text": "見せれるくらいには整えれるよう頑張ります、よろしくお願いします",
+      "segment": 0
+    },
+    {
+      "id": "saimaru",
+      "name": "荒川サイマル",
+      "avatar": "assets/guests/saimaru.png",
+      "avatar_initial": "荒",
+      "avatar_hue": 190,
+      "desc": "私設リーグへの参加をキッカケに配信を始めました！ゲリラ気味に配信になりますが、細々と続けていければと思いながらやってます。",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCqFvO0v7Ekb0Dfvpx2wFUeg?si=9ez5rc7VyUnGzbIK",
+        "twitter": null
+      },
+      "text": "私設リーグへの参加をキッカケに配信を始めました！ゲリラ気味に配信になりますが、細々と続けていければと思いながらやってます。",
+      "segment": 2
+    },
+    {
+      "id": "minayuki",
+      "name": "水雪璃海",
+      "avatar": "assets/guests/minayuki.png",
+      "avatar_initial": "水",
+      "avatar_hue": 200,
+      "desc": "のんびりたのしくいろんなゲームを遊んでおります！",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E6%B0%B4%E9%9B%AA%E7%92%83%E6%B5%B7",
+        "twitter": null
+      },
+      "text": "のんびりたのしくいろんなゲームを遊んでおります！",
+      "segment": 0
+    },
+    {
+      "id": "ko",
+      "name": "コー",
+      "avatar": "assets/guests/ko.png",
+      "avatar_initial": "コ",
+      "avatar_hue": 220,
+      "desc": "時間があればYouTubeで配信しながら打ちたいと思ってます。宜しくお願いします。",
+      "links": {
+        "youtube": "https://www.youtube.com/@ko_REALITY",
+        "twitter": null
+      },
+      "text": "時間があればYouTubeで配信しながら打ちたいと思ってます。宜しくお願いします。",
+      "segment": 0
+    },
+    {
+      "id": "levia",
+      "name": "レヴィア・L・マクロバーツ",
+      "avatar": "assets/guests/levia.png",
+      "avatar_initial": "レ",
+      "avatar_hue": 30,
+      "desc": "ArtPoolRecords所属、VPL2期生の麻雀VSinger、レヴィア・L・マクロバーツです！配信では真時には真剣、時には麻雀そっちのけ(?)でトークしながら麻雀したり、ボイトレ仕込みの歌声をお届けしています！ぜひ一度遊びに来てください！",
+      "links": {
+        "youtube": "https://www.youtube.com/@Levia_L_McRoberts",
+        "twitter": null
+      },
+      "text": "ArtPoolRecords所属、VPL2期生の麻雀VSinger、レヴィア・L・マクロバーツです！配信では真時には真剣、時には麻雀そっちのけ(?)でトークしながら麻雀したり、ボイトレ仕込みの歌声をお届けしています！ぜひ一度遊びに来てください！",
+      "segment": 2
+    },
+    {
+      "id": "minato",
+      "name": "MINATO",
+      "avatar": "assets/guests/minato.png",
+      "avatar_initial": "M",
+      "avatar_hue": 50,
+      "desc": "配信も映像制作も、みんなにたのしいを届けたいVTuber『みんなのクリエイター』MINATOです♪ 麻雀の活動ではVPL1期生で選手として日々精進しています！ その他の配信では音楽ゲームもやってます♪ 映像制作では自チャンネル内外で活動中！よろしくお願いします♪",
+      "links": {
+        "youtube": "https://www.youtube.com/@MINATO_V_kikakuya",
+        "twitter": null
+      },
+      "text": "配信も映像制作も、みんなにたのしいを届けたいVTuber『みんなのクリエイター』MINATOです♪ 麻雀の活動ではVPL1期生で選手として日々精進しています！ その他の配信では音楽ゲームもやってます♪ 映像制作では自チャンネル内外で活動中！よろしくお願いします♪",
+      "segment": 0
+    },
+    {
+      "id": "yuzuki",
+      "name": "峰ヶ原柚月",
+      "avatar": "assets/guests/yuzuki.png",
+      "avatar_initial": "柚",
+      "avatar_hue": 280,
+      "desc": "気ままに突発段位を始めたり、リーグの応援配信をしたり、ごく稀に漢字でGOや企画もやります！楽しいことが大好き！！上達の過程を見守ってくれると嬉しいです！",
+      "links": {
+        "youtube": "http://www.youtube.com/@%E5%B3%B0%E3%83%B6%E5%8E%9F%E6%9F%9A%E6%9C%88",
+        "twitter": null
+      },
+      "text": "気ままに突発段位を始めたり、リーグの応援配信をしたり、ごく稀に漢字でGOや企画もやります！楽しいことが大好き！！上達の過程を見守ってくれると嬉しいです！",
+      "segment": 2
+    },
+    {
+      "id": "yura",
+      "name": "ゆら",
+      "avatar": "assets/guests/yura.png",
+      "avatar_initial": "ゆ",
+      "avatar_hue": 20,
+      "desc": "麻雀天使ゆらです！雀魂私設リーグ配信、段位戦、原神、他ゲーム配信、酒ガチャ開封配信等やってます、酒は人生のずっ友です！！",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCQVeOap4_Ftcw3lamUsbYFw?si=rC3wz2qdQiLzMHrY",
+        "twitter": null
+      },
+      "text": "麻雀天使ゆらです！雀魂私設リーグ配信、段位戦、原神、他ゲーム配信、酒ガチャ開封配信等やってます、酒は人生のずっ友です！！",
+      "segment": 2
+    },
+    {
+      "id": "leo",
+      "name": "水月れお",
+      "avatar": "assets/guests/leo.png",
+      "avatar_initial": "れ",
+      "avatar_hue": 170,
+      "desc": "お酒🍻トーク企画💖ゲーム（参加型も！）🎮 たまに雑談🥃　先ずは気になる配信から、ゆるゆるどっぷり浸かっていってくださいませ🫶",
+      "links": {
+        "youtube": "https://www.youtube.com/@reo_minazuki",
+        "twitter": null
+      },
+      "text": "お酒🍻トーク企画💖ゲーム（参加型も！）🎮 たまに雑談🥃　先ずは気になる配信から、ゆるゆるどっぷり浸かっていってくださいませ🫶",
+      "segment": 2
+    },
+    {
+      "id": "tomon",
+      "name": "燈門えん",
+      "avatar": "assets/guests/tomon.png",
+      "avatar_initial": "燈",
+      "avatar_hue": 180,
+      "desc": "月60戦目標！どの配信よりもデカい点況表示と共に！ 豪傑ループ脱却なるか!?成長が試される段位戦配信やってます！",
+      "links": {
+        "youtube": "https://www.youtube.com/@ENTomon",
+        "twitter": null
+      },
+      "text": "月60戦目標！どの配信よりもデカい点況表示と共に！ 豪傑ループ脱却なるか!?成長が試される段位戦配信やってます！",
+      "segment": 2
+    },
+    {
+      "id": "ichigoichie",
+      "name": "一期一会",
+      "avatar": "assets/guests/ichigoichie.png",
+      "avatar_initial": "一",
+      "avatar_hue": 230,
+      "desc": "気付いたら配信始めてた系チャンネルです。段位戦配信を細々とする予定でしたが気付けば大会や私設リーグの応援配信ばかりです！よろしくお願いします！",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCe__SW4rV0alxD_XRx1I97g?si=QcRR5JPjYhmYiz6k",
+        "twitter": null
+      },
+      "text": "気付いたら配信始めてた系チャンネルです。段位戦配信を細々とする予定でしたが気付けば大会や私設リーグの応援配信ばかりです！よろしくお願いします！",
+      "segment": 0
+    },
+    {
+      "id": "lemo",
+      "name": "藍坂れも",
+      "avatar": "assets/guests/lemo.png",
+      "avatar_initial": "藍",
+      "avatar_hue": 270,
+      "desc": "あなたの目玉にレモン汁★朝活段位戦を毎日配信中！",
+      "links": {
+        "youtube": "https://www.youtube.com/@aisaka_remo",
+        "twitter": null
+      },
+      "text": "あなたの目玉にレモン汁★朝活段位戦を毎日配信中！",
+      "segment": 2
+    },
+    {
+      "id": "kyohei",
+      "name": "伊藤匡平",
+      "avatar": "assets/guests/kyohei.png",
+      "avatar_initial": "匡",
+      "avatar_hue": 330,
+      "desc": "毎週日曜日にラスった回数でその週の休肝日の回数が決まる段位戦配信してます！ポイントor健康！",
+      "links": {
+        "youtube": "https://youtube.com/channel/UC4g0QJJTsZHvsprlS70R8MQ?si=MAl7bWAPmSIw-JHO",
+        "twitter": null
+      },
+      "text": "毎週日曜日にラスった回数でその週の休肝日の回数が決まる段位戦配信してます！ポイントor健康！",
+      "segment": 2
+    },
+    {
+      "id": "higekujira",
+      "name": "髭鯨",
+      "avatar": "assets/guests/higekujira.png",
+      "avatar_initial": "髭",
+      "avatar_hue": 240,
+      "desc": "髭鯨が麻雀をします",
+      "links": {
+        "youtube": "https://www.youtube.com/@HigekujiraM",
+        "twitter": null
+      },
+      "text": "髭鯨が麻雀をします",
+      "segment": 2
+    },
+    {
+      "id": "hashibirokou",
+      "name": "ハシビロコウ",
+      "avatar": "assets/guests/hashibirokou.png",
+      "avatar_initial": "ハ",
+      "avatar_hue": 160,
+      "desc": "俺の名はハシビロコウ 絶好調の怪鳥だせ まにきがゲリョスと間違えたらしい 誰が死んだふり得意やねん 分厚いゴム皮膚でもないわ でも毒吐くのは得意ビロねん 激ヤバ麻雀企画【ビロスペ】【ビロダイナ】 共々名前だけでも覚えてってな ハシビロコウクイズも今度やろうな",
+      "links": {
+        "youtube": "https://www.youtube.com/@Balaeniceps_rex-gaming",
+        "twitter": null
+      },
+      "text": "俺の名はハシビロコウ 絶好調の怪鳥だせ まにきがゲリョスと間違えたらしい 誰が死んだふり得意やねん 分厚いゴム皮膚でもないわ でも毒吐くのは得意ビロねん 激ヤバ麻雀企画【ビロスペ】【ビロダイナ】 共々名前だけでも覚えてってな ハシビロコウクイズも今度やろうな",
+      "segment": 0
+    },
+    {
+      "id": "nodoguro",
+      "name": "のどぐろ",
+      "avatar": "assets/guests/nodoguro.png",
+      "avatar_initial": "の",
+      "avatar_hue": 210,
+      "desc": "いろんなゲームを「みんなで楽しむ」をコンセプトとして遊んでいます。メインは地球防衛軍と麻雀です。よろしくお願いします。",
+      "links": {
+        "youtube": "https://youtube.com/@nodoguro6361",
+        "twitter": null
+      },
+      "text": "いろんなゲームを「みんなで楽しむ」をコンセプトとして遊んでいます。メインは地球防衛軍と麻雀です。よろしくお願いします。",
+      "segment": 0
+    },
+    {
+      "id": "goruchandai",
+      "name": "ゴルチャンダイ",
+      "avatar": "assets/guests/goruchandai.png",
+      "avatar_initial": "ゴ",
+      "avatar_hue": 150,
+      "desc": "ステゴ組若頭のゴルチャンダイです。自分がリーダーを務めている私設リーグの応援配信がメインで時々FPSゲーム等々を配信しています。最近は仕事が忙しくあまり配信はできていませんが丁度夏季休暇を取得する日に開催されるのでしっかり配信をして盛り上げ参ります。よろしくお願いします。",
+      "links": {
+        "youtube": "https://www.youtube.com/麻雀界のゴールドシップチャン-q6j",
+        "twitter": null
+      },
+      "text": "ステゴ組若頭のゴルチャンダイです。自分がリーダーを務めている私設リーグの応援配信がメインで時々FPSゲーム等々を配信しています。最近は仕事が忙しくあまり配信はできていませんが丁度夏季休暇を取得する日に開催されるのでしっかり配信をして盛り上げ参ります。よろしくお願いします。",
+      "segment": 2
+    },
+    {
+      "id": "taida",
+      "name": "世渡怠惰",
+      "avatar": "assets/guests/taida.png",
+      "avatar_initial": "怠",
+      "avatar_hue": 140,
+      "desc": "みんなと一緒に怠けたいVtuber、世渡怠惰です。 ゲーム・麻雀・ゆる雑談を深夜にのんびり。 平日22時配信、土日祝は気ままに。 わいたまりーぐではメロフロのリーダーしてます。 怠惰杯主催。",
+      "links": {
+        "youtube": "https://www.youtube.com/@SetoTaida",
+        "twitter": null
+      },
+      "text": "みんなと一緒に怠けたいVtuber、世渡怠惰です。 ゲーム・麻雀・ゆる雑談を深夜にのんびり。 平日22時配信、土日祝は気ままに。 わいたまりーぐではメロフロのリーダーしてます。 怠惰杯主催。",
+      "segment": 2
+    },
+    {
+      "id": "shou",
+      "name": "sh0u",
+      "avatar": "assets/guests/shou.png",
+      "avatar_initial": "s",
+      "avatar_hue": 280,
+      "desc": "やりたいときにやりたいゲームをやってます！麻雀/TRPG/マダミス/人狼系/FPSなどなど。",
+      "links": {
+        "youtube": "https://www.youtube.com/@sh0uCh",
+        "twitter": null
+      },
+      "text": "やりたいときにやりたいゲームをやってます！麻雀/TRPG/マダミス/人狼系/FPSなどなど。",
+      "segment": 2
+    },
+    {
+      "id": "akito",
+      "name": "木枯アキト",
+      "avatar": "assets/guests/akito.png",
+      "avatar_initial": "ア",
+      "avatar_hue": 20,
+      "desc": "ポケモン、麻雀等、色々雑多に触れている酒好きVtuber。のんびりゆるゆる落ち着く声にお付き合いくださいませ。",
+      "links": {
+        "youtube": "https://www.youtube.com/@kogarashi_akito",
+        "twitter": null
+      },
+      "text": "ポケモン、麻雀等、色々雑多に触れている酒好きVtuber。のんびりゆるゆる落ち着く声にお付き合いくださいませ。",
+      "segment": 2
+    },
+    {
+      "id": "inugami",
+      "name": "犬神内記",
+      "avatar": "assets/guests/inugami.png",
+      "avatar_initial": "犬",
+      "avatar_hue": 170,
+      "desc": "岐阜在住の狼男、主に麻雀のライブ配信をしています。",
+      "links": {
+        "youtube": "https://www.youtube.com/@naiki_inugami",
+        "twitter": null
+      },
+      "text": "岐阜在住の狼男、主に麻雀のライブ配信をしています。",
+      "segment": 2
+    },
+    {
+      "id": "aoi",
+      "name": "初咲碧",
+      "avatar": "assets/guests/aoi.png",
+      "avatar_initial": "碧",
+      "avatar_hue": 180,
+      "desc": "麻雀をしたり将棋をしたりしています（友人戦もあるよ！）夏は新しい何かをはじめてもいい季節かもしれないですね",
+      "links": {
+        "youtube": "https://www.youtube.com/@Uisaki_Aoi",
+        "twitter": null
+      },
+      "text": "麻雀をしたり将棋をしたりしています（友人戦もあるよ！）夏は新しい何かをはじめてもいい季節かもしれないですね",
+      "segment": 2
+    },
+    {
+      "id": "michiru",
+      "name": "妖精みちる",
+      "avatar": "assets/guests/michiru.png",
+      "avatar_initial": "み",
+      "avatar_hue": 230,
+      "desc": "ゲームとお歌とお酒が大好き！土日のおやつタイムに参加型雀魂を遊んでるよ！遊びに来てね！",
+      "links": {
+        "youtube": "https://www.youtube.com/@michirufairy",
+        "twitter": null
+      },
+      "text": "ゲームとお歌とお酒が大好き！土日のおやつタイムに参加型雀魂を遊んでるよ！遊びに来てね！",
+      "segment": 0
+    },
+    {
+      "id": "kagutsuchi",
+      "name": "かぐつち",
+      "avatar": "assets/guests/kagutsuchi.png",
+      "avatar_initial": "か",
+      "avatar_hue": 270,
+      "desc": "みんな～！こんかぐ！イラストレーター兼Live2Dモデラー、バーチャルクリエーターで完全セルフ受肉のVtuber、そしてVPL4期生のかぐつちです。麻雀、飲酒、お馬さん、野球、マイクラ、お絵描き配信が大好きです！よろしくお願いします！",
+      "links": {
+        "youtube": "https://www.youtube.com/@kagutsuchi_ch",
+        "twitter": null
+      },
+      "text": "みんな～！こんかぐ！イラストレーター兼Live2Dモデラー、バーチャルクリエーターで完全セルフ受肉のVtuber、そしてVPL4期生のかぐつちです。麻雀、飲酒、お馬さん、野球、マイクラ、お絵描き配信が大好きです！よろしくお願いします！",
+      "segment": 2
+    },
+    {
+      "id": "shonin",
+      "name": "検察側の証人",
+      "avatar": "assets/guests/shonin.png",
+      "avatar_initial": "検",
+      "avatar_hue": 330,
+      "desc": "VPL3期生として、麻雀はそこそこ。レトロゲーム、ホラーゲーム、マーダーミステリー、ウミガメのスープ、ゲリラ歌枠等を中心に、昭和～平成初期の懐かしい話題を添えた配信活動を行なっています。抑揚のない低音ボイスは、睡眠導入や作業用にピッタリ！（※感じ方には個人差があります）",
+      "links": {
+        "youtube": "https://www.youtube.com/@kensatsu_syonin",
+        "twitter": null
+      },
+      "text": "VPL3期生として、麻雀はそこそこ。レトロゲーム、ホラーゲーム、マーダーミステリー、ウミガメのスープ、ゲリラ歌枠等を中心に、昭和～平成初期の懐かしい話題を添えた配信活動を行なっています。抑揚のない低音ボイスは、睡眠導入や作業用にピッタリ！（※感じ方には個人差があります）",
+      "segment": 2
+    },
+    {
+      "id": "gauga",
+      "name": "遊來里がうが",
+      "avatar": "assets/guests/gauga.png",
+      "avatar_initial": "が",
+      "avatar_hue": 185,
+      "desc": "麻雀（雀魂）やゲーム、お絵描き配信がメインコンテンツです。ゲームは最近はFFシリーズをやっております。",
+      "links": {
+        "youtube": "https://www.youtube.com/@GUGyurari",
+        "twitter": null
+      },
+      "text": "麻雀（雀魂）やゲーム、お絵描き配信がメインコンテンツです。ゲームは最近はFFシリーズをやっております。",
+      "segment": 2
+    },
+    {
+      "id": "ayumisan",
+      "name": "あゆみさん",
+      "avatar": "assets/guests/ayumisan.png",
+      "avatar_initial": "あ",
+      "avatar_hue": 330,
+      "desc": "酒池肉林大好き森の守護者うさぎの獣人系VTuber🌲💋日本酒、ワイン、焼酎、カクテルよく飲みます🍷",
+      "links": {
+        "youtube": "https://www.youtube.com/@6ayumi3",
+        "twitter": null
+      },
+      "text": "酒池肉林大好き森の守護者うさぎの獣人系VTuber🌲💋日本酒、ワイン、焼酎、カクテルよく飲みます🍷",
+      "segment": 2
+    },
+    {
+      "id": "hako",
+      "name": "氷乃ハコ",
+      "avatar": "assets/guests/hako.png",
+      "avatar_initial": "氷",
+      "avatar_hue": 240,
+      "desc": "好きなものを好きな時に配信しています！最近はホラゲとかが好きです。よろしくお願いします。",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E6%B0%B7%E4%B9%83%E3%83%8F%E3%82%B3",
+        "twitter": null
+      },
+      "text": "好きなものを好きな時に配信しています！最近はホラゲとかが好きです。よろしくお願いします。",
+      "segment": 0
+    },
+    {
+      "id": "shohei",
+      "name": "昭平和成",
+      "avatar": "assets/guests/shohei.png",
+      "avatar_initial": "昭",
+      "avatar_hue": 160,
+      "desc": "段位戦の配信をしたりしています",
+      "links": {
+        "youtube": "https://www.youtube.com/@VTakihirach",
+        "twitter": null
+      },
+      "text": "段位戦の配信をしたりしています",
+      "segment": 0
+    },
+    {
+      "id": "ishizuhama",
+      "name": "石津浜",
+      "avatar": "assets/guests/ishizuhama.png",
+      "avatar_initial": "石",
+      "avatar_hue": 210,
+      "desc": "段位戦、大会、リーグ応援配信等、麻雀に関わる配信をしてる場末です。段位戦配信は検討で打牌にあーだこーだ言いたい人を歓迎しています。",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E7%9F%B3%E6%B4%A5%E6%B5%9C",
+        "twitter": null
+      },
+      "text": "段位戦、大会、リーグ応援配信等、麻雀に関わる配信をしてる場末です。段位戦配信は検討で打牌にあーだこーだ言いたい人を歓迎しています。",
+      "segment": 2
+    },
+    {
+      "id": "nishimi",
+      "name": "にしみー",
+      "avatar": "assets/guests/nishimi.png",
+      "avatar_initial": "に",
+      "avatar_hue": 150,
+      "desc": "色んなゲーム配信してます！気になったら遊びに来てくれると嬉しいです😆",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCv_xfqnwu1l-NNOhdD0wIqQ?si=rXjexCT04vpU2Qhj",
+        "twitter": null
+      },
+      "text": "色んなゲーム配信してます！気になったら遊びに来てくれると嬉しいです😆",
+      "segment": 0
+    },
+    {
+      "id": "babamee",
+      "name": "ばばめえ",
+      "avatar": "assets/guests/babamee.png",
+      "avatar_initial": "ば",
+      "avatar_hue": 140,
+      "desc": "クリエイター成長系セルフ受肉VTuber、めえめえ村村長おばばこと、ばばめえです。コラボ、企画、歌枠、雑談(飲酒)、雀魂、ウマ娘、ボードゲーム、マダミス・謎解きゲーム、テキストゲーム実況配信などやってます！めえめえ村に遊びに来てね！",
+      "links": {
+        "youtube": "https://www.youtube.com/@meemeemura",
+        "twitter": null
+      },
+      "text": "クリエイター成長系セルフ受肉VTuber、めえめえ村村長おばばこと、ばばめえです。コラボ、企画、歌枠、雑談(飲酒)、雀魂、ウマ娘、ボードゲーム、マダミス・謎解きゲーム、テキストゲーム実況配信などやってます！めえめえ村に遊びに来てね！",
+      "segment": 0
+    },
+    {
+      "id": "shino",
+      "name": "詩乃",
+      "avatar": "assets/guests/shino.png",
+      "avatar_initial": "詩",
+      "avatar_hue": 280,
+      "desc": "詩乃（しの）と申します。 配信初心者なのでお手柔らかにお願いいたします。",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCuDI9DkD7q9xFqaEM1u398g?si=pn4EtWJ5sJ-MWnRy",
+        "twitter": null
+      },
+      "text": "詩乃（しの）と申します。 配信初心者なのでお手柔らかにお願いいたします。",
+      "segment": 0
+    },
+    {
+      "id": "axz",
+      "name": "AXZ",
+      "avatar": "assets/guests/axz.png",
+      "avatar_initial": "A",
+      "avatar_hue": 20,
+      "desc": "\"アクシズ\"です 動くカラダ（V体）持ちの配者 で す 麻雀中と音楽ゲーム』を中心に配しており、応援配も可能です！！ まだまだ未熟ですが、チャンネル登録及び高評価宜しくお願い致します！！",
+      "links": {
+        "youtube": "https://youtube.com/@axz1199?si=omhGwsFdTaNI2MkK",
+        "twitter": null
+      },
+      "text": "\"アクシズ\"です 動くカラダ（V体）持ちの配者 で す 麻雀中と音楽ゲーム』を中心に配しており、応援配も可能です！！ まだまだ未熟ですが、チャンネル登録及び高評価宜しくお願い致します！！",
+      "segment": 0
+    },
+    {
+      "id": "popura",
+      "name": "七缶ぽぷら",
+      "avatar": "assets/guests/popura.png",
+      "avatar_initial": "七",
+      "avatar_hue": 170,
+      "desc": "いらっしゃいませ～🎶バ美肉コンビニ店員Vtuberの七缶ぽぷらです🏪✨ ほぼ毎日配信中‼主にコンビニ情報の発信。お絵描きや雑談に晩酌、ゲーム実況（雀魂、FGO、カルドセプト）等！  今の目標は「コンビニ×Vtuberと言えば七缶ぽぷら」と言われる事‼ ご来店をお待ちしてます💕",
+      "links": {
+        "youtube": "https://www.youtube.com/c/PoplarVMartCh",
+        "twitter": null
+      },
+      "text": "いらっしゃいませ～🎶バ美肉コンビニ店員Vtuberの七缶ぽぷらです🏪✨ ほぼ毎日配信中‼主にコンビニ情報の発信。お絵描きや雑談に晩酌、ゲーム実況（雀魂、FGO、カルドセプト）等！  今の目標は「コンビニ×Vtuberと言えば七缶ぽぷら」と言われる事‼ ご来店をお待ちしてます💕",
+      "segment": 2
+    },
+    {
+      "id": "shiwonne",
+      "name": "しをんぬ",
+      "avatar": "assets/guests/shiwonne.png",
+      "avatar_initial": "し",
+      "avatar_hue": 180,
+      "desc": "雀魂の段位戦配信、サウナ解説動画の投稿をメインに活動しています♨サウナが好きな人もこれから好きになる人もよろしくお願いします♨",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCq-ofQD9i2PukfZBXfhLPCA?si=BN-eCFE1tf5dAqRh",
+        "twitter": null
+      },
+      "text": "雀魂の段位戦配信、サウナ解説動画の投稿をメインに活動しています♨サウナが好きな人もこれから好きになる人もよろしくお願いします♨",
+      "segment": 0
+    },
+    {
+      "id": "pudding",
+      "name": "濃厚ぷりん",
+      "avatar": "assets/guests/pudding.png",
+      "avatar_initial": "濃",
+      "avatar_hue": 230,
+      "desc": "令和の時代に手役重視の魅せる麻雀を貫きます。段位戦は雑談枠、エンタメ重視の配信をお届け　現在は雀魂２周目のんびりライフを楽しみながら、たまにFPS,シャドバなども配信してます",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%AE%E3%83%BC%E3%81%93%E3%83%BC%E3%81%B7%E3%82%8A%E3%82%93",
+        "twitter": null
+      },
+      "text": "令和の時代に手役重視の魅せる麻雀を貫きます。段位戦は雑談枠、エンタメ重視の配信をお届け　現在は雀魂２周目のんびりライフを楽しみながら、たまにFPS,シャドバなども配信してます",
+      "segment": 0
+    },
+    {
+      "id": "kouma",
+      "name": "松岡康眞",
+      "avatar": "assets/guests/kouma.png",
+      "avatar_initial": "松",
+      "avatar_hue": 270,
+      "desc": "麻雀プロとして段位戦やコラボ友人戦メインに配信してます！最近はFF14をやりつつドマ麻雀にも手を伸ばそうとしています！",
+      "links": {
+        "youtube": "https://www.youtube.com/@Koma_RMU",
+        "twitter": null
+      },
+      "text": "麻雀プロとして段位戦やコラボ友人戦メインに配信してます！最近はFF14をやりつつドマ麻雀にも手を伸ばそうとしています！",
+      "segment": 2
+    },
+    {
+      "id": "hide",
+      "name": "油性hide",
+      "avatar": "assets/guests/hide.png",
+      "avatar_initial": "油",
+      "avatar_hue": 330,
+      "desc": "日本プロ麻雀協会の牧秀和こと油性hideです！雀魂や天鳳をメインに配信しています！チームに貢献出来るようにがんばります✨✨✨💪💪💪",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCpwBNqM39Vh-7SadtQIleJA?si=2qN8vfAtE7T6LT_I",
+        "twitter": null
+      },
+      "text": "日本プロ麻雀協会の牧秀和こと油性hideです！雀魂や天鳳をメインに配信しています！チームに貢献出来るようにがんばります✨✨✨💪💪💪",
+      "segment": 0
+    },
+    {
+      "id": "poutou",
+      "name": "宝塔ちゃん",
+      "avatar": "assets/guests/poutou.png",
+      "avatar_initial": "宝",
+      "avatar_hue": 185,
+      "desc": "ビール大好き僧侶V、映像クリエイターの宝塔ちゃんです！ほぼ飲酒配信しかしていません。",
+      "links": {
+        "youtube": "https://www.youtube.com/@Houtoh_chan",
+        "twitter": null
+      },
+      "text": "ビール大好き僧侶V、映像クリエイターの宝塔ちゃんです！ほぼ飲酒配信しかしていません。",
+      "segment": 2
+    },
+    {
+      "id": "recho",
+      "name": "結宮れちょ",
+      "avatar": "assets/guests/recho.png",
+      "avatar_initial": "結",
+      "avatar_hue": 330,
+      "desc": "雀魂段位戦配信をメインに活動しています！よかったら見に来てください！",
+      "links": {
+        "youtube": "https://www.youtube.com/@YuimiyaRecho",
+        "twitter": null
+      },
+      "text": "雀魂段位戦配信をメインに活動しています！よかったら見に来てください！",
+      "segment": 0
     }
   ]
 }
