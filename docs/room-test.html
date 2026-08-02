@@ -689,20 +689,45 @@
     }
     .placed-stamp:active { cursor: grabbing; }
     .placed-stamp img {
-      width: 64px;
-      height: 64px;
-      pointer-events: none;
-    }
-    /* チームキービジュアル：横基準でやや大きめ */
-    .placed-stamp.stamp-kv img {
-      width: 150px;
-      height: auto;
-    }
-    /* メンバー立ち絵：縦基準（縦長画像を潰さない） */
-    .placed-stamp.stamp-chara img {
+      display: block;
+      /* 素材ごとの原寸差を吸収：縦横ともに同じボックスへ収める */
+      max-width:  var(--stamp-box);
+      max-height: var(--stamp-box);
       width: auto;
-      height: 170px;
+      height: auto;
+      pointer-events: none;
+      -webkit-user-drag: none;
     }
+    /* チームキービジュアル */
+    .placed-stamp.stamp-kv img    { --stamp-box: min(40vw, 170px); }
+    /* メンバー立ち絵：やや大きめ */
+    .placed-stamp.stamp-chara img { --stamp-box: min(50vw, 220px); }
+
+    /* 選択中：枠＋操作ハンドル（ハンドルは拡大率の逆数を掛けて実寸を保つ） */
+    .placed-stamp.selected {
+      outline: 2px dashed rgba(130, 200, 255, 0.9);
+      outline-offset: 3px;
+    }
+    .stamp-ctl {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      display: none;
+      place-items: center;
+      font-size: 17px;
+      line-height: 1;
+      color: #fff;
+      background: rgba(30, 70, 140, 0.92);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+      touch-action: none;
+      cursor: pointer;
+    }
+    .placed-stamp.selected .stamp-ctl { display: grid; }
+    .stamp-ctl-resize { right: 0; bottom: 0; cursor: nwse-resize; }
+    .stamp-ctl-del    { right: 0; top: 0; background: rgba(185, 55, 65, 0.92); }
 
     /* スタンプパレット */
     #stamp-palette {
@@ -1287,7 +1312,7 @@
   </div>
 
   <!-- スタンプ削除ヒント -->
-  <div id="stamp-hint">スタンプはドラッグで移動・ピンチ／ホイールで拡大縮小・ダブルタップで削除（立ち絵は左上で切替）</div>
+  <div id="stamp-hint">スタンプはタップで選択・ドラッグで移動・右下のハンドル／ピンチ／ホイールで拡大縮小・×で削除（立ち絵は左上で切替）</div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -2811,27 +2836,102 @@
     return buckets;
   }
 
+  // 選択状態は常に1つ。最前面化は z-index で行う（DOM移動はタッチ操作を中断させるため）
+  let stampZ = 10, stampSeq = 0;
+  function selectStamp(el) {
+    document.querySelectorAll('.placed-stamp.selected').forEach(s => {
+      if (s !== el) s.classList.remove('selected');
+    });
+    if (el) { el.classList.add('selected'); el.style.zIndex = ++stampZ; }
+  }
+  // スタンプ以外をタップしたら選択解除（ハンドルを隠す）
+  document.addEventListener('pointerdown', (e) => {
+    if (!e.target.closest('.placed-stamp')) selectStamp(null);
+  }, true);
+
   // スタンプ設置（従来の絵文字分岐は不要になったため画像専用に整理）
   function placeStamp(src, cls) {
     const stamp = document.createElement('div');
     stamp.className = 'placed-stamp' + (cls ? ' ' + cls : '');
-    stamp.style.left = '50%';
-    stamp.style.top  = '45%';
+    // 連続で貼った時に完全に重ならないよう少しずつずらす
+    const off = (stampSeq++ % 6) * 16;
+    stamp.style.left = `calc(50% + ${off}px)`;
+    stamp.style.top  = `calc(45% + ${off}px)`;
     const img = document.createElement('img');
     img.src = src;
     stamp.appendChild(img);
 
-    // ─ 拡大縮小（ピンチ／マウスホイール） ─
+    // ─ 操作ハンドル（選択中のみ表示。スマホでも1本指で拡大縮小できる） ─
+    const resizeBtn = document.createElement('button');
+    resizeBtn.className = 'stamp-ctl stamp-ctl-resize';
+    resizeBtn.textContent = '⤢';
+    resizeBtn.setAttribute('aria-label', '拡大縮小');
+    const delBtn = document.createElement('button');
+    delBtn.className = 'stamp-ctl stamp-ctl-del';
+    delBtn.textContent = '×';
+    delBtn.setAttribute('aria-label', '削除');
+    stamp.append(resizeBtn, delBtn);
+
+    // ─ 拡大縮小（ハンドル／ピンチ／マウスホイール） ─
     let scale = 1;
     let pinching = false, pinchDist0 = 0, pinchBase = 1, lastPinchEnd = 0;
     const SCALE_MIN = 0.3, SCALE_MAX = 6;
     const clampScale = (s) => Math.min(SCALE_MAX, Math.max(SCALE_MIN, s));
     const applyScale = () => {
       stamp.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      // ハンドルは親の拡大を打ち消して常に同じ大きさ・角位置に保つ
+      const inv = 1 / scale;
+      resizeBtn.style.transform = `translate(50%,  50%) scale(${inv})`;
+      delBtn.style.transform    = `translate(50%, -50%) scale(${inv})`;
+      // 選択枠も拡大に引きずられて太くならないよう補正
+      stamp.style.outlineWidth  = (2 * inv) + 'px';
+      stamp.style.outlineOffset = (3 * inv) + 'px';
     };
+    applyScale();
+    // ─ ハンドルドラッグで拡大縮小（マウス・タッチ・ペン共通／1本指でOK） ─
+    // 中心基準の scale なので、ドラッグ中は中心が動かない → 開始時の中心を使い回せる
+    let rBase = 1, rDist0 = 1, rCx = 0, rCy = 0;
+    resizeBtn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      resizeBtn.setPointerCapture(e.pointerId);
+      const r = stamp.getBoundingClientRect();
+      rCx = r.left + r.width / 2;
+      rCy = r.top  + r.height / 2;
+      rDist0 = Math.hypot(e.clientX - rCx, e.clientY - rCy) || 1;
+      rBase  = scale;
+    });
+    resizeBtn.addEventListener('pointermove', (e) => {
+      if (!resizeBtn.hasPointerCapture(e.pointerId)) return;
+      const d = Math.hypot(e.clientX - rCx, e.clientY - rCy);
+      scale = clampScale(rBase * d / rDist0);
+      applyScale();
+      e.preventDefault();
+    });
+    const endResize = (e) => {
+      if (resizeBtn.hasPointerCapture(e.pointerId)) resizeBtn.releasePointerCapture(e.pointerId);
+    };
+    resizeBtn.addEventListener('pointerup', endResize);
+    resizeBtn.addEventListener('pointercancel', endResize);
+
+    // ハンドル上の mousedown / touchstart が下の移動・ピンチ処理に落ちないよう遮断
+    [resizeBtn, delBtn].forEach(btn => {
+      ['mousedown', 'touchstart', 'click', 'dblclick'].forEach(type => {
+        btn.addEventListener(type, (e) => { e.stopPropagation(); e.preventDefault(); },
+          { passive: false });
+      });
+    });
+    delBtn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      stamp.remove();
+    });
+
     const touchDist = (t) => Math.hypot(
       t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
 
+    // タップで選択（ハンドル表示＋最前面へ）
+    stamp.addEventListener('pointerdown', () => selectStamp(stamp));
     stamp.addEventListener('touchstart', (e) => {
       if (e.touches.length === 2) {
         pinching   = true;
@@ -2871,6 +2971,7 @@
     });
     stampLayer.appendChild(stamp);
     makeDraggable(stamp);
+    selectStamp(stamp);          // 貼った直後からハンドルを出す
     stampOptions.classList.remove('open');
   }
 
