@@ -1,0 +1,33 @@
+name: Build photo stamp index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/assets/photo/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate index.json
+        run: |
+          cd docs/assets/photo
+          ls -1 | grep -iE '\.(webp|png)$' | sort | \
+            python3 -c "import sys, json; print(json.dumps([l.strip() for l in sys.stdin], ensure_ascii=False, indent=0))" \
+            > index.json
+          cat index.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/assets/photo/index.json
+          git diff --staged --quiet || git commit -m "chore: update photo stamp index"
+          git push
