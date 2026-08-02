@@ -689,10 +689,54 @@
     }
     .placed-stamp:active { cursor: grabbing; }
     .placed-stamp img {
-      width: 64px;
-      height: 64px;
+      display: block;
+      /* 素材ごとの原寸差を吸収：縦横ともに同じボックスへ収める */
+      max-width:  var(--stamp-box);
+      max-height: var(--stamp-box);
+      width: auto;
+      height: auto;
       pointer-events: none;
+      -webkit-user-drag: none;
     }
+    /* チームキービジュアル */
+    .placed-stamp.stamp-kv img    { --stamp-box: min(40vw, 170px); }
+    /* メンバー立ち絵：やや大きめ */
+    .placed-stamp.stamp-chara img { --stamp-box: min(50vw, 220px); }
+
+    /* 選択中：枠＋操作ハンドル（ハンドルは拡大率の逆数を掛けて実寸を保つ） */
+    .placed-stamp.selected {
+      outline: 2px dashed rgba(130, 200, 255, 0.9);
+      outline-offset: 3px;
+    }
+    .stamp-ctl {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      display: none;
+      place-items: center;
+      font-size: 17px;
+      line-height: 1;
+      color: #fff;
+      background: rgba(30, 70, 140, 0.92);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+      touch-action: none;
+      cursor: pointer;
+    }
+    .placed-stamp.selected .stamp-ctl { display: grid; }
+    .stamp-ctl-resize { right: 0; bottom: 0; cursor: nwse-resize; }
+    .stamp-ctl-rot    { left: 0;  bottom: 0; cursor: grab; }
+    .stamp-ctl-del    { right: 0; top: 0; background: rgba(185, 55, 65, 0.92); }
+
+    /* 端末の物理的な向きに合わせてアイコンを正立させる（カメラアプリ風） */
+    .ui-rotatable { transition: transform 0.3s ease; }
+    .stamp-toggle.ui-rotatable,
+    .beauty-toggle.ui-rotatable { transform: rotate(var(--ui-rot, 0deg)); }
+    .stamp-toggle.ui-rotatable:hover,
+    .beauty-toggle.ui-rotatable:hover { transform: rotate(var(--ui-rot, 0deg)) scale(1.1); }
+    #stamp-hint.ui-rotatable { transform: translateX(-50%) rotate(var(--ui-rot, 0deg)); }
 
     /* スタンプパレット */
     #stamp-palette {
@@ -718,19 +762,66 @@
       top: 62px;
       right: 0;
       display: none;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      padding: 14px;
+      flex-direction: column;
       background: rgba(15, 30, 60, 0.95);
       border: 1px solid rgba(150, 210, 255, 0.4);
       border-radius: 14px;
       backdrop-filter: blur(12px);
-      width: 150px;
+      width: min(300px, calc(100vw - 48px));
+      overflow: hidden;
     }
-    .stamp-options.open { display: grid; }
+    .stamp-options.open { display: flex; }
+
+    /* カテゴリタブ（LINE風：一般＋各チームKV） */
+    .stamp-tabs {
+      display: flex;
+      gap: 4px;
+      padding: 8px 8px 6px;
+      border-bottom: 1px solid rgba(150, 210, 255, 0.25);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .stamp-tabs::-webkit-scrollbar { display: none; }
+    .stamp-tab {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+    .stamp-tab img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+    .stamp-tab:hover { background: rgba(80, 140, 220, 0.35); }
+    .stamp-tab.active {
+      background: rgba(80, 140, 220, 0.45);
+      border-color: rgba(150, 210, 255, 0.6);
+    }
+
+    /* スタンプグリッド */
+    .stamp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 12px;
+      max-height: min(320px, 45vh);
+      overflow-y: auto;
+    }
+    .stamp-grid-note {
+      grid-column: 1 / -1;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.55);
+      text-align: center;
+      padding: 6px 0;
+    }
     .stamp-pick {
-      width: 56px;
-      height: 56px;
+      width: 100%;
+      aspect-ratio: 1;
       border-radius: 10px;
       background: rgba(40, 70, 130, 0.5);
       border: 1px solid rgba(150, 210, 255, 0.25);
@@ -740,10 +831,10 @@
       align-items: center;
       justify-content: center;
       transition: background 0.2s ease, transform 0.2s ease;
-      padding: 0;
+      padding: 4px;
     }
     .stamp-pick:hover { background: rgba(80, 140, 220, 0.6); transform: scale(1.08); }
-    .stamp-pick img { width: 36px; height: 36px; }
+    .stamp-pick img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 
     #booth-flash {
       position: absolute;
@@ -1178,14 +1269,12 @@
     <button class="beauty-toggle" id="beauty-toggle" aria-label="美顔">✨</button>
   </div>
 
-  <!-- スタンプ選択パレット -->
+  <!-- スタンプ選択パレット（カテゴリタブ＋グリッドはJSで動的生成） -->
   <div id="stamp-palette">
     <button class="stamp-toggle" id="stamp-toggle" aria-label="スタンプ">🏮</button>
     <div class="stamp-options" id="stamp-options">
-      <button class="stamp-pick" data-type="img" data-val="assets/chouchin.png"><img src="assets/chouchin.png" alt="提灯"></button>
-      <button class="stamp-pick" data-type="img" data-val="assets/uchiwa.png"><img src="assets/uchiwa.png" alt="うちわ"></button>
-      <button class="stamp-pick" data-type="img" data-val="assets/fuurin.png"><img src="assets/fuurin.png" alt="風鈴"></button>
-      <button class="stamp-pick" data-type="img" data-val="assets/kasa.png"><img src="assets/kasa.png" alt="傘"></button>
+      <div class="stamp-tabs" id="stamp-tabs"></div>
+      <div class="stamp-grid" id="stamp-grid"></div>
     </div>
   </div>
 
@@ -1232,7 +1321,7 @@
   </div>
 
   <!-- スタンプ削除ヒント -->
-  <div id="stamp-hint">スタンプ／立ち絵はドラッグで移動・ダブルタップで削除（立ち絵は左上で切替）</div>
+  <div id="stamp-hint">スタンプはタップで選択・ドラッグで移動・右下で拡大縮小・左下で回転（タップで90°）・×で削除（立ち絵は左上で切替）</div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -2499,6 +2588,8 @@
   function makeDraggable(el) {
     let dragging = false, offsetX = 0, offsetY = 0;
     function onDown(e) {
+      // 2本指以上はピンチ操作（拡大縮小）に譲る
+      if (e.touches && e.touches.length >= 2) { dragging = false; return; }
       dragging = true;
       const pt = e.touches ? e.touches[0] : e;
       const rect = el.getBoundingClientRect();
@@ -2514,6 +2605,7 @@
       e.preventDefault();
     }
     function onMove(e) {
+      if (e.touches && e.touches.length >= 2) { dragging = false; return; }
       if (!dragging) return;
       const pt = e.touches ? e.touches[0] : e;
       if (el.classList.contains('placed-stamp')) {
@@ -2637,38 +2729,486 @@
   }, true);
   const stampToggle  = document.getElementById('stamp-toggle');
   const stampOptions = document.getElementById('stamp-options');
-  stampToggle.addEventListener('click', () => stampOptions.classList.toggle('open'));
-
-  document.querySelectorAll('.stamp-pick').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const type = btn.dataset.type;
-      const val  = btn.dataset.val;
-      const stamp = document.createElement('div');
-      stamp.className = 'placed-stamp';
-      // 画面中央に出す
-      stamp.style.left = '50%';
-      stamp.style.top  = '45%';
-      if (type === 'emoji') {
-        stamp.textContent = val;
-      } else {
-        const img = document.createElement('img');
-        img.src = val;
-        stamp.appendChild(img);
-      }
-      // ダブルタップ/ダブルクリックで削除
-      let lastTap = 0;
-      const removeHandler = () => stamp.remove();
-      stamp.addEventListener('dblclick', removeHandler);
-      stamp.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTap < 300) { removeHandler(); }
-        lastTap = now;
-      });
-      stampLayer.appendChild(stamp);
-      makeDraggable(stamp);
-      stampOptions.classList.remove('open');
-    });
+  const stampTabsEl  = document.getElementById('stamp-tabs');
+  const stampGridEl  = document.getElementById('stamp-grid');
+  stampToggle.addEventListener('click', () => {
+    stampOptions.classList.toggle('open');
+    enableOrientationSensor();   // iOS はここ（ユーザー操作内）で権限ダイアログが出る
   });
+
+  // ─── スタンプ素材の参照先 ───
+  // 実体は docs/assets/photo/ に集約。このページ自体が docs/ 直下なので相対は 'assets/photo/'。
+  // teams.json / guests.json への依存は撤廃し、photo/ 直下のファイル名だけで分類する。
+  //   キービジュアル … kv-{team}.{ext}      → そのチームのタブアイコン兼スタンプ
+  //   立ち絵        … {team}-{任意}.{ext}   → 同じチームのカテゴリに自動で入る
+  // 同名で webp と png が両方ある場合は STAMP_EXTS の先頭側を採用する。
+  const STAMP_BASE = 'assets/photo/';
+  const STAMP_EXTS = ['webp', 'png'];
+
+  // 静的ホスティングはディレクトリ一覧を返さないため、ファイル名の一覧を index.json から読む。
+  // （.github/workflows/photo-index.yml で push 時に自動生成）
+  const STAMP_MANIFEST = STAMP_BASE + 'index.json';
+  // 予備手段：index.json が無い時だけ GitHub API でディレクトリを直接列挙する。
+  // 未認証は 60req/h/IP なので本番は index.json を必ず置くこと。不要なら null に。
+  const STAMP_GH = { repo: 'OWNER/REPO', branch: 'main', path: 'docs/assets/photo' };
+
+  // タブの並び順と表示名。ここに書いた id だけがカテゴリになる。
+  // label はツールチップ／aria-label 用（空なら id をそのまま表示）。
+  const STAMP_TEAMS = [
+    { id: 'hanabi',   label: '爆裂夏花火' },
+    { id: 'torinama', label: '' },
+    { id: 'saranari', label: '' },
+    { id: 'sousei',   label: '蒼星月花' },
+    { id: 'utakata',  label: '' },
+  ];
+
+  // img に候補配列を順に当て、全滅したら onExhausted を呼ぶ
+  function applySrcChain(img, srcs, onExhausted) {
+    let idx = 0;
+    img.onerror = () => {
+      idx++;
+      if (idx < srcs.length) img.src = srcs[idx];
+      else if (onExhausted) onExhausted();
+    };
+    img.src = srcs[0];
+  }
+
+  // カテゴリ一覧（ファイル一覧の取得後に構築）
+  // ★「一般」カテゴリは素材再選定まで一時封印中。
+  //   復活させる時は下の GENERAL_CATEGORY を stampCategories の初期値に戻す。
+  /*
+  const GENERAL_CATEGORY = {
+    id: 'general', label: '一般', icon: ['assets/logo-dark.png'],
+    items: [
+      { srcs: [STAMP_BASE + 'chouchin.png'], alt: '提灯',   cls: '' },
+      { srcs: [STAMP_BASE + 'uchiwa.png'],   alt: 'うちわ', cls: '' },
+      { srcs: [STAMP_BASE + 'fuurin.png'],   alt: '風鈴',   cls: '' },
+      { srcs: [STAMP_BASE + 'kasa.png'],     alt: '傘',     cls: '' },
+    ]
+  };
+  */
+  const stampCategories = [];
+  let activeStampCat = STAMP_TEAMS[0].id;
+
+  // photo/ 直下のファイル名一覧を取得（index.json → GitHub API の順）
+  async function loadPhotoFileList() {
+    try {
+      const res = await fetch(STAMP_MANIFEST, { cache: 'no-cache' });
+      if (res.ok) {
+        const d = await res.json();
+        const arr = Array.isArray(d) ? d : (d.files || []);
+        const names = arr.map(f => (typeof f === 'string' ? f : (f && f.name))).filter(Boolean);
+        if (names.length) return names;
+      }
+    } catch (e) { console.warn('[stamp] index.json 読込失敗:', e); }
+    if (STAMP_GH && !/OWNER\/REPO/.test(STAMP_GH.repo)) {
+      try {
+        const url = `https://api.github.com/repos/${STAMP_GH.repo}/contents/${STAMP_GH.path}?ref=${STAMP_GH.branch}`;
+        const res = await fetch(url);
+        if (res.ok) {
+          const d = await res.json();
+          if (Array.isArray(d)) return d.filter(e => e.type === 'file').map(e => e.name);
+        }
+      } catch (e) { console.warn('[stamp] GitHub API 列挙失敗:', e); }
+    }
+    return [];
+  }
+
+  // ファイル名 → チーム分類。命名規則に合わない／未登録チームのものは捨てる。
+  function classifyPhotoFiles(files) {
+    const buckets = new Map(STAMP_TEAMS.map(t => [t.id, { kv: null, members: new Map() }]));
+    const skipped = [];
+    files.forEach(name => {
+      const m = /^(.+)\.([A-Za-z0-9]+)$/.exec(name);
+      if (!m) { skipped.push(name); return; }
+      const stem = m[1];
+      const rank = STAMP_EXTS.indexOf(m[2].toLowerCase());
+      if (rank < 0) return;                       // 対象外の拡張子は黙って無視
+      const lower = stem.toLowerCase();
+      let teamId, key = null;
+      if (lower.startsWith('kv-')) {
+        teamId = lower.slice(3);
+      } else {
+        const i = lower.indexOf('-');
+        if (i < 1) { skipped.push(name); return; }
+        teamId = lower.slice(0, i);
+        key    = stem.slice(i + 1);
+      }
+      const b = buckets.get(teamId);
+      if (!b) { skipped.push(name); return; }
+      const entry = { src: STAMP_BASE + name, rank };
+      if (key === null) {
+        if (!b.kv || rank < b.kv.rank) b.kv = entry;          // webp 優先
+      } else {
+        const cur = b.members.get(key.toLowerCase());
+        if (!cur || rank < cur.rank) b.members.set(key.toLowerCase(), { ...entry, key });
+      }
+    });
+    if (skipped.length) console.warn('[stamp] 命名規則に合致せず未分類:', skipped);
+    return buckets;
+  }
+
+  // ─── 端末の物理的な向き検知 ───
+  // 画面回転ロックOFFならページごと回るので screen.orientation だけで足りるが、
+  // ロックONだと角度が 0 のまま固定される。そこで加速度センサ（deviceorientation）で
+  // 実際の傾きを拾い、「物理角度 − 画面角度」の差分を UI とスタンプに反映する。
+  // deviceRot は 0 / 90 / 180 / 270（時計回り）。
+  let deviceRot = 0;
+  let screenAngle = 0, physicalAngle = 0, sensorOn = false;
+  // 回転ロックON時の補正方向。実機で逆に回る場合はここを +1 にする。
+  const ORIENT_SIGN = -1;
+
+  function readScreenAngle() {
+    if (screen.orientation && typeof screen.orientation.angle === 'number') return screen.orientation.angle;
+    if (typeof window.orientation === 'number') return ((window.orientation % 360) + 360) % 360;
+    return 0;
+  }
+
+  function updateDeviceRot() {
+    // screen.orientation.angle は「画面が何度回ったか」、センサ由来の physicalAngle は
+    // 「端末が何度傾いたか」で回転方向の定義が逆。素直に引き算すると横向きで 180° ずれる。
+    // 和を取ると、回転ロックOFF（＝画面が実機に追従）で必ず 0 になる。
+    const next = ((physicalAngle + screenAngle) % 360 + 360) % 360;
+    if (next === deviceRot) return;
+    deviceRot = next;
+    // アイコン類は逆回転させて常に正立させる（ロックOFFなら deviceRot=0 で無補正）
+    document.documentElement.style.setProperty('--ui-rot', (ORIENT_SIGN * deviceRot) + 'deg');
+    document.documentElement.dataset.deviceRot = String(deviceRot);
+  }
+
+  // 傾き → 0/90/180/270（端末をほぼ立てて構えている前提。平置きは判定不能なので無視）
+  function onDeviceOrientation(e) {
+    const { beta, gamma } = e;
+    if (beta == null || gamma == null) return;
+    if (Math.abs(beta) < 12 && Math.abs(gamma) < 12) return;   // 水平置きは据え置き
+    let deg;
+    if (gamma > 45)       deg = 90;
+    else if (gamma < -45) deg = 270;
+    else if (beta < 0)    deg = 180;
+    else                  deg = 0;
+    if (deg !== physicalAngle) { physicalAngle = deg; updateDeviceRot(); }
+  }
+
+  // iOS 13+ は user gesture 内での requestPermission が必須（HTTPS必須）
+  async function enableOrientationSensor() {
+    if (sensorOn) return true;
+    const DOE = window.DeviceOrientationEvent;
+    if (!DOE) return false;
+    if (typeof DOE.requestPermission === 'function') {
+      try {
+        if (await DOE.requestPermission() !== 'granted') return false;
+      } catch (err) { console.warn('[orient] 権限取得に失敗:', err); return false; }
+    }
+    window.addEventListener('deviceorientation', onDeviceOrientation);
+    sensorOn = true;
+    return true;
+  }
+
+  screenAngle = readScreenAngle();
+  if (screen.orientation && screen.orientation.addEventListener) {
+    screen.orientation.addEventListener('change', () => {
+      screenAngle = readScreenAngle();
+      updateDeviceRot();
+    });
+  } else {
+    window.addEventListener('orientationchange', () => {
+      screenAngle = readScreenAngle();
+      updateDeviceRot();
+    });
+  }
+  // アイコンを正立対象に登録
+  ['stamp-toggle', 'beauty-toggle', 'stamp-hint'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('ui-rotatable');
+  });
+
+  // 選択状態は常に1つ。最前面化は z-index で行う（DOM移動はタッチ操作を中断させるため）
+  let stampZ = 10, stampSeq = 0;
+  function selectStamp(el) {
+    document.querySelectorAll('.placed-stamp.selected').forEach(s => {
+      if (s !== el) s.classList.remove('selected');
+    });
+    if (el) { el.classList.add('selected'); el.style.zIndex = ++stampZ; }
+  }
+  // スタンプ以外をタップしたら選択解除（ハンドルを隠す）
+  document.addEventListener('pointerdown', (e) => {
+    if (!e.target.closest('.placed-stamp')) selectStamp(null);
+  }, true);
+
+  // スタンプ設置（従来の絵文字分岐は不要になったため画像専用に整理）
+  function placeStamp(src, cls) {
+    const stamp = document.createElement('div');
+    stamp.className = 'placed-stamp' + (cls ? ' ' + cls : '');
+    // 連続で貼った時に完全に重ならないよう少しずつずらす
+    const off = (stampSeq++ % 6) * 16;
+    stamp.style.left = `calc(50% + ${off}px)`;
+    stamp.style.top  = `calc(45% + ${off}px)`;
+    const img = document.createElement('img');
+    img.src = src;
+    stamp.appendChild(img);
+
+    // ─ 操作ハンドル（選択中のみ表示。スマホでも1本指で拡大縮小・回転できる） ─
+    const resizeBtn = document.createElement('button');
+    resizeBtn.className = 'stamp-ctl stamp-ctl-resize';
+    resizeBtn.textContent = '⤢';
+    resizeBtn.setAttribute('aria-label', '拡大縮小');
+    const rotBtn = document.createElement('button');
+    rotBtn.className = 'stamp-ctl stamp-ctl-rot';
+    rotBtn.textContent = '↻';
+    rotBtn.setAttribute('aria-label', '回転');
+    const delBtn = document.createElement('button');
+    delBtn.className = 'stamp-ctl stamp-ctl-del';
+    delBtn.textContent = '×';
+    delBtn.setAttribute('aria-label', '削除');
+    stamp.append(resizeBtn, rotBtn, delBtn);
+
+    // ─ 拡大縮小・回転（ハンドル／ピンチ＆ツイスト／マウスホイール） ─
+    let scale = 1;
+    // 端末が物理的に横向きなのに画面が回っていない（回転ロックON）ときだけ、
+    // 貼った時点で見た目が正立するよう先に回しておく。ロックOFFなら deviceRot=0。
+    let rot = ORIENT_SIGN * deviceRot;
+    let pinching = false, pinchDist0 = 0, pinchBase = 1, lastPinchEnd = 0;
+    let pinchAng0 = 0, pinchRotBase = 0;
+    const SCALE_MIN = 0.3, SCALE_MAX = 6;
+    const clampScale = (s) => Math.min(SCALE_MAX, Math.max(SCALE_MIN, s));
+    // 15°グリッドの近くでは吸着させる（0/90/180/270 に合わせやすくする）
+    const snapRot = (deg) => {
+      const g = Math.round(deg / 15) * 15;
+      return Math.abs(deg - g) < 4 ? g : deg;
+    };
+    const applyScale = () => {
+      stamp.style.transform =
+        `translate(-50%, -50%) rotate(${rot}deg) scale(${scale})`;
+      // ハンドルは親の拡大・回転を打ち消して常に同じ大きさ・正立に保つ
+      const inv = 1 / scale;
+      resizeBtn.style.transform = `translate( 50%,  50%) rotate(${-rot}deg) scale(${inv})`;
+      rotBtn.style.transform    = `translate(-50%,  50%) rotate(${-rot}deg) scale(${inv})`;
+      delBtn.style.transform    = `translate( 50%, -50%) rotate(${-rot}deg) scale(${inv})`;
+      // 選択枠も拡大に引きずられて太くならないよう補正
+      stamp.style.outlineWidth  = (2 * inv) + 'px';
+      stamp.style.outlineOffset = (3 * inv) + 'px';
+      // 撮影合成が実寸・実角度を参照できるよう保持
+      stamp.__scale = scale;
+      stamp.__rot   = rot;
+    };
+    applyScale();
+    // ─ ハンドルドラッグで拡大縮小（マウス・タッチ・ペン共通／1本指でOK） ─
+    // 中心基準の scale なので、ドラッグ中は中心が動かない → 開始時の中心を使い回せる
+    let rBase = 1, rDist0 = 1, rCx = 0, rCy = 0;
+    resizeBtn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      resizeBtn.setPointerCapture(e.pointerId);
+      const r = stamp.getBoundingClientRect();
+      rCx = r.left + r.width / 2;
+      rCy = r.top  + r.height / 2;
+      rDist0 = Math.hypot(e.clientX - rCx, e.clientY - rCy) || 1;
+      rBase  = scale;
+    });
+    resizeBtn.addEventListener('pointermove', (e) => {
+      if (!resizeBtn.hasPointerCapture(e.pointerId)) return;
+      const d = Math.hypot(e.clientX - rCx, e.clientY - rCy);
+      scale = clampScale(rBase * d / rDist0);
+      applyScale();
+      e.preventDefault();
+    });
+    const endResize = (e) => {
+      if (resizeBtn.hasPointerCapture(e.pointerId)) resizeBtn.releasePointerCapture(e.pointerId);
+    };
+    resizeBtn.addEventListener('pointerup', endResize);
+    resizeBtn.addEventListener('pointercancel', endResize);
+
+    // ─ 回転ハンドル（ドラッグで自由回転／タップで90°ずつ） ─
+    let aBase = 0, aStart = 0, aCx = 0, aCy = 0, aMoved = false;
+    const angTo = (x, y) => Math.atan2(y - aCy, x - aCx) * 180 / Math.PI;
+    rotBtn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      rotBtn.setPointerCapture(e.pointerId);
+      const r = stamp.getBoundingClientRect();
+      aCx = r.left + r.width / 2;
+      aCy = r.top  + r.height / 2;
+      aStart = angTo(e.clientX, e.clientY);
+      aBase  = rot;
+      aMoved = false;
+    });
+    rotBtn.addEventListener('pointermove', (e) => {
+      if (!rotBtn.hasPointerCapture(e.pointerId)) return;
+      const delta = angTo(e.clientX, e.clientY) - aStart;
+      if (Math.abs(delta) > 2) aMoved = true;
+      rot = snapRot(aBase + delta);
+      applyScale();
+      e.preventDefault();
+    });
+    const endRot = (e) => {
+      if (!rotBtn.hasPointerCapture(e.pointerId)) return;
+      rotBtn.releasePointerCapture(e.pointerId);
+      // ほぼ動かさずに離した＝タップ → 90°ずつ回す
+      if (!aMoved) { rot = Math.round(rot / 90) * 90 + 90; applyScale(); }
+    };
+    rotBtn.addEventListener('pointerup', endRot);
+    rotBtn.addEventListener('pointercancel', endRot);
+
+    // ハンドル上の mousedown / touchstart が下の移動・ピンチ処理に落ちないよう遮断
+    [resizeBtn, rotBtn, delBtn].forEach(btn => {
+      ['mousedown', 'touchstart', 'click', 'dblclick'].forEach(type => {
+        btn.addEventListener(type, (e) => { e.stopPropagation(); e.preventDefault(); },
+          { passive: false });
+      });
+    });
+    delBtn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      stamp.remove();
+    });
+
+    const touchDist = (t) => Math.hypot(
+      t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+    const touchAngle = (t) => Math.atan2(
+      t[1].clientY - t[0].clientY, t[1].clientX - t[0].clientX) * 180 / Math.PI;
+
+    // タップで選択（ハンドル表示＋最前面へ）
+    stamp.addEventListener('pointerdown', () => selectStamp(stamp));
+    stamp.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 2) {
+        pinching     = true;
+        pinchDist0   = touchDist(e.touches);
+        pinchBase    = scale;
+        pinchAng0    = touchAngle(e.touches);
+        pinchRotBase = rot;
+        e.preventDefault();
+      }
+    }, { passive: false });
+    stamp.addEventListener('touchmove', (e) => {
+      if (pinching && e.touches.length === 2 && pinchDist0 > 0) {
+        scale = clampScale(pinchBase * touchDist(e.touches) / pinchDist0);
+        // 2本指のひねりでそのまま回転（写真アプリと同じ操作感）
+        rot = snapRot(pinchRotBase + (touchAngle(e.touches) - pinchAng0));
+        applyScale();
+        e.preventDefault();
+      }
+    }, { passive: false });
+    // PC：スタンプ上でホイール回転 → 拡大縮小
+    stamp.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const factor = e.deltaY < 0 ? 1.08 : 1 / 1.08;
+      scale = clampScale(scale * factor);
+      applyScale();
+    }, { passive: false });
+
+    // ダブルタップ/ダブルクリックで削除（ピンチ直後の指離しは誤判定しない）
+    let lastTap = 0;
+    const removeHandler = () => stamp.remove();
+    stamp.addEventListener('dblclick', removeHandler);
+    stamp.addEventListener('touchend', (e) => {
+      if (pinching) {
+        if (e.touches.length < 2) { pinching = false; lastPinchEnd = Date.now(); }
+        return;
+      }
+      const now = Date.now();
+      if (now - lastPinchEnd < 400) { lastTap = 0; return; }
+      if (now - lastTap < 300) { removeHandler(); }
+      lastTap = now;
+    });
+    stampLayer.appendChild(stamp);
+    makeDraggable(stamp);
+    selectStamp(stamp);          // 貼った直後からハンドルを出す
+    stampOptions.classList.remove('open');
+  }
+
+  function makeStampButton(item) {
+    const btn = document.createElement('button');
+    btn.className = 'stamp-pick';
+    btn.title = item.alt || '';
+    const img = document.createElement('img');
+    img.alt = item.alt || '';
+    // 保険：assets/photo/ 配下以外の候補は握りつぶす（JSON 由来の外部URL混入対策）
+    const srcs = (item.srcs || []).filter(u => typeof u === 'string' && u.startsWith(STAMP_BASE));
+    if (!srcs.length) return null;
+    applySrcChain(img, srcs, () => btn.remove());  // 全候補404 → ボタンごと消す
+    btn.appendChild(img);
+    btn.addEventListener('click', () => placeStamp(img.currentSrc || img.src, item.cls));
+    return btn;
+  }
+
+  function renderStampTabs() {
+    stampTabsEl.innerHTML = '';
+    stampCategories.forEach(cat => {
+      const tab = document.createElement('button');
+      tab.className = 'stamp-tab' + (cat.id === activeStampCat ? ' active' : '');
+      tab.setAttribute('aria-label', cat.label);
+      tab.title = cat.label;
+      const icon = Array.isArray(cat.icon) ? cat.icon : (cat.icon ? [cat.icon] : []);
+      if (icon.length) {
+        const img = document.createElement('img');
+        img.alt = cat.label;
+        applySrcChain(img, icon, null);   // タブ自体は消さず、画像だけ落ちる形にする
+        tab.appendChild(img);
+      } else {
+        // kv-{id} が未配置のチームは文字タブで代用
+        tab.textContent = cat.label.slice(0, 2);
+      }
+      tab.addEventListener('click', () => {
+        activeStampCat = cat.id;
+        renderStampTabs();
+        renderStampGrid();
+      });
+      stampTabsEl.appendChild(tab);
+    });
+  }
+
+  function renderStampGrid() {
+    stampGridEl.innerHTML = '';
+    const cat = stampCategories.find(c => c.id === activeStampCat) || stampCategories[0];
+    cat.items.forEach(item => {
+      const btn = makeStampButton(item);
+      if (btn) stampGridEl.appendChild(btn);
+    });
+    if (cat.items.length === 0) {
+      const note = document.createElement('div');
+      note.className = 'stamp-grid-note';
+      note.textContent = 'スタンプを読み込めませんでした';
+      stampGridEl.appendChild(note);
+    }
+    stampGridEl.scrollTop = 0;
+  }
+
+  // ─── ファイル一覧読込 → カテゴリ構築 ───
+  (async () => {
+    const files   = await loadPhotoFileList();
+    const buckets = classifyPhotoFiles(files);
+
+    STAMP_TEAMS.forEach(t => {
+      const b = buckets.get(t.id);
+      const label = t.label || t.id;
+      const items = [];
+      // 先頭はキービジュアルそのものをスタンプとして
+      if (b.kv) items.push({ srcs: [b.kv.src], alt: label, cls: 'stamp-kv' });
+      // 立ち絵はファイル名順（ja ロケール）で安定させる
+      [...b.members.values()]
+        .sort((x, y) => x.key.localeCompare(y.key, 'ja'))
+        .forEach(e => items.push({ srcs: [e.src], alt: e.key, cls: 'stamp-chara' }));
+      if (!items.length) return;   // 素材が1つも無いチームはタブごと出さない
+      stampCategories.push({ id: t.id, label, icon: b.kv ? [b.kv.src] : [], items });
+    });
+
+    if (!stampCategories.length) {
+      console.warn('[stamp] 素材が1件も見つかりません。index.json と assets/photo/ を確認してください。');
+      stampGridEl.innerHTML = '<div class="stamp-grid-note">スタンプを読み込めませんでした</div>';
+      return;
+    }
+    if (!stampCategories.some(c => c.id === activeStampCat)) activeStampCat = stampCategories[0].id;
+
+    renderStampTabs();
+    renderStampGrid();
+  })();
+
+  // パレット外タップで閉じる
+  document.addEventListener('pointerdown', (e) => {
+    if (stampOptions.classList.contains('open') && !e.target.closest('#stamp-palette')) {
+      stampOptions.classList.remove('open');
+    }
+  }, true);
 
   // ─── フォトブース撮影 ───
   document.getElementById('booth-shutter').addEventListener('click', takeBoothPhoto);
@@ -2738,24 +3278,25 @@
           charRect.width * dpr, charRect.height * dpr);
       });
 
-      // 4) スタンプ
+      // 4) スタンプ（回転・拡大を実際の transform どおりに合成）
+      //    getBoundingClientRect は回転後の外接矩形なので、サイズは
+      //    レイアウト実寸(offsetWidth/Height) × scale から求める。中心は外接矩形の中心と一致。
       document.querySelectorAll('.placed-stamp').forEach(stamp => {
-        const r = stamp.getBoundingClientRect();
-        const cx = (r.left + r.width/2) * dpr;
-        const cy = (r.top + r.height/2) * dpr;
         const img = stamp.querySelector('img');
-        if (img) {
-          const w = r.width * dpr, h = r.height * dpr;
-          c.drawImage(img, cx - w/2, cy - h/2, w, h);
-        } else {
-          // 絵文字
-          c.save();
-          c.font = `${r.height * dpr * 0.9}px serif`;
-          c.textAlign = 'center';
-          c.textBaseline = 'middle';
-          c.fillText(stamp.textContent, cx, cy);
-          c.restore();
-        }
+        if (!img || !img.complete || !img.naturalWidth) return;
+        const r = stamp.getBoundingClientRect();
+        const cx = (r.left + r.width / 2) * dpr;
+        const cy = (r.top  + r.height / 2) * dpr;
+        const s   = stamp.__scale || 1;
+        const deg = stamp.__rot   || 0;
+        const w = img.offsetWidth  * s * dpr;
+        const h = img.offsetHeight * s * dpr;
+        if (w < 1 || h < 1) return;
+        c.save();
+        c.translate(cx, cy);
+        if (deg) c.rotate(deg * Math.PI / 180);
+        c.drawImage(img, -w / 2, -h / 2, w, h);
+        c.restore();
       });
 
       // 4.5) イベントロゴ（画面表示の実寸・実位置をそのまま合成 → プレビューと完全一致）
