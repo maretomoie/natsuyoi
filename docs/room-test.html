@@ -2960,7 +2960,8 @@
     // ─ 拡大縮小・回転（ハンドル／ピンチ＆ツイスト／マウスホイール） ─
     let scale = 1;
     // 端末が物理的に横向きなら、貼った時点で見た目が正立するよう先に回しておく
-    let rot = deviceRot ? -deviceRot : 0;
+    // （符号は実機検証済み。UIアイコン側の --ui-rot とは逆向きになる点に注意）
+    let rot = deviceRot;
     let pinching = false, pinchDist0 = 0, pinchBase = 1, lastPinchEnd = 0;
     let pinchAng0 = 0, pinchRotBase = 0;
     const SCALE_MIN = 0.3, SCALE_MAX = 6;
