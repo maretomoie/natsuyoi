@@ -2699,29 +2699,53 @@
   const stampGridEl  = document.getElementById('stamp-grid');
   stampToggle.addEventListener('click', () => stampOptions.classList.toggle('open'));
 
+  // ─── スタンプ素材の参照先 ───
+  // 実体は docs/assets/photo/ に集約。このページ自体が docs/ 直下なので相対は 'assets/photo/'。
+  // 命名規則は従来どおり（規則そのものがカテゴライズを兼ねる）：
+  //   キービジュアル … kv-{team}
+  //   立ち絵        … {prefix}-{id}
+  // 拡張子は STAMP_EXTS の順に試行して 404 なら次へ。webp / png の混在フォルダでも動く。
+  // ※ 差し替えが全部 webp で完了したら STAMP_EXTS を ['webp'] にすると無駄な 404 が消える。
+  const STAMP_BASE = 'assets/photo/';
+  const STAMP_EXTS = ['webp', 'png'];
+  // ファイル名（拡張子なし）→ 候補 URL 配列
+  const stampSrcs = (stem) => STAMP_EXTS.map(ext => `${STAMP_BASE}${stem}.${ext}`);
+
+  // img に候補配列を順に当て、全滅したら onExhausted を呼ぶ
+  function applySrcChain(img, srcs, onExhausted) {
+    let idx = 0;
+    img.onerror = () => {
+      idx++;
+      if (idx < srcs.length) img.src = srcs[idx];
+      else if (onExhausted) onExhausted();
+    };
+    img.src = srcs[0];
+  }
+
   // ─── スタンプカテゴリ（LINE風タブ） ───
   // 一般（イベントモチーフ）＋ 5チーム。チームタブのアイコンはキービジュアル。
   // メンバー立ち絵は data/teams.json（リーダー・お祭り男女）と data/guests.json
-  // （team_id 持ちの参加ゲスト）から収集し assets/guests/{prefix}-{id}.png を参照。
+  // （team_id 持ちの参加ゲスト）から収集し assets/photo/{prefix}-{id}.{ext} を参照。
   // ※ 爆裂夏花火のみ KV は kv-bakuretsu だが立ち絵の接頭辞は hanabi-（読み替え対応）。
   //   prefixes は先頭から順に試行し、404 なら次の候補 → avatar → ボタン非表示、
   //   と自動フォールバックするので命名ゆれがあっても壊れない。
   // ※ 蒼星月花は member_id とファイル名末尾が一致しないため overrides で個別対応。
+  //   kv / overrides は拡張子を書かない「ステム」で指定する。
   const STAMP_TEAM_CONFIG = [
-    { id: 'bakuretsu', prefixes: ['hanabi'],               kv: 'assets/kv-bakuretsu.png' },
-    { id: 'torinama',  prefixes: ['torinama', 'toriyama'], kv: 'assets/kv-torinama.png'  },
-    { id: 'saranari',  prefixes: ['saranari'],             kv: 'assets/kv-saranari.png'  },
-    { id: 'sousei',    prefixes: ['sousei'],               kv: 'assets/kv-sousei.png',
+    { id: 'bakuretsu', prefixes: ['hanabi'],               kv: 'kv-bakuretsu' },
+    { id: 'torinama',  prefixes: ['torinama', 'toriyama'], kv: 'kv-torinama'  },
+    { id: 'saranari',  prefixes: ['saranari'],             kv: 'kv-saranari'  },
+    { id: 'sousei',    prefixes: ['sousei'],               kv: 'kv-sousei',
       overrides: {
-        kinetsuki: 'assets/guests/sousei-noa.png',     // 杵月のあ
-        hoshikage: 'assets/guests/sousei-lapis.png',   // 星影ラピス
-        otsutaro:  'assets/guests/sousei-otu.png',     // おつたろう
-        komainu:   'assets/guests/sousei-koma.png',    // こまいぬ
-        nanoha:    'assets/guests/sousei-nanoha.png',  // Nanoha。
-        uru:       'assets/guests/sousei-uru.png',     // 黒兎ウル
-        dorome:    'assets/guests/sousei-dorome.png',  // どろめらくだ
+        kinetsuki: 'sousei-noa',     // 杵月のあ
+        hoshikage: 'sousei-lapis',   // 星影ラピス
+        otsutaro:  'sousei-otu',     // おつたろう
+        komainu:   'sousei-koma',    // こまいぬ
+        nanoha:    'sousei-nanoha',  // Nanoha。
+        uru:       'sousei-uru',     // 黒兎ウル
+        dorome:    'sousei-dorome',  // どろめらくだ
       } },
-    { id: 'utakata',   prefixes: ['utakata'],              kv: 'assets/kv-utakata.png'   },
+    { id: 'utakata',   prefixes: ['utakata'],              kv: 'kv-utakata'   },
   ];
 
   // カテゴリ一覧（チームはデータ読込後に追加）
@@ -2730,12 +2754,12 @@
   //   activeStampCat を 'general' に変更する。
   /*
   const GENERAL_CATEGORY = {
-    id: 'general', label: '一般', icon: 'assets/logo-dark.png',
+    id: 'general', label: '一般', icon: ['assets/logo-dark.png'],
     items: [
-      { srcs: ['assets/chouchin.png'], alt: '提灯',   cls: '' },
-      { srcs: ['assets/uchiwa.png'],   alt: 'うちわ', cls: '' },
-      { srcs: ['assets/fuurin.png'],   alt: '風鈴',   cls: '' },
-      { srcs: ['assets/kasa.png'],     alt: '傘',     cls: '' },
+      { srcs: stampSrcs('chouchin'), alt: '提灯',   cls: '' },
+      { srcs: stampSrcs('uchiwa'),   alt: 'うちわ', cls: '' },
+      { srcs: stampSrcs('fuurin'),   alt: '風鈴',   cls: '' },
+      { srcs: stampSrcs('kasa'),     alt: '傘',     cls: '' },
     ]
   };
   */
@@ -2760,8 +2784,8 @@
   // 立ち絵パス候補：個別指定(overrides) → 命名規約 → avatar の順にフォールバック
   function memberSrcCandidates(cfg, m) {
     const list = [];
-    if (m.id && cfg.overrides && cfg.overrides[m.id]) list.push(cfg.overrides[m.id]);
-    if (m.id) cfg.prefixes.forEach(p => list.push(`assets/guests/${p}-${m.id}.png`));
+    if (m.id && cfg.overrides && cfg.overrides[m.id]) list.push(...stampSrcs(cfg.overrides[m.id]));
+    if (m.id) cfg.prefixes.forEach(p => list.push(...stampSrcs(`${p}-${m.id}`)));
     if (m.avatar && typeof m.avatar === 'string') list.push(m.avatar);
     return list;
   }
@@ -2835,14 +2859,7 @@
     btn.title = item.alt || '';
     const img = document.createElement('img');
     img.alt = item.alt || '';
-    const srcs = item.srcs;
-    let idx = 0;
-    img.onerror = () => {
-      idx++;
-      if (idx < srcs.length) img.src = srcs[idx];
-      else btn.remove();   // 全候補404 → ボタンごと消す
-    };
-    img.src = srcs[0];
+    applySrcChain(img, item.srcs, () => btn.remove());  // 全候補404 → ボタンごと消す
     btn.appendChild(img);
     btn.addEventListener('click', () => placeStamp(img.currentSrc || img.src, item.cls));
     return btn;
@@ -2856,8 +2873,9 @@
       tab.setAttribute('aria-label', cat.label);
       tab.title = cat.label;
       const img = document.createElement('img');
-      img.src = cat.icon;
       img.alt = cat.label;
+      // icon も配列（webp → png）。タブ自体は消さず、画像だけ落ちる形にする
+      applySrcChain(img, Array.isArray(cat.icon) ? cat.icon : [cat.icon], null);
       tab.appendChild(img);
       tab.addEventListener('click', () => {
         activeStampCat = cat.id;
@@ -2903,7 +2921,8 @@
       const team = teams.find(t => t.id === cfg.id || cfg.prefixes.includes(t.id)) || null;
       const label = (team && team.name) || cfg.id;
       // 先頭はチームロゴ（キービジュアル）そのものをスタンプとして
-      const items = [{ srcs: [cfg.kv], alt: label, cls: 'stamp-kv' }];
+      const kvSrcs = stampSrcs(cfg.kv);
+      const items = [{ srcs: kvSrcs, alt: label, cls: 'stamp-kv' }];
       const seen = new Set();
       const addMember = (m) => {
         const key = m.id || m.name;
@@ -2918,7 +2937,7 @@
         const tid = g.team_id || g.team;
         if (tid === cfg.id || cfg.prefixes.includes(tid)) addMember(g);
       });
-      stampCategories.push({ id: cfg.id, label, icon: cfg.kv, items });
+      stampCategories.push({ id: cfg.id, label, icon: kvSrcs, items });
     });
 
     renderStampTabs();
