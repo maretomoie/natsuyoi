@@ -2855,6 +2855,8 @@
   // deviceRot は 0 / 90 / 180 / 270（時計回り）。
   let deviceRot = 0;
   let screenAngle = 0, physicalAngle = 0, sensorOn = false;
+  // 回転ロックON時の補正方向。実機で逆に回る場合はここを +1 にする。
+  const ORIENT_SIGN = -1;
 
   function readScreenAngle() {
     if (screen.orientation && typeof screen.orientation.angle === 'number') return screen.orientation.angle;
@@ -2863,11 +2865,14 @@
   }
 
   function updateDeviceRot() {
-    const next = (((physicalAngle - screenAngle) % 360) + 360) % 360;
+    // screen.orientation.angle は「画面が何度回ったか」、センサ由来の physicalAngle は
+    // 「端末が何度傾いたか」で回転方向の定義が逆。素直に引き算すると横向きで 180° ずれる。
+    // 和を取ると、回転ロックOFF（＝画面が実機に追従）で必ず 0 になる。
+    const next = ((physicalAngle + screenAngle) % 360 + 360) % 360;
     if (next === deviceRot) return;
     deviceRot = next;
-    // アイコン類は逆回転させて常に正立させる
-    document.documentElement.style.setProperty('--ui-rot', (-deviceRot) + 'deg');
+    // アイコン類は逆回転させて常に正立させる（ロックOFFなら deviceRot=0 で無補正）
+    document.documentElement.style.setProperty('--ui-rot', (ORIENT_SIGN * deviceRot) + 'deg');
     document.documentElement.dataset.deviceRot = String(deviceRot);
   }
 
@@ -2959,9 +2964,9 @@
 
     // ─ 拡大縮小・回転（ハンドル／ピンチ＆ツイスト／マウスホイール） ─
     let scale = 1;
-    // 端末が物理的に横向きなら、貼った時点で見た目が正立するよう先に回しておく
-    // （符号は実機検証済み。UIアイコン側の --ui-rot とは逆向きになる点に注意）
-    let rot = deviceRot;
+    // 端末が物理的に横向きなのに画面が回っていない（回転ロックON）ときだけ、
+    // 貼った時点で見た目が正立するよう先に回しておく。ロックOFFなら deviceRot=0。
+    let rot = ORIENT_SIGN * deviceRot;
     let pinching = false, pinchDist0 = 0, pinchBase = 1, lastPinchEnd = 0;
     let pinchAng0 = 0, pinchRotBase = 0;
     const SCALE_MIN = 0.3, SCALE_MAX = 6;
