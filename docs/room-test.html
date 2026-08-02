@@ -2727,7 +2727,7 @@
   // メンバー立ち絵は data/teams.json（リーダー・お祭り男女）と data/guests.json
   // （team_id 持ちの参加ゲスト）から収集し assets/photo/{prefix}-{id}.{ext} を参照。
   // ※ 爆裂夏花火のみ KV は kv-bakuretsu だが立ち絵の接頭辞は hanabi-（読み替え対応）。
-  //   prefixes は先頭から順に試行し、404 なら次の候補 → avatar → ボタン非表示、
+  //   prefixes は先頭から順に試行し、404 なら次の候補 → ボタン非表示、
   //   と自動フォールバックするので命名ゆれがあっても壊れない。
   // ※ 蒼星月花は member_id とファイル名末尾が一致しないため overrides で個別対応。
   //   kv / overrides は拡張子を書かない「ステム」で指定する。
@@ -2781,12 +2781,12 @@
     return out;
   }
 
-  // 立ち絵パス候補：個別指定(overrides) → 命名規約 → avatar の順にフォールバック
+  // 立ち絵パス候補：個別指定(overrides) → 命名規約 の順にフォールバック
+  // ※ 参照先は assets/photo/ 配下のみ。JSON の avatar（外部URLや旧パス）は使わない。
   function memberSrcCandidates(cfg, m) {
     const list = [];
     if (m.id && cfg.overrides && cfg.overrides[m.id]) list.push(...stampSrcs(cfg.overrides[m.id]));
     if (m.id) cfg.prefixes.forEach(p => list.push(...stampSrcs(`${p}-${m.id}`)));
-    if (m.avatar && typeof m.avatar === 'string') list.push(m.avatar);
     return list;
   }
 
@@ -2859,7 +2859,10 @@
     btn.title = item.alt || '';
     const img = document.createElement('img');
     img.alt = item.alt || '';
-    applySrcChain(img, item.srcs, () => btn.remove());  // 全候補404 → ボタンごと消す
+    // 保険：assets/photo/ 配下以外の候補は握りつぶす（JSON 由来の外部URL混入対策）
+    const srcs = (item.srcs || []).filter(u => typeof u === 'string' && u.startsWith(STAMP_BASE));
+    if (!srcs.length) return null;
+    applySrcChain(img, srcs, () => btn.remove());  // 全候補404 → ボタンごと消す
     btn.appendChild(img);
     btn.addEventListener('click', () => placeStamp(img.currentSrc || img.src, item.cls));
     return btn;
@@ -2889,7 +2892,10 @@
   function renderStampGrid() {
     stampGridEl.innerHTML = '';
     const cat = stampCategories.find(c => c.id === activeStampCat) || stampCategories[0];
-    cat.items.forEach(item => stampGridEl.appendChild(makeStampButton(item)));
+    cat.items.forEach(item => {
+      const btn = makeStampButton(item);
+      if (btn) stampGridEl.appendChild(btn);
+    });
     if (cat.items.length === 0) {
       const note = document.createElement('div');
       note.className = 'stamp-grid-note';
