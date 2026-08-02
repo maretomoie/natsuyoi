@@ -2701,15 +2701,29 @@
 
   // ─── スタンプ素材の参照先 ───
   // 実体は docs/assets/photo/ に集約。このページ自体が docs/ 直下なので相対は 'assets/photo/'。
-  // 命名規則は従来どおり（規則そのものがカテゴライズを兼ねる）：
-  //   キービジュアル … kv-{team}
-  //   立ち絵        … {prefix}-{id}
-  // 拡張子は STAMP_EXTS の順に試行して 404 なら次へ。webp / png の混在フォルダでも動く。
-  // ※ 差し替えが全部 webp で完了したら STAMP_EXTS を ['webp'] にすると無駄な 404 が消える。
+  // teams.json / guests.json への依存は撤廃し、photo/ 直下のファイル名だけで分類する。
+  //   キービジュアル … kv-{team}.{ext}      → そのチームのタブアイコン兼スタンプ
+  //   立ち絵        … {team}-{任意}.{ext}   → 同じチームのカテゴリに自動で入る
+  // 同名で webp と png が両方ある場合は STAMP_EXTS の先頭側を採用する。
   const STAMP_BASE = 'assets/photo/';
   const STAMP_EXTS = ['webp', 'png'];
-  // ファイル名（拡張子なし）→ 候補 URL 配列
-  const stampSrcs = (stem) => STAMP_EXTS.map(ext => `${STAMP_BASE}${stem}.${ext}`);
+
+  // 静的ホスティングはディレクトリ一覧を返さないため、ファイル名の一覧を index.json から読む。
+  // （.github/workflows/photo-index.yml で push 時に自動生成）
+  const STAMP_MANIFEST = STAMP_BASE + 'index.json';
+  // 予備手段：index.json が無い時だけ GitHub API でディレクトリを直接列挙する。
+  // 未認証は 60req/h/IP なので本番は index.json を必ず置くこと。不要なら null に。
+  const STAMP_GH = { repo: 'OWNER/REPO', branch: 'main', path: 'docs/assets/photo' };
+
+  // タブの並び順と表示名。ここに書いた id だけがカテゴリになる。
+  // label はツールチップ／aria-label 用（空なら id をそのまま表示）。
+  const STAMP_TEAMS = [
+    { id: 'hanabi',   label: '爆裂夏花火' },
+    { id: 'torinama', label: '' },
+    { id: 'saranari', label: '' },
+    { id: 'sousei',   label: '蒼星月花' },
+    { id: 'utakata',  label: '' },
+  ];
 
   // img に候補配列を順に当て、全滅したら onExhausted を呼ぶ
   function applySrcChain(img, srcs, onExhausted) {
@@ -2722,72 +2736,79 @@
     img.src = srcs[0];
   }
 
-  // ─── スタンプカテゴリ（LINE風タブ） ───
-  // 一般（イベントモチーフ）＋ 5チーム。チームタブのアイコンはキービジュアル。
-  // メンバー立ち絵は data/teams.json（リーダー・お祭り男女）と data/guests.json
-  // （team_id 持ちの参加ゲスト）から収集し assets/photo/{prefix}-{id}.{ext} を参照。
-  // ※ 爆裂夏花火のみ KV は kv-bakuretsu だが立ち絵の接頭辞は hanabi-（読み替え対応）。
-  //   prefixes は先頭から順に試行し、404 なら次の候補 → ボタン非表示、
-  //   と自動フォールバックするので命名ゆれがあっても壊れない。
-  // ※ 蒼星月花は member_id とファイル名末尾が一致しないため overrides で個別対応。
-  //   kv / overrides は拡張子を書かない「ステム」で指定する。
-  const STAMP_TEAM_CONFIG = [
-    { id: 'bakuretsu', prefixes: ['hanabi'],               kv: 'kv-bakuretsu' },
-    { id: 'torinama',  prefixes: ['torinama', 'toriyama'], kv: 'kv-torinama'  },
-    { id: 'saranari',  prefixes: ['saranari'],             kv: 'kv-saranari'  },
-    { id: 'sousei',    prefixes: ['sousei'],               kv: 'kv-sousei',
-      overrides: {
-        kinetsuki: 'sousei-noa',     // 杵月のあ
-        hoshikage: 'sousei-lapis',   // 星影ラピス
-        otsutaro:  'sousei-otu',     // おつたろう
-        komainu:   'sousei-koma',    // こまいぬ
-        nanoha:    'sousei-nanoha',  // Nanoha。
-        uru:       'sousei-uru',     // 黒兎ウル
-        dorome:    'sousei-dorome',  // どろめらくだ
-      } },
-    { id: 'utakata',   prefixes: ['utakata'],              kv: 'kv-utakata'   },
-  ];
-
-  // カテゴリ一覧（チームはデータ読込後に追加）
+  // カテゴリ一覧（ファイル一覧の取得後に構築）
   // ★「一般」カテゴリは素材再選定まで一時封印中。
-  //   復活させる時は下の GENERAL_CATEGORY を stampCategories の初期値に戻し、
-  //   activeStampCat を 'general' に変更する。
+  //   復活させる時は下の GENERAL_CATEGORY を stampCategories の初期値に戻す。
   /*
   const GENERAL_CATEGORY = {
     id: 'general', label: '一般', icon: ['assets/logo-dark.png'],
     items: [
-      { srcs: stampSrcs('chouchin'), alt: '提灯',   cls: '' },
-      { srcs: stampSrcs('uchiwa'),   alt: 'うちわ', cls: '' },
-      { srcs: stampSrcs('fuurin'),   alt: '風鈴',   cls: '' },
-      { srcs: stampSrcs('kasa'),     alt: '傘',     cls: '' },
+      { srcs: [STAMP_BASE + 'chouchin.png'], alt: '提灯',   cls: '' },
+      { srcs: [STAMP_BASE + 'uchiwa.png'],   alt: 'うちわ', cls: '' },
+      { srcs: [STAMP_BASE + 'fuurin.png'],   alt: '風鈴',   cls: '' },
+      { srcs: [STAMP_BASE + 'kasa.png'],     alt: '傘',     cls: '' },
     ]
   };
   */
   const stampCategories = [];
-  let activeStampCat = STAMP_TEAM_CONFIG[0].id;
+  let activeStampCat = STAMP_TEAMS[0].id;
 
-  // チームオブジェクト内の配列プロパティ（leaders / matsuri 等）を総なめしてメンバー収集
-  function collectTeamMembers(team) {
-    const seen = new Set(), out = [];
-    Object.values(team).forEach(v => {
-      if (!Array.isArray(v)) return;
-      v.forEach(m => {
-        if (m && typeof m === 'object' && (m.id || m.name)) {
-          const key = m.id || m.name;
-          if (!seen.has(key)) { seen.add(key); out.push(m); }
+  // photo/ 直下のファイル名一覧を取得（index.json → GitHub API の順）
+  async function loadPhotoFileList() {
+    try {
+      const res = await fetch(STAMP_MANIFEST, { cache: 'no-cache' });
+      if (res.ok) {
+        const d = await res.json();
+        const arr = Array.isArray(d) ? d : (d.files || []);
+        const names = arr.map(f => (typeof f === 'string' ? f : (f && f.name))).filter(Boolean);
+        if (names.length) return names;
+      }
+    } catch (e) { console.warn('[stamp] index.json 読込失敗:', e); }
+    if (STAMP_GH && !/OWNER\/REPO/.test(STAMP_GH.repo)) {
+      try {
+        const url = `https://api.github.com/repos/${STAMP_GH.repo}/contents/${STAMP_GH.path}?ref=${STAMP_GH.branch}`;
+        const res = await fetch(url);
+        if (res.ok) {
+          const d = await res.json();
+          if (Array.isArray(d)) return d.filter(e => e.type === 'file').map(e => e.name);
         }
-      });
-    });
-    return out;
+      } catch (e) { console.warn('[stamp] GitHub API 列挙失敗:', e); }
+    }
+    return [];
   }
 
-  // 立ち絵パス候補：個別指定(overrides) → 命名規約 の順にフォールバック
-  // ※ 参照先は assets/photo/ 配下のみ。JSON の avatar（外部URLや旧パス）は使わない。
-  function memberSrcCandidates(cfg, m) {
-    const list = [];
-    if (m.id && cfg.overrides && cfg.overrides[m.id]) list.push(...stampSrcs(cfg.overrides[m.id]));
-    if (m.id) cfg.prefixes.forEach(p => list.push(...stampSrcs(`${p}-${m.id}`)));
-    return list;
+  // ファイル名 → チーム分類。命名規則に合わない／未登録チームのものは捨てる。
+  function classifyPhotoFiles(files) {
+    const buckets = new Map(STAMP_TEAMS.map(t => [t.id, { kv: null, members: new Map() }]));
+    const skipped = [];
+    files.forEach(name => {
+      const m = /^(.+)\.([A-Za-z0-9]+)$/.exec(name);
+      if (!m) { skipped.push(name); return; }
+      const stem = m[1];
+      const rank = STAMP_EXTS.indexOf(m[2].toLowerCase());
+      if (rank < 0) return;                       // 対象外の拡張子は黙って無視
+      const lower = stem.toLowerCase();
+      let teamId, key = null;
+      if (lower.startsWith('kv-')) {
+        teamId = lower.slice(3);
+      } else {
+        const i = lower.indexOf('-');
+        if (i < 1) { skipped.push(name); return; }
+        teamId = lower.slice(0, i);
+        key    = stem.slice(i + 1);
+      }
+      const b = buckets.get(teamId);
+      if (!b) { skipped.push(name); return; }
+      const entry = { src: STAMP_BASE + name, rank };
+      if (key === null) {
+        if (!b.kv || rank < b.kv.rank) b.kv = entry;          // webp 優先
+      } else {
+        const cur = b.members.get(key.toLowerCase());
+        if (!cur || rank < cur.rank) b.members.set(key.toLowerCase(), { ...entry, key });
+      }
+    });
+    if (skipped.length) console.warn('[stamp] 命名規則に合致せず未分類:', skipped);
+    return buckets;
   }
 
   // スタンプ設置（従来の絵文字分岐は不要になったため画像専用に整理）
@@ -2875,11 +2896,16 @@
       tab.className = 'stamp-tab' + (cat.id === activeStampCat ? ' active' : '');
       tab.setAttribute('aria-label', cat.label);
       tab.title = cat.label;
-      const img = document.createElement('img');
-      img.alt = cat.label;
-      // icon も配列（webp → png）。タブ自体は消さず、画像だけ落ちる形にする
-      applySrcChain(img, Array.isArray(cat.icon) ? cat.icon : [cat.icon], null);
-      tab.appendChild(img);
+      const icon = Array.isArray(cat.icon) ? cat.icon : (cat.icon ? [cat.icon] : []);
+      if (icon.length) {
+        const img = document.createElement('img');
+        img.alt = cat.label;
+        applySrcChain(img, icon, null);   // タブ自体は消さず、画像だけ落ちる形にする
+        tab.appendChild(img);
+      } else {
+        // kv-{id} が未配置のチームは文字タブで代用
+        tab.textContent = cat.label.slice(0, 2);
+      }
       tab.addEventListener('click', () => {
         activeStampCat = cat.id;
         renderStampTabs();
@@ -2905,46 +2931,31 @@
     stampGridEl.scrollTop = 0;
   }
 
-  // ─── チームデータ読込 → カテゴリ構築 ───
+  // ─── ファイル一覧読込 → カテゴリ構築 ───
   (async () => {
-    let teams = [], guests = [];
-    try {
-      const res = await fetch('data/teams.json', { cache: 'no-cache' });
-      if (res.ok) {
-        const d = await res.json();
-        teams = Array.isArray(d) ? d : (d.teams || []);
-      }
-    } catch (e) { console.warn('teams.json 読込失敗:', e); }
-    try {
-      const res = await fetch('data/guests.json', { cache: 'no-cache' });
-      if (res.ok) {
-        const d = await res.json();
-        guests = Array.isArray(d) ? d : (d.guests || []);
-      }
-    } catch (e) { console.warn('guests.json 読込失敗:', e); }
+    const files   = await loadPhotoFileList();
+    const buckets = classifyPhotoFiles(files);
 
-    STAMP_TEAM_CONFIG.forEach(cfg => {
-      const team = teams.find(t => t.id === cfg.id || cfg.prefixes.includes(t.id)) || null;
-      const label = (team && team.name) || cfg.id;
-      // 先頭はチームロゴ（キービジュアル）そのものをスタンプとして
-      const kvSrcs = stampSrcs(cfg.kv);
-      const items = [{ srcs: kvSrcs, alt: label, cls: 'stamp-kv' }];
-      const seen = new Set();
-      const addMember = (m) => {
-        const key = m.id || m.name;
-        if (!key || seen.has(key)) return;
-        seen.add(key);
-        const srcs = memberSrcCandidates(cfg, m);
-        if (srcs.length) items.push({ srcs, alt: m.name || '', cls: 'stamp-chara' });
-      };
-      if (team) collectTeamMembers(team).forEach(addMember);
-      // guests.json 側に team_id 付きの参加ゲストがいれば追加
-      guests.forEach(g => {
-        const tid = g.team_id || g.team;
-        if (tid === cfg.id || cfg.prefixes.includes(tid)) addMember(g);
-      });
-      stampCategories.push({ id: cfg.id, label, icon: kvSrcs, items });
+    STAMP_TEAMS.forEach(t => {
+      const b = buckets.get(t.id);
+      const label = t.label || t.id;
+      const items = [];
+      // 先頭はキービジュアルそのものをスタンプとして
+      if (b.kv) items.push({ srcs: [b.kv.src], alt: label, cls: 'stamp-kv' });
+      // 立ち絵はファイル名順（ja ロケール）で安定させる
+      [...b.members.values()]
+        .sort((x, y) => x.key.localeCompare(y.key, 'ja'))
+        .forEach(e => items.push({ srcs: [e.src], alt: e.key, cls: 'stamp-chara' }));
+      if (!items.length) return;   // 素材が1つも無いチームはタブごと出さない
+      stampCategories.push({ id: t.id, label, icon: b.kv ? [b.kv.src] : [], items });
     });
+
+    if (!stampCategories.length) {
+      console.warn('[stamp] 素材が1件も見つかりません。index.json と assets/photo/ を確認してください。');
+      stampGridEl.innerHTML = '<div class="stamp-grid-note">スタンプを読み込めませんでした</div>';
+      return;
+    }
+    if (!stampCategories.some(c => c.id === activeStampCat)) activeStampCat = stampCategories[0].id;
 
     renderStampTabs();
     renderStampGrid();
