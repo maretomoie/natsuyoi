@@ -49,6 +49,10 @@
       "name": "猫白神カーミラ"
     },
     {
+      "team_id": "saranari",
+      "name": "すけもも"
+    },
+    {
       "team_id": "torinama",
       "name": "りゅう"
     },
@@ -121,6 +125,10 @@
       "name": "トルマリン"
     },
     {
+      "team_id": "bakuretsu",
+      "name": "ヨーグルト大使"
+    },
+    {
       "team_id": "sousei",
       "name": "カチアルモノ"
     },
@@ -189,8 +197,16 @@
       "name": "のだちｽｰﾊﾟｰﾄﾞﾙｧｧｧｲ"
     },
     {
+      "team_id": "saranari",
+      "name": "ゆるねる"
+    },
+    {
       "team_id": "utakata",
       "name": "ジョコラー"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "射命丸"
     },
     {
       "team_id": "torinama",
@@ -253,6 +269,10 @@
       "name": "咲花桜"
     },
     {
+      "team_id": "saranari",
+      "name": "おぎゃたろう"
+    },
+    {
       "team_id": "bakuretsu",
       "name": "わら"
     },
@@ -306,6 +326,10 @@
     },
     {
       "team_id": "bakuretsu",
+      "name": "にこりー"
+    },
+    {
+      "team_id": "bakuretsu",
       "name": "レヴィア・L・マクロバーツ"
     },
     {
@@ -319,6 +343,10 @@
     {
       "team_id": "torinama",
       "name": "さやの"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "きりりん"
     },
     {
       "team_id": "bakuretsu",
@@ -363,6 +391,10 @@
     {
       "team_id": "torinama",
       "name": "水月れお"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "天然芝w"
     },
     {
       "team_id": "saranari",
@@ -602,6 +634,10 @@
     },
     {
       "team_id": "bakuretsu",
+      "name": "あるけむ"
+    },
+    {
+      "team_id": "bakuretsu",
       "name": "青のくろ"
     },
     {
@@ -805,6 +841,10 @@
       "name": "みなとん"
     },
     {
+      "team_id": "utakata",
+      "name": "昭平和成"
+    },
+    {
       "team_id": "sousei",
       "name": "クラロス"
     },
@@ -993,6 +1033,10 @@
       "name": "いんぱちごう"
     },
     {
+      "team_id": "saranari",
+      "name": "RBJ"
+    },
+    {
       "team_id": "bakuretsu",
       "name": "ノヴァスフィア"
     },
@@ -1039,6 +1083,250 @@
     {
       "team_id": "torinama",
       "name": "stilmg"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "JREの池下さん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "きばむいちゃいました"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "botop"
+    },
+    {
+      "team_id": "sousei",
+      "name": "黒兎ウルの弟子"
+    },
+    {
+      "team_id": "torinama",
+      "name": "水乃なの"
+    },
+    {
+      "team_id": "sousei",
+      "name": "アラビカ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "もちゃお"
+    },
+    {
+      "team_id": "torinama",
+      "name": "如月レオナ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "紅葉椛"
+    },
+    {
+      "team_id": "utakata",
+      "name": "黒色。"
+    },
+    {
+      "team_id": "utakata",
+      "name": "りんgoかも"
+    },
+    {
+      "team_id": "utakata",
+      "name": "あおいしもん"
+    },
+    {
+      "team_id": "torinama",
+      "name": "えむすけ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "氷室谷える"
+    },
+    {
+      "team_id": "saranari",
+      "name": "いろみ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ぴっぴ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "月音ゆき"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "EX褌火山のK"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ちゅい"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "秋ノ空蝉"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "いくせ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "きゃなちゃん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ネーデリア"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ren"
+    },
+    {
+      "team_id": "sousei",
+      "name": "まっつん"
+    },
+    {
+      "team_id": "saranari",
+      "name": "かなどめ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "のこふっか"
+    },
+    {
+      "team_id": "torinama",
+      "name": "りょう"
+    },
+    {
+      "team_id": "torinama",
+      "name": "零空(zerosora)"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "星霧青砥"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ぐでかご@VPL"
+    },
+    {
+      "team_id": "sousei",
+      "name": "からすま"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "超獣ギガ"
+    },
+    {
+      "team_id": "torinama",
+      "name": "放浪椿"
+    },
+    {
+      "team_id": "torinama",
+      "name": "燕羽そばや"
+    },
+    {
+      "team_id": "torinama",
+      "name": "みんげー"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "ぼきゃるん"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "ほたる"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "KUMICHOU"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "想磨@Vtuber"
+    },
+    {
+      "team_id": "utakata",
+      "name": "あるる"
+    },
+    {
+      "team_id": "saranari",
+      "name": "KEY"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "バギマ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "はやせ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ゆったん"
+    },
+    {
+      "team_id": "utakata",
+      "name": "十勝寅"
+    },
+    {
+      "team_id": "torinama",
+      "name": "たこ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "すずき🐟"
+    },
+    {
+      "team_id": "sousei",
+      "name": "矢絣京"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ほうかめぐ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "ZAK"
+    },
+    {
+      "team_id": "utakata",
+      "name": "あおやん"
+    },
+    {
+      "team_id": "sousei",
+      "name": "きょんあさ"
+    },
+    {
+      "team_id": "sousei",
+      "name": "マッスー"
+    },
+    {
+      "team_id": "saranari",
+      "name": "デスプラナリア"
+    },
+    {
+      "team_id": "saranari",
+      "name": "初心者maxpower"
+    },
+    {
+      "team_id": "torinama",
+      "name": "はりー"
+    },
+    {
+      "team_id": "utakata",
+      "name": "あかね"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ようどう"
+    },
+    {
+      "team_id": "utakata",
+      "name": "花藤そた"
+    },
+    {
+      "team_id": "sousei",
+      "name": "久礼奈為"
     }
   ]
 }
