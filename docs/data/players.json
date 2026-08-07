@@ -1141,8 +1141,16 @@
       "name": "氷室谷える"
     },
     {
+      "team_id": "bakuretsu",
+      "name": "プリン伯爵"
+    },
+    {
       "team_id": "saranari",
       "name": "いろみ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "ナピチョロ"
     },
     {
       "team_id": "torinama",
@@ -1241,6 +1249,10 @@
       "name": "KUMICHOU"
     },
     {
+      "team_id": "saranari",
+      "name": "すぺしゃるなめんたいこ"
+    },
+    {
       "team_id": "bakuretsu",
       "name": "想磨@Vtuber"
     },
@@ -1259,6 +1271,10 @@
     {
       "team_id": "saranari",
       "name": "はやせ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "帰ってきたツルツルリーナ"
     },
     {
       "team_id": "utakata",
@@ -1283,6 +1299,10 @@
     {
       "team_id": "saranari",
       "name": "ほうかめぐ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "奇々界小夜"
     },
     {
       "team_id": "utakata",
@@ -1459,6 +1479,62 @@
     {
       "team_id": "torinama",
       "name": "ちょっと夕霧亭"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "ポリぽりサラダ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "にゃきひろ"
+    },
+    {
+      "team_id": "saranari",
+      "name": "ほんまーまん"
+    },
+    {
+      "team_id": "saranari",
+      "name": "月乃音むぅ"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "手羽先カトリ"
+    },
+    {
+      "team_id": "utakata",
+      "name": "やざきのお父ちゃん"
+    },
+    {
+      "team_id": "saranari",
+      "name": "HAOSYUN"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "胡桃坂ひまり"
+    },
+    {
+      "team_id": "sousei",
+      "name": "ちい"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "残念"
+    },
+    {
+      "team_id": "bakuretsu",
+      "name": "SOU"
+    },
+    {
+      "team_id": "sousei",
+      "name": "井ノ内蛙"
+    },
+    {
+      "team_id": "sousei",
+      "name": "天蔦れんな"
+    },
+    {
+      "team_id": "torinama",
+      "name": "ぼうや打とうぜ"
     }
   ]
 }
