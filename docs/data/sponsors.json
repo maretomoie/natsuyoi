@@ -1,250 +1,352 @@
 {
   "sponsors": [
     {
-      "award": "本祭二日目最多打数",
-      "condition": "二日目対局数一位",
-      "sponsor": "深海projectさま",
-      "prize": "アマギフ2000円"
-    },
-    {
       "award": "だし惜しみなしで賞",
       "condition": "終局時最大点数",
-      "sponsor": "e活さま",
+      "sponsor": "e活",
       "prize": "イワナ醤油"
     },
     {
       "award": "めあさんしゅきしゅき賞",
       "condition": "めあともえの順位1つ上",
-      "sponsor": "なゆこさま",
+      "sponsor": "なゆこ",
       "prize": "アマギフ1000円"
     },
     {
       "award": "めあさんちゅきちゅき賞",
       "condition": "めあともえの順位1つ下",
-      "sponsor": "さんたくららさま",
+      "sponsor": "さんたくらら",
       "prize": "アマギフ1000円"
     },
     {
       "award": "あまり乱れなかった星賞",
       "condition": "1戦当たりの縁日ボーナス1,2の支払ポイント最小 \n(リーダー/お祭り男女/乱れ星限定)",
-      "sponsor": "東山ソラさま",
+      "sponsor": "東山ソラ",
       "prize": "アマギフ3000円"
     },
     {
       "award": "里野賞",
       "condition": "310位",
-      "sponsor": "里野ぽん太さま",
+      "sponsor": "里野ぽん太",
       "prize": "アマギフ1000円"
     },
     {
       "award": "こまいぬとわんわんわん賞",
       "condition": "111位",
-      "sponsor": "こまいぬさま",
+      "sponsor": "こまいぬ",
       "prize": "アマギフ1000円"
     },
     {
       "award": "春夏秋冬にお願い♡賞",
       "condition": "1の三色同刻和了",
-      "sponsor": "こまいぬさま",
+      "sponsor": "こまいぬ",
       "prize": "アマギフ3000円"
     },
     {
       "award": "大きい花火打ち上げられました賞",
       "condition": "814/815/816位のうち、最初に連絡があった方",
-      "sponsor": "ちぃーちぃーさま",
+      "sponsor": "ちぃーちぃー",
       "prize": "アマギフ1000円"
     },
     {
       "award": "敵は本能寺にありで賞",
       "condition": "自チームのリーダー/お祭り男女がトビラスの時のトップ回数",
-      "sponsor": "はまちょごりさま",
+      "sponsor": "はまちょごり",
       "prize": "アマギフ3000円"
     },
     {
       "award": "殿堂入りおめでとうで賞",
       "condition": "狩り隊さんがトビラスの時のトップ回数",
-      "sponsor": "はまちょごりさま",
+      "sponsor": "はまちょごり",
       "prize": "アマギフ3000円"
     },
     {
       "award": "深海猫賞",
-      "condition": "海底ロンで上がった人の中で高打点順に3名",
-      "sponsor": "オオホシアワイさま",
+      "condition": "海底ロンで上がった人の中で高打点準に3名",
+      "sponsor": "オオホシアワイ",
       "prize": "アマギフ1000円 x 3"
+    },
+    {
+      "award": "フェニックス賞",
+      "condition": "82位",
+      "sponsor": "リト",
+      "prize": "アマギフ1000円"
+    },
+    {
+      "award": "スターマイン賞",
+      "condition": "83位",
+      "sponsor": "リト",
+      "prize": "アマギフ1000円"
     },
     {
       "award": "居合切賞",
       "condition": "対局時間が最短の卓でトップの人",
-      "sponsor": "紅ゴリラ伯爵さま",
+      "sponsor": "紅ゴリラ伯爵",
       "prize": "アマギフ3000円"
     },
     {
       "award": "ごっつええかんじ賞",
       "condition": "52位",
-      "sponsor": "泡沫つなぐさま",
+      "sponsor": "泡沫つなぐ",
       "prize": "アマギフ1000円"
     },
     {
       "award": "二パっと笑って行こうで賞",
       "condition": "285位",
-      "sponsor": "泡沫つなぐさま",
+      "sponsor": "泡沫つなぐ",
       "prize": "アマギフ1000円"
     },
     {
       "award": "一筒摸月賞",
       "condition": "一筒模月をあがった人一名　二名以上の場合はルーレット",
-      "sponsor": "さやのさま",
+      "sponsor": "さやの",
       "prize": "アマギフ1000円"
     },
     {
       "award": "てんさい花火職人賞",
       "condition": "打ち上げ回数÷花火回数の値が一番大きい人(規定打数20本)",
-      "sponsor": "さやのさま",
+      "sponsor": "さやの",
       "prize": "アマギフ1000円"
     },
     {
       "award": "見守るいのちで賞",
       "condition": "全員トビなし終局時のトップ回数",
-      "sponsor": "さやのさま",
+      "sponsor": "さやの",
       "prize": "アマギフ1000円"
     },
     {
       "award": "最初はグー！トリあえず生！賞",
       "condition": "87位",
-      "sponsor": "まにきゅあさま",
+      "sponsor": "まにきゅあ",
       "prize": "アマギフ1000円"
     },
     {
       "award": "三色おじさん賞",
       "condition": "三色同順と三色同刻両方を和了した方先着1名",
-      "sponsor": "検察側の証人さま",
+      "sponsor": "検察側の証人",
       "prize": "アマギフ3000円"
     },
     {
       "award": "しをんぬサマードリーム2",
       "condition": "各チーム内順位で、ルーレットで出た数字の人",
-      "sponsor": "しをんぬさま",
+      "sponsor": "しをんぬ",
       "prize": "アマギフ1000円x5"
+    },
+    {
+      "award": "配信者賞",
+      "condition": "配信者カテゴリ上位3名",
+      "sponsor": "さきいかげそさま",
+      "prize": "チャイナor叫びイラスト"
+    },
+    {
+      "award": "クロボシタスク賞",
+      "condition": "配信者役満賞　配信中に役満を出した方　アーカイブ提出先着一名",
+      "sponsor": "クロボシタスク",
+      "prize": "イラストリクエスト権"
+    },
+    {
+      "award": "DAY1MVP",
+      "condition": "初日からはしゃいだで賞",
+      "sponsor": "酒盛りーぐ",
+      "prize": "アマギフ2000円"
+    },
+    {
+      "award": "DAY2MVP",
+      "condition": "やはりりっちょく賞",
+      "sponsor": "リツミサン",
+      "prize": "アマギフ2000円"
+    },
+    {
+      "award": "DAY3MVP",
+      "condition": "夏宵攻略賞",
+      "sponsor": "東山ソラ",
+      "prize": "アマギフ2000円"
+    },
+    {
+      "award": "DAY1打数賞",
+      "condition": "祭りを盛り上げたで賞",
+      "sponsor": "酒盛りーぐ",
+      "prize": "アマギフ2000円"
+    },
+    {
+      "award": "DAY2打数賞",
+      "condition": "麻雀はラン",
+      "sponsor": "リツミサン",
+      "prize": "アマギフ2000円"
+    },
+    {
+      "award": "DAY3打数賞",
+      "condition": "深みへ至ったで賞",
+      "sponsor": "〇〇衛門",
+      "prize": "アマギフ2000円"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "なやこさま",
+      "sponsor": "なやこ",
       "prize": "10口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "東山ソラさま",
+      "sponsor": "東山ソラ",
       "prize": "7口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "ratakichiさま",
+      "sponsor": "ratakichi",
       "prize": "5口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "Alfさま",
+      "sponsor": "Alf",
       "prize": "10口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "石津浜さま",
+      "sponsor": "石津浜",
       "prize": "10口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "たいしょ～さま",
+      "sponsor": "たいしょ～",
       "prize": "5口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "裏田凪佐さま",
+      "sponsor": "裏田凪佐",
       "prize": "1口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "黎明戦さま",
+      "sponsor": "黎明戦",
       "prize": "18口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "大星淡さま",
+      "sponsor": "大星淡",
       "prize": "1口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "ハガTさま",
+      "sponsor": "ハガT",
       "prize": "10口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "こまいぬさま",
+      "sponsor": "こまいぬ",
       "prize": "2口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "はまちょごりさま",
+      "sponsor": "はまちょごり",
       "prize": "5口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "狩り隊さま",
+      "sponsor": "狩り隊",
       "prize": "5口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "リツミサンさま",
+      "sponsor": "リツミサン",
       "prize": "16口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "森と太陽さま",
+      "sponsor": "森と太陽",
       "prize": "5口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "はやぶささま",
+      "sponsor": "はやぶさ",
       "prize": "2口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "〇〇衛門さま",
+      "sponsor": "〇〇衛門",
       "prize": "30口"
     },
     {
       "award": "individual",
       "condition": "-",
-      "sponsor": "リトさま",
+      "sponsor": "リト",
       "prize": "5口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "さやの",
+      "prize": "5口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "泡沫つなぐ",
+      "prize": "5口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "検察側の証人さま",
+      "prize": "2口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "しをんぬさま",
+      "prize": "4口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "オレンジさま",
+      "prize": "5口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "にーにゃさま",
+      "prize": "10口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "酒盛りーぐさま",
+      "prize": "3口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "青葉碧さま",
+      "prize": "10口"
+    },
+    {
+      "award": "individual",
+      "condition": "-",
+      "sponsor": "一之瀬 優さま",
+      "prize": "10口"
     },
     {
       "award": "individual",
       "condition": "-",
       "sponsor": "紅ゴリラ伯爵さま",
-      "prize": "5口"
-    },
-    {
-      "award": "individual",
-      "condition": "-",
-      "sponsor": "さやのさま",
-      "prize": "5口"
+      "prize": "12口"
     }
   ]
 }
