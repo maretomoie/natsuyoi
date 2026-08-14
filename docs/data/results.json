@@ -1,7 +1,7 @@
 {
   "meta": {
     "updated_at": "Fri Aug 14 2026 15:00:00 GMT+0900 (日本標準時)",
-    "updated_label": "時点（ダミーデータ）"
+    "updated_label": "時点"
   },
   "team_ranking": [
     {
@@ -1237,6 +1237,3706 @@
       "team": "蒼星月花"
     }
   ],
-  "daily_ranking": [],
-  "counts_ranking": []
+  "team-day1": [
+    {
+      "rank": 1,
+      "name": "トリあえず生！",
+      "points": 23640,
+      "kansen_points": 1200
+    },
+    {
+      "rank": 2,
+      "name": "泡沫スプラッシュ",
+      "points": 13190,
+      "kansen_points": 900
+    },
+    {
+      "rank": 3,
+      "name": "月のころはさらなり",
+      "points": 12910,
+      "kansen_points": 1150
+    },
+    {
+      "rank": 4,
+      "name": "爆裂夏花火",
+      "points": 10150,
+      "kansen_points": 650
+    },
+    {
+      "rank": 5,
+      "name": "蒼星月花",
+      "points": 7930,
+      "kansen_points": 550
+    }
+  ],
+  "personal-day1": [
+    {
+      "rank": 1,
+      "name": "カモメ",
+      "points": 1120,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 2,
+      "name": "みなとん",
+      "points": 910,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 3,
+      "name": "ネコカミ",
+      "points": 810,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 4,
+      "name": "さんたくらら",
+      "points": 810,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 5,
+      "name": "七実",
+      "points": 810,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 6,
+      "name": "ゆき",
+      "points": 770,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 7,
+      "name": "しゅうしょう",
+      "points": 750,
+      "team": "どこでも"
+    },
+    {
+      "rank": 8,
+      "name": "ぷらちゃん",
+      "points": 750,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 9,
+      "name": "東風乃の子分",
+      "points": 710,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 10,
+      "name": "はまちょごり",
+      "points": 710,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 11,
+      "name": "怠惰の あ、クマ",
+      "points": 700,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 12,
+      "name": "燈門えん",
+      "points": 700,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 13,
+      "name": "まりゅりゅり",
+      "points": 700,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 14,
+      "name": "ぐじ鍋",
+      "points": 680,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 15,
+      "name": "toshi",
+      "points": 660,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 16,
+      "name": "あまあん",
+      "points": 660,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 17,
+      "name": "氷乃ハコ",
+      "points": 660,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 18,
+      "name": "hak_chris",
+      "points": 650,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 19,
+      "name": "塩魔人敗北者ムック08",
+      "points": 650,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 20,
+      "name": "あおやん",
+      "points": 640,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 21,
+      "name": "カチアルモノ",
+      "points": 630,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 22,
+      "name": "龍惺ろたん",
+      "points": 630,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 23,
+      "name": "秋ノ空蝉",
+      "points": 620,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 24,
+      "name": "ゆう212",
+      "points": 610,
+      "team": "未所属"
+    },
+    {
+      "rank": 25,
+      "name": "カンカン",
+      "points": 600,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 26,
+      "name": "s0ra3",
+      "points": 600,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 27,
+      "name": "まにきゅあ",
+      "points": 590,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 28,
+      "name": "石狩鍋",
+      "points": 580,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 29,
+      "name": "一之瀬 優",
+      "points": 560,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 30,
+      "name": "ヨッシー",
+      "points": 550,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 31,
+      "name": "あるる",
+      "points": 550,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 32,
+      "name": "姿夜",
+      "points": 550,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 33,
+      "name": "たいしょ～",
+      "points": 530,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 34,
+      "name": "ソーヤ・サトシ",
+      "points": 510,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 35,
+      "name": "肉包丁",
+      "points": 510,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 36,
+      "name": "Hosi",
+      "points": 500,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 37,
+      "name": "びたん",
+      "points": 500,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 38,
+      "name": "御崎 千結",
+      "points": 490,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 39,
+      "name": "床木スズメ",
+      "points": 490,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 40,
+      "name": "東山ソラ",
+      "points": 480,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 41,
+      "name": "りゅう",
+      "points": 480,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 42,
+      "name": "sh0u",
+      "points": 480,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 43,
+      "name": "ろわ",
+      "points": 470,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 44,
+      "name": "狩り隊",
+      "points": 460,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 45,
+      "name": "井ノ内蛙",
+      "points": 460,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 46,
+      "name": "ぶい",
+      "points": 460,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 47,
+      "name": "かみちかお",
+      "points": 460,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 48,
+      "name": "かお・るぺる",
+      "points": 460,
+      "team": "未所属"
+    },
+    {
+      "rank": 49,
+      "name": "のどぐろ",
+      "points": 450,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 50,
+      "name": "やさしみ",
+      "points": 440,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 51,
+      "name": "二藤　織人",
+      "points": 440,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 52,
+      "name": "はてな@HIVE",
+      "points": 440,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 53,
+      "name": "ぷらちなすたー",
+      "points": 440,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 54,
+      "name": "髭鯨",
+      "points": 430,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 55,
+      "name": "せれん",
+      "points": 430,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 56,
+      "name": "ゆーじ",
+      "points": 430,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 57,
+      "name": "月桂樹",
+      "points": 430,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 58,
+      "name": "きつねふち",
+      "points": 430,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 59,
+      "name": "うぃっとねす",
+      "points": 420,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 60,
+      "name": "きばむいちゃいました",
+      "points": 420,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 61,
+      "name": "ratakichi",
+      "points": 420,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 62,
+      "name": "夜刀神",
+      "points": 410,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 63,
+      "name": "アラビカ",
+      "points": 410,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 64,
+      "name": "青柳魁斗",
+      "points": 410,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 65,
+      "name": "兎野バニ子",
+      "points": 410,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 66,
+      "name": "あおいしもん",
+      "points": 410,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 67,
+      "name": "ウルトラガッツ",
+      "points": 400,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 68,
+      "name": "チーハルコウ",
+      "points": 400,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 69,
+      "name": "たぬあき",
+      "points": 400,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 70,
+      "name": "るつ猫",
+      "points": 400,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 71,
+      "name": "くすく。",
+      "points": 400,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 72,
+      "name": "こばかも",
+      "points": 400,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 73,
+      "name": "eri",
+      "points": 390,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 74,
+      "name": "KEIBOY",
+      "points": 380,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 75,
+      "name": "nai6",
+      "points": 380,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 76,
+      "name": "泥目楽堕",
+      "points": 380,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 77,
+      "name": "星影ラピス",
+      "points": 370,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 78,
+      "name": "ラズ",
+      "points": 370,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 79,
+      "name": "弐式星",
+      "points": 370,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 80,
+      "name": "ペルソナ",
+      "points": 360,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 81,
+      "name": "木林森樹海",
+      "points": 360,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 82,
+      "name": "澪",
+      "points": 360,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 83,
+      "name": "CincoC",
+      "points": 360,
+      "team": "未所属"
+    },
+    {
+      "rank": 84,
+      "name": "たぴおか剣士",
+      "points": 350,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 85,
+      "name": "リト",
+      "points": 350,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 86,
+      "name": "おまけ",
+      "points": 350,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 87,
+      "name": "メリクリウス",
+      "points": 350,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 88,
+      "name": "ほりちゃん",
+      "points": 350,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 89,
+      "name": "レッド総帥",
+      "points": 350,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 90,
+      "name": "ハガT",
+      "points": 340,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 91,
+      "name": "瑠碧",
+      "points": 340,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 92,
+      "name": "叛逆のポコにゃん",
+      "points": 340,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 93,
+      "name": "ゆら",
+      "points": 340,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 94,
+      "name": "天然芝w",
+      "points": 330,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 95,
+      "name": "せどなりあん",
+      "points": 330,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 96,
+      "name": "このもん",
+      "points": 330,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 97,
+      "name": "ルーチェ",
+      "points": 330,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 98,
+      "name": "杵月のあ",
+      "points": 320,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 99,
+      "name": "杉谷会長",
+      "points": 320,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 100,
+      "name": "ナピチョロ",
+      "points": 320,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 101,
+      "name": "鉄哲テツ",
+      "points": 310,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 102,
+      "name": "麻生ふみ＠VPL",
+      "points": 310,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 103,
+      "name": "桜らん坊",
+      "points": 310,
+      "team": "未所属"
+    },
+    {
+      "rank": 104,
+      "name": "ようへー",
+      "points": 300,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 105,
+      "name": "岡田 大和",
+      "points": 300,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 106,
+      "name": "ポニョキング",
+      "points": 300,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 107,
+      "name": "うるるねこ",
+      "points": 300,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 108,
+      "name": "世渡怠惰",
+      "points": 290,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 109,
+      "name": "しんしん",
+      "points": 290,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 110,
+      "name": "タルタル",
+      "points": 290,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 111,
+      "name": "てれびん",
+      "points": 290,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 112,
+      "name": "りょう",
+      "points": 290,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 113,
+      "name": "クドナノ",
+      "points": 280,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 114,
+      "name": "眠りの小五郎",
+      "points": 280,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 115,
+      "name": "RA12",
+      "points": 280,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 116,
+      "name": "鶸",
+      "points": 280,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 117,
+      "name": "ぷにぷにぃ",
+      "points": 280,
+      "team": "未所属"
+    },
+    {
+      "rank": 118,
+      "name": "斉唱なごん",
+      "points": 270,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 119,
+      "name": "桜兎めうvtuber",
+      "points": 270,
+      "team": "未所属"
+    },
+    {
+      "rank": 120,
+      "name": "天使ひなた",
+      "points": 270,
+      "team": "未所属"
+    },
+    {
+      "rank": 121,
+      "name": "ノートニスモS",
+      "points": 270,
+      "team": "未所属"
+    },
+    {
+      "rank": 122,
+      "name": "夢咲いちか",
+      "points": 260,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 123,
+      "name": "ジャンゴリアン",
+      "points": 260,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 124,
+      "name": "horo灰猫王子",
+      "points": 260,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 125,
+      "name": "かなどめ",
+      "points": 260,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 126,
+      "name": "ぴっぴ",
+      "points": 260,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 127,
+      "name": "桐藤小柚",
+      "points": 260,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 128,
+      "name": "やましゃん",
+      "points": 260,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 129,
+      "name": "あたご",
+      "points": 240,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 130,
+      "name": "奏歌3",
+      "points": 240,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 131,
+      "name": "西田裕助RMU",
+      "points": 240,
+      "team": "未所属"
+    },
+    {
+      "rank": 132,
+      "name": "TELL(てる)",
+      "points": 240,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 133,
+      "name": "菊場ふみ",
+      "points": 230,
+      "team": "未所属"
+    },
+    {
+      "rank": 134,
+      "name": "想幻",
+      "points": 230,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 135,
+      "name": "きゃなちゃん",
+      "points": 230,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 136,
+      "name": "テラカワヌフ",
+      "points": 230,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 137,
+      "name": "ソーシャル伊藤",
+      "points": 230,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 138,
+      "name": "鏡餅たん",
+      "points": 230,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 139,
+      "name": "kininaru",
+      "points": 230,
+      "team": "未所属"
+    },
+    {
+      "rank": 140,
+      "name": "kurai",
+      "points": 230,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 141,
+      "name": "ばばめえ",
+      "points": 230,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 142,
+      "name": "ぽこべえ",
+      "points": 220,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 143,
+      "name": "🦁ㅣ대ت٭🦁",
+      "points": 220,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 144,
+      "name": "ぽにぽに",
+      "points": 220,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 145,
+      "name": "雛吞ちの",
+      "points": 220,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 146,
+      "name": "鉄雑魚さん",
+      "points": 220,
+      "team": "どこでも"
+    },
+    {
+      "rank": 147,
+      "name": "でも僕弱いし",
+      "points": 220,
+      "team": "未所属"
+    },
+    {
+      "rank": 148,
+      "name": "stilmg",
+      "points": 220,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 149,
+      "name": "エルさんだ",
+      "points": 220,
+      "team": "未所属"
+    },
+    {
+      "rank": 150,
+      "name": "にゃきひろ",
+      "points": 220,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 151,
+      "name": "サク",
+      "points": 220,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 152,
+      "name": "石津浜",
+      "points": 210,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 153,
+      "name": "はやぶさ",
+      "points": 210,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 154,
+      "name": "ちろりん",
+      "points": 210,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 155,
+      "name": "ぺぺたろ",
+      "points": 210,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 156,
+      "name": "鈴木ハルヒ",
+      "points": 210,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 157,
+      "name": "比嘉 秀仁",
+      "points": 210,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 158,
+      "name": "ヘタレン",
+      "points": 200,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 159,
+      "name": "楠木ひかり",
+      "points": 200,
+      "team": "未所属"
+    },
+    {
+      "rank": 160,
+      "name": "v_s_lmd",
+      "points": 200,
+      "team": "どこでも"
+    },
+    {
+      "rank": 161,
+      "name": "安住太一",
+      "points": 200,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 162,
+      "name": "フォス",
+      "points": 200,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 163,
+      "name": "シロップ",
+      "points": 200,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 164,
+      "name": "もぐ",
+      "points": 200,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 165,
+      "name": "胡桃坂ひまり",
+      "points": 200,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 166,
+      "name": "九十九刹那",
+      "points": 200,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 167,
+      "name": "オリーブハウス",
+      "points": 200,
+      "team": "未所属"
+    },
+    {
+      "rank": 168,
+      "name": "紅ゴリラ伯爵",
+      "points": 190,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 169,
+      "name": "リリ*&",
+      "points": 190,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 170,
+      "name": "MOJITO",
+      "points": 190,
+      "team": "未所属"
+    },
+    {
+      "rank": 171,
+      "name": "ヌイリア",
+      "points": 190,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 172,
+      "name": "ヨーテル",
+      "points": 190,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 173,
+      "name": "かみこうりん",
+      "points": 190,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 174,
+      "name": "キタザキ",
+      "points": 190,
+      "team": "未所属"
+    },
+    {
+      "rank": 175,
+      "name": "ティーさん",
+      "points": 190,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 176,
+      "name": "おぎゃたろう",
+      "points": 180,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 177,
+      "name": "こまり",
+      "points": 180,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 178,
+      "name": "けじぇむ",
+      "points": 180,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 179,
+      "name": "フェン",
+      "points": 180,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 180,
+      "name": "鶏チャン",
+      "points": 180,
+      "team": "未所属"
+    },
+    {
+      "rank": 181,
+      "name": "さめ",
+      "points": 170,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 182,
+      "name": "遊楽天GOTH",
+      "points": 170,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 183,
+      "name": "アイオらいと",
+      "points": 170,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 184,
+      "name": "やざきのお父ちゃん",
+      "points": 170,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 185,
+      "name": "うつろぎ式",
+      "points": 170,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 186,
+      "name": "su_",
+      "points": 170,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 187,
+      "name": "ほわいとにゃいと",
+      "points": 170,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 188,
+      "name": "魔法少女おやじ",
+      "points": 170,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 189,
+      "name": "ついりょ",
+      "points": 170,
+      "team": "どこでも"
+    },
+    {
+      "rank": 190,
+      "name": "Bravery",
+      "points": 160,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 191,
+      "name": "いんぱちごう",
+      "points": 160,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 192,
+      "name": "カトリーナ",
+      "points": 160,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 193,
+      "name": "瓶ラムネのビー玉",
+      "points": 160,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 194,
+      "name": "もちもち縁側",
+      "points": 160,
+      "team": "未所属"
+    },
+    {
+      "rank": 195,
+      "name": "ツキ",
+      "points": 160,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 196,
+      "name": "フォルテレジーナ",
+      "points": 160,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 197,
+      "name": "はる🥦",
+      "points": 160,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 198,
+      "name": "柊かや",
+      "points": 160,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 199,
+      "name": "ふゆたま",
+      "points": 150,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 200,
+      "name": "つっち",
+      "points": 150,
+      "team": "蒼星月花"
+    }
+  ],
+  "team-day2": [
+    {
+      "rank": 1,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    },
+    {
+      "rank": 2,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    },
+    {
+      "rank": 3,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    },
+    {
+      "rank": 4,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    },
+    {
+      "rank": 5,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    }
+  ],
+  "personal-day2": [
+    {
+      "rank": 1,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 2,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 3,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 4,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 5,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 6,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 7,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 8,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 9,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 10,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 11,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 12,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 13,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 14,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 15,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 16,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 17,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 18,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 19,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 20,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 21,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 22,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 23,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 24,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 25,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 26,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 27,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 28,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 29,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 30,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 31,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 32,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 33,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 34,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 35,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 36,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 37,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 38,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 39,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 40,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 41,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 42,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 43,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 44,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 45,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 46,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 47,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 48,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 49,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 50,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 51,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 52,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 53,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 54,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 55,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 56,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 57,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 58,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 59,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 60,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 61,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 62,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 63,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 64,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 65,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 66,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 67,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 68,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 69,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 70,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 71,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 72,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 73,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 74,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 75,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 76,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 77,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 78,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 79,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 80,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 81,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 82,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 83,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 84,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 85,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 86,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 87,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 88,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 89,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 90,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 91,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 92,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 93,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 94,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 95,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 96,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 97,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 98,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 99,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 100,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 101,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 102,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 103,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 104,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 105,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 106,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 107,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 108,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 109,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 110,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 111,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 112,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 113,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 114,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 115,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 116,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 117,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 118,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 119,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 120,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 121,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 122,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 123,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 124,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 125,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 126,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 127,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 128,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 129,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 130,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 131,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 132,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 133,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 134,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 135,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 136,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 137,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 138,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 139,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 140,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 141,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 142,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 143,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 144,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 145,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 146,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 147,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 148,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 149,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 150,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 151,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 152,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 153,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 154,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 155,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 156,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 157,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 158,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 159,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 160,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 161,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 162,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 163,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 164,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 165,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 166,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 167,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 168,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 169,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 170,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 171,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 172,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 173,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 174,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 175,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 176,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 177,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 178,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 179,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 180,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 181,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 182,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 183,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 184,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 185,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 186,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 187,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 188,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 189,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 190,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 191,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 192,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 193,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 194,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 195,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 196,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 197,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 198,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 199,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 200,
+      "name": null,
+      "points": 0,
+      "team": null
+    }
+  ],
+  "team-day3": [
+    {
+      "rank": 1,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    },
+    {
+      "rank": 2,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    },
+    {
+      "rank": 3,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    },
+    {
+      "rank": 4,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    },
+    {
+      "rank": 5,
+      "name": null,
+      "points": 0,
+      "kansen_points": 0
+    }
+  ],
+  "personal-day3": [
+    {
+      "rank": 1,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 2,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 3,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 4,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 5,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 6,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 7,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 8,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 9,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 10,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 11,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 12,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 13,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 14,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 15,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 16,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 17,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 18,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 19,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 20,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 21,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 22,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 23,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 24,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 25,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 26,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 27,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 28,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 29,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 30,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 31,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 32,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 33,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 34,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 35,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 36,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 37,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 38,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 39,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 40,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 41,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 42,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 43,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 44,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 45,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 46,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 47,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 48,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 49,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 50,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 51,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 52,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 53,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 54,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 55,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 56,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 57,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 58,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 59,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 60,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 61,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 62,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 63,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 64,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 65,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 66,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 67,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 68,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 69,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 70,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 71,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 72,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 73,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 74,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 75,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 76,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 77,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 78,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 79,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 80,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 81,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 82,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 83,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 84,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 85,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 86,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 87,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 88,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 89,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 90,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 91,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 92,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 93,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 94,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 95,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 96,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 97,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 98,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 99,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 100,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 101,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 102,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 103,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 104,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 105,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 106,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 107,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 108,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 109,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 110,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 111,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 112,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 113,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 114,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 115,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 116,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 117,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 118,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 119,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 120,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 121,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 122,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 123,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 124,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 125,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 126,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 127,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 128,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 129,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 130,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 131,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 132,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 133,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 134,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 135,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 136,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 137,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 138,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 139,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 140,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 141,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 142,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 143,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 144,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 145,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 146,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 147,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 148,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 149,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 150,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 151,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 152,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 153,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 154,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 155,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 156,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 157,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 158,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 159,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 160,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 161,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 162,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 163,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 164,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 165,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 166,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 167,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 168,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 169,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 170,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 171,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 172,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 173,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 174,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 175,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 176,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 177,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 178,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 179,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 180,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 181,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 182,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 183,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 184,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 185,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 186,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 187,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 188,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 189,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 190,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 191,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 192,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 193,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 194,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 195,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 196,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 197,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 198,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 199,
+      "name": null,
+      "points": 0,
+      "team": null
+    },
+    {
+      "rank": 200,
+      "name": null,
+      "points": 0,
+      "team": null
+    }
+  ]
 }
