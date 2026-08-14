@@ -442,7 +442,7 @@
       "avatar_hue": 180,
       "desc": "Live2Dモデラー兼VTuberの乾物ひものと申します。\n普段は作業配信や講座を中心に活動していますが、実は麻雀大好き！\nまだまだ勉強中の身ですが、大会ではビールと焼き鳥片手に綺麗な花火打ち上げたいです🎇",
       "links": {
-        "youtube": "https://www.youtube.com/@-himonogames-6327",
+        "youtube": "https://www.youtube.com/channel/UC8g5_Cua_Q8dkrbRl4uDEkQ",
         "twitter": "https://x.com/himono_vtuber?lang=ja"
       },
       "text": "Live2Dモデラー兼VTuberの乾物ひものと申します。\n普段は作業配信や講座を中心に活動していますが、実は麻雀大好き！\nまだまだ勉強中の身ですが、大会ではビールと焼き鳥片手に綺麗な花火打ち上げたいです🎇",
@@ -656,7 +656,7 @@
         "twitter": null
       },
       "text": "見せれるくらいには整えれるよう頑張ります、よろしくお願いします",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "saimaru",
@@ -796,7 +796,7 @@
         "twitter": null
       },
       "text": "気付いたら配信始めてた系チャンネルです。段位戦配信を細々とする予定でしたが気付けば大会や私設リーグの応援配信ばかりです！よろしくお願いします！",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "lemo",
@@ -964,7 +964,7 @@
         "twitter": null
       },
       "text": "ゲームとお歌とお酒が大好き！土日のおやつタイムに参加型雀魂を遊んでるよ！遊びに来てね！",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "kagutsuchi",
@@ -1048,7 +1048,7 @@
         "twitter": null
       },
       "text": "段位戦の配信をしたりしています",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "ishizuhama",
@@ -1090,7 +1090,7 @@
         "twitter": null
       },
       "text": "クリエイター成長系セルフ受肉VTuber、めえめえ村村長おばばこと、ばばめえです。コラボ、企画、歌枠、雑談(飲酒)、雀魂、ウマ娘、ボードゲーム、マダミス・謎解きゲーム、テキストゲーム実況配信などやってます！めえめえ村に遊びに来てね！",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "shino",
@@ -1146,7 +1146,7 @@
         "twitter": null
       },
       "text": "雀魂の段位戦配信、サウナ解説動画の投稿をメインに活動しています♨サウナが好きな人もこれから好きになる人もよろしくお願いします♨",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "pudding",
@@ -1188,7 +1188,7 @@
         "twitter": null
       },
       "text": "日本プロ麻雀協会の牧秀和こと油性hideです！雀魂や天鳳をメインに配信しています！チームに貢献出来るようにがんばります✨✨✨💪💪💪",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "poutou",
@@ -1468,7 +1468,7 @@
         "twitter": null
       },
       "text": "みなさんこんにちは！三色同刻は3枚から！どうもあまあんです！YouTubeで麻雀解説してますよかったら見にきてね！",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "takeoshan",
@@ -1496,7 +1496,7 @@
         "twitter": null
       },
       "text": "配信3年目。麻雀&競馬大好きなだけの一般通過おじさんの海菌(うみきん)です。基本麻雀大会や私設麻雀リーグの応援配信を中心に配信しています！前回に続き爆裂夏花火チームにて参加させていただきます。皆で爆裂盛り上げましょう＾＾",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "nami",
@@ -1510,7 +1510,7 @@
         "twitter": null
       },
       "text": "みんなの笑顔とお酒が主食！滑舌甘々酔いどれサキュバスです！",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "nagisa",
@@ -1524,7 +1524,7 @@
         "twitter": null
       },
       "text": "チルタリスを愛する歌う雀士",
-      "segment": 0
+      "segment": 2
     },
     {
       "id": "ponta",
@@ -1636,6 +1636,580 @@
         "twitter": null
       },
       "text": "気ままにやってます🌟",
+      "segment": 0
+    },
+    {
+      "id": "geromoto",
+      "name": "げろもと",
+      "avatar": "assets/guests/geromoto.png",
+      "avatar_initial": "げ",
+      "avatar_hue": 170,
+      "desc": "長いものには巻かれますが自分から巻く方向で頑張りたいです",
+      "links": {
+        "youtube": "https://www.youtube.com/@geromoto9844",
+        "twitter": null
+      },
+      "text": "お絵描きやゲーム（雀魂での麻雀含む）など配信しています。 よろしくおながいします（´人｀）",
+      "segment": 2
+    },
+    {
+      "id": "kusuku",
+      "name": "くすく。",
+      "avatar": "assets/guests/kusuku.png",
+      "avatar_initial": "く",
+      "avatar_hue": 180,
+      "desc": "「酒じゃ酒じゃ！酒持ってこーい！」というノリと勢いそのままに、沢山の花火を打ち上げてご覧に入れましょう。",
+      "links": {
+        "youtube": "https://www.youtube.com/@ksknagi",
+        "twitter": null
+      },
+      "text": "いろんなゲームが好き。アニメが好き。お酒が大好き！ そして、頑張ってる活動者さんや、一緒に遊んでくれるリスナーが好き。 そんなオタクな狐系兼業VTuberのくすく。と申します。 毎週日曜日夜８時から参加型雀魂配信してますので気軽に遊びに来てくれると嬉しいです！",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "アサダスズメ",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "ア",
+      "avatar_hue": 230,
+      "desc": "やるぞやるぞやるぞやるぞやるぞ",
+      "links": {
+        "youtube": "https://youtube.com/@asada_suzumech",
+        "twitter": null
+      },
+      "text": "アサダスズメです！麻雀配信をメインに活動しています！",
+      "segment": 0
+    },
+    {
+      "id": "ikura",
+      "name": "詩音いくら",
+      "avatar": "assets/guests/ikura.png",
+      "avatar_initial": "詩",
+      "avatar_hue": 270,
+      "desc": "夏のステキな思い出になりますように✨️",
+      "links": {
+        "youtube": "https://www.showroom-live.com/r/9ccf01152479",
+        "twitter": null
+      },
+      "text": "SHOWROOMというプラットフォームで歌と雑談を中心に配信しています♪",
+      "segment": 2
+    },
+    {
+      "id": "tarou",
+      "name": "TAROU",
+      "avatar": "assets/guests/tarou.png",
+      "avatar_initial": "T",
+      "avatar_hue": 330,
+      "desc": "チームに貢献できるように頑張ります！！お酒を飲みながら🍺",
+      "links": {
+        "youtube": "https://www.youtube.com/@tarou9698",
+        "twitter": null
+      },
+      "text": "動画投稿はダンス系、ライブ配信は雀魂系の2.5次元Vtuber。普段は参加型や個人大会視点、リーグ戦の配信をしています。よろしくお願いします！！",
+      "segment": 2
+    },
+    {
+      "id": "serafy",
+      "name": "セラフィー",
+      "avatar": "assets/guests/serafy.png",
+      "avatar_initial": "セ",
+      "avatar_hue": 0,
+      "desc": "前回に引き続き、今回もチームに貢献していきたいと思います。よろしくお願いいたします。",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCpYCFFipaRI8ycRa5XqALKA?si=IakVpWuuya5kpG66",
+        "twitter": null
+      },
+      "text": "主に、雀魂を中心に配信しています。よろしくお願いします。",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "船風紙乃",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "船",
+      "avatar_hue": 330,
+      "desc": "いつも想銘組がお世話になっております！！！！",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCybDcw-0q7y1zTfporhybRA?si=EVCWd1SXjudexNwM",
+        "twitter": null
+      },
+      "text": "皆様おはしの🎈🥢 バーチャル付喪神の船風紙乃です！やりたいことを楽しくがモットー！好きなことを好きなだけ遊んでいくよ！",
+      "segment": 0
+    },
+    {
+      "id": "sioiyan",
+      "name": "しおいやん",
+      "avatar": "assets/guests/sioiyan.png",
+      "avatar_initial": "し",
+      "avatar_hue": 240,
+      "desc": "生ビールしか勝たん！",
+      "links": {
+        "youtube": "https://www.youtube.com/@sioiyan",
+        "twitter": null
+      },
+      "text": "リーグ戦きっかけで配信はじめました！最近忙しくてあんまり配信できてないですが、落ち着いたら頻度上げていこうと思ってます！よろしくお願いします！",
+      "segment": 2
+    },
+    {
+      "id": "indo",
+      "name": "犬童レイナ",
+      "avatar": "assets/guests/indo.png",
+      "avatar_initial": "犬",
+      "avatar_hue": 160,
+      "desc": "爆裂！！！！！こいこいこいこいこいしてる！！！\nシェアハピ　幸せ絶頂ピーポー！！\n(立直)曲げてく運命　未来は思うがまま～！(役満和了)🎆\n一生一緒にいたいっしょ～～～～～～✊",
+      "links": {
+        "youtube": "https://www.youtube.com/@Reina_Indo",
+        "twitter": null
+      },
+      "text": "ゲームと麻雀が大好きなVtuberです🤟🏻なぜか私の兄を名乗る人が後を絶えません。イカれた麻雀大会を開くことがあります。",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "あられにゃん",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "あ",
+      "avatar_hue": 210,
+      "desc": "楽しく打ちあげたいです",
+      "links": {
+        "youtube": "https://www.youtube.com/channel/UCsDIkxAMFVD2iy1cRQ9lYOA",
+        "twitter": null
+      },
+      "text": "深夜に稀に麻雀配信をしています。見れたらレアです。ぷよぷよも好き。機会があれば是非覗きに来てみて下さい。",
+      "segment": 0
+    },
+    {
+      "id": "asouhumi",
+      "name": "麻生ふみ＠VPL",
+      "avatar": "assets/guests/asouhumi.png",
+      "avatar_initial": "麻",
+      "avatar_hue": 150,
+      "desc": "打ちます。",
+      "links": {
+        "youtube": "https://www.youtube.com/@fumi_aso",
+        "twitter": null
+      },
+      "text": "王座の間、リーグ戦、大会戦を配信しております。ショート動画もみてね！",
+      "segment": 2
+    },
+    {
+      "id": "hatomoto",
+      "name": "鳩本キュウ",
+      "avatar": "assets/guests/hatomoto.png",
+      "avatar_initial": "鳩",
+      "avatar_hue": 140,
+      "desc": "あんまりうてないかもですががんばります！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@hatomoto9",
+        "twitter": null
+      },
+      "text": "舞台観劇大好き❣️蒸気郵便社勤務の伝書鳩🕊⚙️ VPL 5期生 です！",
+      "segment": 2
+    },
+    {
+      "id": "ru",
+      "name": "るー",
+      "avatar": "assets/guests/ru.png",
+      "avatar_initial": "る",
+      "avatar_hue": 280,
+      "desc": "沢山花火を打ち上げていけるように頑張ります！\n夏のお祭り楽しむぞ〜！！",
+      "links": {
+        "youtube": "https://youtube.com/@ruukun_heart?si=2s4M-8jvaP1CuWq0",
+        "twitter": null
+      },
+      "text": "好きなことを好きなだけ！をモットーに、マイペースに活動しているチャンネルです。現在は麻雀がメインコンテンツとなっておりますが、他のゲームや公営競技など他のコンテンツにも挑戦していけるように試行錯誤している最中です。よろしくお願いします！",
+      "segment": 2
+    },
+    {
+      "id": "kacha",
+      "name": "かちゃまんた",
+      "avatar": "assets/guests/kacha.png",
+      "avatar_initial": "か",
+      "avatar_hue": 20,
+      "desc": "最強に楽しみます！",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%8B%E3%81%A1%E3%82%83%E3%81%BE%E3%82%93%E3%81%9F",
+        "twitter": null
+      },
+      "text": "夢は誰かの麻雀を好きになるきっかけになること！気ままに配信中です！",
+      "segment": 2
+    },
+    {
+      "id": "nikubocho",
+      "name": "肉包丁",
+      "avatar": "assets/guests/nikubocho.png",
+      "avatar_initial": "肉",
+      "avatar_hue": 170,
+      "desc": "いっぱい飲みたいところですが健康診断直前なので少しだけのみます！！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@nikubouchou",
+        "twitter": null
+      },
+      "text": "配信環境があるだけの一般人です。",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "Yukiちゃんねる",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "Y",
+      "avatar_hue": 180,
+      "desc": "楽しんでいこー！",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCB5OhZmb3FkdJC7q4z2BJkg?si=gc0DmlE369hgma4e",
+        "twitter": null
+      },
+      "text": "ゲームに時々麻雀です！3月の東京マラソンで3時間切りを目指してます！",
+      "segment": 0
+    },
+    {
+      "id": "magamo",
+      "name": "真鴨子規",
+      "avatar": "assets/guests/magamo.png",
+      "avatar_initial": "真",
+      "avatar_hue": 230,
+      "desc": "三麻で5000pt超溶かして傷心中につき景気付けに参りました。チームは推し在籍の蒼星月花、がんばります！",
+      "links": {
+        "youtube": "https://youtube.com/@siki_magamo",
+        "twitter": null
+      },
+      "text": "小説執筆配信をメインにゲームなどもやる『物書き系Vtuber』。仕事に育児に執筆も遊びも麻雀も、やりたいことは全部やる！この顔にピンときたらぜひ見に来てください！",
+      "segment": 2
+    },
+    {
+      "id": "hikarin",
+      "name": "ひかりん",
+      "avatar": "assets/guests/hikarin.png",
+      "avatar_initial": "ひ",
+      "avatar_hue": 270,
+      "desc": "胸を借りるつもりで一生懸命頑張ります",
+      "links": {
+        "youtube": "www.youtube.com/@hikalin_kiseki",
+        "twitter": null
+      },
+      "text": "土日祝日をメインに雀魂配信を行っております。好きなゲームをプレイ実況しております。まだまだ認知度低いですがよろしくお願いします！",
+      "segment": 2
+    },
+    {
+      "id": "ururuneko",
+      "name": "うるるねこ",
+      "avatar": "assets/guests/ururuneko.png",
+      "avatar_initial": "う",
+      "avatar_hue": 330,
+      "desc": "とりあえず生ください！焼き鳥は塩派です！",
+      "links": {
+        "youtube": "https://www.youtube.com/@urunekochan",
+        "twitter": null
+      },
+      "text": "とにかく飲酒し、とにかく麻雀打つことに定評のあるねこです。",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "ぺろゆか",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "ぺ",
+      "avatar_hue": 185,
+      "desc": "ビールと焼き鳥準備してがんばります！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@peroyuka",
+        "twitter": null
+      },
+      "text": "スタレゾやヘブバン、歌枠の配信をしてます！４月頃から麻雀を覚えはじめ今は雀魂の配信も週１くらいでしてます！参加型をよくやってるのでぜひ遊びに来てください♪",
+      "segment": 0
+    },
+    {
+      "id": "otoginun",
+      "name": "おとぎぬん",
+      "avatar": "assets/guests/otoginun.png",
+      "avatar_initial": "お",
+      "avatar_hue": 330,
+      "desc": "夏を楽しみます！",
+      "links": {
+        "youtube": "https://www.youtube.com/@otoginun",
+        "twitter": null
+      },
+      "text": "のんびり生きています(*^▽^*)９\"",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "もるもいもい",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "も",
+      "avatar_hue": 210,
+      "desc": "もいもい👀",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%82%82%E3%82%8B%E3%82%82%E3%81%84%E3%82%82%E3%81%84",
+        "twitter": null
+      },
+      "text": "ジオゲとか麻雀とか将棋だらだらやってます",
+      "segment": 0
+    },
+    {
+      "id": "haguro",
+      "name": "羽黒千秋",
+      "avatar": "assets/guests/haguro.png",
+      "avatar_initial": "羽",
+      "avatar_hue": 150,
+      "desc": "少ししか打てない見込みですがよろしくお願いいたします",
+      "links": {
+        "youtube": "https://youtube.com/@haguro_chiaki",
+        "twitter": null
+      },
+      "text": "普段は大学で研究者をしている麻雀VTuberの羽黒千秋です。平日夜に雀魂段位戦、友人戦、たまにGeoGuessrなどをしています！",
+      "segment": 2
+    },
+    {
+      "id": "syodai",
+      "name": "初代黒橡",
+      "avatar": "assets/guests/syodai.png",
+      "avatar_initial": "初",
+      "avatar_hue": 140,
+      "desc": "俺があじゅを勝たせるよ",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCKRxn468W1zqTQ9ZeoHeVwA?si=-e02FQJ9WU2V4kSd",
+        "twitter": null
+      },
+      "text": "雀魂の段位戦配信と私設リーグの控え室配信がメインです！たまに息抜きに他のゲームもします",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "翠葉",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "翠",
+      "avatar_hue": 280,
+      "desc": "がんばるぞー！！！！",
+      "links": {
+        "youtube": "https://youtube.com/@arcesuiha?si=qrJGstiHVbIKWY3P",
+        "twitter": null
+      },
+      "text": "いつも不思議なことが起きる翠葉ちゃんねるですヽ(=´▽`=)ﾉ",
+      "segment": 0
+    },
+    {
+      "id": "sengoku",
+      "name": "センゴク",
+      "avatar": "assets/guests/sengoku.png",
+      "avatar_initial": "セ",
+      "avatar_hue": 120,
+      "desc": "とにかく楽しむ！",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCgfGl05b9un0OehxwFhDNiA?si=VpLfnCwbxwU6LS-M",
+        "twitter": null
+      },
+      "text": "麻雀とゲームを自分のペースでやるチャンネルです！",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "ただばた大尉",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "た",
+      "avatar_hue": 150,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%9F%E3%81%A0%E3%81%B0%E3%81%9F%E5%A4%A7%E5%B0%89",
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "花道",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "花",
+      "avatar_hue": 140,
+      "desc": "天鳳位の腕を見せます",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E8%8A%B1%E9%81%93-etotak",
+        "twitter": null
+      },
+      "text": "たま～～～～～～～に配信してます",
+      "segment": 0
+    },
+    {
+      "id": "yumesaki",
+      "name": "夢咲いちか",
+      "avatar": "assets/guests/yumesaki.png",
+      "avatar_initial": "夢",
+      "avatar_hue": 280,
+      "desc": "トリあえず生！あ、私お酒飲めないんでコーラでお願いします。",
+      "links": {
+        "youtube": "https://www.youtube.com/@Yumesaki_Ichika",
+        "twitter": null
+      },
+      "text": "夢の花咲け３・２・いちかー！花火も夜空に咲く泡沫の花。つまり夢咲いちかってことなんですねー！でけぇ花火打ち上げっぞ！",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": "彩月かなた",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "彩",
+      "avatar_hue": 20,
+      "desc": "まに姉一生ついていきやすっ！！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@otonokanata",
+        "twitter": null
+      },
+      "text": "姓は『彩月』、名は『かなた』！チャンネル名と人物名が違うから要注意だｿﾞｯ☆彡",
+      "segment": 0
+    },
+    {
+      "id": "garu",
+      "name": "ガル",
+      "avatar": "assets/guests/garu.png",
+      "avatar_initial": "ガ",
+      "avatar_hue": 0,
+      "desc": "力になれるように頑張ります！！飛ばす！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@garu4792",
+        "twitter": null
+      },
+      "text": "三麻魂天Vtuberのガルです！今は四麻も魂天を目指して頑張っています！普段の配信は段位戦やコラボ、大会も開催予定です。VPLにも入りたく活動を頑張ってますので是非登録して応援していただけると嬉しいです！",
+      "segment": 2
+    },
+    {
+      "id": "soya",
+      "name": "ソーヤ・サトシ",
+      "avatar": "assets/guests/soya.png",
+      "avatar_initial": "ソ",
+      "avatar_hue": 0,
+      "desc": "生も良いけど日本酒も良いぞー（酒は飲んでもの飲まれるな（飲み放題で調子に乗らないよーに！））",
+      "links": {
+        "youtube": "https://www.youtube.com/@soya_satoshi",
+        "twitter": null
+      },
+      "text": "ゲーム大好きな青いピエロ！ソーヤ・サトシです！　不定期で雀魂を中心にのんびりと配信してますー。",
+      "segment": 2
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
       "segment": 0
     }
   ]
