@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/subpage.css">
   <link rel="stylesheet" href="css/results.css">
   <style>
-    /* ── チーム別個人ランキング：チーム選択UI ── */
+    /* ── 絞り込みUI（チーム別個人 / 日別 共用） ── */
     .byteam-controls {
       display: flex; align-items: center; justify-content: center;
       gap: 16px; flex-wrap: wrap;
@@ -51,7 +51,58 @@
       outline: none;
     }
     .byteam-select option { background: #0E1B5A; color: var(--c-white); }
-    #byteam-title { transition: color 0.3s; }
+    #byteam-title,
+    #daily-team-title,
+    #daily-personal-title { transition: color 0.3s; }
+
+    /* JS から表示切り替えするためのユーティリティ */
+    .is-hidden { display: none !important; }
+
+    /* ── 詳細成績CTA ── */
+    .results-cta {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; margin: 8px auto 0; text-align: center;
+    }
+    .results-cta-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(155,114,207,0.45);
+      background: linear-gradient(135deg, rgba(123,78,168,0.45), rgba(14,27,90,0.65));
+      color: var(--c-white);
+      font-family: var(--font-ja-sans);
+      font-size: 1rem; letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .results-cta-link::after {
+      content: '↗'; font-size: 0.9em; opacity: 0.75;
+      transition: transform 0.25s;
+    }
+    .results-cta-link:hover,
+    .results-cta-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--c-violet);
+      box-shadow: 0 8px 28px rgba(123,78,168,0.4);
+      outline: none;
+    }
+    .results-cta-link:hover::after { transform: translate(2px, -2px); }
+    .results-cta-note {
+      font-family: var(--font-ja-sans);
+      font-size: 0.8rem; letter-spacing: 0.06em;
+      color: var(--c-dim);
+    }
+    @media (max-width: 480px) {
+      .results-cta-link {
+        width: 100%; max-width: 320px;
+        justify-content: center; padding: 15px 24px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .results-cta-link,
+      .results-cta-link::after { transition: none; }
+      .results-cta-link:hover { transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -96,7 +147,6 @@
     <button class="results-tab active" data-target="overall">総合ランキング</button>
     <button class="results-tab" data-target="byteam">チーム別個人ランキング</button>
     <button class="results-tab" data-target="daily">日別ランキング</button>
-    <button class="results-tab" data-target="counts">打数ランキング</button>
   </div>
 </section>
 
@@ -183,21 +233,66 @@
 
 <!-- 日別ランキング -->
 <section class="subpage-section results-pane" id="pane-daily">
-  <div class="placeholder-block glass-card reveal">
+  <div class="byteam-controls reveal" id="daily-controls">
+    <label class="byteam-label" for="daily-select">開催日を選択</label>
+    <div class="byteam-select-wrap">
+      <select id="daily-select" class="byteam-select"></select>
+    </div>
+  </div>
+
+  <div class="ranking-grid" id="daily-grid">
+
+    <div class="ranking-block glass-card reveal">
+      <div class="ranking-header team-header">
+        <img src="assets/uchiwa.png" alt="" class="ranking-icon">
+        <h2 class="ranking-title" id="daily-team-title">チームランキング</h2>
+      </div>
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th class="col-rank">順位</th>
+            <th class="col-name">チーム名</th>
+            <th class="col-pt">獲得Pt</th>
+            <th class="col-sub">内勝関Pt</th>
+          </tr>
+        </thead>
+        <tbody id="daily-team-body">
+          <tr><td colspan="4" style="text-align:center;color:var(--c-dim);padding:24px;">読み込み中...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ranking-block glass-card reveal">
+      <div class="ranking-header personal-header">
+        <img src="assets/fuurin.png" alt="" class="ranking-icon">
+        <h2 class="ranking-title" id="daily-personal-title">個人ランキング</h2>
+      </div>
+      <div class="ranking-scroll">
+        <table class="ranking-table">
+          <thead>
+            <tr>
+              <th class="col-rank">順位</th>
+              <th class="col-name">名前</th>
+              <th class="col-team">所属チーム</th>
+              <th class="col-pt">獲得Pt</th>
+            </tr>
+          </thead>
+          <tbody id="daily-personal-body">
+            <tr><td colspan="4" style="text-align:center;color:var(--c-dim);padding:24px;">読み込み中...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="placeholder-block glass-card reveal is-hidden" id="daily-empty">
     <img src="assets/kasa.png" alt="" class="placeholder-icon">
     <h2 class="placeholder-title">日別ランキング</h2>
     <p class="placeholder-desc">DAY1 / DAY2 / DAY3 の日別成績はイベント開催中に表示されます。</p>
   </div>
 </section>
 
-<!-- 打数ランキング -->
-<section class="subpage-section results-pane" id="pane-counts">
-  <div class="placeholder-block glass-card reveal">
-    <img src="assets/kasa.png" alt="" class="placeholder-icon">
-    <h2 class="placeholder-title">打数ランキング</h2>
-    <p class="placeholder-desc">対局数・打平均などの集計はイベント開催中に表示されます。</p>
-  </div>
-</section>
 <section class="subpage-section results-cta-section">
   <div class="results-cta reveal">
     <a class="results-cta-link"
@@ -208,6 +303,7 @@
     <span class="results-cta-note">Googleスプレッドシートが開きます</span>
   </div>
 </section>
+
 </main>
 
 <footer>
@@ -220,9 +316,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/data-loader.js"></script>
 <script>
+/* ==========================================================
+   きみ夏宵あそび — 成績ページ (results.html)
+   依存: gsap / ScrollTrigger / js/data-loader.js (KNY)
+   ========================================================== */
+
 gsap.registerPlugin(ScrollTrigger);
+
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
+window.addEventListener('scroll',
+  () => navbar.classList.toggle('scrolled', window.scrollY > 10),
+  { passive: true });
+
+let RESULTS = null;
+
+/* ── 共通ヘルパ ───────────────────────────────── */
 
 function revealAll() {
   document.querySelectorAll('.reveal').forEach(el => {
@@ -232,47 +340,74 @@ function revealAll() {
   });
 }
 
+/** 表記名に < や " が混ざっても表が崩れないようにする */
+function esc(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[c]);
+}
+
 function medalHtml(rank) {
   if (rank <= 3) return `<span class="rank-medal">${rank}位</span>`;
   return `${rank}位`;
 }
 
-let RESULTS = null;
+function emptyRow(colspan = 4) {
+  return `<tr><td colspan="${colspan}" class="more-cell">— データなし —</td></tr>`;
+}
+
+/* ── 行テンプレート（総合・日別で共用） ───────────── */
+
+/** チーム行: 順位 / チーム名 / 獲得Pt / 内勝関Pt */
+function teamRowsHtml(list) {
+  return (list || []).map((r, i) => {
+    const rank = r.rank != null ? r.rank : i + 1;
+    return `
+    <tr class="${rank <= 3 ? 'rank-' + rank : ''}">
+      <td class="col-rank">${medalHtml(rank)}</td>
+      <td class="col-name">${esc(r.name)}</td>
+      <td class="col-pt">${KNY.num(r.points)}</td>
+      <td class="col-sub">${KNY.num(r.kansen_points)}</td>
+    </tr>`;
+  }).join('');
+}
+
+/** 個人行: 順位 / 名前 / 所属チーム / 獲得Pt */
+function personalRowsHtml(list) {
+  return (list || []).map((r, i) => {
+    const rank = r.rank != null ? r.rank : i + 1;
+    return `
+    <tr class="${rank <= 3 ? 'rank-' + rank : ''}">
+      <td class="col-rank">${medalHtml(rank)}</td>
+      <td class="col-name">${esc(r.name)}</td>
+      <td class="col-team">${esc(r.team)}</td>
+      <td class="col-pt">${KNY.num(r.points)}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── 総合ランキング ──────────────────────────── */
 
 async function loadResults() {
   const data = await KNY.load('results');
   RESULTS = data;
 
-  // 更新時刻
   document.getElementById('update-time').textContent =
     `${data.meta.updated_at} ${data.meta.updated_label}`;
 
-  // チームランキング
-  const teamBody = document.getElementById('team-ranking-body');
-  teamBody.innerHTML = data.team_ranking.map(r => `
-    <tr class="${r.rank <= 3 ? 'rank-' + r.rank : ''}">
-      <td class="col-rank">${medalHtml(r.rank)}</td>
-      <td class="col-name">${r.name}</td>
-      <td class="col-pt">${KNY.num(r.points)}</td>
-      <td class="col-sub">${KNY.num(r.kansen_points)}</td>
-    </tr>`).join('');
+  document.getElementById('team-ranking-body').innerHTML =
+    teamRowsHtml(data.team_ranking) || emptyRow();
 
-  // 個人ランキング
-  const persBody = document.getElementById('personal-ranking-body');
-  const rows = data.personal_ranking.map(r => `
-    <tr class="${r.rank <= 3 ? 'rank-' + r.rank : ''}">
-      <td class="col-rank">${medalHtml(r.rank)}</td>
-      <td class="col-name">${r.name}</td>
-      <td class="col-team">${r.team}</td>
-      <td class="col-pt">${KNY.num(r.points)}</td>
-    </tr>`).join('');
-  persBody.innerHTML = rows || '<tr><td colspan="4" class="more-cell">— データなし —</td></tr>';
+  document.getElementById('personal-ranking-body').innerHTML =
+    personalRowsHtml(data.personal_ranking) || emptyRow();
 
-  // チーム別個人ランキングを準備
   await setupByTeam();
+  setupDaily();
 }
 
-/* ── チーム別個人ランキング（results.json の personal_ranking を team で絞り込み） ── */
+/* ── チーム別個人ランキング ────────────────────── */
+/* results.json の personal_ranking を team で絞り込み */
+
 async function setupByTeam() {
   const select = document.getElementById('byteam-select');
   const body   = document.getElementById('byteam-body');
@@ -298,11 +433,12 @@ async function setupByTeam() {
 
   if (!teamList.length) {
     select.innerHTML = '<option value="">チームなし</option>';
-    body.innerHTML = '<tr><td colspan="4" class="more-cell">— データなし —</td></tr>';
+    body.innerHTML = emptyRow();
     return;
   }
 
-  select.innerHTML = teamList.map(n => `<option value="${n}">${n}</option>`).join('');
+  select.innerHTML = teamList
+    .map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
 
   function render(teamName) {
     const list = personal.filter(r => r.team === teamName);
@@ -312,20 +448,82 @@ async function setupByTeam() {
       ? list.map((r, i) => `
         <tr class="${i < 3 ? 'rank-' + (i + 1) : ''}">
           <td class="col-rank">${medalHtml(i + 1)}</td>
-          <td class="col-name">${r.name}</td>
+          <td class="col-name">${esc(r.name)}</td>
           <td class="col-pt">${KNY.num(r.points)}</td>
           <td class="col-sub">${r.rank ? r.rank + '位' : '-'}</td>
         </tr>`).join('')
-      : '<tr><td colspan="4" class="more-cell">— データなし —</td></tr>';
+      : emptyRow();
   }
 
   select.onchange = () => render(select.value);
   render(teamList[0]);
 }
 
-// タブ切り替え
-const tabs = document.querySelectorAll('.results-tab');
+/* ── 日別ランキング ──────────────────────────── */
+/* results.json の team-day{N} / personal-day{N} を走査。
+   キーが増えるたび自動でプルダウンに追加される（コード変更不要）。 */
+
+function collectDays(data) {
+  const nums = new Set();
+  Object.keys(data || {}).forEach(key => {
+    const m = /^(?:team|personal)-day(\d+)$/.exec(key);
+    if (m) nums.add(Number(m[1]));
+  });
+  return [...nums].sort((a, b) => a - b).map(n => ({
+    label: `DAY${n}`,
+    team:     data[`team-day${n}`]     || [],
+    personal: data[`personal-day${n}`] || []
+  }));
+}
+
+function setupDaily() {
+  const controls = document.getElementById('daily-controls');
+  const grid     = document.getElementById('daily-grid');
+  const empty    = document.getElementById('daily-empty');
+  const select   = document.getElementById('daily-select');
+  const teamBody = document.getElementById('daily-team-body');
+  const persBody = document.getElementById('daily-personal-body');
+  const teamTtl  = document.getElementById('daily-team-title');
+  const persTtl  = document.getElementById('daily-personal-title');
+
+  const days = collectDays(RESULTS);
+
+  // 日別データがまだ1件も無ければ告知ブロックだけ出す
+  if (!days.length) {
+    controls.classList.add('is-hidden');
+    grid.classList.add('is-hidden');
+    empty.classList.remove('is-hidden');
+    return;
+  }
+  controls.classList.remove('is-hidden');
+  grid.classList.remove('is-hidden');
+  empty.classList.add('is-hidden');
+
+  select.innerHTML = days
+    .map((d, i) => `<option value="${i}">${esc(d.label)}</option>`).join('');
+
+  function render(idx) {
+    const d = days[idx];
+    if (!d) return;
+    teamTtl.textContent = `${d.label}　チームランキング`;
+    persTtl.textContent = `${d.label}　個人ランキング`;
+    teamBody.innerHTML = teamRowsHtml(d.team)     || emptyRow();
+    persBody.innerHTML = personalRowsHtml(d.personal) || emptyRow();
+  }
+
+  select.onchange = () => render(Number(select.value));
+
+  // 初期表示は最新日。DAY1固定にしたい場合は 0 に変更
+  const initial = days.length - 1;
+  select.value = String(initial);
+  render(initial);
+}
+
+/* ── タブ切り替え ────────────────────────────── */
+
+const tabs  = document.querySelectorAll('.results-tab');
 const panes = document.querySelectorAll('.results-pane');
+
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
     const target = tab.dataset.target;
@@ -339,6 +537,8 @@ tabs.forEach(tab => {
     }
   });
 });
+
+/* ── 起動 ──────────────────────────────────── */
 
 (async () => {
   try { await loadResults(); }
