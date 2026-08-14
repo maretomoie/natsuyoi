@@ -1,2474 +1,2474 @@
 {
   "meta": {
-    "updated_at": "Fri Aug 14 2026 15:00:00 GMT+0900 (日本標準時)",
+    "updated_at": "Fri Aug 14 2026 19:02:09 GMT+0900 (日本標準時)",
     "updated_label": "時点"
   },
   "team_ranking": [
     {
       "rank": 1,
       "name": "トリあえず生！",
-      "points": 52300,
-      "kansen_points": 2750
+      "points": 60310,
+      "kansen_points": 3100
     },
     {
       "rank": 2,
       "name": "月のころはさらなり",
-      "points": 32310,
-      "kansen_points": 2350
+      "points": 39260,
+      "kansen_points": 2850
     },
     {
       "rank": 3,
-      "name": "蒼星月花",
-      "points": 27050,
-      "kansen_points": 1850
+      "name": "泡沫スプラッシュ",
+      "points": 32840,
+      "kansen_points": 1700
     },
     {
       "rank": 4,
-      "name": "泡沫スプラッシュ",
-      "points": 25720,
-      "kansen_points": 1650
+      "name": "蒼星月花",
+      "points": 32520,
+      "kansen_points": 2400
     },
     {
       "rank": 5,
       "name": "爆裂夏花火",
-      "points": 23430,
-      "kansen_points": 1200
+      "points": 29810,
+      "kansen_points": 1450
     }
   ],
   "personal_ranking": [
     {
       "rank": 1,
       "name": "あまあん",
-      "points": 1960,
+      "points": 2270,
       "team": "月のころはさらなり"
     },
     {
       "rank": 2,
-      "name": "みなとん",
-      "points": 1650,
-      "team": "トリあえず生！"
+      "name": "秋ノ空蝉",
+      "points": 1910,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 3,
-      "name": "カモメ",
-      "points": 1650,
+      "name": "木林森樹海",
+      "points": 1810,
       "team": "月のころはさらなり"
     },
     {
       "rank": 4,
-      "name": "木林森樹海",
-      "points": 1530,
-      "team": "月のころはさらなり"
+      "name": "はまちょごり",
+      "points": 1760,
+      "team": "トリあえず生！"
     },
     {
       "rank": 5,
-      "name": "さんたくらら",
-      "points": 1490,
-      "team": "爆裂夏花火"
+      "name": "カモメ",
+      "points": 1730,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 6,
-      "name": "はまちょごり",
-      "points": 1490,
+      "name": "塩魔人敗北者ムック08",
+      "points": 1630,
       "team": "トリあえず生！"
     },
     {
       "rank": 7,
-      "name": "秋ノ空蝉",
-      "points": 1450,
+      "name": "さんたくらら",
+      "points": 1610,
       "team": "爆裂夏花火"
     },
     {
       "rank": 8,
-      "name": "塩魔人敗北者ムック08",
-      "points": 1420,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 9,
-      "name": "sh0u",
-      "points": 1340,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 10,
-      "name": "うぃっとねす",
-      "points": 1320,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 11,
       "name": "燈門えん",
-      "points": 1310,
+      "points": 1580,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 12,
-      "name": "ハガT",
-      "points": 1300,
+      "rank": 9,
+      "name": "うぃっとねす",
+      "points": 1560,
       "team": "月のころはさらなり"
     },
     {
+      "rank": 10,
+      "name": "菊場ふみ",
+      "points": 1540,
+      "team": "未所属"
+    },
+    {
+      "rank": 11,
+      "name": "みなとん",
+      "points": 1520,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 12,
+      "name": "ソーヤ・サトシ",
+      "points": 1490,
+      "team": "トリあえず生！"
+    },
+    {
       "rank": 13,
-      "name": "狩り隊",
-      "points": 1280,
+      "name": "ぐじ鍋",
+      "points": 1470,
       "team": "トリあえず生！"
     },
     {
       "rank": 14,
       "name": "たいしょ～",
-      "points": 1270,
+      "points": 1440,
       "team": "爆裂夏花火"
     },
     {
       "rank": 15,
-      "name": "ぶい",
-      "points": 1240,
-      "team": "トリあえず生！"
+      "name": "ハガT",
+      "points": 1430,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 16,
-      "name": "ペルソナ",
-      "points": 1230,
+      "name": "ratakichi",
+      "points": 1400,
       "team": "泡沫スプラッシュ"
     },
     {
       "rank": 17,
-      "name": "ぽこべえ",
-      "points": 1210,
-      "team": "蒼星月花"
+      "name": "ペルソナ",
+      "points": 1390,
+      "team": "泡沫スプラッシュ"
     },
     {
       "rank": 18,
+      "name": "sh0u",
+      "points": 1360,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 19,
+      "name": "ぽこべえ",
+      "points": 1350,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 20,
+      "name": "Alf",
+      "points": 1350,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 21,
+      "name": "KEIBOY",
+      "points": 1340,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 22,
+      "name": "あたご",
+      "points": 1310,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 23,
+      "name": "toshi",
+      "points": 1300,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 24,
+      "name": "ぶい",
+      "points": 1300,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 25,
+      "name": "るつ猫",
+      "points": 1260,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 26,
+      "name": "カチアルモノ",
+      "points": 1250,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 27,
+      "name": "狩り隊",
+      "points": 1240,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 28,
+      "name": "ネコカミ",
+      "points": 1210,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 29,
       "name": "ゆき",
       "points": 1210,
       "team": "蒼星月花"
     },
     {
-      "rank": 19,
-      "name": "あたご",
+      "rank": 30,
+      "name": "天然芝w",
+      "points": 1190,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 31,
+      "name": "せどなりあん",
       "points": 1190,
       "team": "トリあえず生！"
     },
     {
-      "rank": 20,
-      "name": "菊場ふみ",
-      "points": 1180,
-      "team": "未所属"
-    },
-    {
-      "rank": 21,
-      "name": "るつ猫",
-      "points": 1180,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 22,
-      "name": "Alf",
-      "points": 1120,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 23,
-      "name": "カチアルモノ",
-      "points": 1110,
+      "rank": 32,
+      "name": "きゃなちゃん",
+      "points": 1190,
       "team": "蒼星月花"
     },
     {
-      "rank": 24,
-      "name": "Hosi",
-      "points": 1090,
+      "rank": 33,
+      "name": "東山ソラ",
+      "points": 1170,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 34,
+      "name": "しゅうしょう",
+      "points": 1170,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 35,
+      "name": "シロ",
+      "points": 1160,
       "team": "トリあえず生！"
     },
     {
-      "rank": 25,
-      "name": "ratakichi",
-      "points": 1090,
-      "team": "泡沫スプラッシュ"
+      "rank": 36,
+      "name": "杵月のあ",
+      "points": 1160,
+      "team": "蒼星月花"
     },
     {
-      "rank": 26,
-      "name": "ぐじ鍋",
-      "points": 1080,
+      "rank": 37,
+      "name": "ヨッシー",
+      "points": 1120,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 38,
+      "name": "岡田 大和",
+      "points": 1100,
       "team": "トリあえず生！"
     },
     {
-      "rank": 27,
+      "rank": 39,
+      "name": "TELL(てる)",
+      "points": 1100,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 40,
       "name": "七実",
       "points": 1080,
       "team": "トリあえず生！"
     },
     {
-      "rank": 28,
-      "name": "ソーヤ・サトシ",
+      "rank": 41,
+      "name": "杉谷会長",
       "points": 1070,
-      "team": "トリあえず生！"
+      "team": "蒼星月花"
     },
     {
-      "rank": 29,
-      "name": "シロ",
+      "rank": 42,
+      "name": "ようへー",
       "points": 1060,
       "team": "トリあえず生！"
     },
     {
-      "rank": 30,
-      "name": "東雲ハヤテ",
-      "points": 1060,
-      "team": "爆裂夏花火"
+      "rank": 43,
+      "name": "hak_chris",
+      "points": 1050,
+      "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 31,
+      "rank": 44,
       "name": "ゆーじ",
       "points": 1050,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 32,
-      "name": "氷乃ハコ",
+      "rank": 45,
+      "name": "澪",
       "points": 1040,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 33,
+      "rank": 46,
+      "name": "瑠碧",
+      "points": 1020,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 47,
       "name": "はてな@HIVE",
       "points": 1010,
       "team": "トリあえず生！"
     },
     {
-      "rank": 34,
-      "name": "ヨッシー",
-      "points": 1000,
-      "team": "月のころはさらなり"
+      "rank": 48,
+      "name": "おかずのパン屋",
+      "points": 1010,
+      "team": "未所属"
     },
     {
-      "rank": 35,
+      "rank": 49,
+      "name": "Hosi",
+      "points": 1000,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 50,
       "name": "石狩鍋",
       "points": 1000,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 36,
-      "name": "せどなりあん",
-      "points": 990,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 37,
-      "name": "岡田 大和",
+      "rank": 51,
+      "name": "まぐろ",
       "points": 980,
-      "team": "トリあえず生！"
+      "team": "蒼星月花"
     },
     {
-      "rank": 38,
-      "name": "くまこう",
-      "points": 980,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 39,
-      "name": "hak_chris",
-      "points": 970,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 40,
+      "rank": 52,
       "name": "s0ra3",
       "points": 970,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 41,
-      "name": "たぴおか剣士",
+      "rank": 53,
+      "name": "nai6",
       "points": 960,
-      "team": "蒼星月花"
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 42,
-      "name": "鉄雑魚さん",
-      "points": 960,
-      "team": "どこでも"
-    },
-    {
-      "rank": 43,
+      "rank": 54,
       "name": "東風乃の子分",
       "points": 950,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 44,
-      "name": "杵月のあ",
+      "rank": 55,
+      "name": "東雲ハヤテ",
       "points": 940,
-      "team": "蒼星月花"
+      "team": "爆裂夏花火"
     },
     {
-      "rank": 45,
+      "rank": 56,
       "name": "雛吞ちの",
+      "points": 940,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 57,
+      "name": "紫雲よしお",
+      "points": 940,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 58,
+      "name": "こばかも",
+      "points": 940,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 59,
+      "name": "カンカン",
       "points": 930,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 46,
-      "name": "杉谷会長",
+      "rank": 60,
+      "name": "松岡康眞",
       "points": 930,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 61,
+      "name": "ｽﾊﾟ",
+      "points": 920,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 62,
+      "name": "杵月のあの梯子",
+      "points": 920,
       "team": "蒼星月花"
     },
     {
-      "rank": 47,
-      "name": "紫雲よしお",
+      "rank": 63,
+      "name": "氷乃ハコ",
       "points": 920,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 48,
-      "name": "ふゆたま",
-      "points": 890,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 49,
-      "name": "きゃなちゃん",
-      "points": 890,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 50,
-      "name": "東山ソラ",
-      "points": 880,
+      "rank": 64,
+      "name": "叛逆のポコにゃん",
+      "points": 920,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 51,
-      "name": "toshi",
+      "rank": 65,
+      "name": "こーだい",
+      "points": 900,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 66,
+      "name": "くまこう",
       "points": 880,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 52,
-      "name": "澪",
+      "rank": 67,
+      "name": "エルさんだ",
       "points": 880,
-      "team": "爆裂夏花火"
+      "team": "未所属"
     },
     {
-      "rank": 53,
+      "rank": 68,
       "name": "びたん",
       "points": 880,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 54,
-      "name": "まぐろ",
-      "points": 880,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 55,
+      "rank": 69,
       "name": "TAROU",
       "points": 880,
       "team": "トリあえず生！"
     },
     {
-      "rank": 56,
-      "name": "しゅうしょう",
+      "rank": 70,
+      "name": "ゆっくり寒男",
       "points": 860,
-      "team": "どこでも"
-    },
-    {
-      "rank": 57,
-      "name": "カンカン",
-      "points": 850,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 58,
-      "name": "おかずのパン屋",
-      "points": 850,
-      "team": "未所属"
-    },
-    {
-      "rank": 59,
-      "name": "TELL(てる)",
-      "points": 850,
       "team": "トリあえず生！"
     },
     {
-      "rank": 60,
-      "name": "泥目楽堕",
+      "rank": 71,
+      "name": "鉄雑魚さん",
+      "points": 860,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 72,
+      "name": "たぴおか剣士",
       "points": 850,
       "team": "蒼星月花"
     },
     {
-      "rank": 61,
-      "name": "ネコカミ",
+      "rank": 73,
+      "name": "リト",
+      "points": 850,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 74,
+      "name": "煌帝ぺんぎん",
       "points": 840,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 75,
+      "name": "星霧青砥",
+      "points": 840,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 76,
+      "name": "青葉碧",
+      "points": 830,
       "team": "トリあえず生！"
     },
     {
-      "rank": 62,
+      "rank": 77,
       "name": "くすく。",
       "points": 830,
       "team": "トリあえず生！"
     },
     {
-      "rank": 63,
-      "name": "深海の隣人",
-      "points": 830,
+      "rank": 78,
+      "name": "あるる",
+      "points": 820,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 64,
-      "name": "杵月のあの梯子",
+      "rank": 79,
+      "name": "雨日百合",
       "points": 820,
       "team": "蒼星月花"
     },
     {
-      "rank": 65,
-      "name": "きつねふち",
-      "points": 810,
-      "team": "トリあえず生！"
+      "rank": 80,
+      "name": "あおやん",
+      "points": 820,
+      "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 66,
+      "rank": 81,
       "name": "のどぐろ",
       "points": 810,
       "team": "トリあえず生！"
     },
     {
-      "rank": 67,
-      "name": "KEIBOY",
+      "rank": 82,
+      "name": "まりゅりゅり",
+      "points": 810,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 83,
+      "name": "もちゃお",
       "points": 800,
-      "team": "蒼星月花"
+      "team": "爆裂夏花火"
     },
     {
-      "rank": 68,
-      "name": "やさしみ",
+      "rank": 84,
+      "name": "イーソ卯",
       "points": 800,
-      "team": "蒼星月花"
+      "team": "未所属"
     },
     {
-      "rank": 69,
-      "name": "想幻",
-      "points": 790,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 70,
-      "name": "リト",
+      "rank": 85,
+      "name": "眠りの小五郎",
       "points": 790,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 71,
-      "name": "nai6",
+      "rank": 86,
+      "name": "とまと",
       "points": 790,
-      "team": "月のころはさらなり"
+      "team": "蒼星月花"
     },
     {
-      "rank": 72,
-      "name": "叛逆のポコにゃん",
-      "points": 790,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 73,
-      "name": "怠惰の あ、クマ",
+      "rank": 87,
+      "name": "horo灰猫王子",
       "points": 780,
-      "team": "トリあえず生！"
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 74,
+      "rank": 88,
+      "name": "深海の隣人",
+      "points": 770,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 89,
+      "name": "もちもち縁側",
+      "points": 770,
+      "team": "未所属"
+    },
+    {
+      "rank": 90,
+      "name": "ろわ",
+      "points": 770,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 91,
       "name": "御崎 千結",
       "points": 770,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 75,
-      "name": "瑠碧",
+      "rank": 92,
+      "name": "おにぎりユニコーン",
       "points": 760,
-      "team": "泡沫スプラッシュ"
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 76,
-      "name": "さめ",
-      "points": 750,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 77,
-      "name": "青葉碧",
+      "rank": 93,
+      "name": "きつねふち",
       "points": 750,
       "team": "トリあえず生！"
     },
     {
-      "rank": 78,
-      "name": "つっち",
-      "points": 740,
+      "rank": 94,
+      "name": "放浪椿",
+      "points": 750,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 95,
+      "name": "さめ",
+      "points": 730,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 96,
+      "name": "猫白神カーミラ",
+      "points": 730,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 97,
+      "name": "想幻",
+      "points": 730,
       "team": "蒼星月花"
     },
     {
-      "rank": 79,
-      "name": "あるる",
-      "points": 740,
-      "team": "泡沫スプラッシュ"
+      "rank": 98,
+      "name": "ぷらちなすたー",
+      "points": 730,
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 80,
-      "name": "あおやん",
-      "points": 720,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 81,
+      "rank": 99,
       "name": "CincoC",
       "points": 720,
       "team": "未所属"
     },
     {
-      "rank": 82,
-      "name": "まりゅりゅり",
-      "points": 720,
+      "rank": 100,
+      "name": "麻生ふみ＠VPL",
+      "points": 710,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 83,
-      "name": "ぷらちゃん",
-      "points": 700,
+      "rank": 101,
+      "name": "ぱじょま-牌流状態麻雀",
+      "points": 710,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 102,
+      "name": "泥目楽堕",
+      "points": 710,
       "team": "蒼星月花"
     },
     {
-      "rank": 84,
+      "rank": 103,
+      "name": "怠惰の あ、クマ",
+      "points": 700,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 104,
+      "name": "ふゆたま",
+      "points": 690,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 105,
+      "name": "シンテン先輩",
+      "points": 690,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 106,
+      "name": "りゅう",
+      "points": 690,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 107,
       "name": "まにきゅあ",
       "points": 690,
       "team": "トリあえず生！"
     },
     {
-      "rank": 85,
-      "name": "ろわ",
-      "points": 690,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 86,
-      "name": "horo灰猫王子",
+      "rank": 108,
+      "name": "ほりちゃん",
       "points": 680,
-      "team": "月のころはさらなり"
+      "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 87,
+      "rank": 109,
+      "name": "みたん",
+      "points": 670,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 110,
+      "name": "やさしみ",
+      "points": 670,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 111,
+      "name": "月桂樹",
+      "points": 670,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 112,
       "name": "世渡怠惰",
       "points": 670,
       "team": "トリあえず生！"
     },
     {
-      "rank": 88,
+      "rank": 113,
+      "name": "早乙女レム",
+      "points": 670,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 114,
+      "name": "セグナ",
+      "points": 670,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 115,
       "name": "兎野バニ子",
       "points": 660,
       "team": "トリあえず生！"
     },
     {
-      "rank": 89,
-      "name": "あわいろ",
-      "points": 660,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 90,
-      "name": "月桂樹",
-      "points": 660,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 91,
-      "name": "放浪椿",
-      "points": 660,
+      "rank": 116,
+      "name": "アイオらいと",
+      "points": 650,
       "team": "トリあえず生！"
     },
     {
-      "rank": 92,
+      "rank": 117,
       "name": "肉包丁",
       "points": 650,
       "team": "トリあえず生！"
     },
     {
-      "rank": 93,
+      "rank": 118,
       "name": "きばむいちゃいました",
       "points": 650,
       "team": "トリあえず生！"
     },
     {
-      "rank": 94,
-      "name": "こーだい",
-      "points": 650,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 95,
-      "name": "セグナ",
-      "points": 650,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 96,
-      "name": "天然芝w",
+      "rank": 119,
+      "name": "ウルトラガッツ",
       "points": 640,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 97,
-      "name": "v_s_lmd",
+      "rank": 120,
+      "name": "乾物ひもの",
       "points": 640,
-      "team": "どこでも"
+      "team": "トリあえず生！"
     },
     {
-      "rank": 98,
-      "name": "ぱじょま-牌流状態麻雀",
-      "points": 630,
+      "rank": 121,
+      "name": "プロトタイプ",
+      "points": 640,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 122,
+      "name": "v_s_lmd",
+      "points": 640,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 99,
-      "name": "リリ*&",
+      "rank": 123,
+      "name": "ゆら",
+      "points": 640,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 124,
+      "name": "クドナノ",
+      "points": 630,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 125,
+      "name": "七風未来",
       "points": 620,
       "team": "蒼星月花"
     },
     {
-      "rank": 100,
-      "name": "シンテン先輩",
+      "rank": 126,
+      "name": "firia17",
       "points": 620,
       "team": "トリあえず生！"
     },
     {
-      "rank": 101,
-      "name": "もちもち縁側",
+      "rank": 127,
+      "name": "たっくん",
       "points": 610,
-      "team": "未所属"
+      "team": "蒼星月花"
     },
     {
-      "rank": 102,
+      "rank": 128,
+      "name": "髭鯨",
+      "points": 610,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 129,
+      "name": "おぎゃたろう",
+      "points": 610,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 130,
+      "name": "ぷらちゃん",
+      "points": 610,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 131,
       "name": "井ノ内蛙",
       "points": 610,
       "team": "蒼星月花"
     },
     {
-      "rank": 103,
+      "rank": 132,
       "name": "ゆう212",
       "points": 610,
       "team": "未所属"
     },
     {
-      "rank": 104,
-      "name": "煌帝ぺんぎん",
+      "rank": 133,
+      "name": "カトリーナ",
+      "points": 600,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 134,
+      "name": "aseyan",
       "points": 600,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 105,
-      "name": "乾物ひもの",
+      "rank": 135,
+      "name": "ようどう",
+      "points": 600,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 136,
+      "name": "hiro@スーモ",
       "points": 600,
       "team": "トリあえず生！"
     },
     {
-      "rank": 106,
-      "name": "麻生ふみ＠VPL",
-      "points": 600,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 107,
-      "name": "エルさんだ",
-      "points": 600,
-      "team": "未所属"
-    },
-    {
-      "rank": 108,
-      "name": "おぎゃたろう",
+      "rank": 137,
+      "name": "星影ラピス",
       "points": 590,
-      "team": "月のころはさらなり"
+      "team": "蒼星月花"
     },
     {
-      "rank": 109,
+      "rank": 138,
+      "name": "ぴっぴ",
+      "points": 590,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 139,
       "name": "チーハルコウ",
       "points": 590,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 110,
-      "name": "ほりちゃん",
-      "points": 580,
-      "team": "泡沫スプラッシュ"
+      "rank": 140,
+      "name": "＠てんてる",
+      "points": 590,
+      "team": "未所属"
     },
     {
-      "rank": 111,
+      "rank": 141,
       "name": "真鴨子規",
       "points": 580,
       "team": "蒼星月花"
     },
     {
-      "rank": 112,
-      "name": "TT",
-      "points": 570,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 113,
-      "name": "ぷらちなすたー",
-      "points": 570,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 114,
-      "name": "おにぎりユニコーン",
-      "points": 570,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 115,
-      "name": "早乙女レム",
-      "points": 570,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 116,
-      "name": "ｽﾊﾟ",
-      "points": 560,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 117,
-      "name": "りゅう",
-      "points": 560,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 118,
-      "name": "雨日百合",
-      "points": 560,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 119,
-      "name": "ゆら",
-      "points": 560,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 120,
-      "name": "はーとの民",
-      "points": 560,
-      "team": "未所属"
-    },
-    {
-      "rank": 121,
-      "name": "FEY",
-      "points": 550,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 122,
-      "name": "姿夜",
-      "points": 550,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 123,
-      "name": "たぬあき",
-      "points": 540,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 124,
-      "name": "firia17",
-      "points": 540,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 125,
-      "name": "ポニョキング",
-      "points": 540,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 126,
-      "name": "時蕎麦",
-      "points": 540,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 127,
-      "name": "ぴっぴ",
-      "points": 530,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 128,
-      "name": "アイオらいと",
-      "points": 530,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 129,
-      "name": "げろもと",
-      "points": 530,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 130,
-      "name": "クドナノ",
-      "points": 530,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 131,
-      "name": "はる🥦",
-      "points": 530,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 132,
-      "name": "すぺしゃるなめんたいこ",
-      "points": 530,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 133,
-      "name": "こばかも",
-      "points": 530,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 134,
-      "name": "鉄哲テツ",
-      "points": 520,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 135,
-      "name": "二藤　織人",
-      "points": 520,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 136,
-      "name": "ナピチョロ",
-      "points": 520,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 137,
-      "name": "やましゃん",
-      "points": 510,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 138,
-      "name": "あおいしもん",
-      "points": 510,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 139,
-      "name": "たっくん",
-      "points": 500,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 140,
-      "name": "こまり",
-      "points": 500,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 141,
-      "name": "カトリーナ",
-      "points": 500,
-      "team": "蒼星月花"
-    },
-    {
       "rank": 142,
-      "name": "せれん",
-      "points": 490,
+      "name": "@ひろさん@がんばらない",
+      "points": 570,
       "team": "泡沫スプラッシュ"
     },
     {
       "rank": 143,
       "name": "平地真菜",
-      "points": 490,
+      "points": 570,
       "team": "未所属"
     },
     {
       "rank": 144,
-      "name": "もちゃお",
-      "points": 490,
-      "team": "爆裂夏花火"
+      "name": "みんげー",
+      "points": 570,
+      "team": "トリあえず生！"
     },
     {
       "rank": 145,
+      "name": "荒川サイマル",
+      "points": 550,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 146,
+      "name": "姿夜",
+      "points": 550,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 147,
+      "name": "MOS BOSS",
+      "points": 550,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 148,
+      "name": "たぬあき",
+      "points": 540,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 149,
+      "name": "ポニョキング",
+      "points": 540,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 150,
+      "name": "遊楽天GOTH",
+      "points": 530,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 151,
+      "name": "鉄哲テツ",
+      "points": 530,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 152,
+      "name": "すぺしゃるなめんたいこ",
+      "points": 530,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 153,
+      "name": "はーとの民",
+      "points": 530,
+      "team": "未所属"
+    },
+    {
+      "rank": 154,
+      "name": "紅葉椛",
+      "points": 530,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 155,
+      "name": "つっち",
+      "points": 520,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 156,
+      "name": "MOJITO",
+      "points": 520,
+      "team": "未所属"
+    },
+    {
+      "rank": 157,
+      "name": "ジョコラー",
+      "points": 520,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 158,
+      "name": "絵筆",
+      "points": 520,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 159,
+      "name": "ナピチョロ",
+      "points": 520,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 160,
+      "name": "FEY",
+      "points": 510,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 161,
+      "name": "こまり",
+      "points": 500,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 162,
+      "name": "紅ゴリラ伯爵",
+      "points": 490,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 163,
+      "name": "げろもと",
+      "points": 490,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 164,
+      "name": "夢咲いちか",
+      "points": 490,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 165,
+      "name": "あおいしもん",
+      "points": 490,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 166,
       "name": "もぐ",
       "points": 490,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 146,
-      "name": "森と太陽",
+      "rank": 167,
+      "name": "二藤　織人",
+      "points": 480,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 168,
+      "name": "蓮華",
+      "points": 480,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 169,
+      "name": "時蕎麦",
       "points": 480,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 147,
-      "name": "ようへー",
-      "points": 480,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 148,
-      "name": "aseyan",
-      "points": 480,
+      "rank": 170,
+      "name": "鴨神にゅう",
+      "points": 470,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 149,
+      "rank": 171,
       "name": "いんぱちごう",
       "points": 470,
       "team": "トリあえず生！"
     },
     {
-      "rank": 150,
-      "name": "星霧青砥",
+      "rank": 172,
+      "name": "やましゃん",
+      "points": 470,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 173,
+      "name": "Namaha",
       "points": 470,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 151,
+      "rank": 174,
+      "name": "わたあめ",
+      "points": 470,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 175,
+      "name": "リリ*&",
+      "points": 460,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 176,
       "name": "RA12",
       "points": 460,
       "team": "蒼星月花"
     },
     {
-      "rank": 152,
-      "name": "リオング",
-      "points": 460,
-      "team": "未所属"
-    },
-    {
-      "rank": 153,
+      "rank": 177,
       "name": "りきまーる",
       "points": 460,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 154,
+      "rank": 178,
+      "name": "リオング",
+      "points": 460,
+      "team": "未所属"
+    },
+    {
+      "rank": 179,
       "name": "えんぷれ2025",
       "points": 460,
       "team": "未所属"
     },
     {
-      "rank": 155,
+      "rank": 180,
       "name": "かお・るぺる",
       "points": 460,
       "team": "未所属"
     },
     {
-      "rank": 156,
-      "name": "髭鯨",
+      "rank": 181,
+      "name": "せれん",
       "points": 450,
-      "team": "トリあえず生！"
+      "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 157,
-      "name": "Namaha",
-      "points": 450,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 158,
-      "name": "とまと",
-      "points": 450,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 159,
-      "name": "床木スズメ",
+      "rank": 182,
+      "name": "龍惺ろたん",
       "points": 450,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 160,
+      "rank": 183,
+      "name": "TT",
+      "points": 440,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 184,
+      "name": "ケボー",
+      "points": 440,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 185,
+      "name": "森と太陽",
+      "points": 440,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 186,
+      "name": "kininaru",
+      "points": 440,
+      "team": "未所属"
+    },
+    {
+      "rank": 187,
+      "name": "佐月麻理子",
+      "points": 440,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 188,
+      "name": "タルタル",
+      "points": 440,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 189,
+      "name": "来世",
+      "points": 440,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 190,
+      "name": "KAITOちゃん",
+      "points": 440,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 191,
+      "name": "Nem",
+      "points": 440,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 192,
       "name": "てれびん",
       "points": 440,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 161,
-      "name": "DEN15 512",
-      "points": 440,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 162,
-      "name": "みんげー",
+      "rank": 193,
+      "name": "としぽん",
       "points": 440,
       "team": "トリあえず生！"
     },
     {
-      "rank": 163,
-      "name": "フォルテレジーナ",
+      "rank": 194,
+      "name": "あわいろ",
       "points": 430,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 164,
+      "rank": 195,
+      "name": "ぽにぽに",
+      "points": 430,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 196,
+      "name": "シロップ",
+      "points": 430,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 197,
       "name": "鶏チャン",
       "points": 430,
       "team": "未所属"
     },
     {
-      "rank": 165,
-      "name": "猫白神カーミラ",
-      "points": 420,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 166,
-      "name": "Nem",
-      "points": 420,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 167,
-      "name": "猪突猛進男_",
-      "points": 420,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 168,
-      "name": "龍惺ろたん",
-      "points": 410,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 169,
-      "name": "ラズ",
-      "points": 410,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 170,
-      "name": "鴨神にゅう",
-      "points": 400,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 171,
-      "name": "サレちゃん",
-      "points": 400,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 172,
-      "name": "タルタル",
-      "points": 400,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 173,
-      "name": "眠りの小五郎",
-      "points": 390,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 174,
-      "name": "青門天雀",
-      "points": 390,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 175,
-      "name": "テラカワヌフ",
-      "points": 390,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 176,
-      "name": "かみちかお",
-      "points": 390,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 177,
-      "name": "ようどう",
-      "points": 390,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 178,
-      "name": "GLACEON",
-      "points": 390,
-      "team": "未所属"
-    },
-    {
-      "rank": 179,
-      "name": "胡桃坂ひまり",
-      "points": 390,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 180,
-      "name": "しぶやあや",
-      "points": 390,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 181,
-      "name": "わたあめ",
-      "points": 390,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 182,
-      "name": "みたん",
-      "points": 380,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 183,
-      "name": "oreo0141",
-      "points": 380,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 184,
-      "name": "hiro@スーモ",
-      "points": 380,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 185,
-      "name": "紅ゴリラ伯爵",
-      "points": 370,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 186,
-      "name": "一之瀬 優",
-      "points": 370,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 187,
-      "name": "岩狛凪咲",
-      "points": 370,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 188,
-      "name": "@ひろさん@がんばらない",
-      "points": 370,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 189,
-      "name": "ネーデリア",
-      "points": 370,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 190,
-      "name": "弐式星",
-      "points": 370,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 191,
-      "name": "ルーチェ",
-      "points": 370,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 192,
-      "name": "@風神アリスト",
-      "points": 360,
-      "team": "未所属"
-    },
-    {
-      "rank": 193,
-      "name": "星影ラピス",
-      "points": 350,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 194,
-      "name": "おまけ",
-      "points": 350,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 195,
-      "name": "レッド総帥",
-      "points": 350,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 196,
-      "name": "ProtoEvo",
-      "points": 340,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 197,
-      "name": "やざきのお父ちゃん",
-      "points": 340,
-      "team": "泡沫スプラッシュ"
-    },
-    {
       "rank": 198,
-      "name": "stilmg",
-      "points": 340,
-      "team": "トリあえず生！"
+      "name": "どらハチ",
+      "points": 430,
+      "team": "未所属"
     },
     {
       "rank": 199,
-      "name": "でも僕弱いし",
-      "points": 340,
-      "team": "未所属"
+      "name": "きょんあさ",
+      "points": 420,
+      "team": "蒼星月花"
     },
     {
       "rank": 200,
-      "name": "紅葉椛",
-      "points": 340,
-      "team": "トリあえず生！"
+      "name": "いわとび",
+      "points": 420,
+      "team": "爆裂夏花火"
     }
   ],
   "team-day1": [
     {
       "rank": 1,
       "name": "トリあえず生！",
-      "points": 52300,
-      "kansen_points": 2750
+      "points": 60310,
+      "kansen_points": 3100
     },
     {
       "rank": 2,
       "name": "月のころはさらなり",
-      "points": 32310,
-      "kansen_points": 2350
+      "points": 39260,
+      "kansen_points": 2850
     },
     {
       "rank": 3,
-      "name": "蒼星月花",
-      "points": 27050,
-      "kansen_points": 1850
+      "name": "泡沫スプラッシュ",
+      "points": 32840,
+      "kansen_points": 1700
     },
     {
       "rank": 4,
-      "name": "泡沫スプラッシュ",
-      "points": 25720,
-      "kansen_points": 1650
+      "name": "蒼星月花",
+      "points": 32520,
+      "kansen_points": 2400
     },
     {
       "rank": 5,
       "name": "爆裂夏花火",
-      "points": 23430,
-      "kansen_points": 1200
+      "points": 29810,
+      "kansen_points": 1450
     }
   ],
   "personal-day1": [
     {
       "rank": 1,
       "name": "あまあん",
-      "points": 1960,
+      "points": 2270,
       "team": "月のころはさらなり"
     },
     {
       "rank": 2,
-      "name": "みなとん",
-      "points": 1650,
-      "team": "トリあえず生！"
+      "name": "秋ノ空蝉",
+      "points": 1910,
+      "team": "爆裂夏花火"
     },
     {
       "rank": 3,
-      "name": "カモメ",
-      "points": 1650,
+      "name": "木林森樹海",
+      "points": 1810,
       "team": "月のころはさらなり"
     },
     {
       "rank": 4,
-      "name": "木林森樹海",
-      "points": 1530,
-      "team": "月のころはさらなり"
+      "name": "はまちょごり",
+      "points": 1760,
+      "team": "トリあえず生！"
     },
     {
       "rank": 5,
-      "name": "さんたくらら",
-      "points": 1490,
-      "team": "爆裂夏花火"
+      "name": "カモメ",
+      "points": 1730,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 6,
-      "name": "はまちょごり",
-      "points": 1490,
+      "name": "塩魔人敗北者ムック08",
+      "points": 1630,
       "team": "トリあえず生！"
     },
     {
       "rank": 7,
-      "name": "秋ノ空蝉",
-      "points": 1450,
+      "name": "さんたくらら",
+      "points": 1610,
       "team": "爆裂夏花火"
     },
     {
       "rank": 8,
-      "name": "塩魔人敗北者ムック08",
-      "points": 1420,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 9,
-      "name": "sh0u",
-      "points": 1340,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 10,
-      "name": "うぃっとねす",
-      "points": 1320,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 11,
       "name": "燈門えん",
-      "points": 1310,
+      "points": 1580,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 12,
-      "name": "ハガT",
-      "points": 1300,
+      "rank": 9,
+      "name": "うぃっとねす",
+      "points": 1560,
       "team": "月のころはさらなり"
     },
     {
+      "rank": 10,
+      "name": "菊場ふみ",
+      "points": 1540,
+      "team": "未所属"
+    },
+    {
+      "rank": 11,
+      "name": "みなとん",
+      "points": 1520,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 12,
+      "name": "ソーヤ・サトシ",
+      "points": 1490,
+      "team": "トリあえず生！"
+    },
+    {
       "rank": 13,
-      "name": "狩り隊",
-      "points": 1280,
+      "name": "ぐじ鍋",
+      "points": 1470,
       "team": "トリあえず生！"
     },
     {
       "rank": 14,
       "name": "たいしょ～",
-      "points": 1270,
+      "points": 1440,
       "team": "爆裂夏花火"
     },
     {
       "rank": 15,
-      "name": "ぶい",
-      "points": 1240,
-      "team": "トリあえず生！"
+      "name": "ハガT",
+      "points": 1430,
+      "team": "月のころはさらなり"
     },
     {
       "rank": 16,
-      "name": "ペルソナ",
-      "points": 1230,
+      "name": "ratakichi",
+      "points": 1400,
       "team": "泡沫スプラッシュ"
     },
     {
       "rank": 17,
-      "name": "ぽこべえ",
-      "points": 1210,
-      "team": "蒼星月花"
+      "name": "ペルソナ",
+      "points": 1390,
+      "team": "泡沫スプラッシュ"
     },
     {
       "rank": 18,
+      "name": "sh0u",
+      "points": 1360,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 19,
+      "name": "ぽこべえ",
+      "points": 1350,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 20,
+      "name": "Alf",
+      "points": 1350,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 21,
+      "name": "KEIBOY",
+      "points": 1340,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 22,
+      "name": "あたご",
+      "points": 1310,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 23,
+      "name": "toshi",
+      "points": 1300,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 24,
+      "name": "ぶい",
+      "points": 1300,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 25,
+      "name": "るつ猫",
+      "points": 1260,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 26,
+      "name": "カチアルモノ",
+      "points": 1250,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 27,
+      "name": "狩り隊",
+      "points": 1240,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 28,
+      "name": "ネコカミ",
+      "points": 1210,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 29,
       "name": "ゆき",
       "points": 1210,
       "team": "蒼星月花"
     },
     {
-      "rank": 19,
-      "name": "あたご",
+      "rank": 30,
+      "name": "天然芝w",
+      "points": 1190,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 31,
+      "name": "せどなりあん",
       "points": 1190,
       "team": "トリあえず生！"
     },
     {
-      "rank": 20,
-      "name": "菊場ふみ",
-      "points": 1180,
-      "team": "未所属"
-    },
-    {
-      "rank": 21,
-      "name": "るつ猫",
-      "points": 1180,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 22,
-      "name": "Alf",
-      "points": 1120,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 23,
-      "name": "カチアルモノ",
-      "points": 1110,
+      "rank": 32,
+      "name": "きゃなちゃん",
+      "points": 1190,
       "team": "蒼星月花"
     },
     {
-      "rank": 24,
-      "name": "Hosi",
-      "points": 1090,
+      "rank": 33,
+      "name": "東山ソラ",
+      "points": 1170,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 34,
+      "name": "しゅうしょう",
+      "points": 1170,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 35,
+      "name": "シロ",
+      "points": 1160,
       "team": "トリあえず生！"
     },
     {
-      "rank": 25,
-      "name": "ratakichi",
-      "points": 1090,
-      "team": "泡沫スプラッシュ"
+      "rank": 36,
+      "name": "杵月のあ",
+      "points": 1160,
+      "team": "蒼星月花"
     },
     {
-      "rank": 26,
-      "name": "ぐじ鍋",
-      "points": 1080,
+      "rank": 37,
+      "name": "ヨッシー",
+      "points": 1120,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 38,
+      "name": "岡田 大和",
+      "points": 1100,
       "team": "トリあえず生！"
     },
     {
-      "rank": 27,
+      "rank": 39,
+      "name": "TELL(てる)",
+      "points": 1100,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 40,
       "name": "七実",
       "points": 1080,
       "team": "トリあえず生！"
     },
     {
-      "rank": 28,
-      "name": "ソーヤ・サトシ",
+      "rank": 41,
+      "name": "杉谷会長",
       "points": 1070,
-      "team": "トリあえず生！"
+      "team": "蒼星月花"
     },
     {
-      "rank": 29,
-      "name": "シロ",
+      "rank": 42,
+      "name": "ようへー",
       "points": 1060,
       "team": "トリあえず生！"
     },
     {
-      "rank": 30,
-      "name": "東雲ハヤテ",
-      "points": 1060,
-      "team": "爆裂夏花火"
+      "rank": 43,
+      "name": "hak_chris",
+      "points": 1050,
+      "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 31,
+      "rank": 44,
       "name": "ゆーじ",
       "points": 1050,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 32,
-      "name": "氷乃ハコ",
+      "rank": 45,
+      "name": "澪",
       "points": 1040,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 33,
+      "rank": 46,
+      "name": "瑠碧",
+      "points": 1020,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 47,
       "name": "はてな@HIVE",
       "points": 1010,
       "team": "トリあえず生！"
     },
     {
-      "rank": 34,
-      "name": "ヨッシー",
-      "points": 1000,
-      "team": "月のころはさらなり"
+      "rank": 48,
+      "name": "おかずのパン屋",
+      "points": 1010,
+      "team": "未所属"
     },
     {
-      "rank": 35,
+      "rank": 49,
+      "name": "Hosi",
+      "points": 1000,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 50,
       "name": "石狩鍋",
       "points": 1000,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 36,
-      "name": "せどなりあん",
-      "points": 990,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 37,
-      "name": "岡田 大和",
+      "rank": 51,
+      "name": "まぐろ",
       "points": 980,
-      "team": "トリあえず生！"
+      "team": "蒼星月花"
     },
     {
-      "rank": 38,
-      "name": "くまこう",
-      "points": 980,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 39,
-      "name": "hak_chris",
-      "points": 970,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 40,
+      "rank": 52,
       "name": "s0ra3",
       "points": 970,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 41,
-      "name": "たぴおか剣士",
+      "rank": 53,
+      "name": "nai6",
       "points": 960,
-      "team": "蒼星月花"
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 42,
-      "name": "鉄雑魚さん",
-      "points": 960,
-      "team": "どこでも"
-    },
-    {
-      "rank": 43,
+      "rank": 54,
       "name": "東風乃の子分",
       "points": 950,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 44,
-      "name": "杵月のあ",
+      "rank": 55,
+      "name": "東雲ハヤテ",
       "points": 940,
-      "team": "蒼星月花"
+      "team": "爆裂夏花火"
     },
     {
-      "rank": 45,
+      "rank": 56,
       "name": "雛吞ちの",
+      "points": 940,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 57,
+      "name": "紫雲よしお",
+      "points": 940,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 58,
+      "name": "こばかも",
+      "points": 940,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 59,
+      "name": "カンカン",
       "points": 930,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 46,
-      "name": "杉谷会長",
+      "rank": 60,
+      "name": "松岡康眞",
       "points": 930,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 61,
+      "name": "ｽﾊﾟ",
+      "points": 920,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 62,
+      "name": "杵月のあの梯子",
+      "points": 920,
       "team": "蒼星月花"
     },
     {
-      "rank": 47,
-      "name": "紫雲よしお",
+      "rank": 63,
+      "name": "氷乃ハコ",
       "points": 920,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 48,
-      "name": "ふゆたま",
-      "points": 890,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 49,
-      "name": "きゃなちゃん",
-      "points": 890,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 50,
-      "name": "東山ソラ",
-      "points": 880,
+      "rank": 64,
+      "name": "叛逆のポコにゃん",
+      "points": 920,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 51,
-      "name": "toshi",
+      "rank": 65,
+      "name": "こーだい",
+      "points": 900,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 66,
+      "name": "くまこう",
       "points": 880,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 52,
-      "name": "澪",
+      "rank": 67,
+      "name": "エルさんだ",
       "points": 880,
-      "team": "爆裂夏花火"
+      "team": "未所属"
     },
     {
-      "rank": 53,
+      "rank": 68,
       "name": "びたん",
       "points": 880,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 54,
-      "name": "まぐろ",
-      "points": 880,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 55,
+      "rank": 69,
       "name": "TAROU",
       "points": 880,
       "team": "トリあえず生！"
     },
     {
-      "rank": 56,
-      "name": "しゅうしょう",
+      "rank": 70,
+      "name": "ゆっくり寒男",
       "points": 860,
-      "team": "どこでも"
-    },
-    {
-      "rank": 57,
-      "name": "カンカン",
-      "points": 850,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 58,
-      "name": "おかずのパン屋",
-      "points": 850,
-      "team": "未所属"
-    },
-    {
-      "rank": 59,
-      "name": "TELL(てる)",
-      "points": 850,
       "team": "トリあえず生！"
     },
     {
-      "rank": 60,
-      "name": "泥目楽堕",
+      "rank": 71,
+      "name": "鉄雑魚さん",
+      "points": 860,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 72,
+      "name": "たぴおか剣士",
       "points": 850,
       "team": "蒼星月花"
     },
     {
-      "rank": 61,
-      "name": "ネコカミ",
+      "rank": 73,
+      "name": "リト",
+      "points": 850,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 74,
+      "name": "煌帝ぺんぎん",
       "points": 840,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 75,
+      "name": "星霧青砥",
+      "points": 840,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 76,
+      "name": "青葉碧",
+      "points": 830,
       "team": "トリあえず生！"
     },
     {
-      "rank": 62,
+      "rank": 77,
       "name": "くすく。",
       "points": 830,
       "team": "トリあえず生！"
     },
     {
-      "rank": 63,
-      "name": "深海の隣人",
-      "points": 830,
+      "rank": 78,
+      "name": "あるる",
+      "points": 820,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 64,
-      "name": "杵月のあの梯子",
+      "rank": 79,
+      "name": "雨日百合",
       "points": 820,
       "team": "蒼星月花"
     },
     {
-      "rank": 65,
-      "name": "きつねふち",
-      "points": 810,
-      "team": "トリあえず生！"
+      "rank": 80,
+      "name": "あおやん",
+      "points": 820,
+      "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 66,
+      "rank": 81,
       "name": "のどぐろ",
       "points": 810,
       "team": "トリあえず生！"
     },
     {
-      "rank": 67,
-      "name": "KEIBOY",
+      "rank": 82,
+      "name": "まりゅりゅり",
+      "points": 810,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 83,
+      "name": "もちゃお",
       "points": 800,
-      "team": "蒼星月花"
+      "team": "爆裂夏花火"
     },
     {
-      "rank": 68,
-      "name": "やさしみ",
+      "rank": 84,
+      "name": "イーソ卯",
       "points": 800,
-      "team": "蒼星月花"
+      "team": "未所属"
     },
     {
-      "rank": 69,
-      "name": "想幻",
-      "points": 790,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 70,
-      "name": "リト",
+      "rank": 85,
+      "name": "眠りの小五郎",
       "points": 790,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 71,
-      "name": "nai6",
+      "rank": 86,
+      "name": "とまと",
       "points": 790,
-      "team": "月のころはさらなり"
+      "team": "蒼星月花"
     },
     {
-      "rank": 72,
-      "name": "叛逆のポコにゃん",
-      "points": 790,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 73,
-      "name": "怠惰の あ、クマ",
+      "rank": 87,
+      "name": "horo灰猫王子",
       "points": 780,
-      "team": "トリあえず生！"
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 74,
+      "rank": 88,
+      "name": "深海の隣人",
+      "points": 770,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 89,
+      "name": "もちもち縁側",
+      "points": 770,
+      "team": "未所属"
+    },
+    {
+      "rank": 90,
+      "name": "ろわ",
+      "points": 770,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 91,
       "name": "御崎 千結",
       "points": 770,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 75,
-      "name": "瑠碧",
+      "rank": 92,
+      "name": "おにぎりユニコーン",
       "points": 760,
-      "team": "泡沫スプラッシュ"
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 76,
-      "name": "さめ",
-      "points": 750,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 77,
-      "name": "青葉碧",
+      "rank": 93,
+      "name": "きつねふち",
       "points": 750,
       "team": "トリあえず生！"
     },
     {
-      "rank": 78,
-      "name": "つっち",
-      "points": 740,
+      "rank": 94,
+      "name": "放浪椿",
+      "points": 750,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 95,
+      "name": "さめ",
+      "points": 730,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 96,
+      "name": "猫白神カーミラ",
+      "points": 730,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 97,
+      "name": "想幻",
+      "points": 730,
       "team": "蒼星月花"
     },
     {
-      "rank": 79,
-      "name": "あるる",
-      "points": 740,
-      "team": "泡沫スプラッシュ"
+      "rank": 98,
+      "name": "ぷらちなすたー",
+      "points": 730,
+      "team": "月のころはさらなり"
     },
     {
-      "rank": 80,
-      "name": "あおやん",
-      "points": 720,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 81,
+      "rank": 99,
       "name": "CincoC",
       "points": 720,
       "team": "未所属"
     },
     {
-      "rank": 82,
-      "name": "まりゅりゅり",
-      "points": 720,
+      "rank": 100,
+      "name": "麻生ふみ＠VPL",
+      "points": 710,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 83,
-      "name": "ぷらちゃん",
-      "points": 700,
+      "rank": 101,
+      "name": "ぱじょま-牌流状態麻雀",
+      "points": 710,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 102,
+      "name": "泥目楽堕",
+      "points": 710,
       "team": "蒼星月花"
     },
     {
-      "rank": 84,
+      "rank": 103,
+      "name": "怠惰の あ、クマ",
+      "points": 700,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 104,
+      "name": "ふゆたま",
+      "points": 690,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 105,
+      "name": "シンテン先輩",
+      "points": 690,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 106,
+      "name": "りゅう",
+      "points": 690,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 107,
       "name": "まにきゅあ",
       "points": 690,
       "team": "トリあえず生！"
     },
     {
-      "rank": 85,
-      "name": "ろわ",
-      "points": 690,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 86,
-      "name": "horo灰猫王子",
+      "rank": 108,
+      "name": "ほりちゃん",
       "points": 680,
-      "team": "月のころはさらなり"
+      "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 87,
+      "rank": 109,
+      "name": "みたん",
+      "points": 670,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 110,
+      "name": "やさしみ",
+      "points": 670,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 111,
+      "name": "月桂樹",
+      "points": 670,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 112,
       "name": "世渡怠惰",
       "points": 670,
       "team": "トリあえず生！"
     },
     {
-      "rank": 88,
+      "rank": 113,
+      "name": "早乙女レム",
+      "points": 670,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 114,
+      "name": "セグナ",
+      "points": 670,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 115,
       "name": "兎野バニ子",
       "points": 660,
       "team": "トリあえず生！"
     },
     {
-      "rank": 89,
-      "name": "あわいろ",
-      "points": 660,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 90,
-      "name": "月桂樹",
-      "points": 660,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 91,
-      "name": "放浪椿",
-      "points": 660,
+      "rank": 116,
+      "name": "アイオらいと",
+      "points": 650,
       "team": "トリあえず生！"
     },
     {
-      "rank": 92,
+      "rank": 117,
       "name": "肉包丁",
       "points": 650,
       "team": "トリあえず生！"
     },
     {
-      "rank": 93,
+      "rank": 118,
       "name": "きばむいちゃいました",
       "points": 650,
       "team": "トリあえず生！"
     },
     {
-      "rank": 94,
-      "name": "こーだい",
-      "points": 650,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 95,
-      "name": "セグナ",
-      "points": 650,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 96,
-      "name": "天然芝w",
+      "rank": 119,
+      "name": "ウルトラガッツ",
       "points": 640,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 97,
-      "name": "v_s_lmd",
+      "rank": 120,
+      "name": "乾物ひもの",
       "points": 640,
-      "team": "どこでも"
+      "team": "トリあえず生！"
     },
     {
-      "rank": 98,
-      "name": "ぱじょま-牌流状態麻雀",
-      "points": 630,
+      "rank": 121,
+      "name": "プロトタイプ",
+      "points": 640,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 122,
+      "name": "v_s_lmd",
+      "points": 640,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 99,
-      "name": "リリ*&",
+      "rank": 123,
+      "name": "ゆら",
+      "points": 640,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 124,
+      "name": "クドナノ",
+      "points": 630,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 125,
+      "name": "七風未来",
       "points": 620,
       "team": "蒼星月花"
     },
     {
-      "rank": 100,
-      "name": "シンテン先輩",
+      "rank": 126,
+      "name": "firia17",
       "points": 620,
       "team": "トリあえず生！"
     },
     {
-      "rank": 101,
-      "name": "もちもち縁側",
+      "rank": 127,
+      "name": "たっくん",
       "points": 610,
-      "team": "未所属"
+      "team": "蒼星月花"
     },
     {
-      "rank": 102,
+      "rank": 128,
+      "name": "髭鯨",
+      "points": 610,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 129,
+      "name": "おぎゃたろう",
+      "points": 610,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 130,
+      "name": "ぷらちゃん",
+      "points": 610,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 131,
       "name": "井ノ内蛙",
       "points": 610,
       "team": "蒼星月花"
     },
     {
-      "rank": 103,
+      "rank": 132,
       "name": "ゆう212",
       "points": 610,
       "team": "未所属"
     },
     {
-      "rank": 104,
-      "name": "煌帝ぺんぎん",
+      "rank": 133,
+      "name": "カトリーナ",
+      "points": 600,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 134,
+      "name": "aseyan",
       "points": 600,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 105,
-      "name": "乾物ひもの",
+      "rank": 135,
+      "name": "ようどう",
+      "points": 600,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 136,
+      "name": "hiro@スーモ",
       "points": 600,
       "team": "トリあえず生！"
     },
     {
-      "rank": 106,
-      "name": "麻生ふみ＠VPL",
-      "points": 600,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 107,
-      "name": "エルさんだ",
-      "points": 600,
-      "team": "未所属"
-    },
-    {
-      "rank": 108,
-      "name": "おぎゃたろう",
+      "rank": 137,
+      "name": "星影ラピス",
       "points": 590,
-      "team": "月のころはさらなり"
+      "team": "蒼星月花"
     },
     {
-      "rank": 109,
+      "rank": 138,
+      "name": "ぴっぴ",
+      "points": 590,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 139,
       "name": "チーハルコウ",
       "points": 590,
       "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 110,
-      "name": "ほりちゃん",
-      "points": 580,
-      "team": "泡沫スプラッシュ"
+      "rank": 140,
+      "name": "＠てんてる",
+      "points": 590,
+      "team": "未所属"
     },
     {
-      "rank": 111,
+      "rank": 141,
       "name": "真鴨子規",
       "points": 580,
       "team": "蒼星月花"
     },
     {
-      "rank": 112,
-      "name": "TT",
-      "points": 570,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 113,
-      "name": "ぷらちなすたー",
-      "points": 570,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 114,
-      "name": "おにぎりユニコーン",
-      "points": 570,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 115,
-      "name": "早乙女レム",
-      "points": 570,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 116,
-      "name": "ｽﾊﾟ",
-      "points": 560,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 117,
-      "name": "りゅう",
-      "points": 560,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 118,
-      "name": "雨日百合",
-      "points": 560,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 119,
-      "name": "ゆら",
-      "points": 560,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 120,
-      "name": "はーとの民",
-      "points": 560,
-      "team": "未所属"
-    },
-    {
-      "rank": 121,
-      "name": "FEY",
-      "points": 550,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 122,
-      "name": "姿夜",
-      "points": 550,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 123,
-      "name": "たぬあき",
-      "points": 540,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 124,
-      "name": "firia17",
-      "points": 540,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 125,
-      "name": "ポニョキング",
-      "points": 540,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 126,
-      "name": "時蕎麦",
-      "points": 540,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 127,
-      "name": "ぴっぴ",
-      "points": 530,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 128,
-      "name": "アイオらいと",
-      "points": 530,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 129,
-      "name": "げろもと",
-      "points": 530,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 130,
-      "name": "クドナノ",
-      "points": 530,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 131,
-      "name": "はる🥦",
-      "points": 530,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 132,
-      "name": "すぺしゃるなめんたいこ",
-      "points": 530,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 133,
-      "name": "こばかも",
-      "points": 530,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 134,
-      "name": "鉄哲テツ",
-      "points": 520,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 135,
-      "name": "二藤　織人",
-      "points": 520,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 136,
-      "name": "ナピチョロ",
-      "points": 520,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 137,
-      "name": "やましゃん",
-      "points": 510,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 138,
-      "name": "あおいしもん",
-      "points": 510,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 139,
-      "name": "たっくん",
-      "points": 500,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 140,
-      "name": "こまり",
-      "points": 500,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 141,
-      "name": "カトリーナ",
-      "points": 500,
-      "team": "蒼星月花"
-    },
-    {
       "rank": 142,
-      "name": "せれん",
-      "points": 490,
+      "name": "@ひろさん@がんばらない",
+      "points": 570,
       "team": "泡沫スプラッシュ"
     },
     {
       "rank": 143,
       "name": "平地真菜",
-      "points": 490,
+      "points": 570,
       "team": "未所属"
     },
     {
       "rank": 144,
-      "name": "もちゃお",
-      "points": 490,
-      "team": "爆裂夏花火"
+      "name": "みんげー",
+      "points": 570,
+      "team": "トリあえず生！"
     },
     {
       "rank": 145,
+      "name": "荒川サイマル",
+      "points": 550,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 146,
+      "name": "姿夜",
+      "points": 550,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 147,
+      "name": "MOS BOSS",
+      "points": 550,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 148,
+      "name": "たぬあき",
+      "points": 540,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 149,
+      "name": "ポニョキング",
+      "points": 540,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 150,
+      "name": "遊楽天GOTH",
+      "points": 530,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 151,
+      "name": "鉄哲テツ",
+      "points": 530,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 152,
+      "name": "すぺしゃるなめんたいこ",
+      "points": 530,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 153,
+      "name": "はーとの民",
+      "points": 530,
+      "team": "未所属"
+    },
+    {
+      "rank": 154,
+      "name": "紅葉椛",
+      "points": 530,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 155,
+      "name": "つっち",
+      "points": 520,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 156,
+      "name": "MOJITO",
+      "points": 520,
+      "team": "未所属"
+    },
+    {
+      "rank": 157,
+      "name": "ジョコラー",
+      "points": 520,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 158,
+      "name": "絵筆",
+      "points": 520,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 159,
+      "name": "ナピチョロ",
+      "points": 520,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 160,
+      "name": "FEY",
+      "points": 510,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 161,
+      "name": "こまり",
+      "points": 500,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 162,
+      "name": "紅ゴリラ伯爵",
+      "points": 490,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 163,
+      "name": "げろもと",
+      "points": 490,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 164,
+      "name": "夢咲いちか",
+      "points": 490,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 165,
+      "name": "あおいしもん",
+      "points": 490,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 166,
       "name": "もぐ",
       "points": 490,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 146,
-      "name": "森と太陽",
+      "rank": 167,
+      "name": "二藤　織人",
+      "points": 480,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 168,
+      "name": "蓮華",
+      "points": 480,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 169,
+      "name": "時蕎麦",
       "points": 480,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 147,
-      "name": "ようへー",
-      "points": 480,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 148,
-      "name": "aseyan",
-      "points": 480,
+      "rank": 170,
+      "name": "鴨神にゅう",
+      "points": 470,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 149,
+      "rank": 171,
       "name": "いんぱちごう",
       "points": 470,
       "team": "トリあえず生！"
     },
     {
-      "rank": 150,
-      "name": "星霧青砥",
+      "rank": 172,
+      "name": "やましゃん",
+      "points": 470,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 173,
+      "name": "Namaha",
       "points": 470,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 151,
+      "rank": 174,
+      "name": "わたあめ",
+      "points": 470,
+      "team": "爆裂夏花火"
+    },
+    {
+      "rank": 175,
+      "name": "リリ*&",
+      "points": 460,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 176,
       "name": "RA12",
       "points": 460,
       "team": "蒼星月花"
     },
     {
-      "rank": 152,
-      "name": "リオング",
-      "points": 460,
-      "team": "未所属"
-    },
-    {
-      "rank": 153,
+      "rank": 177,
       "name": "りきまーる",
       "points": 460,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 154,
+      "rank": 178,
+      "name": "リオング",
+      "points": 460,
+      "team": "未所属"
+    },
+    {
+      "rank": 179,
       "name": "えんぷれ2025",
       "points": 460,
       "team": "未所属"
     },
     {
-      "rank": 155,
+      "rank": 180,
       "name": "かお・るぺる",
       "points": 460,
       "team": "未所属"
     },
     {
-      "rank": 156,
-      "name": "髭鯨",
+      "rank": 181,
+      "name": "せれん",
       "points": 450,
-      "team": "トリあえず生！"
+      "team": "泡沫スプラッシュ"
     },
     {
-      "rank": 157,
-      "name": "Namaha",
-      "points": 450,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 158,
-      "name": "とまと",
-      "points": 450,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 159,
-      "name": "床木スズメ",
+      "rank": 182,
+      "name": "龍惺ろたん",
       "points": 450,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 160,
+      "rank": 183,
+      "name": "TT",
+      "points": 440,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 184,
+      "name": "ケボー",
+      "points": 440,
+      "team": "蒼星月花"
+    },
+    {
+      "rank": 185,
+      "name": "森と太陽",
+      "points": 440,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 186,
+      "name": "kininaru",
+      "points": 440,
+      "team": "未所属"
+    },
+    {
+      "rank": 187,
+      "name": "佐月麻理子",
+      "points": 440,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 188,
+      "name": "タルタル",
+      "points": 440,
+      "team": "月のころはさらなり"
+    },
+    {
+      "rank": 189,
+      "name": "来世",
+      "points": 440,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 190,
+      "name": "KAITOちゃん",
+      "points": 440,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 191,
+      "name": "Nem",
+      "points": 440,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 192,
       "name": "てれびん",
       "points": 440,
       "team": "月のころはさらなり"
     },
     {
-      "rank": 161,
-      "name": "DEN15 512",
-      "points": 440,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 162,
-      "name": "みんげー",
+      "rank": 193,
+      "name": "としぽん",
       "points": 440,
       "team": "トリあえず生！"
     },
     {
-      "rank": 163,
-      "name": "フォルテレジーナ",
+      "rank": 194,
+      "name": "あわいろ",
       "points": 430,
       "team": "爆裂夏花火"
     },
     {
-      "rank": 164,
+      "rank": 195,
+      "name": "ぽにぽに",
+      "points": 430,
+      "team": "トリあえず生！"
+    },
+    {
+      "rank": 196,
+      "name": "シロップ",
+      "points": 430,
+      "team": "泡沫スプラッシュ"
+    },
+    {
+      "rank": 197,
       "name": "鶏チャン",
       "points": 430,
       "team": "未所属"
     },
     {
-      "rank": 165,
-      "name": "猫白神カーミラ",
-      "points": 420,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 166,
-      "name": "Nem",
-      "points": 420,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 167,
-      "name": "猪突猛進男_",
-      "points": 420,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 168,
-      "name": "龍惺ろたん",
-      "points": 410,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 169,
-      "name": "ラズ",
-      "points": 410,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 170,
-      "name": "鴨神にゅう",
-      "points": 400,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 171,
-      "name": "サレちゃん",
-      "points": 400,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 172,
-      "name": "タルタル",
-      "points": 400,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 173,
-      "name": "眠りの小五郎",
-      "points": 390,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 174,
-      "name": "青門天雀",
-      "points": 390,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 175,
-      "name": "テラカワヌフ",
-      "points": 390,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 176,
-      "name": "かみちかお",
-      "points": 390,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 177,
-      "name": "ようどう",
-      "points": 390,
-      "team": "月のころはさらなり"
-    },
-    {
-      "rank": 178,
-      "name": "GLACEON",
-      "points": 390,
-      "team": "未所属"
-    },
-    {
-      "rank": 179,
-      "name": "胡桃坂ひまり",
-      "points": 390,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 180,
-      "name": "しぶやあや",
-      "points": 390,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 181,
-      "name": "わたあめ",
-      "points": 390,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 182,
-      "name": "みたん",
-      "points": 380,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 183,
-      "name": "oreo0141",
-      "points": 380,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 184,
-      "name": "hiro@スーモ",
-      "points": 380,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 185,
-      "name": "紅ゴリラ伯爵",
-      "points": 370,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 186,
-      "name": "一之瀬 優",
-      "points": 370,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 187,
-      "name": "岩狛凪咲",
-      "points": 370,
-      "team": "トリあえず生！"
-    },
-    {
-      "rank": 188,
-      "name": "@ひろさん@がんばらない",
-      "points": 370,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 189,
-      "name": "ネーデリア",
-      "points": 370,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 190,
-      "name": "弐式星",
-      "points": 370,
-      "team": "爆裂夏花火"
-    },
-    {
-      "rank": 191,
-      "name": "ルーチェ",
-      "points": 370,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 192,
-      "name": "@風神アリスト",
-      "points": 360,
-      "team": "未所属"
-    },
-    {
-      "rank": 193,
-      "name": "星影ラピス",
-      "points": 350,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 194,
-      "name": "おまけ",
-      "points": 350,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 195,
-      "name": "レッド総帥",
-      "points": 350,
-      "team": "泡沫スプラッシュ"
-    },
-    {
-      "rank": 196,
-      "name": "ProtoEvo",
-      "points": 340,
-      "team": "蒼星月花"
-    },
-    {
-      "rank": 197,
-      "name": "やざきのお父ちゃん",
-      "points": 340,
-      "team": "泡沫スプラッシュ"
-    },
-    {
       "rank": 198,
-      "name": "stilmg",
-      "points": 340,
-      "team": "トリあえず生！"
+      "name": "どらハチ",
+      "points": 430,
+      "team": "未所属"
     },
     {
       "rank": 199,
-      "name": "でも僕弱いし",
-      "points": 340,
-      "team": "未所属"
+      "name": "きょんあさ",
+      "points": 420,
+      "team": "蒼星月花"
     },
     {
       "rank": 200,
-      "name": "紅葉椛",
-      "points": 340,
-      "team": "トリあえず生！"
+      "name": "いわとび",
+      "points": 420,
+      "team": "爆裂夏花火"
     }
   ],
   "team-day2": [
