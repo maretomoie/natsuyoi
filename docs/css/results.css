@@ -238,7 +238,46 @@ tr.rank-1 td { font-weight: 600; }
   font-size: 0.95rem;
   line-height: 1.8;
 }
-
+/* ── 詳細成績CTA ── */
+.results-cta {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 12px; margin: 8px auto 0; text-align: center;
+}
+.results-cta-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(155,114,207,0.45);
+  background: linear-gradient(135deg, rgba(123,78,168,0.45), rgba(14,27,90,0.65));
+  color: var(--c-white);
+  font-family: var(--font-ja-sans);
+  font-size: 1rem; letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.results-cta-link::after {
+  content: '↗'; font-size: 0.9em; opacity: 0.75;
+  transition: transform 0.25s;
+}
+.results-cta-link:hover,
+.results-cta-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--c-violet);
+  box-shadow: 0 8px 28px rgba(123,78,168,0.4);
+  outline: none;
+}
+.results-cta-link:hover::after { transform: translate(2px, -2px); }
+.results-cta-note {
+  font-family: var(--font-ja-sans);
+  font-size: 0.8rem; letter-spacing: 0.06em;
+  color: var(--c-dim);
+}
+@media (max-width: 480px) {
+  .results-cta-link {
+    width: 100%; max-width: 320px;
+    justify-content: center; padding: 15px 24px;
+  }
+}
 /* ─ レスポンシブ ─ */
 @media (max-width: 700px) {
   .ranking-block { padding: 24px 18px; }
