@@ -642,7 +642,7 @@
         "twitter": null
       },
       "text": "VPL7期生！桜色なねこくらげVtuberのさきのんです！楽しいことが大好き！麻雀や歌配信してます！ぜひ遊びにきてね！",
-      "segment": 0
+      "segment": 1
     },
     {
       "id": "ratakichi",
@@ -1034,7 +1034,7 @@
         "twitter": null
       },
       "text": "好きなものを好きな時に配信しています！最近はホラゲとかが好きです。よろしくお願いします。",
-      "segment": 0
+      "segment": 1
     },
     {
       "id": "shohei",
@@ -1244,7 +1244,7 @@
         "twitter": null
       },
       "text": "紅葉 椛（あかば いろは）です！  麻雀をメインに、カードゲームや色んなゲームをまったり配信しています。 視聴者参加型の配信も定期的にやっているので、ぜひ一緒に遊びましょう！",
-      "segment": 0
+      "segment": 1
     },
     {
       "id": "ringokamo",
@@ -1552,7 +1552,7 @@
         "twitter": null
       },
       "text": "ゲーム配信を中心にyoutubeで配信中！あなたにイケボを提供します！聴きに来てや！",
-      "segment": 0
+      "segment": 1
     },
     {
       "id": "socialito",
@@ -1849,9 +1849,9 @@
       "segment": 2
     },
     {
-      "id": null,
+      "id": "yukichi",
       "name": "Yukiちゃんねる",
-      "avatar": "assets/guests/.png",
+      "avatar": "assets/guests/yukichi.png",
       "avatar_initial": "Y",
       "avatar_hue": 180,
       "desc": "楽しんでいこー！",
@@ -1860,7 +1860,7 @@
         "twitter": null
       },
       "text": "ゲームに時々麻雀です！3月の東京マラソンで3時間切りを目指してます！",
-      "segment": 0
+      "segment": 1
     },
     {
       "id": "magamo",
@@ -2085,6 +2085,370 @@
       },
       "text": "ゲーム大好きな青いピエロ！ソーヤ・サトシです！　不定期で雀魂を中心にのんびりと配信してますー。",
       "segment": 2
+    },
+    {
+      "id": null,
+      "name": "にらの民",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "に",
+      "avatar_hue": 0,
+      "desc": "ビールは飲めないけど焼き鳥は大好きです！！ねぎまねぎま！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%AB%E3%82%89%E3%81%AE%E6%B0%91",
+        "twitter": null
+      },
+      "text": "一般にら系Vtuberにらの民です！！最近RPG配信と麻雀配信が9:1になってるんですけどがーんばーるぞー！！",
+      "segment": 0
+    },
+    {
+      "id": "mataichi",
+      "name": "またいち",
+      "avatar": "assets/guests/mataichi.png",
+      "avatar_initial": "ま",
+      "avatar_hue": 0,
+      "desc": "がんばれぇ～",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCTqQKtHvts-mF1pH9qzTHXg?si=pZI5xqJfU_SOy9Tk",
+        "twitter": null
+      },
+      "text": "麻雀だいすき(かどうかは諸説あり)たけおの子！51歳の新人Vtuber(かどうかは諸説あり)またいちだ！！Mr.麻雀、小島武夫の息子がVtuberに！なんてこった！すまん親父！",
+      "segment": 1
+    },
+    {
+      "id": null,
+      "name": "わたあめ",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "わ",
+      "avatar_hue": 0,
+      "desc": "去年も今年も沢山の花火を打ち上げましょう！",
+      "links": {
+        "youtube": "https://m.youtube.com/@cotton_candy_ct?ra=m",
+        "twitter": null
+      },
+      "text": "お菓子の国からやってきたふわふわ系VtuberそしてVPL7期生のわたあめです！お祭りといえばやっぱりわたあめですよね！？え！？わたあめ買ったことない！？僕と契約してわたあめファンになるか、花火として打ち上げられるか…さぁ選ぶが良い。",
+      "segment": 0
+    },
+    {
+      "id": "taiyou",
+      "name": "白石太陽",
+      "avatar": "assets/guests/taiyou.png",
+      "avatar_initial": "白",
+      "avatar_hue": 0,
+      "desc": "はなびみたいに🎆いのちがはかない🥲",
+      "links": {
+        "youtube": "https://www.youtube.com/@sun.shiraishi",
+        "twitter": null
+      },
+      "text": "毎朝8時から段位戦『打ったらすぐにガチ牌譜検討』配信しています。リスナー牌譜も随時募集中！　夜は各種私設リーグの実況を中心に配信します。",
+      "segment": 1
+    },
+    {
+      "id": "pajo",
+      "name": "ぱじょま-牌流状態麻雀",
+      "avatar": "assets/guests/pajo.png",
+      "avatar_initial": "ぱ",
+      "avatar_hue": 0,
+      "desc": "あまあんさんに勧められて参加を決意しました。チャンネル登録者欲しいです。ベジータのものまねで「きたねぇ花火だ」などの暴言を言わないよう気をつけます。",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%B1%E3%81%98%E3%82%87%E3%81%BE-%E7%89%8C%E6%B5%81%E7%8A%B6%E6%85%8B%E9%BA%BB%E9%9B%80",
+        "twitter": null
+      },
+      "text": "天鳳鳳凰卓東南戦5分ディレイ配信 雀魂〜魂天目指して配信〜 オリジナルソング（AI補助あり） ポケモンチャンピオンズ配信 天鳳鳳凰卓東南戦動画 天鳳実績　九段15回　十段2回 雀魂実績　雀聖2 ポケモン初心者 最高レート2000  Xでも配信告知等してますのでよかったらフォロープリーズ",
+      "segment": 1
+    },
+    {
+      "id": "shitaraki",
+      "name": "したらき",
+      "avatar": "assets/guests/shitaraki.png",
+      "avatar_initial": "し",
+      "avatar_hue": 0,
+      "desc": "ビール片手に打ちます",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCkhbCWwi-1O8GVnQ_iXQh-A?si=g6nA50A2GSYzaHPJ",
+        "twitter": null
+      },
+      "text": "お酒と麻雀に片想いです。晩酌のお供に麻雀を打っています。",
+      "segment": 1
+    },
+    {
+      "id": "takanashi",
+      "name": "小鳥遊ナイ",
+      "avatar": "assets/guests/takanashi.png",
+      "avatar_initial": "小",
+      "avatar_hue": 0,
+      "desc": "楽しく打ちます！！！！！！！！！！！！！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E5%B0%8F%E9%B3%A5%E9%81%8A%E3%83%8A%E3%82%A4",
+        "twitter": null
+      },
+      "text": "なんか色々やってますが、本当はヴォーカリスト",
+      "segment": 1
+    },
+    {
+      "id": null,
+      "name": "ルーチェ",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "ル",
+      "avatar_hue": 0,
+      "desc": "もちろんプロのチームなんだから最後はみんなでトップでいたいですよね",
+      "links": {
+        "youtube": "https://www.twitch.tv/luce23717:thumbsup",
+        "twitter": null
+      },
+      "text": "スト6、雀魂メインの誰でも参加できる枠を開いています。現在一緒に遊んでくれる配信者の方募集中です。",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "来世",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "来",
+      "avatar_hue": 0,
+      "desc": "一局入魂！全力で楽しみます",
+      "links": {
+        "youtube": "https://www.youtube.com/@Raise.No156",
+        "twitter": null
+      },
+      "text": "また来世！って言いたくなる今世をこの場所で このご縁がしっかりちゃんと来世まで続きますように",
+      "segment": 0
+    },
+    {
+      "id": "buru",
+      "name": "ぶる",
+      "avatar": "assets/guests/buru.png",
+      "avatar_initial": "ぶ",
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@qburup",
+        "twitter": null
+      },
+      "text": "みなさんこんぶる！！ぶるです！最近vtuberを始めてみました。段位は聖3で、段位戦をメインに活動しています！ほかにも友人戦や歌枠などいろいろなことに挑戦していくので、良ければ遊びに来てください！",
+      "segment": 1
+    },
+    {
+      "id": null,
+      "name": "クロベル",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "ク",
+      "avatar_hue": 0,
+      "desc": "ゆるっとがんばりまーす",
+      "links": {
+        "youtube": "https://youtube.com/channel/UCy5-GqIFvaU2NueblahK2rw?si=r8bcv-c6AIpwsBD4",
+        "twitter": null
+      },
+      "text": "クロベルです！好きなことをゆるっとやってます〜！",
+      "segment": 0
+    },
+    {
+      "id": "vance",
+      "name": "Vance",
+      "avatar": "assets/guests/vance.png",
+      "avatar_initial": "V",
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@Vance__official",
+        "twitter": null
+      },
+      "text": "Vance",
+      "segment": 1
+    },
+    {
+      "id": "misaki",
+      "name": "三崎美咲",
+      "avatar": "assets/guests/misaki.png",
+      "avatar_initial": "三",
+      "avatar_hue": 0,
+      "desc": "黎明戦応援してます",
+      "links": {
+        "youtube": "https://www.youtube.com/channel/UCujbsAtifAGc-vVagbGB2qw",
+        "twitter": null
+      },
+      "text": "雀魂、ポーカー、風来のシレン、歌枠の配信をしています。サムネイルデザインをいっぱい見てほしい〜！",
+      "segment": 1
+    },
+    {
+      "id": "naraku",
+      "name": "奈落の王",
+      "avatar": "assets/guests/naraku.png",
+      "avatar_initial": "奈",
+      "avatar_hue": 0,
+      "desc": "迷惑かけないよう頑張ります。",
+      "links": {
+        "youtube": "https://www.youtube.com/@奈落の王",
+        "twitter": null
+      },
+      "text": "ネット麻雀に脳を焼かれているデーモンです。 雀魂四麻で魂天Lv20到達後も王座の間で打つ様子を動画にアップしています。 他には、天鳳配信や東方などの弾幕STG配信もやっております。 低音ボイスと緩めの雰囲気で活動しておりますので、お気に召した方はご視聴いただけますと幸いです。",
+      "segment": 1
+    },
+    {
+      "id": null,
+      "name": "甘楽",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "甘",
+      "avatar_hue": 0,
+      "desc": "とりあえず生！いや、絶対生でおなしゃす！",
+      "links": {
+        "youtube": "https://www.youtube.com/@Kanra_Kanra",
+        "twitter": null
+      },
+      "text": "声劇（ボイスドラマ）を中心に麻雀、サンドボックスゲームなどで遊んでます！うるたまリーグ参戦中です！",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "沖田ネル",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "沖",
+      "avatar_hue": 0,
+      "desc": "夜を支配するのは沖田ネルだ！！！全員眠らせます💤",
+      "links": {
+        "youtube": "https://www.youtube.com/@neru_okt",
+        "twitter": null
+      },
+      "text": "起きたら寝るまでゲームしてます！Vtuberの沖田ネルと申します！ 主に麻雀、FPS、格ゲーやRPGのゲーム配信をしてます！ 沢山打って沢山楽しんだやつの勝ちだ～～！！よろしくお願いします！",
+      "segment": 0
+    },
+    {
+      "id": "ayato",
+      "name": "氷狼あやと",
+      "avatar": "assets/guests/ayato.png",
+      "avatar_initial": "氷",
+      "avatar_hue": 0,
+      "desc": "全力で楽しみます！",
+      "links": {
+        "youtube": "https://www.youtube.com/@HikamiAyato",
+        "twitter": null
+      },
+      "text": "普段はMMOを中心に配信していますが、ジャンルを問わず色んなゲームの配信をしています！最近は、落ち着いたときにちょくちょく段位戦をして昇段目指して頑張っています！",
+      "segment": 1
+    },
+    {
+      "id": null,
+      "name": "蕪良木カイン",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "蕪",
+      "avatar_hue": 0,
+      "desc": "スプラッシュしまくります！",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%81%82%E3%81%95%E3%81%B2-%E8%B5%A4%E4%B8%80%E7%AD%92%E9%BA%BB%E9%9B%80%E7%A0%94%E7%A9%B6%E6%89%80",
+        "twitter": null
+      },
+      "text": "麻雀を日々研究しているチャンネル「赤一筒麻雀研究所」です！普段は王座の間や天鳳の段位戦を打ってます！",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "あさひ",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "あ",
+      "avatar_hue": 0,
+      "desc": "オデ　ガンバル",
+      "links": {
+        "youtube": "https://www.youtube.com/@%E3%83%AF%E3%83%83%E3%83%95%E3%83%AB-ch",
+        "twitter": null
+      },
+      "text": "元歌舞伎町でメンバーをしていたワッフルです！引き弱！裏乗らない！焼き鳥！読みとデジタルだけが友達さ！",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "ワッフル",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "ワ",
+      "avatar_hue": 0,
+      "desc": "でけぇ花火になったり打ち上げたりします！！他家爆撃！！！",
+      "links": {
+        "youtube": "https://www.youtube.com/@rindo222ryusen",
+        "twitter": null
+      },
+      "text": "麻雀したりホラゲしたりしてます！",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "鱗堂龍太郎",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "鱗",
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": "https://youtube.com/@haibara_ash?si=mI0H9Wn30kIqt4VW",
+        "twitter": null
+      },
+      "text": "灰茨あっしゅです！【みんなで楽しく雀力向上】をテーマで活動しています！",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "あっしゅ",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "あ",
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": "https://youtube.com/channel/UC55eE-nnrW08jV6JpIaXeOA?si=kwDNkYisAA8C1Fil",
+        "twitter": null
+      },
+      "text": "昼間は仕事で汗流して、夜はウイスキー片手に配信。 趣味は筋トレと、頭を使う麻雀などのボードゲームそして、クリエイターを陰ながら応援する「プチパトロン」。 才能が花開くの応援するのが、何よりの酒の肴。",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "橘花いくお",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "橘",
+      "avatar_hue": 0,
+      "desc": "エンスク生のむいさんがいるので選びました！マイナスを増やさないようにがんばります|дﾟ)",
+      "links": {
+        "youtube": "https://www.youtube.com/@sirauo_raka",
+        "twitter": null
+      },
+      "text": "麻雀勉強のためにVTuber（セルフ受肉）を始めました。元はお絵描き・一次創作の民。雀魂・参加型開催、1日1戦思考を口に出しながら段位戦などを配信",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "しらうお",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "し",
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": "https://www.youtube.com/@EnemuEimy",
+        "twitter": null
+      },
+      "text": "VPL7期生・第1期 Harmony League M kingdom 所属の永眠エイミです！応援よろしくお願いします！",
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": "永眠エイミ",
+      "avatar": "assets/guests/.png",
+      "avatar_initial": "永",
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
+    },
+    {
+      "id": null,
+      "name": null,
+      "avatar": "assets/guests/.png",
+      "avatar_initial": null,
+      "avatar_hue": 0,
+      "desc": null,
+      "links": {
+        "youtube": null,
+        "twitter": null
+      },
+      "text": null,
+      "segment": 0
     },
     {
       "id": null,
